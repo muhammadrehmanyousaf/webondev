@@ -1,0 +1,11 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="480" fill="#059669"/>
+<rect x="50" y="80" width="700" height="320" fill="#10B981" rx="8"/>
+<rect x="80" y="120" width="640" height="240" fill="#ECFDF5"/>
+<rect x="100" y="140" width="600" height="40" fill="#D1FAE5"/>
+<circle cx="200" cy="280" r="40" fill="#059669"/>
+<circle cx="400" cy="280" r="40" fill="#10B981"/>
+<circle cx="600" cy="280" r="40" fill="#34D399"/>
+<path d="M160 280 L200 240 L240 260 L280 220 L320 240 L360 200 L400 220 L440 200 L480 220 L520 200 L560 220 L600 200 L640 220" stroke="#059669" stroke-width="3" fill="none"/>
+<text x="400" y="380" text-anchor="middle" fill="#065F46" font-family="Arial" font-size="18" font-weight="bold">React Performance</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="480" fill="#DC2626"/>
+<rect x="50" y="80" width="700" height="320" fill="#EF4444" rx="8"/>
+<rect x="80" y="120" width="640" height="240" fill="#FEF2F2"/>
+<rect x="100" y="140" width="600" height="40" fill="#FEE2E2"/>
+<rect x="150" y="200" width="500" height="160" fill="#FECACA"/>
+<circle cx="400" cy="280" r="50" fill="#DC2626"/>
+<path d="M380 270 L390 280 L420 250" stroke="#FFFFFF" stroke-width="4" fill="none"/>
+<rect x="200" y="320" width="400" height="20" fill="#DC2626"/>
+<text x="400" y="380" text-anchor="middle" fill="#DC2626" font-family="Arial" font-size="18" font-weight="bold">Web Security</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="480" fill="#000000"/>
+<rect x="50" y="80" width="700" height="320" fill="#111111" rx="8"/>
+<rect x="80" y="120" width="640" height="240" fill="#1A1A1A"/>
+<rect x="100" y="140" width="600" height="40" fill="#333333"/>
+<rect x="120" y="200" width="120" height="80" fill="#00DC82"/>
+<rect x="260" y="200" width="120" height="80" fill="#0070F3"/>
+<rect x="400" y="200" width="120" height="80" fill="#FF0080"/>
+<rect x="540" y="200" width="120" height="80" fill="#F5A623"/>
+<text x="400" y="380" text-anchor="middle" fill="#FFFFFF" font-family="Arial" font-size="18" font-weight="bold">Next.js 14</text>
+</svg>

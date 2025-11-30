@@ -1,0 +1,13 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="480" fill="#1E40AF"/>
+<rect x="50" y="80" width="700" height="320" fill="#3B82F6" rx="8"/>
+<rect x="80" y="120" width="640" height="240" fill="#EFF6FF"/>
+<rect x="100" y="140" width="600" height="40" fill="#DBEAFE"/>
+<rect x="100" y="200" width="280" height="160" fill="#BFDBFE"/>
+<rect x="420" y="200" width="280" height="160" fill="#BFDBFE"/>
+<circle cx="240" cy="280" r="30" fill="#3B82F6"/>
+<rect x="460" y="220" width="200" height="20" fill="#3B82F6"/>
+<rect x="460" y="250" width="150" height="15" fill="#3B82F6"/>
+<rect x="460" y="275" width="180" height="15" fill="#3B82F6"/>
+<text x="400" y="380" text-anchor="middle" fill="#1E40AF" font-family="Arial" font-size="18" font-weight="bold">Web Development 2024</text>
+</svg>

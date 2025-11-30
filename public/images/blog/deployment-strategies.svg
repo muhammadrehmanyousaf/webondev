@@ -1,0 +1,15 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="480" fill="#0891B2"/>
+<rect x="50" y="80" width="700" height="320" fill="#06B6D4" rx="8"/>
+<rect x="80" y="120" width="640" height="240" fill="#F0FDFA"/>
+<rect x="100" y="140" width="600" height="40" fill="#CCFBF1"/>
+<rect x="120" y="200" width="150" height="100" fill="#0891B2"/>
+<rect x="290" y="200" width="150" height="100" fill="#06B6D4"/>
+<rect x="460" y="200" width="150" height="100" fill="#22D3EE"/>
+<rect x="630" y="200" width="150" height="100" fill="#67E8F9"/>
+<text x="195" y="260" text-anchor="middle" fill="#FFFFFF" font-family="Arial" font-size="12" font-weight="bold">Docker</text>
+<text x="365" y="260" text-anchor="middle" fill="#FFFFFF" font-family="Arial" font-size="12" font-weight="bold">CI/CD</text>
+<text x="535" y="260" text-anchor="middle" fill="#FFFFFF" font-family="Arial" font-size="12" font-weight="bold">Cloud</text>
+<text x="705" y="260" text-anchor="middle" fill="#FFFFFF" font-family="Arial" font-size="12" font-weight="bold">DevOps</text>
+<text x="400" y="380" text-anchor="middle" fill="#0891B2" font-family="Arial" font-size="18" font-weight="bold">Deployment Strategies</text>
+</svg>

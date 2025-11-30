@@ -1,0 +1,11 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="480" fill="#E34F26"/>
+<rect x="50" y="80" width="700" height="320" fill="#F06529" rx="8"/>
+<rect x="80" y="120" width="640" height="240" fill="#FFF5F2"/>
+<rect x="100" y="140" width="600" height="40" fill="#FFE6E0"/>
+<rect x="120" y="200" width="180" height="120" fill="#E34F26"/>
+<rect x="320" y="200" width="180" height="120" fill="#F06529"/>
+<rect x="520" y="200" width="180" height="120" fill="#FF6B35"/>
+<rect x="120" y="340" width="580" height="20" fill="#E34F26"/>
+<text x="400" y="380" text-anchor="middle" fill="#E34F26" font-family="Arial" font-size="18" font-weight="bold">CSS Grid & Flexbox</text>
+</svg>
