@@ -9,28 +9,28 @@ import { getAllCountriesAPI } from '@/lib/location-api';
 import LocationsSitemap from '@/components/pages/sitemap/LocationsSitemap';
 
 export const metadata: Metadata = {
-  title: 'Sitemap - Solutions Indicator | Website Navigation & Page Directory',
-  description: 'Complete sitemap of Solutions Indicator website. Find all pages, services, and resources in one organized directory.',
+  title: 'Sitemap - Web On Dev | Website Navigation & Page Directory',
+  description: 'Complete sitemap of Web On Dev website. Find all pages, services, and resources in one organized directory.',
   keywords: 'sitemap, website map, navigation, page directory, site structure',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/sitemap/`,
   },
   openGraph: {
-    title: 'Sitemap - Solutions Indicator | Website Navigation & Page Directory',
-    description: 'Complete sitemap of Solutions Indicator website. Find all pages, services, and resources in one organized directory.',
+    title: 'Sitemap - Web On Dev | Website Navigation & Page Directory',
+    description: 'Complete sitemap of Web On Dev website. Find all pages, services, and resources in one organized directory.',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/sitemap`,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sitemap - Solutions Indicator | Website Navigation & Page Directory',
-    description: 'Complete sitemap of Solutions Indicator website. Find all pages, services, and resources in one organized directory.',
+    title: 'Sitemap - Web On Dev | Website Navigation & Page Directory',
+    description: 'Complete sitemap of Web On Dev website. Find all pages, services, and resources in one organized directory.',
   },
 };
 
 export default async function SitemapPage() {
   const mainPages = [
-    { name: 'Home', href: '/', icon: Home, description: 'Welcome to Solutions Indicator' },
+    { name: 'Home', href: '/', icon: Home, description: 'Welcome to Web On Dev' },
     { name: 'About Us', href: '/about', icon: User, description: 'Learn about our company and team' },
     { name: 'Services', href: '/services', icon: Briefcase, description: 'Our comprehensive service offerings' },
     { name: 'Portfolio', href: '/portfolio', icon: Globe, description: 'Showcase of our successful projects' },

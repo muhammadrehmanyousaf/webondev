@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   
   if (!post) {
     return {
-      title: 'Blog Post Not Found | Solutions Indicator',
+      title: 'Blog Post Not Found | Web On Dev',
     };
   }
 
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: post.seoTitle || post.title,
       description: post.seoDescription || post.excerpt,
       type: 'article',
-      url: `https://solutionsindicator.com/blog/${post.slug}`,
+      url: `https://webondev.com/blog/${post.slug}`,
       images: post.featuredImage || post.image ? [
         {
           url: post.featuredImage || post.image || '',
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       images: post.featuredImage || post.image ? [post.featuredImage || post.image || ''] : [],
     },
     alternates: {
-      canonical: `https://solutionsindicator.com/blog/${post.slug}`,
+      canonical: `https://webondev.com/blog/${post.slug}`,
     },
   };
 }

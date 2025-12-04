@@ -9,7 +9,7 @@ export async function GET() {
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Solutions Indicator Blog</title>
+    <title>Web On Dev Blog</title>
     <description>Expert insights on web development, digital marketing, and technology trends. Stay ahead with our comprehensive guides and industry analysis.</description>
     <link>${baseUrl}/blog</link>
     <atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml" />

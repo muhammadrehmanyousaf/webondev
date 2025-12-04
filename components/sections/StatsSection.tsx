@@ -26,7 +26,7 @@ const StatsSection = () => {
       number: 150,
       suffix: '+',
       label: 'Projects Completed',
-      color: 'from-blue-500 to-purple-500',
+      color: 'from-orange-500 to-orange-600',
       key: 'projects'
     },
     {
@@ -34,7 +34,7 @@ const StatsSection = () => {
       number: 150,
       suffix: '+',
       label: 'Happy Clients',
-      color: 'from-green-500 to-blue-500',
+      color: 'from-orange-500 to-orange-600',
       key: 'clients'
     },
     {
@@ -42,7 +42,7 @@ const StatsSection = () => {
       number: 5,
       suffix: '+',
       label: 'Years Experience',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-orange-600 to-orange-700',
       key: 'experience'
     },
     {
@@ -58,7 +58,7 @@ const StatsSection = () => {
       number: 5,
       suffix: '+',
       label: 'Countries Served',
-      color: 'from-teal-500 to-green-500',
+      color: 'from-orange-500 to-orange-600',
       key: 'countries'
     },
     {
@@ -66,7 +66,7 @@ const StatsSection = () => {
       number: 50,
       suffix: '+',
       label: 'Technologies',
-      color: 'from-indigo-500 to-purple-500',
+      color: 'from-orange-500 to-orange-600',
       key: 'technologies'
     },
     {
@@ -74,7 +74,7 @@ const StatsSection = () => {
       number: 50,
       suffix: '+',
       label: 'Mobile Apps',
-      color: 'from-pink-500 to-rose-500',
+      color: 'from-orange-500 to-orange-600',
       key: 'apps'
     },
     {
@@ -134,10 +134,10 @@ const StatsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gray-900 relative overflow-hidden animate-on-scroll">
+    <section ref={sectionRef} className="py-20 bg-slate-900 relative overflow-hidden animate-on-scroll">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-600 via-orange-500 to-orange-700"></div>
         <div className="absolute top-0 left-0 w-full h-full" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='7'/%3E%3Ccircle cx='53' cy='7' r='7'/%3E%3Ccircle cx='7' cy='53' r='7'/%3E%3Ccircle cx='53' cy='53' r='7'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
@@ -148,9 +148,9 @@ const StatsSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Trusted by
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Industry Leaders</span>
+            <span className="bg-gradient-to-r from-orange-300 to-orange-400 bg-clip-text text-transparent"> Industry Leaders</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Our track record speaks for itself. We've helped businesses across the globe achieve their digital transformation goals.
           </p>
         </div>
@@ -173,7 +173,7 @@ const StatsSection = () => {
               </div>
 
               {/* Label */}
-              <div className="text-gray-300 font-medium text-lg">
+              <div className="text-slate-300 font-medium text-lg">
                 {stat.label}
               </div>
 
@@ -185,7 +185,7 @@ const StatsSection = () => {
 
         {/* Bottom Text */}
         <div className="text-center mt-16">
-          <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-slate-300 max-w-4xl mx-auto leading-relaxed">
             Join hundreds of satisfied clients who have transformed their businesses with our comprehensive software solutions. 
             From startups to enterprise companies, we deliver results that matter.
           </p>

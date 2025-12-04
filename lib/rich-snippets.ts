@@ -1,7 +1,7 @@
 /**
  * COMPREHENSIVE RICH SNIPPETS IMPLEMENTATION
  * All 48 Rich Snippet Types with Advanced Schema Markup
- * For Solutions Indicator Location Pages
+ * For Web On Dev Location Pages
  */
 
 import {

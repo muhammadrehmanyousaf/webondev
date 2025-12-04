@@ -28,7 +28,7 @@ const CultureSection = () => {
       icon: Plane,
       title: 'Travel Opportunities',
       description: 'Client visits, team retreats, and international conferences',
-      color: 'from-green-500 to-teal-500'
+       color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Trophy,
@@ -60,7 +60,7 @@ const CultureSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Our
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Culture</span>
+            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Culture</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             We believe that great work comes from great people in a great environment. Our culture is built on trust, innovation, and mutual respect.
@@ -108,7 +108,7 @@ const CultureSection = () => {
               />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">98%</div>
+                  <div className="text-2xl font-bold text-orange-600">98%</div>
                   <div className="text-sm text-gray-600">Employee Satisfaction</div>
                 </div>
               </div>
@@ -129,7 +129,7 @@ const CultureSection = () => {
                   <benefit.icon className="w-6 h-6 text-white" />
                 </div>
                 
-                <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
                   {benefit.title}
                 </h4>
                 
@@ -153,13 +153,13 @@ const CultureSection = () => {
                          <div className="flex flex-col sm:flex-row gap-4 justify-center">
                <Link
                  href="/careers"
-                 className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                 className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-600 to-orange-700 text-white font-semibold rounded-full hover:from-orange-700 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/50"
                >
                  View Open Positions
                </Link>
                <Link
                  href="/contact"
-                 className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
+                 className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-blue-600 hover:text-orange-600 transition-all duration-300"
                >
                  Get in Touch
                </Link>

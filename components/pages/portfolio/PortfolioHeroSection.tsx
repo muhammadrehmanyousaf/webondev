@@ -34,19 +34,19 @@ const PortfolioHeroSection = () => {
   }, []);
 
   const stats = [
-    { icon: Award, number: '150+', label: 'Projects Completed', color: 'from-blue-500 to-purple-500' },
-    { icon: Users, number: '150+', label: 'Happy Clients', color: 'from-green-500 to-blue-500' },
-    { icon: Globe, number: '5+', label: 'Countries Served', color: 'from-purple-500 to-pink-500' },
-    { icon: Zap, number: '99%', label: 'Success Rate', color: 'from-orange-500 to-red-500' }
+    { icon: Award, number: '150+', label: 'Projects Completed', color: 'from-orange-500 to-orange-600' },
+    { icon: Users, number: '150+', label: 'Happy Clients', color: 'from-orange-500 to-orange-600' },
+    { icon: Globe, number: '5+', label: 'Countries Served', color: 'from-orange-400 to-orange-600' },
+    { icon: Zap, number: '99%', label: 'Success Rate', color: 'from-orange-500 to-orange-600' }
   ];
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-20">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 pt-20">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-purple-100 rounded-full opacity-50 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-indigo-100 rounded-full opacity-40 animate-pulse delay-2000"></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-orange-100 rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-orange-200 rounded-full opacity-50 animate-pulse delay-1000"></div>
+        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-orange-50 rounded-full opacity-40 animate-pulse delay-2000"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -54,7 +54,7 @@ const PortfolioHeroSection = () => {
           {/* Hero Title */}
           <h1 ref={titleRef} className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
             Our Work Speaks
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"> Louder </span>
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent"> Louder </span>
             Than Words
           </h1>
 
@@ -66,7 +66,7 @@ const PortfolioHeroSection = () => {
           {/* Featured Project Preview */}
           <div className="mb-12">
             <div className="relative max-w-4xl mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl transform rotate-1"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl transform rotate-1"></div>
               <div className="relative bg-white rounded-2xl p-4 shadow-2xl">
                 <img
                   src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=800"

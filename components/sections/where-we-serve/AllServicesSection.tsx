@@ -81,17 +81,17 @@ const AllServicesSection = ({ cityName, countryName, stateName }: AllServicesSec
     <section className="py-20 bg-white animate-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            All Services in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{cityName}</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            All Services in <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{cityName}</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Comprehensive software development and digital services tailored for businesses in {cityName}. From web development to digital marketing, we have the expertise to help your business grow.
           </p>
         </div>
 
         <div className="space-y-12">
           {services.map((category) => (
-            <div key={category.category} className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8">
+            <div key={category.category} className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 {category.category}
               </h3>
@@ -102,7 +102,7 @@ const AllServicesSection = ({ cityName, countryName, stateName }: AllServicesSec
                     <p className="text-gray-600 text-sm mb-4">{service.description}</p>
                     <Link 
                       href={`/where-we-serve/${toSlug(countryName)}/${toSlug(stateName)}/${toSlug(cityName)}/${toSlug(service.name)}`}
-                      className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors"
+                      className="inline-flex items-center text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors"
                     >
                       Learn More
                       <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,14 +118,14 @@ const AllServicesSection = ({ cityName, countryName, stateName }: AllServicesSec
 
         {/* CTA Section */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-orange-100 mb-6 max-w-2xl mx-auto">
               Let's discuss your project requirements and how we can help your business succeed in {cityName}.
             </p>
             <Link 
               href="#contact-form"
-              className="inline-flex items-center bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center bg-white text-orange-500 font-semibold px-6 py-3 rounded-lg hover:bg-orange-50 transition-colors"
             >
               Get Free Consultation
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

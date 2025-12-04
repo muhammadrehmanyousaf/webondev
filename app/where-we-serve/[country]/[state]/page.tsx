@@ -32,15 +32,15 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
   const countries = await getAllCountriesAPI();
   const matchCountry = fromSlugMatch(countrySlug, countries.map((c) => c.name));
   const country = countries.find((c) => c.name === matchCountry);
-  if (!country) return { title: 'State Not Found - Solutions Indicator' };
+  if (!country) return { title: 'State Not Found - Web On Dev' };
   const states = await getStatesByCountryAPI(country.name);
   const matchState = fromSlugMatch(stateSlug, states.map((s) => s.name));
   const state = states.find((s) => s.name === matchState);
-  if (!state) return { title: 'State Not Found - Solutions Indicator' };
+  if (!state) return { title: 'State Not Found - Web On Dev' };
   const siteUrl = getBaseUrl();
   const canonicalUrl = `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}`;
   return {
-    title: `Software Development in ${state.name}, ${country.name} - Solutions Indicator`,
+    title: `Software Development in ${state.name}, ${country.name} - Web On Dev`,
     description: `Professional software development services in ${state.name}, ${country.name}.`,
     keywords: `${state.name}, ${country.name}, software development, web development`,
     alternates: { canonical: canonicalUrl },
@@ -79,7 +79,7 @@ export default async function StatePage({ params }: StatePageProps) {
     <div className="py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+          <Button asChild size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
             <Link href="#book-meeting" className="flex items-center gap-2">
               Book Meeting
               <Calendar className="w-5 h-5" />
@@ -119,11 +119,11 @@ export default async function StatePage({ params }: StatePageProps) {
         <SectionCTA />
 
         {/* 2) Regional Expertise */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Regional expertise in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{state.name}</span>
+                Regional expertise in <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{state.name}</span>
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 We tailor delivery to regional realities—devices, bandwidth, and search behavior—while keeping a consistent engineering baseline. Our teams understand local market dynamics and user expectations.
@@ -147,7 +147,7 @@ export default async function StatePage({ params }: StatePageProps) {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl transform rotate-3"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl transform rotate-3"></div>
               <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop"
@@ -173,11 +173,11 @@ export default async function StatePage({ params }: StatePageProps) {
         </section>
         <SectionCTA />
 
-        {/* SEO Section: Why Solutions Indicator in {state.name}, {country.name} */}
+        {/* SEO Section: Why Web On Dev in {state.name}, {country.name} */}
         <section className="py-20 bg-white animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why partner with <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Solutions Indicator</span> in {state.name}?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why partner with <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">Web On Dev</span> in {state.name}?</h2>
               <p className="text-xl text-gray-600 leading-relaxed">We align engineering, design, and SEO to the realities of {state.name}. From local intent to accessibility, our builds are crafted to rank and convert.</p>
             </div>
             <div className="prose prose-lg max-w-none text-gray-700">
@@ -192,7 +192,7 @@ export default async function StatePage({ params }: StatePageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                How we achieve <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">results</span> across {state.name}
+                How we achieve <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">results</span> across {state.name}
               </h3>
               <div className="space-y-5 text-gray-700 text-lg leading-relaxed">
                 <p>We structure pages to capture featured snippets and PAA questions relevant to {state.name}. Content blocks target LSI themes without keyword stuffing, keeping copy natural and helpful.</p>
@@ -243,7 +243,7 @@ export default async function StatePage({ params }: StatePageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Popular services in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{state.name}</span>
+                Popular services in <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">{state.name}</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Our core services are engineered for discoverability, speed, and conversion—backed by a modern toolchain and rigorous QA.
@@ -257,7 +257,7 @@ export default async function StatePage({ params }: StatePageProps) {
                 { title: 'Analytics', desc: 'Privacy-aware measurement with actionable growth insights.' },
               ].map((s, index) => (
                 <div key={s.title} className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-6 mx-auto">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl mb-6 mx-auto">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
@@ -295,7 +295,7 @@ export default async function StatePage({ params }: StatePageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our editorial standards</h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">Solutions Indicator content is produced and reviewed by senior practitioners. Each page for {state.name} undergoes technical, SEO, and accessibility checks.</p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">Web On Dev content is produced and reviewed by senior practitioners. Each page for {state.name} undergoes technical, SEO, and accessibility checks.</p>
               <p className="text-lg text-gray-700 leading-relaxed">We update content as standards evolve to keep guidance accurate and useful.</p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">

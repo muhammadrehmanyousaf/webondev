@@ -8,17 +8,17 @@ import BlogImage from '@/components/ui/BlogImage';
 import { blogData } from '@/lib/blog-data';
 
 export const metadata: Metadata = {
-  title: 'Blog Archive - All Articles by Date | Solutions Indicator',
+  title: 'Blog Archive - All Articles by Date | Web On Dev',
   description: 'Browse our complete collection of articles, tutorials, and expert insights organized by date. Find valuable content on web development, digital marketing, and technology.',
   keywords: 'blog archive, articles, tutorials, web development, digital marketing, technology insights',
   openGraph: {
-    title: 'Blog Archive - All Articles by Date | Solutions Indicator',
+    title: 'Blog Archive - All Articles by Date | Web On Dev',
     description: 'Browse our complete collection of articles, tutorials, and expert insights organized by date.',
     type: 'website',
-    url: 'https://solutionsindicator.com/blog/archive/',
+    url: 'https://webondev.com/blog/archive/',
   },
   alternates: {
-    canonical: 'https://solutionsindicator.com/blog/archive/',
+    canonical: 'https://webondev.com/blog/archive/',
   },
 };
 

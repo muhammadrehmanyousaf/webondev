@@ -21,7 +21,7 @@ const TimelineSection = () => {
       description: 'Secured our first enterprise client and delivered a successful e-commerce platform.',
       icon: TrendingUp,
       stats: '10 Projects Completed',
-      color: 'from-green-500 to-blue-500'
+       color: 'from-orange-500 to-orange-600'
     },
     {
       year: '2020',
@@ -48,7 +48,7 @@ const TimelineSection = () => {
       description: 'Reached 500 satisfied clients and launched our enterprise solutions division.',
       icon: Award,
       stats: '150+ Clients',
-      color: 'from-teal-500 to-green-500'
+       color: 'from-orange-500 to-orange-600'
     },
     {
       year: '2023',
@@ -68,7 +68,7 @@ const TimelineSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Our Growth
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Timeline</span>
+            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Timeline</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             From a small startup to a global software development agency, here&apos;s how we&apos;ve grown and evolved over the years.
@@ -93,7 +93,7 @@ const TimelineSection = () => {
                 <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16 lg:text-left'} text-center lg:text-inherit`}>
                   <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:scale-105">
                     <div className={`flex items-center gap-2 mb-4 ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'} justify-center`}>
-                      <span className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                      <span className="text-sm font-bold text-orange-600 bg-blue-50 px-3 py-1 rounded-full">
                         {item.year}
                       </span>
                       <span className="text-sm font-medium text-gray-500">
@@ -101,7 +101,7 @@ const TimelineSection = () => {
                       </span>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
                       {item.title}
                     </h3>
                     
@@ -110,8 +110,8 @@ const TimelineSection = () => {
                     </p>
                     
                     <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-2 rounded-full">
-                      <item.icon className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm font-semibold text-blue-600">
+                      <item.icon className="w-4 h-4 text-orange-600" />
+                      <span className="text-sm font-semibold text-orange-600">
                         {item.stats}
                       </span>
                     </div>
@@ -119,7 +119,7 @@ const TimelineSection = () => {
                 </div>
 
                 {/* Circle - All Screen Sizes */}
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-full border-4 border-blue-200 shadow-lg mb-4 lg:mb-0">
+                <div className="relative z-10 flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-full border-4 border-orange-200 shadow-lg mb-4 lg:mb-0">
                   <div className={`flex items-center justify-center w-10 h-10 lg:w-14 lg:h-14 bg-gradient-to-r ${item.color} rounded-full`}>
                     <item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
                   </div>
@@ -157,10 +157,10 @@ const TimelineSection = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-white px-4 py-2 rounded-full shadow-sm border border-gray-200">
-                <span className="text-sm font-semibold text-blue-600">AI/ML Integration</span>
+                <span className="text-sm font-semibold text-orange-600">AI/ML Integration</span>
               </div>
               <div className="bg-white px-4 py-2 rounded-full shadow-sm border border-gray-200">
-                <span className="text-sm font-semibold text-purple-600">150+ Clients</span>
+                <span className="text-sm font-semibold text-orange-600">150+ Clients</span>
               </div>
               <div className="bg-white px-4 py-2 rounded-full shadow-sm border border-gray-200">
                 <span className="text-sm font-semibold text-indigo-600">Global Expansion</span>

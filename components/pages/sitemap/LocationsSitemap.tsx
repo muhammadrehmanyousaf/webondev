@@ -73,7 +73,7 @@ const LocationsSitemap: React.FC<LocationsSitemapProps> = ({ countries, serviceP
           >
             <div className="flex items-center gap-3">
               <span className="text-2xl">{country.flag}</span>
-              <Link href={`/where-we-serve/${toSlug(country.name)}`} className="font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+              <Link href={`/where-we-serve/${toSlug(country.name)}`} className="font-semibold text-gray-900 hover:text-orange-600 transition-colors">
                 {country.name}
               </Link>
             </div>
@@ -97,7 +97,7 @@ const LocationsSitemap: React.FC<LocationsSitemapProps> = ({ countries, serviceP
                     >
                       <div className="flex items-center gap-2">
                         <Building2 className="w-4 h-4 text-gray-500" />
-                        <Link href={`/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}`} className="font-medium text-gray-900 hover:text-blue-600 transition-colors">
+                        <Link href={`/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}`} className="font-medium text-gray-900 hover:text-orange-600 transition-colors">
                           {state.name}
                         </Link>
                       </div>
@@ -116,7 +116,7 @@ const LocationsSitemap: React.FC<LocationsSitemapProps> = ({ countries, serviceP
                           <div key={city.name} className="border border-gray-100 rounded-lg p-3">
                             <div className="flex items-center gap-2 mb-2">
                               <MapPin className="w-4 h-4 text-gray-500" />
-                              <Link href={`/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}/${toSlug(city.name)}`} className="text-gray-900 hover:text-blue-600 font-medium transition-colors">
+                              <Link href={`/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}/${toSlug(city.name)}`} className="text-gray-900 hover:text-orange-600 font-medium transition-colors">
                                 {city.name}
                               </Link>
                             </div>
@@ -150,3 +150,4 @@ const LocationsSitemap: React.FC<LocationsSitemapProps> = ({ countries, serviceP
 };
 
 export default LocationsSitemap;
+

@@ -5,22 +5,22 @@ import Footer from '@/components/layout/Footer';
 import { Shield, Eye, Lock, Database, Users, Globe, Mail, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Solutions Indicator | Data Protection & Privacy',
-  description: 'Learn how Solutions Indicator protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
+  title: 'Privacy Policy - Web On Dev | Data Protection & Privacy',
+  description: 'Learn how Web On Dev protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
   keywords: 'privacy policy, data protection, GDPR, personal data, privacy rights',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/privacy/`,
   },
   openGraph: {
-    title: 'Privacy Policy - Solutions Indicator | Data Protection & Privacy',
-    description: 'Learn how Solutions Indicator protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
+    title: 'Privacy Policy - Web On Dev | Data Protection & Privacy',
+    description: 'Learn how Web On Dev protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/privacy`,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Privacy Policy - Solutions Indicator | Data Protection & Privacy',
-    description: 'Learn how Solutions Indicator protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
+    title: 'Privacy Policy - Web On Dev | Data Protection & Privacy',
+    description: 'Learn how Web On Dev protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
   },
 };
 
@@ -61,7 +61,7 @@ export default function PrivacyPage() {
                   Introduction
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Solutions Indicator ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.
+                  Web On Dev ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.
                 </p>
               </div>
 
@@ -203,7 +203,7 @@ export default function PrivacyPage() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700">privacy@solutionsindicator.com</span>
+                    <span className="text-gray-700">privacy@webondev.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-green-600" />
@@ -212,7 +212,7 @@ export default function PrivacyPage() {
                   <div className="flex items-start gap-3">
                     <Globe className="w-5 h-5 text-purple-600 mt-0.5" />
                     <div className="text-gray-700">
-                      <div>Solutions Indicator</div>
+                      <div>Web On Dev</div>
                       <div>123 Tech Street, Suite 100</div>
                       <div>San Francisco, CA 94107</div>
                     </div>

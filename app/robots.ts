@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         '*.json',
       ],
     },
-    sitemap: 'https://solutionsindicator.com/sitemap.xml/',
+    sitemap: 'https://webondev.com/sitemap.xml/',
   };
 }

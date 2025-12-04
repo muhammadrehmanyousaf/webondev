@@ -29,13 +29,13 @@ const BlogPageClient = () => {
   return (
     <div className="min-h-screen bg-gray-50 w-full">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white py-24 lg:py-32 w-full">
+      <section className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 text-white py-24 lg:py-32 w-full">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="text-center">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8">
               Our <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Blog</span>
             </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-blue-100 mb-10 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl lg:text-3xl text-orange-100 mb-10 max-w-4xl mx-auto leading-relaxed">
               Expert insights on web development, digital marketing, and technology trends. 
               Stay ahead with our comprehensive guides and industry analysis.
             </p>
@@ -48,7 +48,7 @@ const BlogPageClient = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-4">
           <ol className="flex items-center gap-2 text-sm text-gray-600">
             <li>
-              <Link href="/" className="hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+              <Link href="/" className="hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
                 Home
               </Link>
             </li>
@@ -83,7 +83,7 @@ const BlogPageClient = () => {
                   <div className="relative">
                     <BlogImage src={post.featuredImage || post.image || '/images/blog/placeholder.svg'} alt={post.title} className="w-full h-48 object-cover" />
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-blue-600 text-white">
+                      <Badge className="bg-orange-600 text-white">
                         Featured
                       </Badge>
                     </div>
@@ -104,8 +104,8 @@ const BlogPageClient = () => {
                       {post.category}
                     </Badge>
                     
-                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4 line-clamp-2">
-                      <Link href={`/blog/${post.slug}`} className="hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4 line-clamp-2">
+                      <Link href={`/blog/${post.slug}`} className="hover:text-orange-400 transition-colors">
                         {post.title}
                       </Link>
                     </h3>
@@ -121,7 +121,7 @@ const BlogPageClient = () => {
                       </div>
                       <Link
                         href={`/blog/${post.slug}`}
-                        className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1"
+                        className="text-orange-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1"
                       >
                         Read More
                         <ArrowRight className="w-4 h-4" />
@@ -158,7 +158,7 @@ const BlogPageClient = () => {
           ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 lg:gap-10">
             {visiblePosts.map((post) => (
-              <article key={post.slug} className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 focus-within:ring-2 focus-within:ring-blue-500">
+                <article key={post.slug} className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 focus-within:ring-2 focus-within:ring-orange-500">
                 <div className="relative">
                                       <BlogImage src={post.featuredImage || post.image || '/images/blog/placeholder.svg'} alt={post.title} className="w-full h-48 object-cover" />
                 </div>
@@ -178,8 +178,8 @@ const BlogPageClient = () => {
                     {post.category}
                   </Badge>
                   
-                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4 line-clamp-2">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4 line-clamp-2">
+                    <Link href={`/blog/${post.slug}`} className="hover:text-orange-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded">
                       {post.title}
                     </Link>
                   </h3>
@@ -195,7 +195,7 @@ const BlogPageClient = () => {
                     </div>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                      className="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded"
                     >
                       Read More
                       <ArrowRight className="w-4 h-4" />
@@ -209,7 +209,7 @@ const BlogPageClient = () => {
           
           {visiblePosts.length > 0 && visiblePosts.length < displayedPosts.length && (
             <div className="text-center mt-16">
-              <Button size="lg" onClick={() => setVisibleCount(v => v + 6)} className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+              <Button size="lg" onClick={() => setVisibleCount(v => v + 6)} className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700">
                 Load more
               </Button>
             </div>
@@ -218,25 +218,25 @@ const BlogPageClient = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 lg:py-28 bg-gradient-to-r from-blue-600 to-purple-600 text-white w-full">
+      <section className="py-20 lg:py-28 bg-gradient-to-r from-orange-500 to-orange-600 text-white w-full">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Stay Updated with Our Latest Insights
           </h2>
-          <p className="text-xl lg:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl lg:text-2xl text-orange-100 mb-10 max-w-3xl mx-auto leading-relaxed">
             Get weekly updates on web development, digital marketing, and technology trends delivered to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 text-lg"
+              className="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-orange-200 focus:outline-none focus:ring-2 focus:ring-white/50 text-lg"
             />
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+            <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
               Subscribe
             </Button>
           </div>
-          <p className="text-sm text-blue-200 mt-6">
+          <p className="text-sm text-orange-200 mt-6">
             No spam, unsubscribe at any time. We respect your privacy.
           </p>
         </div>
@@ -246,3 +246,4 @@ const BlogPageClient = () => {
 };
 
 export default BlogPageClient;
+

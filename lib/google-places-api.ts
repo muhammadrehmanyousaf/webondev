@@ -1,7 +1,7 @@
 /**
  * COMPREHENSIVE GOOGLE PLACES API FEATURES IMPLEMENTATION
  * All 15 Google Places API Features with Advanced Functionality
- * For Solutions Indicator Location Pages
+ * For Web On Dev Location Pages
  */
 
 export interface GooglePlacesConfig {
@@ -274,7 +274,7 @@ function generatePlaceDetailsFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Place',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     description: `Professional ${locationData.service} services in ${locationData.city}`,
     placeId: `solutions-indicator-${locationData.city.toLowerCase().replace(/\s+/g, '-')}`,
     address: {
@@ -331,7 +331,7 @@ function generatePlacePhotosFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ImageGallery',
-    name: `Solutions Indicator ${locationData.city} Photos`,
+    name: `Web On Dev ${locationData.city} Photos`,
     description: `Photos of our ${locationData.service} service center in ${locationData.city}`,
     image: [
       {
@@ -341,7 +341,7 @@ function generatePlacePhotosFeature(locationData: LocationData) {
         width: 800,
         height: 600,
         photoReference: `photo-${locationData.city.toLowerCase().replace(/\s+/g, '-')}-1`,
-        attributions: 'Solutions Indicator'
+        attributions: 'Web On Dev'
       },
       {
         '@type': 'ImageObject',
@@ -350,7 +350,7 @@ function generatePlacePhotosFeature(locationData: LocationData) {
         width: 800,
         height: 600,
         photoReference: `photo-${locationData.city.toLowerCase().replace(/\s+/g, '-')}-2`,
-        attributions: 'Solutions Indicator'
+        attributions: 'Web On Dev'
       },
       {
         '@type': 'ImageObject',
@@ -359,7 +359,7 @@ function generatePlacePhotosFeature(locationData: LocationData) {
         width: 800,
         height: 600,
         photoReference: `photo-${locationData.city.toLowerCase().replace(/\s+/g, '-')}-3`,
-        attributions: 'Solutions Indicator'
+        attributions: 'Web On Dev'
       }
     ]
   };
@@ -369,7 +369,7 @@ function generatePlaceReviewsFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Reviews`,
+    name: `Web On Dev ${locationData.city} Reviews`,
     description: `Customer reviews for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -383,7 +383,7 @@ function generatePlaceReviewsFeature(locationData: LocationData) {
           ratingValue: '5',
           bestRating: '5'
         },
-        reviewBody: `Excellent ${locationData.service} services in ${locationData.city}. Solutions Indicator delivered exactly what we needed with professional quality and timely delivery.`,
+        reviewBody: `Excellent ${locationData.service} services in ${locationData.city}. Web On Dev delivered exactly what we needed with professional quality and timely delivery.`,
         datePublished: '2024-01-15T00:00:00Z',
         time: '2024-01-15T00:00:00Z',
         relativeTimeDescription: '2 weeks ago',
@@ -431,12 +431,12 @@ function generatePlaceSearchFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Search Results`,
+    name: `Web On Dev ${locationData.city} Search Results`,
     description: `Search results for ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
         '@type': 'Place',
-        name: 'Solutions Indicator',
+        name: 'Web On Dev',
         description: `Professional ${locationData.service} services in ${locationData.city}`,
         address: {
           '@type': 'PostalAddress',
@@ -476,7 +476,7 @@ function generateGeocodingFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Place',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     address: {
       '@type': 'PostalAddress',
       streetAddress: locationData.businessInfo.address,
@@ -545,12 +545,12 @@ function generateAutocompleteFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Autocomplete`,
+    name: `Web On Dev ${locationData.city} Autocomplete`,
     description: `Search suggestions for ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
         '@type': 'Place',
-        name: `Solutions Indicator ${locationData.service} ${locationData.city}`,
+        name: `Web On Dev ${locationData.service} ${locationData.city}`,
         description: `Professional ${locationData.service} services in ${locationData.city}`,
         placeId: `solutions-indicator-${locationData.service.toLowerCase().replace(/\s+/g, '-')}-${locationData.city.toLowerCase().replace(/\s+/g, '-')}`,
         address: {
@@ -594,12 +594,12 @@ function generateNearbySearchFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Nearby Search`,
+    name: `Web On Dev ${locationData.city} Nearby Search`,
     description: `Nearby ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
         '@type': 'Place',
-        name: 'Solutions Indicator',
+        name: 'Web On Dev',
         description: `Professional ${locationData.service} services in ${locationData.city}`,
         address: {
           '@type': 'PostalAddress',
@@ -638,12 +638,12 @@ function generateTextSearchFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Text Search`,
+    name: `Web On Dev ${locationData.city} Text Search`,
     description: `Text search results for ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
         '@type': 'Place',
-        name: 'Solutions Indicator',
+        name: 'Web On Dev',
         description: `Professional ${locationData.service} services in ${locationData.city}`,
         address: {
           '@type': 'PostalAddress',
@@ -683,7 +683,7 @@ function generatePlaceTypesFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Place Types`,
+    name: `Web On Dev ${locationData.city} Place Types`,
     description: `Business categories for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -722,7 +722,7 @@ function generateOpeningHoursFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'OpeningHoursSpecification',
-    name: `Solutions Indicator ${locationData.city} Opening Hours`,
+    name: `Web On Dev ${locationData.city} Opening Hours`,
     description: `Business hours for our ${locationData.service} services in ${locationData.city}`,
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     opens: '09:00',
@@ -795,7 +795,7 @@ function generateContactInformationFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ContactPoint',
-    name: `Solutions Indicator ${locationData.city} Contact Information`,
+    name: `Web On Dev ${locationData.city} Contact Information`,
     description: `Contact information for our ${locationData.service} services in ${locationData.city}`,
     telephone: locationData.businessInfo.phone,
     email: locationData.businessInfo.email,
@@ -815,7 +815,7 @@ function generateRatingReviewsFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'AggregateRating',
-    name: `Solutions Indicator ${locationData.city} Rating and Reviews`,
+    name: `Web On Dev ${locationData.city} Rating and Reviews`,
     description: `Customer ratings and reviews for our ${locationData.service} services in ${locationData.city}`,
     ratingValue: '4.9',
     reviewCount: '127',
@@ -858,7 +858,7 @@ function generatePriceLevelFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'PriceSpecification',
-    name: `Solutions Indicator ${locationData.city} Price Level`,
+    name: `Web On Dev ${locationData.city} Price Level`,
     description: `Pricing information for our ${locationData.service} services in ${locationData.city}`,
     priceLevel: 2,
     detail: 'Moderate pricing for professional services',
@@ -874,7 +874,7 @@ function generateAccessibilityFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Accessibility`,
+    name: `Web On Dev ${locationData.city} Accessibility`,
     description: `Accessibility features for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {

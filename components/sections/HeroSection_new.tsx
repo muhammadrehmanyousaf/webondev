@@ -111,28 +111,28 @@ const HeroSection = () => {
           {/* Stats */}
           <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mx-auto mb-4">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mx-auto mb-4 shadow-lg shadow-orange-500/50">
                 <Users className="w-8 h-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-1">150</div>
               <div className="text-gray-600">Happy Clients</div>
             </div>
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mx-auto mb-4">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mx-auto mb-4 shadow-lg shadow-orange-500/50">
                 <Award className="w-8 h-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-1">150+</div>
               <div className="text-gray-600">Projects Done</div>
             </div>
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full mx-auto mb-4">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-600 to-orange-700 rounded-full mx-auto mb-4 shadow-lg shadow-orange-600/50">
                 <Star className="w-8 h-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-1">5+ Years</div>
               <div className="text-gray-600">Experience</div>
             </div>
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mx-auto mb-4">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mx-auto mb-4 shadow-lg shadow-orange-500/50">
                 <Zap className="w-8 h-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-1">24/7</div>
@@ -144,8 +144,8 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-orange-400 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-orange-400 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

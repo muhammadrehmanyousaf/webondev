@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: CountryPageProps): Promise<Me
   
   if (!country) {
     return {
-      title: 'Country Not Found - Solutions Indicator',
+      title: 'Country Not Found - Web On Dev',
       description: 'The requested country page could not be found.',
     };
   }
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: CountryPageProps): Promise<Me
   const canonicalUrl = `${siteUrl}${path}`;
 
   return {
-    title: `Software Development Services in ${country.name} - Solutions Indicator`,
+    title: `Software Development Services in ${country.name} - Web On Dev`,
     description: `Professional software development and IT services across ${country.name}. Local expertise with global standards.`,
     keywords: `${country.name}, software development, web development, IT services`,
     alternates: { canonical: canonicalUrl },
@@ -83,7 +83,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
     <div className="py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+          <Button asChild size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
             <Link href="#book-meeting" className="flex items-center gap-2">
               Book Meeting
               <Calendar className="w-5 h-5" />
@@ -119,7 +119,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Technology hubs in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{country.name}</span>
+                Technology hubs in <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{country.name}</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Explore major regions where we deliver. Each hub has unique sector strengths and infrastructure. We align delivery with local markets, languages, and compliance expectations to ensure a product experience that feels truly native.
@@ -129,15 +129,15 @@ export default async function CountryPage({ params }: CountryPageProps) {
               {states.slice(0,6).map((s) => (
                 <Link key={s.name} href={`/where-we-serve/${toSlug(country.name)}/${toSlug(s.name)}`} className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
                   <div className="p-8">
-                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-6 mx-auto">
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl mb-6 mx-auto">
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 text-center group-hover:text-blue-600 transition-colors">{s.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 text-center group-hover:text-orange-600 transition-colors">{s.name}</h3>
                     <p className="text-gray-600 text-center mb-6">Explore cities and services in {s.name}</p>
-                    <div className="flex items-center justify-center text-blue-600 font-semibold group-hover:gap-2 transition-all duration-300">
+                    <div className="flex items-center justify-center text-orange-600 font-semibold group-hover:gap-2 transition-all duration-300">
                       Explore Services
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -152,11 +152,11 @@ export default async function CountryPage({ params }: CountryPageProps) {
         <SectionCTA />
 
         {/* 2) Local Expertise */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Local expertise in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{country.name}</span>
+                Local expertise in <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">{country.name}</span>
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 We tailor delivery to regional realities—devices, bandwidth, and search behavior—while keeping a consistent engineering baseline. Our teams understand local market dynamics and user expectations.
@@ -171,7 +171,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
                   'Local Analytics & Insights'
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
-                    <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex-shrink-0">
+                    <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex-shrink-0">
                       <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -182,7 +182,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl transform rotate-3"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl transform rotate-3"></div>
               <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop"
@@ -212,7 +212,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Services tailored to <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{country.name}</span>
+                Services tailored to <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">{country.name}</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Our delivery model incorporates localization from day one—addressing language, currency, tax, and regulatory needs while maintaining world-class performance and accessibility.
@@ -226,7 +226,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
                 { title: 'Analytics', desc: 'Privacy-aware measurement aligned with local data regulations.', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
               ].map((s, index) => (
                 <div key={s.title} className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-6 mx-auto">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl mb-6 mx-auto">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={s.icon} />
                     </svg>
@@ -240,11 +240,11 @@ export default async function CountryPage({ params }: CountryPageProps) {
         </section>
 
         {/* 4) Compliance & Localization */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Built for <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">localization</span>
+                Built for <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">localization</span>
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 From currency and tax settings to language, accessibility, and data residency, we design your product to operate seamlessly across borders. Our teams factor in regional legal frameworks and user expectations.
@@ -256,8 +256,8 @@ export default async function CountryPage({ params }: CountryPageProps) {
                   { title: 'Accessibility', desc: 'WCAG-guided UX ensuring inclusive, keyboard- and screen-reader-friendly design.', icon: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z' },
                 ].map((f) => (
                   <div key={f.title} className="p-8 bg-white rounded-2xl shadow-lg border border-gray-100">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex-shrink-0">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex-shrink-0">
                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={f.icon} />
                         </svg>
@@ -270,7 +270,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
               </div>
             </div>
             <div className="order-1 lg:order-2 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl transform -rotate-3"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl transform -rotate-3"></div>
               <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1600&auto=format&fit=crop"
@@ -298,9 +298,9 @@ export default async function CountryPage({ params }: CountryPageProps) {
         <section className="py-20 bg-white animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Awards and <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">certifications</span>
-              </h3>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Services tailored to <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">{country.name}</span>
+              </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Our engineers and analysts maintain recognized certifications and follow best practices validated by industry standards.
               </p>
@@ -308,7 +308,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {['AWS Partner', 'Google Analytics', 'WCAG Accessibility', 'ISO-aligned Practices', 'Core Web Vitals'].map((b) => (
                 <div key={b} className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-4 mx-auto">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl mb-4 mx-auto">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -325,7 +325,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who writes and reviews our content</h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">Senior engineers and growth strategists at Solutions Indicator create and review content for {country.name}. Each page undergoes technical, SEO, and accessibility checks.</p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">Senior engineers and growth strategists at Web On Dev create and review content for {country.name}. Each page undergoes technical, SEO, and accessibility checks.</p>
               <p className="text-lg text-gray-700 leading-relaxed">We favor helpful, evidence-based writing and revise regularly to reflect changing standards.</p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
@@ -352,11 +352,11 @@ export default async function CountryPage({ params }: CountryPageProps) {
         <TestimonialsSection />
         <SectionCTA />
 
-        {/* SEO Section: Why Solutions Indicator in {country.name}? */}
+        {/* SEO Section: Why Web On Dev in {country.name}? */}
         <section className="py-20 bg-white animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Solutions Indicator</span> in {country.name}?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why choose <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">Web On Dev</span> in {country.name}?</h2>
               <p className="text-xl text-gray-600 leading-relaxed">We help organizations in {country.name} launch search-first, conversion-focused products. Our engineering and SEO practice ensures your site loads fast, ranks high, and turns traffic into revenue.</p>
             </div>
             <div className="prose prose-lg max-w-none text-gray-700">
@@ -395,7 +395,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Top services we deliver in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{country.name}</span>
+                Top services we deliver in <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">{country.name}</span>
               </h3>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Our comprehensive suite of services designed specifically for businesses operating in {country.name} and surrounding regions.
@@ -416,7 +416,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
                 icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
               }].map((s) => (
                 <div key={s.title} className="p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-6 mx-auto">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl mb-6 mx-auto">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={s.icon} />
                     </svg>
@@ -436,7 +436,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
             <div className="space-y-5 text-gray-700 text-lg leading-relaxed max-w-4xl">
               <details className="group border border-gray-100 rounded-2xl p-6 bg-white">
                 <summary className="flex cursor-pointer items-center justify-between">
-                  <span className="font-semibold text-gray-900">How fast can we launch with Solutions Indicator in {country.name}?</span>
+                  <span className="font-semibold text-gray-900">How fast can we launch with Web On Dev in {country.name}?</span>
                   <span className="ml-4 text-gray-500 group-open:rotate-180 transition">▾</span>
                 </summary>
                 <div className="mt-4">Most projects kick off within 3–5 business days after scope alignment. We set milestones and SLAs to keep delivery predictable.</div>
@@ -464,7 +464,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                FAQs for <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{country.name}</span>
+                FAQs for <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">{country.name}</span>
               </h2>
             </div>
             <div className="space-y-4 max-w-4xl mx-auto">

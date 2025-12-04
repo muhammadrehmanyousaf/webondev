@@ -9,8 +9,8 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Solutions Indicator',
-    alternateName: ['Solutions Indicator LLC', 'SolutionsIndicator'],
+    name: 'Web On Dev',
+    alternateName: ['Web On Dev LLC', 'webondev'],
     url: siteUrl,
     logo: `${siteUrl}/images/logo.png`,
     description: 'Global software development company specializing in web development, mobile apps, and digital solutions with local teams across multiple countries.',
@@ -35,7 +35,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
       },
       {
         '@type': 'ContactPoint',
-        email: 'hello@solutionsindicator.com',
+        email: 'hello@webondev.com',
         contactType: 'sales',
         availableLanguage: ['English']
       }
@@ -44,7 +44,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
       'https://linkedin.com/company/solutions-indicator',
       'https://twitter.com/solutionsind',
       'https://github.com/solutions-indicator',
-      'https://facebook.com/solutionsindicator'
+      'https://facebook.com/webondev'
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -82,10 +82,10 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${siteUrl}/#business`,
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     image: `${siteUrl}/images/office.jpg`,
     telephone: '+1-555-123-4567',
-    email: 'hello@solutionsindicator.com',
+    email: 'hello@webondev.com',
     url: siteUrl,
     priceRange: '$$',
     currenciesAccepted: ['USD', 'EUR', 'GBP', 'CAD', 'AUD'],
@@ -174,7 +174,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     description: 'Comprehensive software development services delivered across multiple countries with local expertise and global standards.',
     provider: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     areaServed: countries.map((c: any) => ({
       '@type': 'Country',
@@ -191,7 +191,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
       availability: 'https://schema.org/InStock',
       seller: {
         '@type': 'Organization',
-        name: 'Solutions Indicator'
+        name: 'Web On Dev'
       }
     },
     hasOfferCatalog: {
@@ -229,12 +229,12 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
   const webSiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     url: siteUrl,
     description: 'Global software development company delivering web development, mobile apps, and digital solutions.',
     publisher: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     potentialAction: {
       '@type': 'SearchAction',
@@ -246,21 +246,21 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     },
     mainEntity: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     }
   };
 
   const softwareApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'Solutions Indicator Development Platform',
+    name: 'Web On Dev Development Platform',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web-based',
     description: 'Custom software development platform for web and mobile applications',
     url: siteUrl,
     author: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     offers: {
       '@type': 'Offer',
@@ -285,7 +285,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     description: 'Learn modern software development practices and methodologies',
     provider: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     // courseMode: 'online',
     educationalLevel: 'beginner',
@@ -315,7 +315,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     description: 'Join our global team as a Senior Software Developer working on cutting-edge web and mobile applications.',
     identifier: {
       '@type': 'PropertyValue',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       value: 'SENIOR-DEV-2024'
     },
     datePosted: '2024-01-15',
@@ -323,7 +323,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     employmentType: 'FULL_TIME',
     hiringOrganization: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       sameAs: siteUrl
     },
     jobLocation: [
@@ -371,7 +371,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     },
     organizer: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       url: siteUrl
     },
     offers: {
@@ -393,11 +393,11 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     description: 'Learn how to build and manage effective software development teams across multiple countries and time zones.',
     author: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       logo: {
         '@type': 'ImageObject',
         url: `${siteUrl}/images/logo.png`
@@ -418,8 +418,8 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
   const videoSchema = {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
-    name: 'Solutions Indicator: Global Software Development Services',
-    description: 'Discover how Solutions Indicator delivers software development services across multiple countries.',
+    name: 'Web On Dev: Global Software Development Services',
+    description: 'Discover how Web On Dev delivers software development services across multiple countries.',
     thumbnailUrl: `${siteUrl}/images/video-thumbnail.jpg`,
     uploadDate: '2024-01-15',
     duration: 'PT3M30S',
@@ -427,11 +427,11 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     embedUrl: `${siteUrl}/videos/embed/global-services`,
     publisher: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     creator: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     }
   };
 
@@ -443,11 +443,11 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     image: `${siteUrl}/images/software-package.jpg`,
     brand: {
       '@type': 'Brand',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     manufacturer: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     offers: {
       '@type': 'Offer',
@@ -456,7 +456,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
       availability: 'https://schema.org/InStock',
       seller: {
         '@type': 'Organization',
-        name: 'Solutions Indicator'
+        name: 'Web On Dev'
       },
       validFrom: '2024-01-01',
       priceValidUntil: '2024-12-31'
@@ -505,14 +505,14 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
   const socialMediaSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     url: siteUrl,
     sameAs: [
       'https://linkedin.com/company/solutions-indicator',
       'https://twitter.com/solutionsind',
-      'https://facebook.com/solutionsindicator',
-      'https://instagram.com/solutionsindicator',
-      'https://youtube.com/solutionsindicator',
+      'https://facebook.com/webondev',
+      'https://instagram.com/webondev',
+      'https://youtube.com/webondev',
       'https://github.com/solutions-indicator'
     ]
   };
@@ -522,7 +522,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     '@type': 'AggregateRating',
     itemReviewed: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     ratingValue: '4.8',
     reviewCount: '247',
@@ -534,7 +534,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
   const geoCoordinatesSchema = {
     '@context': 'https://schema.org',
     '@type': 'Place',
-    name: 'Solutions Indicator Headquarters',
+    name: 'Web On Dev Headquarters',
     geo: {
       '@type': 'GeoCoordinates',
       latitude: '40.7128',

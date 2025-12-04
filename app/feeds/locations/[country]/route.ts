@@ -32,7 +32,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ country:
   if (format === 'json') {
     return NextResponse.json({
       version: 'https://jsonfeed.org/version/1.1',
-      title: `Solutions Indicator – ${decodedCountry} Location URLs (JSON)`,
+      title: `Web On Dev – ${decodedCountry} Location URLs (JSON)`,
       home_page_url: `${baseUrl}/where-we-serve/${decodedCountry.toLowerCase().replace(/\s+/g, '-')}`,
       feed_url: `${baseUrl}/feeds/locations/${encodeURIComponent(decodedCountry)}?format=json&limit=${limit}`,
       hubs: [{ type: 'WebSub', url: hub }],
@@ -52,7 +52,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ country:
     </entry>`).join('');
     const xml = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Solutions Indicator – ${decodedCountry} Location URLs (Atom)</title>
+  <title>Web On Dev – ${decodedCountry} Location URLs (Atom)</title>
   <id>${baseUrl}/where-we-serve/${decodedCountry.toLowerCase().replace(/\s+/g, '-')}</id>
   <updated>${updated}</updated>
   <link rel="alternate" href="${baseUrl}/where-we-serve/${decodedCountry.toLowerCase().replace(/\s+/g, '-')}" />
@@ -74,7 +74,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ country:
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Solutions Indicator – ${decodedCountry} Location URLs (RSS)</title>
+    <title>Web On Dev – ${decodedCountry} Location URLs (RSS)</title>
     <description>Canonical location URLs</description>
     <link>${baseUrl}/where-we-serve/${decodedCountry.toLowerCase().replace(/\s+/g, '-')}</link>
     <atom:link href="${baseUrl}/feeds/locations/${encodeURIComponent(decodedCountry)}?format=rss&limit=${limit}" rel="self" type="application/rss+xml" />

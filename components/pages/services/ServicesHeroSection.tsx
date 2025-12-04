@@ -44,25 +44,25 @@ const ServicesHeroSection = () => {
   }, []);
 
   const serviceIcons = [
-    { icon: Globe, color: 'from-blue-500 to-purple-500' },
-    { icon: Smartphone, color: 'from-green-500 to-blue-500' },
-    { icon: Code, color: 'from-purple-500 to-pink-500' },
-    { icon: Palette, color: 'from-orange-500 to-red-500' },
-    { icon: TrendingUp, color: 'from-teal-500 to-green-500' },
-    { icon: ShoppingCart, color: 'from-indigo-500 to-purple-500' },
-    { icon: Cloud, color: 'from-cyan-500 to-blue-500' },
-    { icon: Users, color: 'from-pink-500 to-rose-500' },
-    { icon: Building, color: 'from-yellow-500 to-orange-500' },
-    { icon: Settings, color: 'from-gray-500 to-gray-700' }
+    { icon: Globe, color: 'from-orange-500 to-orange-600' },
+    { icon: Smartphone, color: 'from-orange-500 to-orange-600' },
+    { icon: Code, color: 'from-orange-600 to-orange-700' },
+    { icon: Palette, color: 'from-orange-500 to-orange-600' },
+    { icon: TrendingUp, color: 'from-orange-500 to-orange-600' },
+    { icon: ShoppingCart, color: 'from-orange-500 to-orange-600' },
+    { icon: Cloud, color: 'from-orange-500 to-orange-600' },
+    { icon: Users, color: 'from-orange-600 to-orange-700' },
+    { icon: Building, color: 'from-orange-500 to-orange-600' },
+    { icon: Settings, color: 'from-orange-500 to-orange-600' }
   ];
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-20">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 pt-20">
       {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-purple-100 rounded-full opacity-50 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-indigo-100 rounded-full opacity-40 animate-pulse delay-2000"></div>
+        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-20 h-20 bg-orange-100 rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-orange-200 rounded-full opacity-50 animate-pulse delay-1000"></div>
+        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-orange-50 rounded-full opacity-40 animate-pulse delay-2000"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -70,7 +70,7 @@ const ServicesHeroSection = () => {
           {/* Hero Title */}
           <h1 ref={titleRef} className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
             Complete Software
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"> Solutions </span>
+            <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent"> Solutions </span>
             for Your Business
           </h1>
 
@@ -95,17 +95,17 @@ const ServicesHeroSection = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1">10+</div>
+            <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-1">10+</div>
             <div className="text-gray-600 text-sm md:text-base">Service Categories</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-green-600 mb-1">100+</div>
+            <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-1">100+</div>
             <div className="text-gray-600 text-sm md:text-base">Specialized Services</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-purple-600 mb-1">150+</div>
+            <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-1">150+</div>
             <div className="text-gray-600 text-sm md:text-base">Projects Delivered</div>
           </div>
           <div className="text-center">

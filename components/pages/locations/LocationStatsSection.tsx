@@ -44,55 +44,55 @@ const LocationStatsSection = ({ country }: LocationStatsSectionProps) => {
       number: '5+',
       label: 'Countries Served',
       description: 'Global presence across continents',
-      color: 'from-blue-500 to-purple-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: MapPin,
       number: '20+',
       label: 'Cities Covered',
       description: 'Local expertise worldwide',
-      color: 'from-green-500 to-blue-500'
+       color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Users,
       number: '150+',
       label: 'Happy Clients',
       description: 'Satisfied customers globally',
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Award,
       number: '99%',
       label: 'Satisfaction Rate',
       description: 'Consistent quality delivery',
-      color: 'from-orange-500 to-red-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Clock,
       number: '< 2h',
       label: 'Response Time',
       description: 'Quick support worldwide',
-      color: 'from-teal-500 to-green-500'
+      color: 'from-orange-400 to-orange-500'
     },
     {
       icon: Star,
       number: '4.9/5',
       label: 'Client Rating',
       description: 'Excellent service quality',
-      color: 'from-indigo-500 to-purple-500'
+      color: 'from-orange-600 to-orange-700'
     }
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section ref={sectionRef} className="py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-orange-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Global
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Impact</span>
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="text-gray-900">Global</span>
+            <span className="block bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent"> Impact</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed font-medium">
             Our commitment to excellence has created a global impact, serving clients across multiple countries 
             with consistent quality and local expertise.
           </p>
@@ -103,7 +103,7 @@ const LocationStatsSection = ({ country }: LocationStatsSectionProps) => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="stat-item group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 opacity-0 transform translate-y-10"
+              className="stat-item group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-orange-200 opacity-0 transform translate-y-10"
             >
               {/* Icon */}
               <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -112,7 +112,7 @@ const LocationStatsSection = ({ country }: LocationStatsSectionProps) => {
 
               {/* Stats */}
               <div className="mb-4">
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
                   {stat.number}
                 </div>
                 <div className="text-lg font-semibold text-gray-900 mb-2">
@@ -145,17 +145,17 @@ const LocationStatsSection = ({ country }: LocationStatsSectionProps) => {
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-2xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-2xl font-bold text-orange-600 mb-2">24/7</div>
               <div className="text-gray-700 font-medium mb-2">Global Support</div>
               <div className="text-gray-600 text-sm">Round-the-clock assistance across all time zones</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-green-600 mb-2">100%</div>
+               <div className="text-2xl font-bold text-orange-600 mb-2">100%</div>
               <div className="text-gray-700 font-medium mb-2">Local Expertise</div>
               <div className="text-gray-600 text-sm">Cultural understanding and local market knowledge</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-purple-600 mb-2">Fast</div>
+              <div className="text-2xl font-bold text-orange-600 mb-2">Fast</div>
               <div className="text-gray-700 font-medium mb-2">Deployment</div>
               <div className="text-gray-600 text-sm">Quick project delivery with quality assurance</div>
             </div>
@@ -167,3 +167,4 @@ const LocationStatsSection = ({ country }: LocationStatsSectionProps) => {
 };
 
 export default LocationStatsSection;
+

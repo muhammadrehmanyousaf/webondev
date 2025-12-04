@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import HeroSection from '@/components/sections/HeroSection';
+import HeroSectionBeams from '@/components/sections/HeroSectionBeams';
 import ServicesSection from '@/components/sections/ServicesSection';
 import AboutSection from '@/components/sections/AboutSection';
 import PortfolioSection from '@/components/sections/PortfolioSection';
@@ -52,7 +52,7 @@ export default function HomePageClient() {
     <div ref={mainRef} className="min-h-screen bg-white">
       <Header />
       <main>
-        <HeroSection />
+        <HeroSectionBeams />
         <ServicesSection />
         <AboutSection />
         <StatsSection />

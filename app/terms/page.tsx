@@ -5,22 +5,22 @@ import Footer from '@/components/layout/Footer';
 import { FileText, Scale, Shield, AlertTriangle, Users, Globe, Mail, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - Solutions Indicator | Legal Terms & Conditions',
-  description: 'Read our Terms of Service to understand the legal terms and conditions for using Solutions Indicator services.',
+  title: 'Terms of Service - Web On Dev | Legal Terms & Conditions',
+  description: 'Read our Terms of Service to understand the legal terms and conditions for using Web On Dev services.',
   keywords: 'terms of service, legal terms, conditions, user agreement, service agreement',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/terms/`,
   },
   openGraph: {
-    title: 'Terms of Service - Solutions Indicator | Legal Terms & Conditions',
-    description: 'Read our Terms of Service to understand the legal terms and conditions for using Solutions Indicator services.',
+    title: 'Terms of Service - Web On Dev | Legal Terms & Conditions',
+    description: 'Read our Terms of Service to understand the legal terms and conditions for using Web On Dev services.',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/terms`,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Terms of Service - Solutions Indicator | Legal Terms & Conditions',
-    description: 'Read our Terms of Service to understand the legal terms and conditions for using Solutions Indicator services.',
+    title: 'Terms of Service - Web On Dev | Legal Terms & Conditions',
+    description: 'Read our Terms of Service to understand the legal terms and conditions for using Web On Dev services.',
   },
 };
 
@@ -61,7 +61,7 @@ export default function TermsPage() {
                   Agreement to Terms
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  These Terms of Service ("Terms") constitute a legally binding agreement between you and Solutions Indicator ("Company," "we," "our," or "us") regarding your use of our website, services, and products. By accessing or using our services, you agree to be bound by these Terms.
+                  These Terms of Service ("Terms") constitute a legally binding agreement between you and Web On Dev ("Company," "we," "our," or "us") regarding your use of our website, services, and products. By accessing or using our services, you agree to be bound by these Terms.
                 </p>
               </div>
 
@@ -71,7 +71,7 @@ export default function TermsPage() {
                   <Users className="w-6 h-6 text-green-600" />
                   Our Services
                 </h2>
-                <p className="text-gray-700 mb-4">Solutions Indicator provides comprehensive software development services including:</p>
+                <p className="text-gray-700 mb-4">Web On Dev provides comprehensive software development services including:</p>
                 <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
                   <li>Web development and design</li>
                   <li>Mobile application development</li>
@@ -126,7 +126,7 @@ export default function TermsPage() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Intellectual Property Rights</h2>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Intellectual Property</h3>
                 <p className="text-gray-700 mb-4">
-                  All content, features, and functionality of our services, including but not limited to text, graphics, logos, images, and software, are owned by Solutions Indicator and are protected by copyright, trademark, and other intellectual property laws.
+                  All content, features, and functionality of our services, including but not limited to text, graphics, logos, images, and software, are owned by Web On Dev and are protected by copyright, trademark, and other intellectual property laws.
                 </p>
                 
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Client Intellectual Property</h3>
@@ -165,7 +165,7 @@ export default function TermsPage() {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Limitation of Liability</h2>
                 <p className="text-gray-700 mb-4">
-                  To the maximum extent permitted by law, Solutions Indicator shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities.
+                  To the maximum extent permitted by law, Web On Dev shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities.
                 </p>
                 <p className="text-gray-700">
                   Our total liability for any claims arising from or related to our services shall not exceed the amount paid by you for the specific service giving rise to the claim.
@@ -190,7 +190,7 @@ export default function TermsPage() {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Indemnification</h2>
                 <p className="text-gray-700">
-                  You agree to indemnify and hold harmless Solutions Indicator from any claims, damages, losses, or expenses arising from your use of our services, violation of these Terms, or infringement of any third-party rights.
+                  You agree to indemnify and hold harmless Web On Dev from any claims, damages, losses, or expenses arising from your use of our services, violation of these Terms, or infringement of any third-party rights.
                 </p>
               </div>
 
@@ -233,7 +233,7 @@ export default function TermsPage() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700">legal@solutionsindicator.com</span>
+                    <span className="text-gray-700">legal@webondev.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-green-600" />
@@ -242,7 +242,7 @@ export default function TermsPage() {
                   <div className="flex items-start gap-3">
                     <Globe className="w-5 h-5 text-purple-600 mt-0.5" />
                     <div className="text-gray-700">
-                      <div>Solutions Indicator</div>
+                      <div>Web On Dev</div>
                       <div>123 Tech Street, Suite 100</div>
                       <div>San Francisco, CA 94107</div>
                     </div>

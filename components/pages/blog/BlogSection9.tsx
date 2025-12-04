@@ -35,21 +35,21 @@ const BlogSection9: React.FC = () => {
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Unit Testing</h4>
                       <p className="text-gray-600">Testing individual components and functions in isolation to ensure they work correctly.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Integration Testing</h4>
                       <p className="text-gray-600">Testing how different components work together and interact with each other.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">End-to-End Testing</h4>
                       <p className="text-gray-600">Testing complete user workflows from start to finish in a real browser environment.</p>
@@ -60,7 +60,7 @@ const BlogSection9: React.FC = () => {
 
               <div className="bg-gray-900 rounded-2xl p-6 shadow-lg">
                 <h4 className="text-lg font-semibold text-white mb-4">Testing Implementation Examples</h4>
-                <div className="bg-gray-800 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+                <div className="bg-gray-800 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                   <pre>{`// Jest unit testing example
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -173,7 +173,7 @@ describe('API Endpoints', () => {
           </div>
 
           {/* Automated Testing Strategies */}
-          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white mb-16">
             <div className="flex items-center gap-3 mb-6">
               <Zap className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Automated Testing Strategies</h3>
@@ -209,21 +209,21 @@ describe('API Endpoints', () => {
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Jest & Vitest</h4>
                     <p className="text-gray-600">Fast, modern JavaScript testing frameworks with excellent developer experience.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Playwright & Cypress</h4>
                     <p className="text-gray-600">Powerful E2E testing tools for modern web applications.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Testing Library</h4>
                     <p className="text-gray-600">Utilities for testing React components in a way that resembles user behavior.</p>
@@ -237,7 +237,7 @@ describe('API Endpoints', () => {
               <div className="space-y-4">
                 <div className="bg-blue-50 rounded-lg p-4">
                   <h5 className="font-semibold text-blue-900 mb-2">Jest Configuration</h5>
-                  <div className="bg-gray-900 rounded p-2 text-xs text-green-400 font-mono">
+                  <div className="bg-gray-900 rounded p-2 text-xs text-orange-400 font-mono">
                     <pre>{`{
   "testEnvironment": "jsdom",
   "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
@@ -247,9 +247,9 @@ describe('API Endpoints', () => {
 }`}</pre>
                   </div>
                 </div>
-                <div className="bg-green-50 rounded-lg p-4">
-                  <h5 className="font-semibold text-green-900 mb-2">Playwright Config</h5>
-                  <div className="bg-gray-900 rounded p-2 text-xs text-green-400 font-mono">
+                <div className="bg-orange-50 rounded-lg p-4">
+                  <h5 className="font-semibold text-orange-900 mb-2">Playwright Config</h5>
+                  <div className="bg-gray-900 rounded p-2 text-xs text-orange-400 font-mono">
                     <pre>{`export default {
   testDir: './tests',
   use: {
@@ -267,7 +267,7 @@ describe('API Endpoints', () => {
                 </div>
                 <div className="bg-purple-50 rounded-lg p-4">
                   <h5 className="font-semibold text-purple-900 mb-2">GitHub Actions CI</h5>
-                  <div className="bg-gray-900 rounded p-2 text-xs text-green-400 font-mono">
+                  <div className="bg-gray-900 rounded p-2 text-xs text-orange-400 font-mono">
                     <pre>{`name: Test
 on: [push, pull_request]
 jobs:
@@ -286,18 +286,18 @@ jobs:
           </div>
 
           {/* Quality Assurance Processes */}
-          <div className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-600 rounded-2xl p-8 text-white mb-16">
             <div className="flex items-center gap-3 mb-6">
               <Target className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Quality Assurance & Testing Processes</h3>
             </div>
-            <p className="text-green-100 mb-6 leading-relaxed">
+            <p className="text-orange-100 mb-6 leading-relaxed">
               Quality assurance goes beyond automated testing to include code reviews, performance testing, accessibility testing, and user acceptance testing. A comprehensive QA process ensures that applications meet both technical and business requirements.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-semibold mb-3">Code Quality & Reviews</h4>
-                <ul className="space-y-2 text-green-100">
+                <ul className="space-y-2 text-orange-100">
                   <li>• Automated code linting and formatting</li>
                   <li>• Peer code reviews and pair programming</li>
                   <li>• Static code analysis and security scanning</li>
@@ -307,7 +307,7 @@ jobs:
               </div>
               <div>
                 <h4 className="font-semibold mb-3">Performance & Accessibility</h4>
-                <ul className="space-y-2 text-green-100">
+                <ul className="space-y-2 text-orange-100">
                   <li>• Performance testing and optimization</li>
                   <li>• Accessibility testing (WCAG compliance)</li>
                   <li>• Cross-browser and device testing</li>
@@ -322,28 +322,28 @@ jobs:
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <TestTube className="w-6 h-6 text-blue-600" />
+                <TestTube className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">Testing Best Practices</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Write tests that are readable and maintainable
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Follow the AAA pattern (Arrange, Act, Assert)
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Test behavior, not implementation details
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Use meaningful test descriptions and names
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Maintain a good balance of test coverage
                 </li>
               </ul>
@@ -356,23 +356,23 @@ jobs:
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Implement comprehensive error handling
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Use debugging tools and logging effectively
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Create reproducible test cases for bugs
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Implement monitoring and alerting systems
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Regular code reviews and pair programming
                 </li>
               </ul>
@@ -380,7 +380,7 @@ jobs:
           </div>
 
           {/* Advanced Testing Techniques */}
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
             <div className="flex items-center gap-3 mb-6">
               <BarChart3 className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Advanced Testing Techniques & Metrics</h3>
@@ -415,3 +415,4 @@ jobs:
 };
 
 export default BlogSection9;
+

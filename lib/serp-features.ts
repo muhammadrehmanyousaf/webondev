@@ -1,7 +1,7 @@
 /**
  * COMPREHENSIVE SERP FEATURES IMPLEMENTATION
  * All 35 SERP Features with Advanced Schema Markup
- * For Solutions Indicator Location Pages
+ * For Web On Dev Location Pages
  */
 
 export interface SERPFeatureConfig {
@@ -503,11 +503,11 @@ function generateAIOverviewsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: `${locationData.service} in ${locationData.city} - Solutions Indicator`,
+    name: `${locationData.service} in ${locationData.city} - Web On Dev`,
     description: `Professional ${locationData.service} services in ${locationData.city}, ${locationData.state}, ${locationData.country}. Local expertise with global standards.`,
     mainEntity: {
       '@type': 'LocalBusiness',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       description: `Leading ${locationData.service} provider in ${locationData.city}`,
       address: locationData.businessInfo.address,
       telephone: locationData.businessInfo.phone,
@@ -529,7 +529,7 @@ function generateAIOverviewsSchema(locationData: LocationData) {
     mentions: [
       {
         '@type': 'Organization',
-        name: 'Solutions Indicator',
+        name: 'Web On Dev',
         url: locationData.businessInfo.website
       }
     ]
@@ -547,7 +547,7 @@ function generatePeopleAlsoAskSchema(locationData: LocationData) {
         text: `Who are the best ${locationData.service} companies in ${locationData.city}?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `Solutions Indicator is among the top ${locationData.service} companies in ${locationData.city}, offering local expertise with global standards and proven track record.`
+          text: `Web On Dev is among the top ${locationData.service} companies in ${locationData.city}, offering local expertise with global standards and proven track record.`
         }
       },
       {
@@ -574,8 +574,8 @@ function generateKnowledgePanelsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Solutions Indicator',
-    alternateName: 'Solutions Indicator Software Development',
+    name: 'Web On Dev',
+    alternateName: 'Web On Dev Software Development',
     url: locationData.businessInfo.website,
     logo: {
       '@type': 'ImageObject',
@@ -598,14 +598,14 @@ function generateKnowledgePanelsSchema(locationData: LocationData) {
       availableLanguage: ['English', 'Urdu']
     },
     sameAs: [
-      'https://www.tiktok.com/@solutionsindicator.com',
-      'https://www.pinterest.com/solutionsindicator/',
+      'https://www.tiktok.com/@webondev.com',
+      'https://www.pinterest.com/webondev/',
       'https://www.linkedin.com/company/solutions-indicator/',
-      'https://www.youtube.com/@SolutionsIndicatorOfficial',
+      'https://www.youtube.com/@webondevOfficial',
       'https://www.facebook.com/profile.php?id=61580249803527',
-      'https://www.reddit.com/u/solutionsindicator/s/myNp9ZusS9',
+      'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
       'https://x.com/solut_indicator?t=PDtkij5__XQG8tLz9Q7Z6Q&s=09',
-      'https://www.instagram.com/solutionsindicatorofficial?igsh=NXBrdjQweDhtemVi'
+      'https://www.instagram.com/webondevofficial?igsh=NXBrdjQweDhtemVi'
     ],
     foundingDate: '2020-01-01',
     numberOfEmployees: '50-100',
@@ -626,7 +626,7 @@ function generateLocalPacksSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     description: `Professional ${locationData.service} services in ${locationData.city}`,
     url: locationData.businessInfo.website,
     telephone: locationData.businessInfo.phone,
@@ -706,7 +706,7 @@ function generateReviewsRatingsSchema(locationData: LocationData) {
     worstRating: '1',
     itemReviewed: {
       '@type': 'LocalBusiness',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       description: `${locationData.service} services in ${locationData.city}`
     }
   };
@@ -761,7 +761,7 @@ function generateSearchBoxSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     url: locationData.businessInfo.website,
     potentialAction: {
       '@type': 'SearchAction',
@@ -795,7 +795,7 @@ function generateEventsSchema(locationData: LocationData) {
     },
     organizer: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       url: locationData.businessInfo.website
     },
     offers: {
@@ -811,10 +811,10 @@ function generateAnswerBoxesSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Answer',
-    text: `Solutions Indicator provides comprehensive ${locationData.service} services in ${locationData.city}, ${locationData.state}, ${locationData.country}. We offer local expertise with global standards, modern technology stack, and proven delivery methodology. Our team has completed over 200 projects with 98% client satisfaction rate.`,
+    text: `Web On Dev provides comprehensive ${locationData.service} services in ${locationData.city}, ${locationData.state}, ${locationData.country}. We offer local expertise with global standards, modern technology stack, and proven delivery methodology. Our team has completed over 200 projects with 98% client satisfaction rate.`,
     author: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     dateCreated: '2024-01-01',
     upvoteCount: 45
@@ -847,7 +847,7 @@ function generateGoogleDiscoverSchema(locationData: LocationData) {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `${locationData.service} Trends in ${locationData.city} - 2024 Guide`,
-    description: `Discover the latest ${locationData.service} trends and best practices in ${locationData.city}. Expert insights from Solutions Indicator.`,
+    description: `Discover the latest ${locationData.service} trends and best practices in ${locationData.city}. Expert insights from Web On Dev.`,
     image: {
       '@type': 'ImageObject',
       url: `${locationData.businessInfo.website}/images/articles/${locationData.service.toLowerCase().replace(/\s+/g, '-')}-${locationData.city.toLowerCase().replace(/\s+/g, '-')}-trends.jpg`,
@@ -858,12 +858,12 @@ function generateGoogleDiscoverSchema(locationData: LocationData) {
     dateModified: '2024-01-01T00:00:00Z',
     author: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       url: locationData.businessInfo.website
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       logo: {
         '@type': 'ImageObject',
         url: 'https://www.facebook.com/photo?fbid=122100469041008326&set=a.122100468633008326'

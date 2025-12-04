@@ -35,21 +35,21 @@ const BlogSection4: React.FC = () => {
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Destructuring Assignment</h4>
                       <p className="text-gray-600">Extract values from objects and arrays with concise syntax.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Arrow Functions</h4>
                       <p className="text-gray-600">Shorter function syntax with lexical this binding.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Template Literals</h4>
                       <p className="text-gray-600">String interpolation and multi-line strings with backticks.</p>
@@ -60,7 +60,7 @@ const BlogSection4: React.FC = () => {
 
               <div className="bg-gray-900 rounded-2xl p-6 shadow-lg">
                 <h4 className="text-lg font-semibold text-white mb-4">Modern JavaScript Examples</h4>
-                <div className="bg-gray-800 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+                <div className="bg-gray-800 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                   <pre>{`// Destructuring
 const { name, age, ...rest } = user;
 const [first, second, ...others] = array;
@@ -91,7 +91,7 @@ async function fetchUserData() {
           </div>
 
           {/* Async/Await Evolution */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white mb-16">
             <div className="flex items-center gap-3 mb-6">
               <ArrowRight className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Async/Await: The Evolution of Asynchronous Code</h3>
@@ -114,8 +114,8 @@ async function fetchUserData() {
                 </div>
               </div>
               <div className="bg-white/10 rounded-lg p-4">
-                <h4 className="font-semibold mb-2 text-green-300">Modern Async/Await</h4>
-                <div className="bg-gray-900 rounded p-3 text-xs text-green-300 font-mono">
+                 <h4 className="font-semibold mb-2 text-orange-300">Modern Async/Await</h4>
+                 <div className="bg-gray-900 rounded p-3 text-xs text-orange-300 font-mono">
                   <pre>{`async function fetchData() {
   try {
     const response = await fetch('/api/data');
@@ -142,21 +142,21 @@ async function fetchUserData() {
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Pipeline Operator</h4>
                     <p className="text-gray-600">Chain function calls in a more readable way with the pipeline operator.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Partial Application</h4>
                     <p className="text-gray-600">Create new functions with some arguments pre-filled.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Record and Tuple</h4>
                     <p className="text-gray-600">Immutable data structures for better performance and safety.</p>
@@ -167,7 +167,7 @@ async function fetchUserData() {
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
               <h4 className="text-lg font-semibold text-gray-900 mb-6">ES2024 Code Examples</h4>
-              <div className="bg-gray-900 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+              <div className="bg-gray-900 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                 <pre>{`// Pipeline Operator
 const result = data
   |> filter(x => x.active)
@@ -196,25 +196,25 @@ const count = data?.length ?? 0;`}</pre>
           </div>
 
           {/* Modules and Architecture */}
-          <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white mb-16">
+           <div className="bg-gradient-to-r from-orange-600 to-orange-600 rounded-2xl p-8 text-white mb-16">
             <div className="flex items-center gap-3 mb-6">
               <Cpu className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Modules and Modern JavaScript Architecture</h3>
             </div>
-            <p className="text-green-100 mb-6 leading-relaxed">
+            <p className="text-orange-100 mb-6 leading-relaxed">
               ES6 modules have standardized how we organize and share JavaScript code. The import/export syntax provides a clean, declarative way to manage dependencies and create modular applications.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white/10 rounded-lg p-4">
                 <h4 className="font-semibold mb-2">Named Exports</h4>
-                <div className="bg-gray-900 rounded p-3 text-xs text-green-300 font-mono">
+                <div className="bg-gray-900 rounded p-3 text-xs text-orange-300 font-mono">
                   <pre>{`export const add = (a, b) => a + b;
 export const multiply = (a, b) => a * b;`}</pre>
                 </div>
               </div>
               <div className="bg-white/10 rounded-lg p-4">
                 <h4 className="font-semibold mb-2">Default Exports</h4>
-                <div className="bg-gray-900 rounded p-3 text-xs text-green-300 font-mono">
+                <div className="bg-gray-900 rounded p-3 text-xs text-orange-300 font-mono">
                   <pre>{`export default class Calculator {
   add(a, b) { return a + b; }
   multiply(a, b) { return a * b; }
@@ -223,7 +223,7 @@ export const multiply = (a, b) => a * b;`}</pre>
               </div>
               <div className="bg-white/10 rounded-lg p-4">
                 <h4 className="font-semibold mb-2">Dynamic Imports</h4>
-                <div className="bg-gray-900 rounded p-3 text-xs text-green-300 font-mono">
+                <div className="bg-gray-900 rounded p-3 text-xs text-orange-300 font-mono">
                   <pre>{`const module = await import('./module.js');
 const { default: Calculator } = module;`}</pre>
                 </div>
@@ -240,23 +240,23 @@ const { default: Calculator } = module;`}</pre>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Use const and let instead of var
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Implement proper error handling
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Use async/await for better readability
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Leverage modern array methods
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Implement proper memory management
                 </li>
               </ul>
@@ -264,28 +264,28 @@ const { default: Calculator } = module;`}</pre>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Database className="w-6 h-6 text-blue-600" />
+                <Database className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">Modern Patterns</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Functional programming principles
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Immutable data structures
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Composition over inheritance
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Pure functions and side effects
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Event-driven architecture
                 </li>
               </ul>
@@ -293,7 +293,7 @@ const { default: Calculator } = module;`}</pre>
           </div>
 
           {/* Advanced Features */}
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
             <div className="flex items-center gap-3 mb-6">
               <Code className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Advanced JavaScript Features</h3>
@@ -326,3 +326,4 @@ const { default: Calculator } = module;`}</pre>
 };
 
 export default BlogSection4;
+

@@ -22,16 +22,16 @@ export function generateReviewSnippetsSchema(locationData: LocationData) {
       '@type': 'Person',
       name: 'Ahmed Khan'
     },
-    reviewBody: `Excellent ${locationData.service} services in ${locationData.city}. Solutions Indicator delivered exactly what we needed with professional quality and timely delivery.`,
+    reviewBody: `Excellent ${locationData.service} services in ${locationData.city}. Web On Dev delivered exactly what we needed with professional quality and timely delivery.`,
     datePublished: '2024-01-15',
     itemReviewed: {
       '@type': 'LocalBusiness',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       description: `${locationData.service} services in ${locationData.city}`
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     }
   };
 }
@@ -48,7 +48,7 @@ export function generateProductSnippetsSchema(locationData: LocationData) {
     image: `${locationData.businessInfo.website}/images/services/${locationData.service.toLowerCase().replace(/\s+/g, '-')}-service.jpg`,
     brand: {
       '@type': 'Brand',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     offers: {
       '@type': 'Offer',
@@ -57,7 +57,7 @@ export function generateProductSnippetsSchema(locationData: LocationData) {
       availability: 'https://schema.org/InStock',
       seller: {
         '@type': 'Organization',
-        name: 'Solutions Indicator'
+        name: 'Web On Dev'
       }
     },
     aggregateRating: {
@@ -109,7 +109,7 @@ export function generateEventSnippetsSchema(locationData: LocationData) {
     },
     organizer: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       url: locationData.businessInfo.website
     },
     offers: {
@@ -128,7 +128,7 @@ export function generateVideoSnippetsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
-    name: `${locationData.service} Services in ${locationData.city} - Solutions Indicator`,
+    name: `${locationData.service} Services in ${locationData.city} - Web On Dev`,
     description: `Learn about our comprehensive ${locationData.service} services in ${locationData.city}`,
     thumbnailUrl: `${locationData.businessInfo.website}/images/videos/${locationData.service.toLowerCase().replace(/\s+/g, '-')}-${locationData.city.toLowerCase().replace(/\s+/g, '-')}-thumbnail.jpg`,
     duration: 'PT3M30S',
@@ -137,7 +137,7 @@ export function generateVideoSnippetsSchema(locationData: LocationData) {
     embedUrl: `${locationData.businessInfo.website}/videos/embed/${locationData.service.toLowerCase().replace(/\s+/g, '-')}-${locationData.city.toLowerCase().replace(/\s+/g, '-')}`,
     publisher: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       logo: {
         '@type': 'ImageObject',
         url: `${locationData.businessInfo.website}/logo.png`
@@ -153,8 +153,8 @@ export function generateOrganizationSnippetsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Solutions Indicator',
-    alternateName: 'Solutions Indicator Software Development',
+    name: 'Web On Dev',
+    alternateName: 'Web On Dev Software Development',
     url: locationData.businessInfo.website,
     logo: {
       '@type': 'ImageObject',
@@ -177,14 +177,14 @@ export function generateOrganizationSnippetsSchema(locationData: LocationData) {
       availableLanguage: ['English', 'Urdu']
     },
     sameAs: [
-      'https://www.tiktok.com/@solutionsindicator.com',
-      'https://www.pinterest.com/solutionsindicator/',
+      'https://www.tiktok.com/@webondev.com',
+      'https://www.pinterest.com/webondev/',
       'https://www.linkedin.com/company/solutions-indicator/',
-      'https://www.youtube.com/@SolutionsIndicatorOfficial',
+      'https://www.youtube.com/@webondevOfficial',
       'https://www.facebook.com/profile.php?id=61580249803527',
-      'https://www.reddit.com/u/solutionsindicator/s/myNp9ZusS9',
+      'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
       'https://x.com/solut_indicator?t=PDtkij5__XQG8tLz9Q7Z6Q&s=09',
-      'https://www.instagram.com/solutionsindicatorofficial?igsh=NXBrdjQweDhtemVi'
+      'https://www.instagram.com/webondevofficial?igsh=NXBrdjQweDhtemVi'
     ],
     foundingDate: '2020-01-01',
     numberOfEmployees: '50-100',
@@ -328,11 +328,11 @@ export function generateAuthorSnippetsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Solutions Indicator Team',
+    name: 'Web On Dev Team',
     jobTitle: 'Software Development Experts',
     worksFor: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     sameAs: [
       'https://www.linkedin.com/company/solutions-indicator',
@@ -350,11 +350,11 @@ export function generatePersonSnippetsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Solutions Indicator Team Lead',
+    name: 'Web On Dev Team Lead',
     jobTitle: 'Senior Software Developer',
     worksFor: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     sameAs: [
       'https://www.linkedin.com/in/solutions-indicator-lead'
@@ -377,7 +377,7 @@ export function generatePlaceSnippetsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Place',
-    name: `Solutions Indicator ${locationData.city} Office`,
+    name: `Web On Dev ${locationData.city} Office`,
     description: `Our ${locationData.service} service center in ${locationData.city}`,
     address: {
       '@type': 'PostalAddress',
@@ -408,10 +408,10 @@ export function generateQASnippetsSchema(locationData: LocationData) {
     text: `What are the best ${locationData.service} companies in ${locationData.city}?`,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: `Solutions Indicator is among the top ${locationData.service} companies in ${locationData.city}, offering local expertise with global standards, modern technology stack, and proven delivery methodology.`,
+      text: `Web On Dev is among the top ${locationData.service} companies in ${locationData.city}, offering local expertise with global standards, modern technology stack, and proven delivery methodology.`,
       author: {
         '@type': 'Organization',
-        name: 'Solutions Indicator'
+        name: 'Web On Dev'
       },
       dateCreated: '2024-01-01'
     },
@@ -437,7 +437,7 @@ export function generateJobPostingSnippetsSchema(locationData: LocationData) {
     employmentType: 'FULL_TIME',
     hiringOrganization: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       sameAs: locationData.businessInfo.website
     },
     jobLocation: {
@@ -469,7 +469,7 @@ export function generateFactCheckSnippetsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ClaimReview',
-    claimReviewed: `Solutions Indicator provides the best ${locationData.service} services in ${locationData.city}`,
+    claimReviewed: `Web On Dev provides the best ${locationData.service} services in ${locationData.city}`,
     reviewRating: {
       '@type': 'Rating',
       ratingValue: '5',
@@ -478,7 +478,7 @@ export function generateFactCheckSnippetsSchema(locationData: LocationData) {
     },
     author: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     datePublished: '2024-01-01',
     url: `${locationData.businessInfo.website}/fact-check/${locationData.service.toLowerCase().replace(/\s+/g, '-')}-${locationData.city.toLowerCase().replace(/\s+/g, '-')}`
@@ -496,7 +496,7 @@ export function generateCourseSnippetsSchema(locationData: LocationData) {
     description: `Learn ${locationData.service} development with our comprehensive course designed for ${locationData.city} professionals.`,
     provider: {
       '@type': 'Organization',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       sameAs: locationData.businessInfo.website
     },
     courseCode: 'SI-001',
@@ -571,7 +571,7 @@ export function generateDatasetSnippetsSchema(locationData: LocationData) {
     license: 'MIT',
     creator: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     }
   };
 }
@@ -583,7 +583,7 @@ export function generateSpeakableSnippetsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: `${locationData.service} in ${locationData.city} - Solutions Indicator`,
+    name: `${locationData.service} in ${locationData.city} - Web On Dev`,
     speakable: {
       '@type': 'SpeakableSpecification',
       cssSelector: '.speakable-content'
@@ -599,11 +599,11 @@ export function generateDiscussionForumSnippetsSchema(locationData: LocationData
     '@context': 'https://schema.org',
     '@type': 'DiscussionForumPosting',
     headline: `Discussion: ${locationData.service} Services in ${locationData.city}`,
-    text: `Join the discussion about ${locationData.service} services in ${locationData.city}. Share your experiences and get expert advice from Solutions Indicator.`,
+    text: `Join the discussion about ${locationData.service} services in ${locationData.city}. Share your experiences and get expert advice from Web On Dev.`,
     dateCreated: '2024-01-01T00:00:00Z',
     author: {
       '@type': 'Person',
-      name: 'Solutions Indicator Team'
+      name: 'Web On Dev Team'
     },
     url: `${locationData.businessInfo.website}/discussions/${locationData.service.toLowerCase().replace(/\s+/g, '-')}-${locationData.city.toLowerCase().replace(/\s+/g, '-')}`
   };
@@ -620,7 +620,7 @@ export function generateEducationalSnippetsSchema(locationData: LocationData) {
     description: `Comprehensive training program for ${locationData.service} in ${locationData.city}`,
     provider: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     educationalLevel: 'Intermediate',
     timeRequired: 'PT40H'
@@ -643,7 +643,7 @@ export function generateLegalSnippetsSchema(locationData: LocationData) {
     serviceType: 'Legal Consultation',
     provider: {
       '@type': 'Organization',
-      name: 'Solutions Indicator Legal'
+      name: 'Web On Dev Legal'
     }
   };
 }
@@ -659,7 +659,7 @@ export function generateScienceSnippetsSchema(locationData: LocationData) {
     abstract: `Comprehensive scientific analysis of ${locationData.service} trends and patterns in ${locationData.city}`,
     author: {
       '@type': 'Person',
-      name: 'Solutions Indicator Research Team'
+      name: 'Web On Dev Research Team'
     },
     datePublished: '2024-01-01T00:00:00Z',
     keywords: [
@@ -669,7 +669,7 @@ export function generateScienceSnippetsSchema(locationData: LocationData) {
     ],
     publisher: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     }
   };
 }
@@ -685,7 +685,7 @@ export function generateTechnologySnippetsSchema(locationData: LocationData) {
     abstract: `Latest technology trends and innovations in ${locationData.service} for businesses in ${locationData.city}`,
     author: {
       '@type': 'Person',
-      name: 'Solutions Indicator Tech Team'
+      name: 'Web On Dev Tech Team'
     },
     datePublished: '2024-01-01T00:00:00Z',
     keywords: [
@@ -695,7 +695,7 @@ export function generateTechnologySnippetsSchema(locationData: LocationData) {
     ],
     publisher: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     }
   };
 }
@@ -754,7 +754,7 @@ export function generateFinancialSnippetsSchema(locationData: LocationData) {
     description: `Financial investment opportunities in ${locationData.service} sector in ${locationData.city}`,
     provider: {
       '@type': 'Organization',
-      name: 'Solutions Indicator Financial'
+      name: 'Web On Dev Financial'
     },
     category: 'Technology Investment',
     feesAndCommissionsSpecification: 'Competitive rates available'
@@ -817,7 +817,7 @@ export function generateRetailSnippetsSchema(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Store',
-    name: `Solutions Indicator ${locationData.city} Store`,
+    name: `Web On Dev ${locationData.city} Store`,
     description: `Retail store for ${locationData.service} products and services in ${locationData.city}`,
     address: {
       '@type': 'PostalAddress',
@@ -843,7 +843,7 @@ export function generateServiceSnippetsSchema(locationData: LocationData) {
     description: `Professional ${locationData.service} services in ${locationData.city}`,
     provider: {
       '@type': 'Organization',
-      name: 'Solutions Indicator'
+      name: 'Web On Dev'
     },
     areaServed: {
       '@type': 'City',
@@ -875,7 +875,7 @@ export function generateTransportationSnippetsSchema(locationData: LocationData)
     serviceType: 'Tech Transportation',
     provider: {
       '@type': 'Organization',
-      name: 'Solutions Indicator Transport'
+      name: 'Web On Dev Transport'
     }
   };
 }

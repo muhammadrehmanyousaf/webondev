@@ -21,22 +21,22 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   
   if (posts.length === 0) {
     return {
-      title: 'Category Not Found | Solutions Indicator',
+      title: 'Category Not Found | Web On Dev',
     };
   }
 
   return {
-    title: `${category} Articles - Expert Insights & Guides | Solutions Indicator`,
+    title: `${category} Articles - Expert Insights & Guides | Web On Dev`,
     description: `Explore our comprehensive collection of ${category.toLowerCase()} articles, tutorials, and expert insights. Stay updated with the latest trends and best practices.`,
     keywords: `${category.toLowerCase()}, web development, digital marketing, technology, expert insights, tutorials`,
     openGraph: {
-      title: `${category} Articles - Expert Insights & Guides | Solutions Indicator`,
+      title: `${category} Articles - Expert Insights & Guides | Web On Dev`,
       description: `Explore our comprehensive collection of ${category.toLowerCase()} articles, tutorials, and expert insights.`,
       type: 'website',
-      url: `https://solutionsindicator.com/blog/category/${categorySlug}`,
+      url: `https://webondev.com/blog/category/${categorySlug}`,
     },
     alternates: {
-      canonical: `https://solutionsindicator.com/blog/category/${categorySlug}`,
+      canonical: `https://webondev.com/blog/category/${categorySlug}`,
     },
   };
 }

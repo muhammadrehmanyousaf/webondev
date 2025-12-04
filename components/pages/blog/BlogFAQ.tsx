@@ -81,7 +81,7 @@ const BlogFAQ: React.FC<BlogFAQProps> = ({
           {/* Header */}
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <HelpCircle className="w-8 h-8 text-blue-600" />
+              <HelpCircle className="w-8 h-8 text-orange-600" />
               <Badge className="bg-blue-100 text-blue-700 px-4 py-2 text-sm font-medium">
                 FAQ
               </Badge>
@@ -137,7 +137,7 @@ const BlogFAQ: React.FC<BlogFAQProps> = ({
                   </div>
                   <div className="ml-4">
                     {openItems.includes(index) ? (
-                      <ChevronUp className="w-6 h-6 text-blue-600" />
+                      <ChevronUp className="w-6 h-6 text-orange-600" />
                     ) : (
                       <ChevronDown className="w-6 h-6 text-gray-400" />
                     )}
@@ -159,7 +159,7 @@ const BlogFAQ: React.FC<BlogFAQProps> = ({
 
           {/* Contact CTA */}
           <div className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
                 Still Have Questions?
               </h3>
@@ -169,13 +169,13 @@ const BlogFAQ: React.FC<BlogFAQProps> = ({
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
                   href="/contact" 
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-orange-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                 >
                   Contact Us
                 </a>
                 <a 
                   href="tel:+15551234567" 
-                  className="inline-flex items-center justify-center px-6 py-3 border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors"
                 >
                   Call Now
                 </a>
@@ -189,3 +189,4 @@ const BlogFAQ: React.FC<BlogFAQProps> = ({
 };
 
 export default BlogFAQ;
+

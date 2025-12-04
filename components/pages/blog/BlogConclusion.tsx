@@ -57,7 +57,7 @@ const BlogConclusion: React.FC<BlogConclusionProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {keyTakeaways.map((takeaway, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                   <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <p className="text-gray-700 leading-relaxed">{takeaway}</p>
                 </div>
               ))}
@@ -65,7 +65,7 @@ const BlogConclusion: React.FC<BlogConclusionProps> = ({
           </div>
 
           {/* Next Steps */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-12">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white mb-12">
             <div className="flex items-center gap-3 mb-6">
               <ArrowRight className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Next Steps</h3>
@@ -85,8 +85,8 @@ const BlogConclusion: React.FC<BlogConclusionProps> = ({
           {/* Success Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="w-6 h-6 text-green-600" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Users className="w-6 h-6 text-orange-600" />
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">User Experience</h4>
               <p className="text-gray-600 text-sm">
@@ -95,7 +95,7 @@ const BlogConclusion: React.FC<BlogConclusionProps> = ({
             </div>
             <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Award className="w-6 h-6 text-blue-600" />
+                <Award className="w-6 h-6 text-orange-600" />
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">Performance</h4>
               <p className="text-gray-600 text-sm">
@@ -104,7 +104,7 @@ const BlogConclusion: React.FC<BlogConclusionProps> = ({
             </div>
             <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Star className="w-6 h-6 text-purple-600" />
+                <Star className="w-6 h-6 text-orange-600" />
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">Quality</h4>
               <p className="text-gray-600 text-sm">
@@ -122,7 +122,7 @@ const BlogConclusion: React.FC<BlogConclusionProps> = ({
               Whether you're a beginner looking to learn or a business seeking professional web development services, we're here to help you succeed in the digital world.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 text-lg font-semibold">
+              <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-blue-700 hover:to-purple-700 px-8 py-4 text-lg font-semibold">
                 <Link href="/contact">
                   Get Free Consultation
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -146,3 +146,5 @@ const BlogConclusion: React.FC<BlogConclusionProps> = ({
 };
 
 export default BlogConclusion;
+
+

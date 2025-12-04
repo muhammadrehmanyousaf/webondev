@@ -23,22 +23,22 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   
   if (posts.length === 0) {
     return {
-      title: 'Tag Not Found | Solutions Indicator',
+      title: 'Tag Not Found | Web On Dev',
     };
   }
 
   return {
-    title: `${tag} Articles - Expert Insights & Tutorials | Solutions Indicator`,
+    title: `${tag} Articles - Expert Insights & Tutorials | Web On Dev`,
     description: `Discover our collection of ${tag.toLowerCase()} articles, tutorials, and expert insights. Learn from industry experts and stay updated with the latest trends.`,
     keywords: `${tag.toLowerCase()}, web development, digital marketing, technology, expert insights, tutorials`,
     openGraph: {
-      title: `${tag} Articles - Expert Insights & Tutorials | Solutions Indicator`,
+      title: `${tag} Articles - Expert Insights & Tutorials | Web On Dev`,
       description: `Discover our collection of ${tag.toLowerCase()} articles, tutorials, and expert insights.`,
       type: 'website',
-      url: `https://solutionsindicator.com/blog/tag/${tagSlug}`,
+      url: `https://webondev.com/blog/tag/${tagSlug}`,
     },
     alternates: {
-      canonical: `https://solutionsindicator.com/blog/tag/${tagSlug}`,
+      canonical: `https://webondev.com/blog/tag/${tagSlug}`,
     },
   };
 }

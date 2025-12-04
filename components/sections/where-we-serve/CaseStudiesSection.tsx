@@ -143,10 +143,10 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
       <section className="py-20 bg-white animate-on-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Case studies in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{countryName}</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Case studies in <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{countryName}</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Explore successful projects that demonstrate our expertise in delivering measurable outcomes for businesses across {countryName}.
             </p>
           </div>
@@ -164,21 +164,21 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                       {caseStudy.category}
                     </span>
                   </div>
                 </div>
                 <div className="p-8">
-                  <div className="text-sm text-blue-600 font-medium mb-2">Case Study</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <div className="text-sm text-orange-500 font-medium mb-2">Case Study</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-500 transition-colors">
                     {caseStudy.title}
                   </h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {caseStudy.subtitle}
                   </p>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all duration-300">
+                    <div className="flex items-center text-orange-500 font-semibold group-hover:gap-2 transition-all duration-300">
                       View Details
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -276,7 +276,7 @@ const ContactInfoSection = () => {
       title: 'Phone',
       details: ['+923106803687', '+923274811220'],
       description: 'Call us for immediate assistance',
-      color: 'from-green-500 to-blue-500',
+      color: 'from-orange-500 to-orange-600',
       action: () => window.open('tel:+923106803687')
     },
     {
@@ -325,7 +325,7 @@ const ContactInfoSection = () => {
       title: 'Request Callback',
       description: 'We\'ll call you back',
       action: 'Request Call',
-      color: 'from-green-500 to-teal-500',
+      color: 'from-orange-500 to-orange-600',
       onClick: () => setIsCallbackOpen(true)
     }
   ];
@@ -337,7 +337,7 @@ const ContactInfoSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Multiple Ways to
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Reach Us</span>
+            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Reach Us</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Choose the most convenient way to get in touch with our team. We're here to help you succeed.
@@ -356,7 +356,7 @@ const ContactInfoSection = () => {
                 <info.icon className="w-6 h-6 text-white" />
               </div>
               
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
                 {info.title}
               </h3>
               
@@ -391,7 +391,7 @@ const ContactInfoSection = () => {
                   <action.icon className="w-6 h-6 text-white" />
                 </div>
                 
-                <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
                   {action.title}
                 </h4>
                 
@@ -399,7 +399,7 @@ const ContactInfoSection = () => {
                   {action.description}
                 </p>
                 
-                <div className="text-blue-600 font-semibold group-hover:text-purple-600 transition-colors">
+                <div className="text-orange-600 font-semibold group-hover:text-orange-600 transition-colors">
                   {action.action} →
                 </div>
               </button>
@@ -419,18 +419,18 @@ const ContactInfoSection = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center p-4 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl">
-              <div className="text-2xl font-bold text-green-600 mb-2">2 Hours</div>
+            <div className="text-center p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl">
+              <div className="text-2xl font-bold text-orange-600 mb-2">2 Hours</div>
               <div className="text-sm text-gray-700">Initial Response</div>
               <div className="text-xs text-gray-500 mt-1">During business hours</div>
             </div>
             <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl">
-              <div className="text-2xl font-bold text-blue-600 mb-2">24 Hours</div>
+              <div className="text-2xl font-bold text-orange-600 mb-2">24 Hours</div>
               <div className="text-sm text-gray-700">Detailed Proposal</div>
               <div className="text-xs text-gray-500 mt-1">Complete project outline</div>
             </div>
             <div className="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl">
-              <div className="text-2xl font-bold text-purple-600 mb-2">1 Week</div>
+              <div className="text-2xl font-bold text-orange-600 mb-2">1 Week</div>
               <div className="text-sm text-gray-700">Project Kickoff</div>
               <div className="text-xs text-gray-500 mt-1">After agreement</div>
             </div>
@@ -440,7 +440,7 @@ const ContactInfoSection = () => {
             <p className="text-sm text-gray-600 mb-2">Direct Email:</p>
             <a 
               href="mailto:muhammadrehmanyousaf786@gmail.com"
-              className="text-blue-600 hover:text-blue-700 font-semibold text-lg"
+              className="text-orange-600 hover:text-blue-700 font-semibold text-lg"
             >
               muhammadrehmanyousaf786@gmail.com
             </a>
@@ -453,7 +453,7 @@ const ContactInfoSection = () => {
         <DialogContent className="max-w-md">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-              <MessageCircle className="w-6 h-6 text-blue-600" />
+              <MessageCircle className="w-6 h-6 text-orange-600" />
               Start Live Chat
             </DialogTitle>
           </DialogHeader>
@@ -503,7 +503,7 @@ const ContactInfoSection = () => {
               />
             </div>
 
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+            <div className="bg-blue-50 rounded-lg p-4 border border-orange-200">
               <p className="text-sm text-blue-800">
                 💬 We'll connect with you via email or phone within 15 minutes during business hours.
               </p>
@@ -545,7 +545,7 @@ const ContactInfoSection = () => {
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-              <Calendar className="w-6 h-6 text-purple-600" />
+              <Calendar className="w-6 h-6 text-orange-600" />
               Schedule Your Free Consultation
             </DialogTitle>
           </DialogHeader>
@@ -729,7 +729,7 @@ const ContactInfoSection = () => {
             </div>
 
             {/* Meeting Info */}
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+            <div className="bg-blue-50 rounded-lg p-4 border border-orange-200">
               <h4 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 Meeting Details
@@ -755,7 +755,7 @@ const ContactInfoSection = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting || !meetingData.name || !meetingData.email || !meetingData.service || !meetingData.preferredDate || !meetingData.preferredTime || !meetingData.timezone || !meetingData.meetingType}
-                className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                className="flex-1 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-blue-700 hover:to-purple-700"
               >
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">
@@ -779,7 +779,7 @@ const ContactInfoSection = () => {
         <DialogContent className="max-w-lg">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-              <Phone className="w-6 h-6 text-green-600" />
+              <Phone className="w-6 h-6 text-orange-600" />
               Request Callback
             </DialogTitle>
           </DialogHeader>
@@ -877,9 +877,9 @@ const ContactInfoSection = () => {
               />
             </div>
 
-            <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-              <h4 className="font-semibold text-green-900 mb-2">Callback Promise:</h4>
-              <ul className="text-sm text-green-800 space-y-1">
+            <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+              <h4 className="font-semibold text-orange-900 mb-2">Callback Promise:</h4>
+              <ul className="text-sm text-orange-800 space-y-1">
                 <li>• We'll call you within 2 hours during business hours</li>
                 <li>• Free consultation with no obligations</li>
                 <li>• Direct line to our experts</li>
@@ -899,7 +899,7 @@ const ContactInfoSection = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting || !callbackData.name || !callbackData.phone}
-                className="flex-1 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700"
+                className="flex-1 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800"
               >
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">

@@ -35,7 +35,7 @@ const AboutHeroSection = () => {
 
   const stats = [
     { icon: Users, number: '150+', label: 'Happy Clients', color: 'from-blue-500 to-purple-500' },
-    { icon: Award, number: '150+', label: 'Projects Completed', color: 'from-green-500 to-blue-500' },
+    { icon: Award, number: '150+', label: 'Projects Completed', color: 'from-orange-500 to-orange-600' },
     { icon: Globe, number: '5+', label: 'Countries Served', color: 'from-purple-500 to-pink-500' },
     { icon: Zap, number: '5+', label: 'Years Experience', color: 'from-orange-500 to-red-500' }
   ];

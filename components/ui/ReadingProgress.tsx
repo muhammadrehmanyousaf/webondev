@@ -48,7 +48,7 @@ const ReadingProgress: React.FC<ReadingProgressProps> = ({
     >
       <div
         style={{ width: `${progress}%`, height }}
-        className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 transition-[width] duration-150 ease-out"
+        className="bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 transition-[width] duration-150 ease-out"
       />
     </div>
   );

@@ -35,21 +35,21 @@ const BlogSection5: React.FC = () => {
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Component-Based Architecture</h4>
                       <p className="text-gray-600">Build reusable UI components that encapsulate logic and styling.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Virtual DOM</h4>
                       <p className="text-gray-600">Efficient rendering through virtual DOM diffing and reconciliation.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Unidirectional Data Flow</h4>
                       <p className="text-gray-600">Predictable state management with props down, events up pattern.</p>
@@ -60,7 +60,7 @@ const BlogSection5: React.FC = () => {
 
               <div className="bg-gray-900 rounded-2xl p-6 shadow-lg">
                 <h4 className="text-lg font-semibold text-white mb-4">React Component Example</h4>
-                <div className="bg-gray-800 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+                <div className="bg-gray-800 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                   <pre>{`import React, { useState, useEffect } from 'react';
 
 const UserProfile = ({ userId }) => {
@@ -102,7 +102,7 @@ export default UserProfile;`}</pre>
           </div>
 
           {/* Hooks Revolution */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white mb-16">
             <div className="flex items-center gap-3 mb-6">
               <Layers className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">React Hooks: The Functional Revolution</h3>
@@ -138,21 +138,21 @@ export default UserProfile;`}</pre>
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Server-Side Rendering (SSR)</h4>
                     <p className="text-gray-600">Render React components on the server for better SEO and performance.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Static Site Generation (SSG)</h4>
                     <p className="text-gray-600">Pre-render pages at build time for optimal performance.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">API Routes</h4>
                     <p className="text-gray-600">Build backend APIs within the same project structure.</p>
@@ -163,7 +163,7 @@ export default UserProfile;`}</pre>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
               <h4 className="text-lg font-semibold text-gray-900 mb-6">Next.js App Router Example</h4>
-              <div className="bg-gray-900 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+              <div className="bg-gray-900 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                 <pre>{`// app/page.tsx
 import { Suspense } from 'react';
 import UserList from './components/UserList';
@@ -204,18 +204,18 @@ async function UserList() {
           </div>
 
           {/* State Management */}
-          <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white mb-16">
+           <div className="bg-gradient-to-r from-orange-600 to-orange-600 rounded-2xl p-8 text-white mb-16">
             <div className="flex items-center gap-3 mb-6">
               <Cpu className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">State Management in Modern React</h3>
             </div>
-            <p className="text-green-100 mb-6 leading-relaxed">
+            <p className="text-orange-100 mb-6 leading-relaxed">
               As applications grow in complexity, managing state becomes crucial. Modern React applications use various state management solutions to handle global state, server state, and form state effectively.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-semibold mb-3">Local State Management</h4>
-                <ul className="space-y-2 text-green-100">
+                <ul className="space-y-2 text-orange-100">
                   <li>• useState for component-level state</li>
                   <li>• useReducer for complex state logic</li>
                   <li>• Context API for shared state</li>
@@ -224,7 +224,7 @@ async function UserList() {
               </div>
               <div>
                 <h4 className="font-semibold mb-3">Global State Solutions</h4>
-                <ul className="space-y-2 text-green-100">
+                <ul className="space-y-2 text-orange-100">
                   <li>• Redux Toolkit for predictable state</li>
                   <li>• Zustand for lightweight state</li>
                   <li>• React Query for server state</li>
@@ -238,24 +238,24 @@ async function UserList() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Rocket className="w-6 h-6 text-purple-600" />
+                <Rocket className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">Vue.js</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Progressive framework with gentle learning curve
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Composition API for better TypeScript support
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Built-in state management with Pinia
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Excellent documentation and community
                 </li>
               </ul>
@@ -268,19 +268,19 @@ async function UserList() {
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Full-featured framework with built-in tools
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   TypeScript-first development experience
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Dependency injection and services
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Enterprise-grade architecture patterns
                 </li>
               </ul>
@@ -288,7 +288,7 @@ async function UserList() {
           </div>
 
           {/* Performance Optimization */}
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
             <div className="flex items-center gap-3 mb-6">
               <Zap className="w-8 h-8 text-yellow-300" />
               <h3 className="text-2xl font-bold">Performance Optimization in React</h3>
@@ -323,3 +323,4 @@ async function UserList() {
 };
 
 export default BlogSection5;
+

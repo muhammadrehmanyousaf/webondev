@@ -127,7 +127,7 @@ const ContactFormSection = () => {
             <div className="mb-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Get Your Free
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Consultation</span>
+                <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Consultation</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Tell us about your project and we'll get back to you within 24 hours with a detailed proposal and timeline.
@@ -148,7 +148,7 @@ const ContactFormSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
                     placeholder="John Doe"
                   />
                 </div>
@@ -163,7 +163,7 @@ const ContactFormSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
                     placeholder="john@company.com"
                   />
                 </div>
@@ -181,7 +181,7 @@ const ContactFormSection = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
                     placeholder="Your Company"
                   />
                 </div>
@@ -195,7 +195,7 @@ const ContactFormSection = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
                     placeholder="+92 310 6803687"
                   />
                 </div>
@@ -213,7 +213,7 @@ const ContactFormSection = () => {
                     value={formData.service}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
                   >
                     <option value="">Select a service</option>
                     {services.map((service) => (
@@ -230,7 +230,7 @@ const ContactFormSection = () => {
                     name="budget"
                     value={formData.budget}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
                   >
                     <option value="">Select budget range</option>
                     {budgets.map((budget) => (
@@ -271,7 +271,7 @@ const ContactFormSection = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-vertical"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300 resize-vertical"
                   placeholder="Tell us about your project requirements, goals, and any specific features you need..."
                 />
               </div>
@@ -280,7 +280,7 @@ const ContactFormSection = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg hover:shadow-orange-500/50"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center gap-2">
@@ -297,7 +297,7 @@ const ContactFormSection = () => {
 
               {/* Status Messages */}
               {submitStatus === 'success' && (
-                <div className="flex items-center gap-2 text-green-600 bg-green-50 p-4 rounded-lg">
+                <div className="flex items-center gap-2 text-orange-600 bg-orange-50 p-4 rounded-lg">
                   <CheckCircle className="w-5 h-5" />
                   <span>Thank you! We'll get back to you within 24 hours.</span>
                 </div>
@@ -316,7 +316,7 @@ const ContactFormSection = () => {
           <div className="lg:pl-8">
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Why Choose Solutions Indicator?
+                Why Choose Web On Dev?
               </h3>
               
               <div className="space-y-6">
@@ -365,7 +365,7 @@ const ContactFormSection = () => {
                 </p>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                     <span className="text-gray-700">Response within 2 hours during business hours</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -383,7 +383,7 @@ const ContactFormSection = () => {
                 <p className="text-sm text-gray-600 mb-2">Or email us directly:</p>
                 <a 
                   href="mailto:muhammadrehmanyousaf786@gmail.com"
-                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                  className="text-orange-600 hover:text-blue-700 font-semibold"
                 >
                   muhammadrehmanyousaf786@gmail.com
                 </a>

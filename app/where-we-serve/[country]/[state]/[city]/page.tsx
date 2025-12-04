@@ -33,21 +33,21 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   const countries = await getAllCountriesAPI();
   const matchCountry = fromSlugMatch(countrySlug, countries.map((c) => c.name));
   const country = countries.find((c) => c.name === matchCountry);
-  if (!country) return { title: 'City Not Found - Solutions Indicator' };
+  if (!country) return { title: 'City Not Found - Web On Dev' };
   const states = await getStatesByCountryAPI(country.name);
   const matchState = fromSlugMatch(stateSlug, states.map((s) => s.name));
   const state = states.find((s) => s.name === matchState);
-  if (!state) return { title: 'City Not Found - Solutions Indicator' };
+  if (!state) return { title: 'City Not Found - Web On Dev' };
   const cities = await getCitiesByStateAPI(country.name, state.name);
   const matchCity = fromSlugMatch(citySlug, cities.map((c) => c.name));
   const city = cities.find((c) => c.name === matchCity);
-  if (!city) return { title: 'City Not Found - Solutions Indicator' };
+  if (!city) return { title: 'City Not Found - Web On Dev' };
 
   const siteUrl = getBaseUrl();
   const canonicalUrl = `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}/${toSlug(city.name)}`;
 
   return {
-    title: `Software Development in ${city.name}, ${state.name} - Solutions Indicator`,
+    title: `Software Development in ${city.name}, ${state.name} - Web On Dev`,
     description: `Professional software development and web development services in ${city.name}, ${state.name}, ${country.name}.`,
     keywords: `${city.name}, ${state.name}, ${country.name}, software development, web development`,
     alternates: { canonical: canonicalUrl },
@@ -89,7 +89,7 @@ export default async function CityPage({ params }: CityPageProps) {
     <div className="py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+          <Button asChild size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
             <Link href="#book-meeting" className="flex items-center gap-2">
               Book Meeting
               <Calendar className="w-5 h-5" />
@@ -129,11 +129,11 @@ export default async function CityPage({ params }: CityPageProps) {
         <SectionCTA />
 
         {/* 2) Local Business Outcomes */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Local business <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">outcomes</span>
+                Local business <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">outcomes</span>
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 We deliver measurable results for businesses in {city.name}. From improved search visibility to increased conversions, our solutions are designed to drive real growth.
@@ -148,7 +148,7 @@ export default async function CityPage({ params }: CityPageProps) {
                   'Ongoing Support'
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span className="text-gray-700 font-medium">{feature}</span>
@@ -157,7 +157,7 @@ export default async function CityPage({ params }: CityPageProps) {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl transform rotate-3"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl transform rotate-3"></div>
               <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1600&auto=format&fit=crop"
@@ -166,7 +166,7 @@ export default async function CityPage({ params }: CityPageProps) {
                 />
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-lg">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -183,11 +183,11 @@ export default async function CityPage({ params }: CityPageProps) {
         </section>
         <SectionCTA />
 
-        {/* SEO Section: Why Solutions Indicator in {city.name}, {state.name} */}
+        {/* SEO Section: Why Web On Dev in {city.name}, {state.name} */}
         <section className="py-20 bg-white animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Solutions Indicator</span> in {city.name}?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why choose <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">Web On Dev</span> in {city.name}?</h2>
               <p className="text-xl text-gray-600 leading-relaxed">We build search-first websites and apps that load fast, rank high, and convert for businesses in {city.name} and surrounding areas.</p>
             </div>
             <div className="prose prose-lg max-w-none text-gray-700">
@@ -198,10 +198,14 @@ export default async function CityPage({ params }: CityPageProps) {
         </section>
 
         {/* SEO Section: How We Execute in {city.name} */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">How we deliver <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">measurable results</span> in {city.name}</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6">
+                <span className="text-gray-900">How we deliver </span>
+                <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent font-black">measurable results</span>
+                <span className="text-gray-900"> in {city.name}</span>
+              </h3>
               <div className="space-y-5 text-gray-700 text-lg leading-relaxed">
                 <p>We target common People Also Ask questions and topical clusters relevant to {city.name}. Content remains natural and helpful while incorporating semantically related terms.</p>
                 <p>Technical execution includes image optimization, caching, and Core Web Vitals monitoring. We validate accessibility to ensure inclusive user journeys.</p>
@@ -250,7 +254,7 @@ export default async function CityPage({ params }: CityPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Why choose us in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{city.name}</span>
+                Why choose us in <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{city.name}</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 We combine local market understanding with world-class engineering practices to deliver solutions that drive real business results.
@@ -262,8 +266,8 @@ export default async function CityPage({ params }: CityPageProps) {
                 { title: 'Performance', desc: 'Faster loads drive engagement and conversion—validated with field data.' },
                 { title: 'Reliability', desc: 'Stable, secure infrastructure prepared for local campaigns and spikes.' },
               ].map((f) => (
-                <div key={f.title} className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-6 mx-auto">
+                  <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl mb-6 mx-auto">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
@@ -277,11 +281,11 @@ export default async function CityPage({ params }: CityPageProps) {
         </section>
 
         {/* 4) Nearby Areas */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Serving <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{city.name}</span> and nearby areas
+                Serving <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{city.name}</span> and nearby areas
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 We work with businesses across metro and surrounding regions of {city.name}. Our local presence ensures we understand the unique needs and opportunities in your area.
@@ -300,7 +304,7 @@ export default async function CityPage({ params }: CityPageProps) {
               </div>
             </div>
             <div className="order-1 lg:order-2 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl transform -rotate-3"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl transform -rotate-3"></div>
               <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop"
@@ -321,7 +325,7 @@ export default async function CityPage({ params }: CityPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Case studies in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{city.name}</span>
+                Case studies in <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{city.name}</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Explore successful projects that demonstrate our expertise in delivering measurable outcomes for businesses in {city.name}.
@@ -347,10 +351,10 @@ export default async function CityPage({ params }: CityPageProps) {
                     <img src={card.src} alt={card.alt} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
                   </div>
                   <div className="p-8">
-                    <div className="text-sm text-blue-600 font-medium mb-2">Case Study</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Project outcome</h3>
+                    <div className="text-sm text-orange-600 font-medium mb-2">Case Study</div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">Project outcome</h3>
                     <p className="text-gray-600 mb-4 leading-relaxed">Proof of outcomes in {city.name} with measurable impact and growth.</p>
-                    <div className="flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all duration-300">
+                    <div className="flex items-center text-orange-600 font-semibold group-hover:gap-2 transition-all duration-300">
                       View Details
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -370,7 +374,7 @@ export default async function CityPage({ params }: CityPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Our presence in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{city.name}</span>
+                Our presence in <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{city.name}</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 We serve businesses across {city.name} and the surrounding metropolitan area with local expertise and global delivery standards.
@@ -387,7 +391,7 @@ export default async function CityPage({ params }: CityPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                FAQs for <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{city.name}</span>
+                FAQs for <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">{city.name}</span>
               </h2>
             </div>
             <div className="space-y-4 max-w-4xl mx-auto">
@@ -413,7 +417,7 @@ export default async function CityPage({ params }: CityPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Tooling and <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">reporting</span>
+                Tooling and <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">reporting</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Expect dashboards and updates covering {city.name} performance: rankings, traffic, conversions, and Core Web Vitals. We iterate based on field data, not assumptions.
@@ -440,11 +444,11 @@ export default async function CityPage({ params }: CityPageProps) {
         </section> */}
 
         {/* EEAT: Author Bio & Editorial Standards */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who writes and reviews our content</h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">Content for {city.name} is created and reviewed by senior practitioners at Solutions Indicator, ensuring technical accuracy and SEO best practices.</p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">Content for {city.name} is created and reviewed by senior practitioners at Web On Dev, ensuring technical accuracy and SEO best practices.</p>
               <p className="text-lg text-gray-700 leading-relaxed">We prioritize helpfulness, accessibility, and verifiable claims aligned to local needs.</p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
@@ -468,11 +472,11 @@ export default async function CityPage({ params }: CityPageProps) {
         </section> */}
 
         {/* Testimonials (after EEAT for social proof near CTA) */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                What clients in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{city.name}</span> say
+                What clients in <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{city.name}</span> say
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Hear from businesses that have experienced our local expertise and delivery standards.
@@ -538,7 +542,7 @@ export default async function CityPage({ params }: CityPageProps) {
                 name: `${city.name}`,
                 containedInPlace: { '@type': 'AdministrativeArea', name: `${state.name}, ${country.name}` },
               },
-              provider: { '@type': 'Organization', '@id': 'https://www.solutionsindicator.com/#organization' },
+              provider: { '@type': 'Organization', '@id': 'https://www.webondev.com/#organization' },
             }),
           }}
         />

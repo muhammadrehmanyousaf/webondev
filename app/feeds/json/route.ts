@@ -14,7 +14,7 @@ export async function GET(req: Request) {
 
 	const feed = {
 		version: 'https://jsonfeed.org/version/1.1',
-		title: `Solutions Indicator – Site URLs (JSON Feed) – Page ${page} / ${pages}`,
+		title: `Web On Dev – Site URLs (JSON Feed) – Page ${page} / ${pages}`,
 		home_page_url: `${baseUrl}/sitemaps`,
 		feed_url: `${baseUrl}/feeds/json?page=${page}&size=${size}`,
 		hubs: [

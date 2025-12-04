@@ -11,7 +11,7 @@ const BlogSection2: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <Badge className="bg-green-100 text-green-700 px-4 py-2 text-sm font-medium mb-4">
+            <Badge className="bg-orange-100 text-orange-700 px-4 py-2 text-sm font-medium mb-4">
               HTML5 & Semantic Markup
             </Badge>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -29,26 +29,26 @@ const BlogSection2: React.FC = () => {
                 Semantic HTML5 Elements
               </h3>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Semantic HTML5 elements like <code className="bg-gray-100 px-2 py-1 rounded text-blue-600">&lt;header&gt;</code>, <code className="bg-gray-100 px-2 py-1 rounded text-blue-600">&lt;nav&gt;</code>, <code className="bg-gray-100 px-2 py-1 rounded text-blue-600">&lt;main&gt;</code>, <code className="bg-gray-100 px-2 py-1 rounded text-blue-600">&lt;article&gt;</code>, <code className="bg-gray-100 px-2 py-1 rounded text-blue-600">&lt;section&gt;</code>, and <code className="bg-gray-100 px-2 py-1 rounded text-blue-600">&lt;footer&gt;</code> provide meaning to both browsers and assistive technologies.
+                Semantic HTML5 elements like <code className="bg-gray-100 px-2 py-1 rounded text-orange-600">&lt;header&gt;</code>, <code className="bg-gray-100 px-2 py-1 rounded text-orange-600">&lt;nav&gt;</code>, <code className="bg-gray-100 px-2 py-1 rounded text-orange-600">&lt;main&gt;</code>, <code className="bg-gray-100 px-2 py-1 rounded text-orange-600">&lt;article&gt;</code>, <code className="bg-gray-100 px-2 py-1 rounded text-orange-600">&lt;section&gt;</code>, and <code className="bg-gray-100 px-2 py-1 rounded text-orange-600">&lt;footer&gt;</code> provide meaning to both browsers and assistive technologies.
               </p>
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Better SEO Rankings</h4>
                     <p className="text-gray-600">Search engines can better understand your content structure, leading to improved rankings.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Enhanced Accessibility</h4>
                     <p className="text-gray-600">Screen readers and assistive technologies can navigate your content more effectively.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Cleaner Code Structure</h4>
                     <p className="text-gray-600">More maintainable and readable code that clearly indicates content purpose.</p>
@@ -59,7 +59,7 @@ const BlogSection2: React.FC = () => {
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
               <h4 className="text-lg font-semibold text-gray-900 mb-6">Example Semantic Structure</h4>
-              <div className="bg-gray-900 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+              <div className="bg-gray-900 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                 <pre>{`&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
@@ -94,7 +94,7 @@ const BlogSection2: React.FC = () => {
           </div>
 
           {/* Accessibility Section */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white mb-16">
             <div className="flex items-center gap-3 mb-6">
               <AlertTriangle className="w-8 h-8 text-yellow-300" />
               <h3 className="text-2xl font-bold">Accessibility and Web Standards</h3>
@@ -122,24 +122,24 @@ const BlogSection2: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Code className="w-6 h-6 text-blue-600" />
+                <Code className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">Do's</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Use semantic HTML elements appropriately
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Include proper heading hierarchy (H1-H6)
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Add alt text to all images
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Ensure keyboard navigation works
                 </li>
               </ul>
@@ -177,3 +177,5 @@ const BlogSection2: React.FC = () => {
 };
 
 export default BlogSection2;
+
+

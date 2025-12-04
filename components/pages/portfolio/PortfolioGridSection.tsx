@@ -9,13 +9,13 @@ const PortfolioGridSection = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Featured
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Projects</span>
+            <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent"> Projects</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Dive deep into our most successful projects and see how we've helped businesses achieve their goals.
@@ -40,7 +40,7 @@ const PortfolioGridSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-blue-600">
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-orange-600">
                   {project.category}
                 </div>
 
@@ -57,6 +57,8 @@ const PortfolioGridSection = () => {
                       e.stopPropagation();
                       window.open(project.liveUrl, '_blank');
                     }}
+                    title="View Live Project"
+                    aria-label="View Live Project"
                     className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors"
                   >
                     <ExternalLink className="w-5 h-5 text-gray-700" />
@@ -66,6 +68,8 @@ const PortfolioGridSection = () => {
                       e.stopPropagation();
                       window.open(project.githubUrl, '_blank');
                     }}
+                    title="View on GitHub"
+                    aria-label="View on GitHub"
                     className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors"
                   >
                     <Github className="w-5 h-5 text-gray-700" />
@@ -75,7 +79,7 @@ const PortfolioGridSection = () => {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
                   {project.title}
                 </h3>
                 
@@ -106,20 +110,20 @@ const PortfolioGridSection = () => {
                     </span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded-full">
+                    <span className="px-2 py-1 bg-orange-100 text-orange-600 text-xs rounded-full">
                       +{project.technologies.length - 3} more
                     </span>
                   )}
                 </div>
 
                 {/* Expandable Results */}
-                {selectedProject === project.id && (
-                  <div className="mt-4 p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-100">
+                  {selectedProject === project.id && (
+                  <div className="mt-4 p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-100">
                     <h4 className="font-semibold text-gray-900 mb-3">Key Results:</h4>
                     <ul className="space-y-2">
                       {project.results.map((result, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm text-gray-700">
-                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                          <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
                           {result}
                         </li>
                       ))}
@@ -129,13 +133,13 @@ const PortfolioGridSection = () => {
 
                 {/* CTA */}
                 <div className="flex items-center justify-between mt-4">
-                  <div className="flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all duration-300 text-sm">
+                  <div className="flex items-center text-orange-600 font-semibold group-hover:gap-2 transition-all duration-300 text-sm">
                     {selectedProject === project.id ? 'Hide Details' : 'View Details'}
                     <ArrowRight className={`w-4 h-4 ml-1 transition-transform duration-300 ${selectedProject === project.id ? 'rotate-90' : 'group-hover:translate-x-1'}`} />
                   </div>
                   <Link
                     href={`/portfolio/${project.slug}`}
-                    className="text-sm text-purple-600 hover:text-purple-700 font-medium"
+                    className="text-sm text-orange-600 hover:text-orange-700 font-medium"
                     onClick={(e) => e.stopPropagation()}
                   >
                     Full Details →
@@ -148,7 +152,7 @@ const PortfolioGridSection = () => {
 
         {/* Load More */}
         <div className="text-center mt-16">
-          <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+          <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-full hover:from-orange-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105">
             Load More Projects
           </button>
         </div>

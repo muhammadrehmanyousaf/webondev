@@ -30,7 +30,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
       icon: Clock,
       title: 'On-Time Delivery',
       description: 'Consistent project delivery within agreed timelines and budgets.',
-      color: 'from-green-500 to-teal-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Users,
@@ -71,7 +71,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Why Choose Our
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> {currentService.title}</span>
+            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> {currentService.title}</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We deliver exceptional {currentService.title.toLowerCase()} with a focus on quality, innovation, and client success.
@@ -93,7 +93,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{feature}</h4>
+                  <h4 className="font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">{feature}</h4>
                   <p className="text-gray-600 text-sm">
                     Professional {feature.toLowerCase()} implementation with industry best practices.
                   </p>
@@ -118,7 +118,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
                 
-                <h4 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <h4 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
                   {feature.title}
                 </h4>
                 
@@ -153,7 +153,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                     <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Star className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <h4 className="text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors">
                       {service.title}
                     </h4>
                   </div>
@@ -166,7 +166,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                     {service.features.slice(0, 2).map((feature, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded-full"
+                        className="px-2 py-1 bg-blue-50 text-orange-600 text-xs rounded-full"
                       >
                         {feature}
                       </span>
@@ -178,7 +178,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                     )}
                   </div>
                   
-                  <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all duration-300">
+                  <div className="flex items-center text-orange-600 font-semibold text-sm group-hover:gap-2 transition-all duration-300">
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>

@@ -44,21 +44,21 @@ export function generateOptimizedMetaTags(locationData: LocationData, config: SE
   const metaTags: Record<string, string> = {};
 
   // Basic meta tags
-  metaTags.title = `${locationData.service} in ${locationData.city} - Solutions Indicator`;
+  metaTags.title = `${locationData.service} in ${locationData.city} - Web On Dev`;
   metaTags.description = `Professional ${locationData.service} services in ${locationData.city}, ${locationData.state}, ${locationData.country}. Local expertise with global standards.`;
   metaTags.keywords = `${locationData.service} ${locationData.city}, software development ${locationData.city}, IT services ${locationData.city}, web development ${locationData.city}, mobile app development ${locationData.city}`;
 
   // Open Graph tags
-  metaTags['og:title'] = `${locationData.service} in ${locationData.city} - Solutions Indicator`;
+  metaTags['og:title'] = `${locationData.service} in ${locationData.city} - Web On Dev`;
   metaTags['og:description'] = `Professional ${locationData.service} services in ${locationData.city}, ${locationData.state}, ${locationData.country}`;
   metaTags['og:url'] = `${locationData.businessInfo.website}/where-we-serve/${locationData.country.toLowerCase().replace(/\s+/g, '-')}/${locationData.state.toLowerCase().replace(/\s+/g, '-')}/${locationData.city.toLowerCase().replace(/\s+/g, '-')}/${locationData.service.toLowerCase().replace(/\s+/g, '-')}`;
   metaTags['og:type'] = 'website';
   metaTags['og:image'] = `${locationData.businessInfo.website}/images/services/${locationData.service.toLowerCase().replace(/\s+/g, '-')}-${locationData.city.toLowerCase().replace(/\s+/g, '-')}.jpg`;
-  metaTags['og:site_name'] = 'Solutions Indicator';
+  metaTags['og:site_name'] = 'Web On Dev';
 
   // Twitter Card tags
   metaTags['twitter:card'] = 'summary_large_image';
-  metaTags['twitter:title'] = `${locationData.service} in ${locationData.city} - Solutions Indicator`;
+  metaTags['twitter:title'] = `${locationData.service} in ${locationData.city} - Web On Dev`;
   metaTags['twitter:description'] = `Professional ${locationData.service} services in ${locationData.city}, ${locationData.state}, ${locationData.country}`;
   metaTags['twitter:image'] = `${locationData.businessInfo.website}/images/services/${locationData.service.toLowerCase().replace(/\s+/g, '-')}-${locationData.city.toLowerCase().replace(/\s+/g, '-')}.jpg`;
 
@@ -148,7 +148,7 @@ export function generateLocalPacksData(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     description: `Professional ${locationData.service} services in ${locationData.city}`,
     url: locationData.businessInfo.website,
     telephone: locationData.businessInfo.phone,
@@ -225,8 +225,8 @@ export function generateKnowledgePanelsData(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Solutions Indicator',
-    alternateName: 'Solutions Indicator Software Development',
+    name: 'Web On Dev',
+    alternateName: 'Web On Dev Software Development',
     url: locationData.businessInfo.website,
     logo: {
       '@type': 'ImageObject',
@@ -249,14 +249,14 @@ export function generateKnowledgePanelsData(locationData: LocationData) {
       availableLanguage: ['English', 'Urdu']
     },
     sameAs: [
-      'https://www.tiktok.com/@solutionsindicator.com',
-      'https://www.pinterest.com/solutionsindicator/',
+      'https://www.tiktok.com/@webondev.com',
+      'https://www.pinterest.com/webondev/',
       'https://www.linkedin.com/company/solutions-indicator/',
-      'https://www.youtube.com/@SolutionsIndicatorOfficial',
+      'https://www.youtube.com/@webondevOfficial',
       'https://www.facebook.com/profile.php?id=61580249803527',
-      'https://www.reddit.com/u/solutionsindicator/s/myNp9ZusS9',
+      'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
       'https://x.com/solut_indicator?t=PDtkij5__XQG8tLz9Q7Z6Q&s=09',
-      'https://www.instagram.com/solutionsindicatorofficial?igsh=NXBrdjQweDhtemVi'
+      'https://www.instagram.com/webondevofficial?igsh=NXBrdjQweDhtemVi'
     ],
     foundingDate: '2020-01-01',
     numberOfEmployees: '50-100',
@@ -328,7 +328,7 @@ export function generateSearchBoxData(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     url: locationData.businessInfo.website,
     potentialAction: {
       '@type': 'SearchAction',

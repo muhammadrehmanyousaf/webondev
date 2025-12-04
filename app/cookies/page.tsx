@@ -5,22 +5,22 @@ import Footer from '@/components/layout/Footer';
 import { Cookie, Settings, Shield, Globe, Mail, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy - Solutions Indicator | Cookie Usage & Management',
-  description: 'Learn about how Solutions Indicator uses cookies and similar technologies to improve your browsing experience.',
+  title: 'Cookie Policy - Web On Dev | Cookie Usage & Management',
+  description: 'Learn about how Web On Dev uses cookies and similar technologies to improve your browsing experience.',
   keywords: 'cookie policy, cookies, tracking, web analytics, privacy, data collection',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/cookies/`,
   },
   openGraph: {
-    title: 'Cookie Policy - Solutions Indicator | Cookie Usage & Management',
-    description: 'Learn about how Solutions Indicator uses cookies and similar technologies to improve your browsing experience.',
+    title: 'Cookie Policy - Web On Dev | Cookie Usage & Management',
+    description: 'Learn about how Web On Dev uses cookies and similar technologies to improve your browsing experience.',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/cookies`,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cookie Policy - Solutions Indicator | Cookie Usage & Management',
-    description: 'Learn about how Solutions Indicator uses cookies and similar technologies to improve your browsing experience.',
+    title: 'Cookie Policy - Web On Dev | Cookie Usage & Management',
+    description: 'Learn about how Web On Dev uses cookies and similar technologies to improve your browsing experience.',
   },
 };
 
@@ -252,7 +252,7 @@ export default function CookiePage() {
                   <div className="flex items-start gap-3">
                     <Globe className="w-5 h-5 text-purple-600 mt-0.5" />
                     <div className="text-gray-700">
-                      <div>Solutions Indicator</div>
+                      <div>Web On Dev</div>
                       <div>Lahore Tech Hub, Suite 100</div>
                       <div>Lahore, Pakistan</div>
                     </div>

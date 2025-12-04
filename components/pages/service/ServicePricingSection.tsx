@@ -33,7 +33,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Basic Analytics'
           ],
           popular: false,
-          color: 'from-blue-500 to-purple-500'
+          color: 'from-orange-500 to-orange-600'
         },
         {
           name: 'Professional App',
@@ -50,7 +50,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'API Integration'
           ],
           popular: true,
-          color: 'from-green-500 to-blue-500'
+          color: 'from-orange-500 to-orange-600'
         },
         {
           name: 'Enterprise App',
@@ -106,7 +106,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Email Marketing Setup'
           ],
           popular: true,
-          color: 'from-green-500 to-blue-500'
+          color: 'from-orange-500 to-orange-600'
         },
         {
           name: 'Enterprise Store',
@@ -162,7 +162,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
           'Security Hardening'
         ],
         popular: true,
-        color: 'from-green-500 to-blue-500'
+        color: 'from-orange-500 to-orange-600'
       },
       {
         name: 'Enterprise',
@@ -195,7 +195,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {currentService.title}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Pricing</span>
+            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Pricing</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Choose the perfect plan for your {currentService.title.toLowerCase()} needs. All plans include our quality guarantee and ongoing support.
@@ -208,13 +208,13 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             <div
               key={index}
               className={`relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 ${
-                tier.popular ? 'scale-105 border-blue-200 shadow-xl ring-2 ring-blue-100' : 'hover:scale-105'
+                tier.popular ? 'scale-105 border-orange-200 shadow-xl ring-2 ring-blue-100' : 'hover:scale-105'
               }`}
             >
               {/* Popular Badge */}
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
+                  <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
                     <Star className="w-4 h-4 fill-current" />
                     Most Popular
                   </div>
@@ -232,7 +232,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
               <div className="space-y-4 mb-8">
                 {tier.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0" />
                     <span className="text-gray-700">{feature}</span>
                   </div>
                 ))}
@@ -243,7 +243,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
                 asChild
                 className={`w-full ${
                   tier.popular
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
+                    ? 'bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 shadow-lg hover:shadow-orange-500/50'
                     : 'bg-gray-900 hover:bg-gray-800'
                 } text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105`}
               >
@@ -259,17 +259,17 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
         {/* Value Propositions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl border border-blue-100">
-            <Clock className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+            <Clock className="w-12 h-12 text-orange-600 mx-auto mb-4" />
             <h3 className="text-lg font-bold text-gray-900 mb-2">Fast Delivery</h3>
             <p className="text-gray-600 text-sm">Quick turnaround times without compromising quality</p>
           </div>
-          <div className="text-center p-6 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl border border-green-100">
-            <Shield className="w-12 h-12 text-green-600 mx-auto mb-4" />
+          <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl border border-orange-100">
+            <Shield className="w-12 h-12 text-orange-600 mx-auto mb-4" />
             <h3 className="text-lg font-bold text-gray-900 mb-2">Quality Assured</h3>
             <p className="text-gray-600 text-sm">100% satisfaction guarantee with rigorous testing</p>
           </div>
           <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border border-purple-100">
-            <Zap className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+            <Zap className="w-12 h-12 text-orange-600 mx-auto mb-4" />
             <h3 className="text-lg font-bold text-gray-900 mb-2">Ongoing Support</h3>
             <p className="text-gray-600 text-sm">Continuous support and maintenance included</p>
           </div>
@@ -288,24 +288,24 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600 mb-2">Free</div>
+              <div className="text-2xl font-bold text-orange-600 mb-2">Free</div>
               <div className="text-gray-700 font-medium mb-1">Consultation</div>
               <div className="text-gray-600 text-sm">Detailed project analysis</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-green-600 mb-2">24h</div>
+              <div className="text-2xl font-bold text-orange-600 mb-2">24h</div>
               <div className="text-gray-700 font-medium mb-1">Response Time</div>
               <div className="text-gray-600 text-sm">Quick project quotes</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600 mb-2">100%</div>
+              <div className="text-2xl font-bold text-orange-600 mb-2">100%</div>
               <div className="text-gray-700 font-medium mb-1">Satisfaction</div>
               <div className="text-gray-600 text-sm">Quality guarantee</div>
             </div>
           </div>
 
           <div className="text-center">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+            <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 px-8 py-4 rounded-full shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300 font-semibold">
               <Link href="/contact" className="flex items-center gap-2">
                 Request Custom Quote
                 <ArrowRight className="w-5 h-5" />
@@ -319,3 +319,4 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
 };
 
 export default ServicePricingSection;
+

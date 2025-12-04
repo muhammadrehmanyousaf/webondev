@@ -16,7 +16,7 @@ export async function GET(req: Request) {
   if (format === 'json') {
     const feed = {
       version: 'https://jsonfeed.org/version/1.1',
-      title: 'Solutions Indicator – Portfolio URLs (JSON)',
+      title: 'Web On Dev – Portfolio URLs (JSON)',
       home_page_url: `${baseUrl}/portfolio`,
       feed_url: `${baseUrl}/feeds/portfolio?format=json&limit=${limit}`,
       hubs: [{ type: 'WebSub', url: hub }],
@@ -37,7 +37,7 @@ export async function GET(req: Request) {
     </entry>`).join('');
     const xml = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Solutions Indicator – Portfolio URLs (Atom)</title>
+  <title>Web On Dev – Portfolio URLs (Atom)</title>
   <id>${baseUrl}/portfolio</id>
   <updated>${updated}</updated>
   <link rel="alternate" href="${baseUrl}/portfolio" />
@@ -59,7 +59,7 @@ export async function GET(req: Request) {
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Solutions Indicator – Portfolio URLs (RSS)</title>
+    <title>Web On Dev – Portfolio URLs (RSS)</title>
     <description>Canonical portfolio URLs</description>
     <link>${baseUrl}/portfolio</link>
     <atom:link href="${baseUrl}/feeds/portfolio?format=rss&limit=${limit}" rel="self" type="application/rss+xml" />

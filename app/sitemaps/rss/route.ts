@@ -24,7 +24,7 @@ export async function GET(req: Request) {
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Solutions Indicator – Site URLs (RSS) – Page ${page} / ${pages}</title>
+		<title>Web On Dev – Site URLs (RSS) – Page ${page} / ${pages}</title>
 		<description>All canonical URLs for discovery</description>
 		<link>${baseUrl}</link>
 		<atom:link href="${baseUrl}/sitemaps/rss?page=${page}&size=${size}" rel="self" type="application/rss+xml" />

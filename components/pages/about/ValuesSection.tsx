@@ -9,48 +9,48 @@ const ValuesSection = () => {
       icon: Heart,
       title: 'Client Success First',
       description: 'Your success is our success. We measure our achievements by the growth and satisfaction of our clients.',
-      color: 'from-red-500 to-pink-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Shield,
       title: 'Trust & Transparency',
       description: 'We build lasting relationships through honest communication, reliable delivery, and transparent processes.',
-      color: 'from-blue-500 to-indigo-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Zap,
       title: 'Innovation & Excellence',
       description: 'We stay ahead of technology trends and maintain the highest standards in everything we deliver.',
-      color: 'from-yellow-500 to-orange-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Users,
       title: 'Collaborative Partnership',
       description: 'We work as an extension of your team, fostering collaboration and shared ownership of outcomes.',
-      color: 'from-green-500 to-teal-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Target,
       title: 'Results-Driven Approach',
       description: 'Every decision we make is guided by measurable outcomes and tangible business value.',
-      color: 'from-purple-500 to-violet-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Award,
       title: 'Continuous Learning',
       description: 'We invest in our team\'s growth and stay current with emerging technologies and methodologies.',
-      color: 'from-indigo-500 to-blue-500'
+      color: 'from-orange-500 to-orange-600'
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Our Core
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Values</span>
+            <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent"> Values</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             These fundamental principles guide every decision we make and every solution we deliver. They&apos;re not just words on a wall – they&apos;re the foundation of how we work.
@@ -70,7 +70,7 @@ const ValuesSection = () => {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
                 {value.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">
@@ -88,7 +88,7 @@ const ValuesSection = () => {
           <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto border border-gray-100">
             <blockquote className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-relaxed">
               &ldquo;We don&apos;t just build software – we build
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> partnerships </span>
+              <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent"> partnerships </span>
               that drive lasting success.&rdquo;
             </blockquote>
             <div className="flex items-center justify-center gap-4">

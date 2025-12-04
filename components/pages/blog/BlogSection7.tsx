@@ -35,21 +35,21 @@ const BlogSection7: React.FC = () => {
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Site Architecture & URL Structure</h4>
                       <p className="text-gray-600">Clean, logical URL structures that are both user and search engine friendly.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">XML Sitemaps & Robots.txt</h4>
                       <p className="text-gray-600">Proper sitemap generation and robots.txt configuration for optimal crawling.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Schema Markup & Structured Data</h4>
                       <p className="text-gray-600">Rich snippets and structured data to enhance search result appearance.</p>
@@ -60,7 +60,7 @@ const BlogSection7: React.FC = () => {
 
               <div className="bg-gray-900 rounded-2xl p-6 shadow-lg">
                 <h4 className="text-lg font-semibold text-white mb-4">Technical SEO Implementation</h4>
-                <div className="bg-gray-800 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+                <div className="bg-gray-800 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                   <pre>{`// Next.js SEO optimization
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
@@ -187,21 +187,21 @@ export async function generateSitemap() {
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Topic Clusters & Pillar Pages</h4>
                     <p className="text-gray-600">Create comprehensive content hubs that cover topics thoroughly and establish authority.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">User Intent Optimization</h4>
                     <p className="text-gray-600">Match content to different types of user intent: informational, navigational, commercial, and transactional.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Long-tail Keywords</h4>
                     <p className="text-gray-600">Target specific, less competitive keywords that often convert better.</p>
@@ -221,9 +221,9 @@ export async function generateSitemap() {
                     <li>• User persona development and journey mapping</li>
                   </ul>
                 </div>
-                <div className="bg-green-50 rounded-lg p-4">
-                  <h5 className="font-semibold text-green-900 mb-2">2. Planning Phase</h5>
-                  <ul className="text-sm text-green-800 space-y-1">
+                <div className="bg-orange-50 rounded-lg p-4">
+                  <h5 className="font-semibold text-orange-900 mb-2">2. Planning Phase</h5>
+                   <ul className="text-sm text-orange-800 space-y-1">
                     <li>• Content calendar and topic prioritization</li>
                     <li>• Content format selection (blog, video, infographic)</li>
                     <li>• Internal linking strategy development</li>
@@ -278,28 +278,28 @@ export async function generateSitemap() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <BarChart3 className="w-6 h-6 text-blue-600" />
+                <BarChart3 className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">SEO Analytics & KPIs</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Organic traffic growth and conversion rates
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Keyword rankings and search visibility
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Click-through rates and bounce rates
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Page speed and Core Web Vitals
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Backlink profile and domain authority
                 </li>
               </ul>
@@ -307,28 +307,28 @@ export async function generateSitemap() {
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <TrendingUp className="w-6 h-6 text-green-600" />
+                 <TrendingUp className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">Modern SEO Trends</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Voice search optimization and conversational queries
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   AI-powered content and personalization
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Mobile-first indexing and optimization
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Featured snippets and zero-click searches
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Core Web Vitals and page experience signals
                 </li>
               </ul>
@@ -336,7 +336,7 @@ export async function generateSitemap() {
           </div>
 
           {/* Advanced SEO Techniques */}
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
             <div className="flex items-center gap-3 mb-6">
               <Target className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Advanced SEO Techniques & Future Trends</h3>
@@ -371,3 +371,4 @@ export async function generateSitemap() {
 };
 
 export default BlogSection7;
+

@@ -62,11 +62,12 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-100">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">{caseStudy.title}</h2>
-            <p className="text-gray-600 mt-1">{caseStudy.subtitle}</p>
+            <h2 className="text-2xl font-bold text-slate-900">{caseStudy.title}</h2>
+            <p className="text-slate-600 mt-1">{caseStudy.subtitle}</p>
           </div>
           <button
             onClick={onClose}
+            title="Close modal"
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
             <X className="w-6 h-6 text-gray-500" />
@@ -84,33 +85,33 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute bottom-6 left-6 text-white">
-              <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium inline-block mb-2">
+              <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium inline-block mb-2">
                 {caseStudy.category}
               </div>
               <h3 className="text-2xl font-bold mb-1">{caseStudy.title}</h3>
-              <p className="text-blue-100">{caseStudy.subtitle}</p>
+              <p className="text-orange-100">{caseStudy.subtitle}</p>
             </div>
           </div>
 
           <div className="p-6">
             {/* Project Overview */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-xl">
-                <Calendar className="w-5 h-5 text-blue-600" />
+                <Calendar className="w-5 h-5 text-orange-500" />
                 <div>
                   <div className="text-sm text-gray-500">Duration</div>
                   <div className="font-semibold text-gray-900">{caseStudy.duration}</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-xl">
-                <Users className="w-5 h-5 text-blue-600" />
+                <Users className="w-5 h-5 text-orange-500" />
                 <div>
                   <div className="text-sm text-gray-500">Team Size</div>
                   <div className="font-semibold text-gray-900">{caseStudy.teamSize}</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-xl">
-                <Globe className="w-5 h-5 text-blue-600" />
+                <Globe className="w-5 h-5 text-orange-500" />
                 <div>
                   <div className="text-sm text-gray-500">Location</div>
                   <div className="font-semibold text-gray-900">{caseStudy.location}</div>
@@ -126,18 +127,18 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
 
             {/* Client & Industry */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="p-4 bg-blue-50 rounded-xl">
+              <div className="p-4 bg-orange-50 rounded-xl">
                 <h4 className="font-semibold text-gray-900 mb-2">Client</h4>
                 <p className="text-gray-600">{caseStudy.client}</p>
               </div>
-              <div className="p-4 bg-green-50 rounded-xl">
+              <div className="p-4 bg-orange-50 rounded-xl">
                 <h4 className="font-semibold text-gray-900 mb-2">Industry</h4>
                 <p className="text-gray-600">{caseStudy.industry}</p>
               </div>
             </div>
 
             {/* Challenges & Solutions */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                   <Code className="w-5 h-5 text-red-500 mr-2" />
@@ -154,13 +155,13 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
+                  <CheckCircle className="w-5 h-5 text-orange-400 mr-2" />
                   Solutions
                 </h4>
                 <ul className="space-y-3">
                   {caseStudy.solutions.map((solution, index) => (
                     <li key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                      <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0" />
                       <span className="text-gray-600">{solution}</span>
                     </li>
                   ))}
@@ -184,15 +185,15 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
             </div>
 
             {/* Results */}
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl p-6">
               <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <TrendingUp className="w-5 h-5 text-blue-600 mr-2" />
+                <TrendingUp className="w-5 h-5 text-orange-500 mr-2" />
                 Key Results
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseStudy.results.map((result, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{result}</span>
                   </div>
                 ))}
@@ -209,7 +210,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
             </div>
             <button
               onClick={onClose}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
             >
               Get Started
             </button>

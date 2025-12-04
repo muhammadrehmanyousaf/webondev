@@ -35,21 +35,21 @@ const BlogSection10: React.FC = () => {
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Continuous Integration</h4>
                       <p className="text-gray-600">Automated building and testing of code changes as they are committed to version control.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Continuous Deployment</h4>
                       <p className="text-gray-600">Automated deployment of code changes to production environments after passing tests.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Infrastructure as Code</h4>
                       <p className="text-gray-600">Managing and provisioning infrastructure through code rather than manual processes.</p>
@@ -60,7 +60,7 @@ const BlogSection10: React.FC = () => {
 
               <div className="bg-gray-900 rounded-2xl p-6 shadow-lg">
                 <h4 className="text-lg font-semibold text-white mb-4">CI/CD Pipeline Implementation</h4>
-                <div className="bg-gray-800 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+                <div className="bg-gray-800 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                   <pre>{`# GitHub Actions workflow example
 name: Deploy to Production
 
@@ -207,21 +207,21 @@ spec:
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Blue-Green Deployment</h4>
                     <p className="text-gray-600">Maintain two identical production environments and switch traffic between them.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Canary Deployment</h4>
                     <p className="text-gray-600">Gradually roll out changes to a small subset of users before full deployment.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Rolling Deployment</h4>
                     <p className="text-gray-600">Update instances one by one while maintaining service availability.</p>
@@ -235,7 +235,7 @@ spec:
               <div className="space-y-4">
                 <div className="bg-blue-50 rounded-lg p-4">
                   <h5 className="font-semibold text-blue-900 mb-2">Vercel Configuration</h5>
-                  <div className="bg-gray-900 rounded p-2 text-xs text-green-400 font-mono">
+                  <div className="bg-gray-900 rounded p-2 text-xs text-orange-400 font-mono">
                     <pre>{`// vercel.json
 {
   "version": 2,
@@ -258,9 +258,9 @@ spec:
 }`}</pre>
                   </div>
                 </div>
-                <div className="bg-green-50 rounded-lg p-4">
-                  <h5 className="font-semibold text-green-900 mb-2">Docker Compose</h5>
-                  <div className="bg-gray-900 rounded p-2 text-xs text-green-400 font-mono">
+                <div className="bg-orange-50 rounded-lg p-4">
+                  <h5 className="font-semibold text-orange-900 mb-2">Docker Compose</h5>
+                  <div className="bg-gray-900 rounded p-2 text-xs text-orange-400 font-mono">
                     <pre>{`version: '3.8'
 services:
   web:
@@ -288,7 +288,7 @@ volumes:
                 </div>
                 <div className="bg-purple-50 rounded-lg p-4">
                   <h5 className="font-semibold text-purple-900 mb-2">Environment Variables</h5>
-                  <div className="bg-gray-900 rounded p-2 text-xs text-green-400 font-mono">
+                  <div className="bg-gray-900 rounded p-2 text-xs text-orange-400 font-mono">
                     <pre>{`# .env.production
 NODE_ENV=production
 DATABASE_URL=postgresql://...
@@ -306,18 +306,18 @@ SMTP_PASS=your-app-password`}</pre>
           </div>
 
           {/* Monitoring & Observability */}
-          <div className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-600 rounded-2xl p-8 text-white mb-16">
             <div className="flex items-center gap-3 mb-6">
               <BarChart3 className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Monitoring & Observability</h3>
             </div>
-            <p className="text-green-100 mb-6 leading-relaxed">
+            <p className="text-orange-100 mb-6 leading-relaxed">
               Effective monitoring and observability are essential for maintaining application health and performance in production. Implementing comprehensive logging, metrics, and alerting helps identify and resolve issues quickly.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-semibold mb-3">Application Monitoring</h4>
-                <ul className="space-y-2 text-green-100">
+                <ul className="space-y-2 text-orange-100">
                   <li>• Performance monitoring and APM tools</li>
                   <li>• Error tracking and crash reporting</li>
                   <li>• User experience monitoring (RUM)</li>
@@ -327,7 +327,7 @@ SMTP_PASS=your-app-password`}</pre>
               </div>
               <div>
                 <h4 className="font-semibold mb-3">Infrastructure Monitoring</h4>
-                <ul className="space-y-2 text-green-100">
+                <ul className="space-y-2 text-orange-100">
                   <li>• Server and container monitoring</li>
                   <li>• Network and security monitoring</li>
                   <li>• Log aggregation and analysis</li>
@@ -342,28 +342,28 @@ SMTP_PASS=your-app-password`}</pre>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <GitBranch className="w-6 h-6 text-blue-600" />
+                <GitBranch className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">DevOps Best Practices</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Version control and branching strategies
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Automated testing in CI/CD pipelines
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Infrastructure as code and configuration management
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Security scanning and vulnerability management
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Documentation and knowledge sharing
                 </li>
               </ul>
@@ -371,28 +371,28 @@ SMTP_PASS=your-app-password`}</pre>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Server className="w-6 h-6 text-purple-600" />
+                <Server className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">Production Readiness</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Environment-specific configurations
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Backup and disaster recovery plans
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   SSL/TLS certificates and security headers
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   CDN configuration and caching strategies
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Performance optimization and scaling strategies
                 </li>
               </ul>
@@ -400,7 +400,7 @@ SMTP_PASS=your-app-password`}</pre>
           </div>
 
           {/* Advanced Deployment Features */}
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
             <div className="flex items-center gap-3 mb-6">
               <Rocket className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Advanced Deployment Features & Future Trends</h3>
@@ -435,3 +435,4 @@ SMTP_PASS=your-app-password`}</pre>
 };
 
 export default BlogSection10;
+

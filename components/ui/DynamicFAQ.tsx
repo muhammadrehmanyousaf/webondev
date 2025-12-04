@@ -25,7 +25,7 @@ export default function DynamicFAQ({
   
   const faqs: FAQItem[] = [
     {
-      question: `How does Solutions Indicator ensure quality ${service} delivery ${location}?`,
+      question: `How does Web On Dev ensure quality ${service} delivery ${location}?`,
       answer: `Our ${service} team maintains rigorous quality standards through automated testing, code reviews, and continuous integration pipelines. We implement agile methodologies with daily standups, sprint planning, and regular client check-ins to ensure deliverables meet your business objectives and technical requirements across all time zones.`
     },
     {
@@ -85,8 +85,8 @@ export default function DynamicFAQ({
       <section className={`py-20 bg-white animate-on-scroll ${className}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Frequently Asked Questions About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{service}</span> {location}
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Frequently Asked Questions About <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{service}</span> {location}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Get answers to common questions about our {service} services and how we deliver results for businesses in {city}, {state}, and worldwide.

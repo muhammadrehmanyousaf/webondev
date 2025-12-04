@@ -27,13 +27,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   
   if (!project) {
     return {
-      title: 'Project Not Found - Solutions Indicator',
+      title: 'Project Not Found - Web On Dev',
       description: 'The requested project could not be found.',
     };
   }
 
   return {
-    title: `${project.title} - Solutions Indicator Portfolio`,
+    title: `${project.title} - Web On Dev Portfolio`,
     description: project.description,
     keywords: `${project.title}, ${project.category}, ${project.technologies.join(', ')}, portfolio, case study`,
   };

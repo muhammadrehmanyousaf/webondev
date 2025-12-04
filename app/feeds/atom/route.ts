@@ -26,7 +26,7 @@ export async function GET(req: Request) {
 
 	const xml = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<title>Solutions Indicator – Site URLs (Atom) – Page ${page} / ${pages}</title>
+	<title>Web On Dev – Site URLs (Atom) – Page ${page} / ${pages}</title>
 	<id>${baseUrl}/</id>
 	<updated>${updated}</updated>
 	<link rel="alternate" href="${baseUrl}" />

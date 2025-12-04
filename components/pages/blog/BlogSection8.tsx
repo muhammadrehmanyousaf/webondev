@@ -35,21 +35,21 @@ const BlogSection8: React.FC = () => {
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Multi-Factor Authentication (MFA)</h4>
                       <p className="text-gray-600">Implement multiple verification methods to enhance account security.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">OAuth 2.0 & OpenID Connect</h4>
                       <p className="text-gray-600">Standard protocols for secure authorization and identity management.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Role-Based Access Control (RBAC)</h4>
                       <p className="text-gray-600">Granular permission systems based on user roles and responsibilities.</p>
@@ -60,7 +60,7 @@ const BlogSection8: React.FC = () => {
 
               <div className="bg-gray-900 rounded-2xl p-6 shadow-lg">
                 <h4 className="text-lg font-semibold text-white mb-4">Secure Authentication Implementation</h4>
-                <div className="bg-gray-800 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+                <div className="bg-gray-800 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                   <pre>{`// Next.js with NextAuth.js implementation
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -219,7 +219,7 @@ export default async function handler(req, res) {
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
               <h4 className="text-lg font-semibold text-gray-900 mb-6">Security Headers & Configuration</h4>
-              <div className="bg-gray-900 rounded-lg p-4 text-sm text-green-400 font-mono overflow-x-auto">
+              <div className="bg-gray-900 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
                 <pre>{`// Next.js security configuration
 // next.config.js
 const securityHeaders = [
@@ -306,18 +306,18 @@ const limiter = rateLimit({
           </div>
 
           {/* Security Testing & Monitoring */}
-          <div className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white mb-16">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-600 rounded-2xl p-8 text-white mb-16">
             <div className="flex items-center gap-3 mb-6">
               <Shield className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Security Testing & Continuous Monitoring</h3>
             </div>
-            <p className="text-green-100 mb-6 leading-relaxed">
+            <p className="text-orange-100 mb-6 leading-relaxed">
               Regular security testing and continuous monitoring help identify vulnerabilities before they can be exploited. Implementing automated security checks and monitoring systems is essential for maintaining a secure application.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-semibold mb-3">Security Testing Methods</h4>
-                <ul className="space-y-2 text-green-100">
+                <ul className="space-y-2 text-orange-100">
                   <li>• Automated vulnerability scanning and penetration testing</li>
                   <li>• Static application security testing (SAST)</li>
                   <li>• Dynamic application security testing (DAST)</li>
@@ -327,7 +327,7 @@ const limiter = rateLimit({
               </div>
               <div>
                 <h4 className="font-semibold mb-3">Monitoring & Incident Response</h4>
-                <ul className="space-y-2 text-green-100">
+                <ul className="space-y-2 text-orange-100">
                   <li>• Real-time security event monitoring</li>
                   <li>• Intrusion detection and prevention systems</li>
                   <li>• Log analysis and anomaly detection</li>
@@ -342,28 +342,28 @@ const limiter = rateLimit({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Key className="w-6 h-6 text-blue-600" />
+                <Key className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">Security Best Practices</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Regular security updates and patch management
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Principle of least privilege access control
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Secure development lifecycle (SDL) implementation
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Regular security training for development teams
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Secure configuration management and secrets handling
                 </li>
               </ul>
@@ -371,28 +371,28 @@ const limiter = rateLimit({
 
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Eye className="w-6 h-6 text-purple-600" />
+                <Eye className="w-6 h-6 text-orange-600" />
                 <h4 className="font-semibold text-gray-900">Privacy & Compliance</h4>
               </div>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   GDPR compliance and data protection by design
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Cookie consent and privacy policy implementation
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Data minimization and purpose limitation
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   User rights management and data portability
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   Regular privacy impact assessments and audits
                 </li>
               </ul>
@@ -400,7 +400,7 @@ const limiter = rateLimit({
           </div>
 
           {/* Advanced Security Features */}
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
             <div className="flex items-center gap-3 mb-6">
               <Shield className="w-8 h-8 text-white" />
               <h3 className="text-2xl font-bold">Advanced Security Features & Emerging Threats</h3>
@@ -435,3 +435,4 @@ const limiter = rateLimit({
 };
 
 export default BlogSection8;
+

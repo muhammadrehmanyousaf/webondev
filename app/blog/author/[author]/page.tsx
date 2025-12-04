@@ -23,22 +23,22 @@ export async function generateMetadata({ params }: AuthorPageProps): Promise<Met
   
   if (posts.length === 0) {
     return {
-      title: 'Author Not Found | Solutions Indicator',
+      title: 'Author Not Found | Web On Dev',
     };
   }
 
   return {
-    title: `${author} - Expert Articles & Insights | Solutions Indicator`,
+    title: `${author} - Expert Articles & Insights | Web On Dev`,
     description: `Read expert articles and insights by ${author} on web development, digital marketing, and technology. Discover valuable content from our industry expert.`,
     keywords: `${author.toLowerCase()}, web development, digital marketing, technology, expert insights, articles`,
     openGraph: {
-      title: `${author} - Expert Articles & Insights | Solutions Indicator`,
+      title: `${author} - Expert Articles & Insights | Web On Dev`,
       description: `Read expert articles and insights by ${author} on web development, digital marketing, and technology.`,
       type: 'profile',
-      url: `https://solutionsindicator.com/blog/author/${authorSlug}`,
+      url: `https://webondev.com/blog/author/${authorSlug}`,
     },
     alternates: {
-      canonical: `https://solutionsindicator.com/blog/author/${authorSlug}`,
+      canonical: `https://webondev.com/blog/author/${authorSlug}`,
     },
   };
 }

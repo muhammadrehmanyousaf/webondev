@@ -88,7 +88,7 @@ const Footer = () => {
   };
 
   const companyInfo = {
-    name: "Solutions Indicator",
+    name: "Web On Dev",
     tagline: "Transforming businesses through innovative software solutions",
     description: "We are a leading software development company specializing in custom web applications, mobile apps, and digital transformation services for businesses worldwide."
   };
@@ -120,13 +120,13 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Facebook, href: "https://www.facebook.com/share/1CFWLYFFR2/", label: "Facebook" },
-    { icon: Instagram, href: "https://www.instagram.com/solutionsindicatorofficial", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/webondevofficial", label: "Instagram" },
     { icon: Twitter, href: "https://x.com/solut_indicator", label: "X (Twitter)" },
     { icon: Linkedin, href: "https://www.linkedin.com/company/solutions-indicator/", label: "LinkedIn" },
-    { icon: Youtube, href: "https://www.youtube.com/@SolutionsIndicatorOfficial", label: "YouTube" },
-    { icon: SiTiktok, href: "https://www.tiktok.com/@solutionsindicator.com", label: "TikTok" },
-    { icon: SiPinterest, href: "https://www.pinterest.com/solutionsindicator/", label: "Pinterest" },
-    { icon: SiReddit, href: "https://www.reddit.com/u/solutionsindicator/s/myNp9ZusS9", label: "Reddit" }
+    { icon: Youtube, href: "https://www.youtube.com/@webondevOfficial", label: "YouTube" },
+    { icon: SiTiktok, href: "https://www.tiktok.com/@webondev.com", label: "TikTok" },
+    { icon: SiPinterest, href: "https://www.pinterest.com/webondev/", label: "Pinterest" },
+    { icon: SiReddit, href: "https://www.reddit.com/u/webondev/s/myNp9ZusS9", label: "Reddit" }
   ];
 
   return (
@@ -160,14 +160,14 @@ const Footer = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-orange-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
                     required
                   />
                 </div>
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                  className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 shadow-lg hover:shadow-orange-500/50"
                 >
                   {isSubmitting ? (
                     <>
@@ -193,12 +193,12 @@ const Footer = () => {
             {/* Company Information */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">SI</span>
+                <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/50">
+                  <span className="text-white font-bold text-lg">WD</span>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">{companyInfo.name}</h3>
-                  <p className="text-blue-400 text-sm font-medium">{companyInfo.tagline}</p>
+                  <p className="text-orange-400 text-sm font-medium">{companyInfo.tagline}</p>
                 </div>
               </div>
               
@@ -210,22 +210,22 @@ const Footer = () => {
               <div className="space-y-3">
                 <button 
                   onClick={handleEmailClick}
-                  className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors group w-full text-left"
+                  className="flex items-center space-x-3 text-gray-300 hover:text-orange-400 transition-all duration-200 group w-full text-left hover:translate-x-1"
                 >
-                  <Mail className="w-4 h-4 text-blue-400" />
+                  <Mail className="w-4 h-4 text-orange-400" />
                   <span className="text-sm break-all">muhammadrehmanyousaf786@gmail.com</span>
                 </button>
 
                 <button 
                   onClick={handlePhoneClick}
-                  className="flex items-center space-x-3 text-gray-300 hover:text-green-400 transition-colors group w-full text-left"
+                  className="flex items-center space-x-3 text-gray-300 hover:text-orange-400 transition-all duration-200 group w-full text-left hover:translate-x-1"
                 >
-                  <Phone className="w-4 h-4 text-green-400" />
+                  <Phone className="w-4 h-4 text-orange-400" />
                   <span className="text-sm">+92 310 6803687</span>
                 </button>
 
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <MapPin className="w-4 h-4 text-purple-400" />
+                <div className="flex items-center space-x-3 text-gray-300 group hover:text-orange-400 transition-all duration-200">
+                  <MapPin className="w-4 h-4 text-orange-400" />
                   <span className="text-sm">Pakistan, Dubai, US & Canada</span>
                 </div>
               </div>
@@ -239,9 +239,9 @@ const Footer = () => {
                   <li key={index}>
                     <Link 
                       href={link.href}
-                      className="text-gray-300 hover:text-blue-400 transition-colors text-sm flex items-center group"
+                      className="text-gray-300 hover:text-orange-400 transition-all duration-200 text-sm flex items-center group"
                     >
-                      <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 group-hover:text-orange-400 transition-all duration-200" />
                       {link.name}
                     </Link>
                   </li>
@@ -257,9 +257,9 @@ const Footer = () => {
                   <li key={index}>
                     <Link 
                       href={service.href}
-                      className="text-gray-300 hover:text-blue-400 transition-colors text-sm flex items-center group"
+                      className="text-gray-300 hover:text-orange-400 transition-all duration-200 text-sm flex items-center group"
                     >
-                      <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 group-hover:text-orange-400 transition-all duration-200" />
                       {service.name}
                     </Link>
                   </li>
@@ -275,9 +275,9 @@ const Footer = () => {
                   <li key={index}>
                     <Link 
                       href={link.href}
-                      className="text-gray-300 hover:text-blue-400 transition-colors text-sm flex items-center group"
+                      className="text-gray-300 hover:text-orange-400 transition-all duration-200 text-sm flex items-center group"
                     >
-                      <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 group-hover:text-orange-400 transition-all duration-200" />
                       {link.name}
                     </Link>
                   </li>
@@ -294,10 +294,10 @@ const Footer = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 group"
+                      className="w-10 h-10 bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500/30 rounded-lg flex items-center justify-center hover:from-orange-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-110 group shadow-lg hover:shadow-orange-500/50"
                       aria-label={social.label}
                     >
-                      <social.icon className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                      <social.icon className="w-4 h-4 text-orange-400 group-hover:text-white transition-colors" />
                     </a>
                   ))}
                 </div>
@@ -321,15 +321,15 @@ const Footer = () => {
               {/* Trust Indicators */}
               <div className="flex flex-col sm:flex-row items-center gap-4 text-xs text-gray-400">
                 <div className="flex items-center gap-2">
-                  <Globe className="w-4 h-4 text-blue-400" />
+                  <Globe className="w-4 h-4 text-orange-400" />
                   <span>Global Presence</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-green-400" />
+                  <Shield className="w-4 h-4 text-orange-400" />
                   <span>Secure & Compliant</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-purple-400" />
+                  <Award className="w-4 h-4 text-orange-400" />
                   <span>Award Winning</span>
                 </div>
               </div>
@@ -344,37 +344,37 @@ const Footer = () => {
                 <a href="https://clutch.co/profile/solutions-indicator" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   className="flex items-center justify-center bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-all group">
+                   className="flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-4 hover:from-orange-600 hover:to-orange-700 transition-all duration-300 group hover:shadow-lg hover:shadow-orange-500/30">
                    <span className="text-gray-400 group-hover:text-white font-medium">Clutch</span>
                 </a>
                 <a href="https://www.goodfirms.co/company/solutions-indicator" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   className="flex items-center justify-center bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-all group">
+                   className="flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-4 hover:from-orange-600 hover:to-orange-700 transition-all duration-300 group hover:shadow-lg hover:shadow-orange-500/30">
                    <span className="text-gray-400 group-hover:text-white font-medium">GoodFirms</span>
                 </a>
                 <a href="https://www.designrush.com/agency/profile/solutions-indicator" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   className="flex items-center justify-center bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-all group">
+                   className="flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-4 hover:from-orange-600 hover:to-orange-700 transition-all duration-300 group hover:shadow-lg hover:shadow-orange-500/30">
                    <span className="text-gray-400 group-hover:text-white font-medium">DesignRush</span>
                 </a>
                 <a href="https://www.upwork.com/agency-profile/solutions-indicator" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   className="flex items-center justify-center bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-all group">
+                   className="flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-4 hover:from-orange-600 hover:to-orange-700 transition-all duration-300 group hover:shadow-lg hover:shadow-orange-500/30">
                    <span className="text-gray-400 group-hover:text-white font-medium">Upwork</span>
                 </a>
                 <a href="https://www.themanifest.com/profile/solutions-indicator" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   className="flex items-center justify-center bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-all group">
+                   className="flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-4 hover:from-orange-600 hover:to-orange-700 transition-all duration-300 group hover:shadow-lg hover:shadow-orange-500/30">
                    <span className="text-gray-400 group-hover:text-white font-medium">The Manifest</span>
                 </a>
                 <a href="https://www.g2.com/products/solutions-indicator" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   className="flex items-center justify-center bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-all group">
+                   className="flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-4 hover:from-orange-600 hover:to-orange-700 transition-all duration-300 group hover:shadow-lg hover:shadow-orange-500/30">
                    <span className="text-gray-400 group-hover:text-white font-medium">G2</span>
                 </a>
               </div>
@@ -396,7 +396,7 @@ const Footer = () => {
                     <span>Global Presence</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-green-400" />
+                    <Shield className="w-4 h-4 text-orange-400" />
                     <span>Secure & Compliant</span>
                   </div>
                   <div className="flex items-center gap-2">

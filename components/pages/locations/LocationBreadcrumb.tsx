@@ -16,19 +16,19 @@ interface LocationBreadcrumbProps {
 
 const LocationBreadcrumb = ({ items }: LocationBreadcrumbProps) => {
   return (
-    <nav className="bg-white border-b border-gray-200 py-4 mt-16 sticky top-16 z-30 hidden sm:block">
+    <nav className="bg-gradient-to-r from-white to-orange-50/50 border-b border-orange-200 py-3 sticky top-20 z-30 hidden sm:block shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ol className="flex items-center space-x-2 text-sm">
           {items.map((item, index) => (
             <li key={item.href} className="flex items-center">
               {index > 0 && (
-                <ChevronRight className="w-4 h-4 text-gray-400 mx-2" />
+                <ChevronRight className="w-4 h-4 text-orange-300 mx-2" />
               )}
               
               {item.current ? (
-                <span className="text-gray-900 font-medium">
+                <span className="text-gray-900 font-semibold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
                   {item.name === 'Home' ? (
-                    <Home className="w-4 h-4" />
+                    <Home className="w-4 h-4 text-orange-600" />
                   ) : (
                     item.name
                   )}
@@ -36,7 +36,7 @@ const LocationBreadcrumb = ({ items }: LocationBreadcrumbProps) => {
               ) : (
                 <Link
                   href={item.href}
-                  className="text-gray-500 hover:text-blue-600 transition-colors duration-200 flex items-center gap-1"
+                  className="text-gray-600 hover:text-orange-600 transition-colors duration-200 flex items-center gap-1 font-medium"
                 >
                   {item.name === 'Home' ? (
                     <>
@@ -57,3 +57,4 @@ const LocationBreadcrumb = ({ items }: LocationBreadcrumbProps) => {
 };
 
 export default LocationBreadcrumb;
+

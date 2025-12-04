@@ -30,7 +30,7 @@ const BlogIntroduction: React.FC<BlogIntroductionProps> = ({
         <div className="max-w-4xl mx-auto text-center">
           {/* Category Badge */}
           <div className="mb-6">
-            <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 text-sm font-semibold">
+            <Badge className="bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-2 text-sm font-semibold">
               {category}
             </Badge>
           </div>
@@ -48,15 +48,15 @@ const BlogIntroduction: React.FC<BlogIntroductionProps> = ({
           {/* Meta Information */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-500 mb-8">
             <div className="flex items-center gap-2">
-              <User className="w-5 h-5 text-blue-600" />
+              <User className="w-5 h-5 text-orange-600" />
               <span className="font-medium">{author}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-blue-600" />
+              <Calendar className="w-5 h-5 text-orange-600" />
               <span>{date}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-5 h-5 text-blue-600" />
+              <Clock className="w-5 h-5 text-orange-600" />
               <span>{readTime}</span>
             </div>
           </div>
@@ -67,7 +67,7 @@ const BlogIntroduction: React.FC<BlogIntroductionProps> = ({
               <Badge 
                 key={index} 
                 variant="outline" 
-                className="border-blue-200 text-blue-700 hover:bg-blue-50 transition-colors cursor-pointer"
+                className="border-orange-200 text-blue-700 hover:bg-blue-50 transition-colors cursor-pointer"
               >
                 {tag}
               </Badge>
@@ -94,7 +94,7 @@ const BlogIntroduction: React.FC<BlogIntroductionProps> = ({
               </Link>
               <Link 
                 href="#best-practices" 
-                className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors text-sm font-medium"
               >
                 Best Practices
                 <ArrowRight className="w-4 h-4" />
@@ -108,3 +108,4 @@ const BlogIntroduction: React.FC<BlogIntroductionProps> = ({
 };
 
 export default BlogIntroduction;
+

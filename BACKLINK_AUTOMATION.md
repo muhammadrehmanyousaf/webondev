@@ -96,7 +96,7 @@ This system implements white-hat, semi-automated backlink generation through con
 
 ### Required
 ```bash
-NEXT_PUBLIC_SITE_URL=https://www.solutionsindicator.com
+NEXT_PUBLIC_SITE_URL=https://www.webondev.com
 ADMIN_API_TOKEN=your-strong-token
 ```
 

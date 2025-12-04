@@ -4,7 +4,7 @@ import { locationData } from '@/lib/location-data';
 import { getAllCountriesAPI, getStatesByCountryAPI, getCitiesByStateAPI } from '@/lib/location-api';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://solutionsindicator.com';
+  const baseUrl = 'https://webondev.com';
   
   // Static pages
   const staticPages = [

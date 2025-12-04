@@ -71,7 +71,7 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <Badge className="bg-green-100 text-green-700 px-4 py-2 text-sm font-medium mb-4">
+            <Badge className="bg-orange-100 text-orange-700 px-4 py-2 text-sm font-medium mb-4">
               Resources
             </Badge>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -105,14 +105,14 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
                       <div className="bg-white rounded-xl p-4 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 group-hover:bg-blue-50">
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
-                            <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1">
+                            <h4 className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors mb-1">
                               {link.name}
                             </h4>
                             <p className="text-sm text-gray-600">
                               {link.description}
                             </p>
                           </div>
-                          <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                          <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-orange-600 group-hover:translate-x-1 transition-all" />
                         </div>
                       </div>
                     </Link>
@@ -123,7 +123,7 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
           </div>
 
           {/* Additional Resources */}
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+          <div className="mt-16 bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold mb-4">
                 Ready to Get Started?
@@ -193,3 +193,5 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
 };
 
 export default BlogImportantLinks;
+
+

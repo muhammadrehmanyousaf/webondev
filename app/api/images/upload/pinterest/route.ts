@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
   const imageUrl = body?.imageUrl as string;
   const link = (body?.link as string) || getBaseUrl();
-  const title = (body?.title as string) || 'Solutions Indicator';
+  const title = (body?.title as string) || 'Web On Dev';
   const description = (body?.description as string) || 'Software Development & Growth';
   const boardId = (body?.boardId as string) || defaultBoard;
   if (!imageUrl || !boardId) return NextResponse.json({ error: 'imageUrl and boardId required' }, { status: 400 });

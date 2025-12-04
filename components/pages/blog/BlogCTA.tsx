@@ -18,7 +18,7 @@ const BlogCTA: React.FC<BlogCTAProps> = ({
 }) => {
   if (variant === 'primary') {
     return (
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-orange-600 to-orange-700 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
@@ -28,13 +28,13 @@ const BlogCTA: React.FC<BlogCTAProps> = ({
               {description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+              <Button asChild size="lg" className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
                 <Link href="/contact">
                   Get Free Consultation
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold">
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold">
                 <Link href="/portfolio">
                   View Our Work
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -68,7 +68,7 @@ const BlogCTA: React.FC<BlogCTAProps> = ({
             {description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 text-lg font-semibold">
+            <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-blue-700 hover:to-purple-700 px-8 py-4 text-lg font-semibold">
               <Link href="/services">
                 Explore Our Services
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -88,3 +88,4 @@ const BlogCTA: React.FC<BlogCTAProps> = ({
 };
 
 export default BlogCTA;
+

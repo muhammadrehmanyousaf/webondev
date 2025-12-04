@@ -122,11 +122,11 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
   };
 
   return (
-    <section id="contact-form" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+  <section id="contact-form" className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Get Started in <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{cityName}</span>
+            Get Started in <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">{cityName}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ready to transform your business? Let's discuss your project and how we can help you succeed in {cityName}.
@@ -139,8 +139,10 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
             <h3 className="text-2xl font-bold text-gray-900 mb-8">Let's Connect</h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-white" />
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center bg-transparent">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Call Us</h4>
@@ -150,8 +152,10 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-white" />
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center bg-transparent">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Email Us</h4>
@@ -161,8 +165,10 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-white" />
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center bg-transparent">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-500 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Local Presence</h4>
@@ -176,19 +182,19 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
               <h4 className="text-lg font-semibold text-gray-900 mb-4">Why Choose Us?</h4>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <CheckCircle className="w-5 h-5 text-orange-400" />
                   <span className="text-gray-700">Local market expertise</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <CheckCircle className="w-5 h-5 text-orange-400" />
                   <span className="text-gray-700">Proven track record</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <CheckCircle className="w-5 h-5 text-orange-400" />
                   <span className="text-gray-700">24/7 support</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <CheckCircle className="w-5 h-5 text-orange-400" />
                   <span className="text-gray-700">Competitive pricing</span>
                 </li>
               </ul>
@@ -201,13 +207,13 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
             
             {submitStatus === 'success' ? (
               <div className="text-center py-12">
-                <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                <CheckCircle className="w-16 h-16 text-orange-400 mx-auto mb-4" />
                 <h4 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h4>
                 <p className="text-gray-600 mb-4">Your message has been sent successfully.</p>
                 <p className="text-gray-500 text-sm">We'll get back to you within 24 hours.</p>
                 <Button 
                   onClick={() => setSubmitStatus('idle')}
-                  className="mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                  className="mt-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
                 >
                   Send Another Message
                 </Button>
@@ -226,7 +232,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="Your full name"
                     />
                   </div>
@@ -241,7 +247,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -258,7 +264,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="Your company name"
                     />
                   </div>
@@ -272,7 +278,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="Your phone number"
                     />
                   </div>
@@ -288,7 +294,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                     value={formData.service}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   >
                     <option value="">Select a service</option>
                     {services.map((service) => (
@@ -307,7 +313,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                       name="budget"
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     >
                       <option value="">Select budget</option>
                       {budgets.map((budget) => (
@@ -324,7 +330,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     >
                       <option value="">Select timeline</option>
                       {timelines.map((timeline) => (
@@ -345,7 +351,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                     onChange={handleInputChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     placeholder="Tell us about your project requirements..."
                   />
                 </div>
@@ -353,7 +359,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">

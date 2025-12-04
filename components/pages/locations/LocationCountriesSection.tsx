@@ -51,15 +51,15 @@ const LocationCountriesSection = ({ countries }: LocationCountriesSectionProps) 
   const visibleCountries = showAll ? filteredCountries : filteredCountries.slice(0, 6); // two rows (3 cols)
 
   return (
-    <section id="countries" className="py-20 bg-white">
+    <section id="countries" className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Global
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Presence</span>
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="text-gray-900">Our Global</span>
+            <span className="block bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent"> Presence</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed font-medium">
             We serve clients across multiple countries with local expertise and global standards. 
             Choose your location to explore our services.
           </p>
@@ -70,7 +70,7 @@ const LocationCountriesSection = ({ countries }: LocationCountriesSectionProps) 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search countries..."
-                className="w-full pl-4 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-4 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
               />
             </div>
           </div>
@@ -81,14 +81,14 @@ const LocationCountriesSection = ({ countries }: LocationCountriesSectionProps) 
           {visibleCountries.map((country) => (
             <div
               key={toSlug(country.name) || country.code}
-              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200"
+              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-orange-200"
             >
               {/* Country Header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
                   <span className="text-4xl">{country.flag || '🌐'}</span>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors">
                       {country.name}
                     </h3>
                     <p className="text-sm text-gray-500">{country.currencies?.[0] || ''} {country.timezones?.[0] ? `• ${country.timezones[0]}` : ''}</p>
@@ -104,18 +104,18 @@ const LocationCountriesSection = ({ countries }: LocationCountriesSectionProps) 
               {/* Country Stats */}
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">50+</div>
+                  <div className="text-2xl font-bold text-orange-600">50+</div>
                   <div className="text-sm text-gray-600">Projects</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">4.9/5</div>
+                  <div className="text-2xl font-bold text-orange-600">4.9/5</div>
                   <div className="text-sm text-gray-600">Rating</div>
                 </div>
               </div>
 
               {/* CTA */}
               <Link href={`/where-we-serve/${toSlug(country.name)}`}>
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg group-hover:scale-105 transition-all duration-300">
+                <Button className="w-full bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white rounded-lg group-hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/50 font-semibold">
                   Explore Services
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -130,7 +130,7 @@ const LocationCountriesSection = ({ countries }: LocationCountriesSectionProps) 
             <Button
               onClick={() => setShowAll(!showAll)}
               variant="outline"
-              className="border-2 border-gray-300 hover:border-blue-500 text-gray-700 hover:text-blue-600 rounded-full px-8 py-3 transition-all duration-300"
+              className="border-2 border-orange-300 hover:border-orange-500 text-gray-700 hover:text-orange-600 rounded-full px-8 py-3 transition-all duration-300 font-medium bg-white hover:bg-orange-50"
             >
               {showAll ? 'Show Less' : `Show All ${filteredCountries.length} Countries`}
             </Button>
@@ -142,3 +142,4 @@ const LocationCountriesSection = ({ countries }: LocationCountriesSectionProps) 
 };
 
 export default LocationCountriesSection;
+

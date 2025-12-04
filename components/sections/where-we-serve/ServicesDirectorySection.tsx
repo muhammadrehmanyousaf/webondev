@@ -75,10 +75,10 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
               className="group p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md hover:border-blue-200 transition-all"
             >
               <div className="flex items-start justify-between gap-4">
-                <span className="text-gray-900 font-medium group-hover:text-blue-600 transition-colors leading-snug">
+                <span className="text-gray-900 font-medium group-hover:text-orange-400 transition-colors leading-snug">
                   {item.label}
                 </span>
-                <span className="text-blue-500 group-hover:translate-x-0.5 transition-transform">→</span>
+                <span className="text-orange-400 group-hover:translate-x-0.5 transition-transform">→</span>
               </div>
               <span className="text-xs text-gray-500 break-all">{item.href}</span>
             </Link>
@@ -106,7 +106,7 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
                       onClick={() => goToPage(page as number)}
                       className={`px-4 py-2 rounded-lg transition-all ${
                         currentPage === page
-                          ? 'bg-blue-600 text-white font-semibold'
+                          ? 'bg-orange-600 text-white font-semibold'
                           : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
                       }`}
                       aria-label={`Go to page ${page}`}

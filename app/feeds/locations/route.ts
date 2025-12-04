@@ -36,7 +36,7 @@ export async function GET(req: Request) {
   if (format === 'json') {
     const feed = {
       version: 'https://jsonfeed.org/version/1.1',
-      title: 'Solutions Indicator – Location URLs (JSON)',
+      title: 'Web On Dev – Location URLs (JSON)',
       home_page_url: `${baseUrl}/where-we-serve`,
       feed_url: `${baseUrl}/feeds/locations?format=json&limit=${limit}`,
       hubs: [{ type: 'WebSub', url: hub }],
@@ -57,7 +57,7 @@ export async function GET(req: Request) {
     </entry>`).join('');
     const xml = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Solutions Indicator – Location URLs (Atom)</title>
+  <title>Web On Dev – Location URLs (Atom)</title>
   <id>${baseUrl}/where-we-serve</id>
   <updated>${updated}</updated>
   <link rel="alternate" href="${baseUrl}/where-we-serve" />
@@ -79,7 +79,7 @@ export async function GET(req: Request) {
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Solutions Indicator – Location URLs (RSS)</title>
+    <title>Web On Dev – Location URLs (RSS)</title>
     <description>Canonical location URLs</description>
     <link>${baseUrl}/where-we-serve</link>
     <atom:link href="${baseUrl}/feeds/locations?format=rss&limit=${limit}" rel="self" type="application/rss+xml" />

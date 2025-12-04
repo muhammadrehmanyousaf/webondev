@@ -142,11 +142,11 @@ const LocationDropdown = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         onMouseEnter={() => setIsOpen(true)}
-        className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-all duration-200 group relative"
+        className="flex items-center space-x-2 text-slate-700 hover:text-orange-500 transition-all duration-200 group relative"
       >
         <div className="relative">
           <Globe className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
-          <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+          <div className="absolute -top-1 -right-1 w-2 h-2 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
         </div>
         <span className="font-medium">Where We Serve</span>
         <ChevronDown className={cn(
@@ -166,7 +166,7 @@ const LocationDropdown = () => {
                 <p className="text-sm text-gray-600">Explore our worldwide presence</p>
               </div>
               <div className="text-right">
-                <div className="text-xl font-bold text-blue-600">{countries.length}</div>
+                <div className="text-xl font-bold text-orange-500">{countries.length}</div>
                 <div className="text-xs text-gray-500">Countries</div>
               </div>
             </div>
@@ -179,7 +179,7 @@ const LocationDropdown = () => {
                 placeholder="Search countries..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 focus:bg-white transition-all duration-200 text-sm"
+                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-gray-50 focus:bg-white transition-all duration-200 text-sm"
               />
             </div>
           </div>
@@ -208,14 +208,14 @@ const LocationDropdown = () => {
                           {country.flag}
                         </div>
                         <div className="flex-1">
-                          <div className="font-medium text-gray-900 group-hover/country:text-blue-600 transition-colors">
+                          <div className="font-medium text-slate-900 group-hover/country:text-orange-500 transition-colors">
                             {country.name}
                           </div>
                           <div className="text-xs text-gray-500 mt-0.5">
                             View country & states
                           </div>
                         </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover/country:text-blue-600 transition-colors" />
+                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover/country:text-orange-500 transition-colors" />
                       </Link>
 
                       {/* Expand Button */}
@@ -225,10 +225,11 @@ const LocationDropdown = () => {
                           handleCountryClick(cSlug);
                           await ensureStatesLoaded(country.name);
                         }}
-                        className="ml-2 p-1.5 rounded-md hover:bg-blue-50 transition-colors group/expand"
+                        title="Toggle states"
+                        className="ml-2 p-1.5 rounded-md hover:bg-orange-50 transition-colors group/expand"
                       >
                         <ChevronDown className={cn(
-                          "w-4 h-4 text-gray-400 transition-transform duration-200 group-hover/expand:text-blue-600",
+                          "w-4 h-4 text-gray-400 transition-transform duration-200 group-hover/expand:text-orange-500",
                           selectedCountry === toSlug(country.name || '') ? "rotate-180" : "rotate-0"
                         )} />
                       </button>
@@ -239,7 +240,7 @@ const LocationDropdown = () => {
                       <div className="ml-12 mt-2 space-y-2 bg-gray-50 rounded-lg p-3">
                         {loadingStates[country.name] && (
                           <div className="flex items-center justify-center py-4">
-                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-orange-500"></div>
                             <span className="ml-2 text-xs text-gray-500">Loading...</span>
                           </div>
                         )}
@@ -253,19 +254,19 @@ const LocationDropdown = () => {
                           <div key={state.name} className="bg-white rounded-md border border-gray-100 overflow-hidden hover:shadow-sm transition-all duration-200">
                             <Link
                               href={`/where-we-serve/${toSlug(country.name || '')}/${toSlug(state.name || '')}`}
-                              className="block p-3 hover:bg-blue-50 transition-colors group/state"
+                              className="block p-3 hover:bg-orange-50 transition-colors group/state"
                               onClick={() => setIsOpen(false)}
                             >
                               <div className="flex items-center justify-between">
                                 <div className="flex-1">
-                                  <div className="font-medium text-gray-900 group-hover/state:text-blue-600 transition-colors text-sm">
+                                  <div className="font-medium text-slate-900 group-hover/state:text-orange-500 transition-colors text-sm">
                                     {state.name}
                                   </div>
                                   <div className="text-xs text-gray-500 mt-0.5">
                                     View cities
                                   </div>
                                 </div>
-                                <ArrowRight className="w-3 h-3 text-gray-400 group-hover/state:text-blue-600 transition-colors" />
+                                <ArrowRight className="w-3 h-3 text-gray-400 group-hover/state:text-orange-500 transition-colors" />
                               </div>
                             </Link>
                           </div>
@@ -274,7 +275,7 @@ const LocationDropdown = () => {
                           <div className="text-center pt-2">
                             <Link
                               href={`/where-we-serve/${toSlug(country.name || '')}`}
-                              className="text-xs text-blue-600 hover:text-blue-700 font-medium"
+                              className="text-xs text-orange-500 hover:text-orange-600 font-medium"
                               onClick={() => setIsOpen(false)}
                             >
                               View all {getLoadedStates(country.name).length} states →
@@ -291,7 +292,7 @@ const LocationDropdown = () => {
                   <div className="pt-3 border-t border-gray-100">
                     <Link
                       href="/where-we-serve"
-                      className="block text-center text-sm text-blue-600 hover:text-blue-700 font-medium py-2"
+                      className="block text-center text-sm text-orange-500 hover:text-orange-600 font-medium py-2"
                       onClick={() => setIsOpen(false)}
                     >
                       View all {filteredCountries.length} countries →
@@ -306,7 +307,7 @@ const LocationDropdown = () => {
           <div className="px-6 pt-4 border-t border-gray-100">
             <Link
               href="/where-we-serve"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 flex items-center justify-center space-x-2 text-sm"
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 flex items-center justify-center space-x-2 text-sm"
               onClick={() => setIsOpen(false)}
             >
               <Globe className="w-4 h-4" />

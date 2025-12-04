@@ -90,7 +90,7 @@ export const blogData: BlogPost[] = [
         <li>Color contrast compliance</li>
       </ul>
     `,
-    author: 'Solutions Indicator Team',
+    author: 'Web On Dev Team',
     date: '2024-01-15',
     readTime: '25 min read',
     category: 'Web Development',
@@ -153,7 +153,7 @@ function App() {
   );
 }</code></pre>
     `,
-    author: 'Solutions Indicator Team',
+    author: 'Web On Dev Team',
     date: '2024-01-10',
     readTime: '18 min read',
     category: 'React',
@@ -209,7 +209,7 @@ export default function Page() {
   )
 }</code></pre>
     `,
-    author: 'Solutions Indicator Team',
+    author: 'Web On Dev Team',
     date: '2024-01-05',
     readTime: '20 min read',
     category: 'Next.js',
@@ -272,7 +272,7 @@ loggingIdentity([1, 2, 3]);
 // This doesn't work
 // loggingIdentity(123); // Error: number doesn't have 'length' property</code></pre>
     `,
-    author: 'Solutions Indicator Team',
+    author: 'Web On Dev Team',
     date: '2024-01-01',
     readTime: '22 min read',
     category: 'TypeScript',
@@ -335,7 +335,7 @@ loggingIdentity([1, 2, 3]);
   padding: 15px;
 }</code></pre>
     `,
-    author: 'Solutions Indicator Team',
+    author: 'Web On Dev Team',
     date: '2023-12-28',
     readTime: '16 min read',
     category: 'CSS',
@@ -383,7 +383,7 @@ const multiplyByTwo = multiply(?, 2);
 
 const result = 10 |> addFive |> multiplyByTwo; // 30</code></pre>
     `,
-    author: 'Solutions Indicator Team',
+    author: 'Web On Dev Team',
     date: '2023-12-25',
     readTime: '14 min read',
     category: 'JavaScript',
@@ -463,7 +463,7 @@ const sanitizeInput = (input) => {
   return DOMPurify.sanitize(input);
 };</code></pre>
     `,
-    author: 'Solutions Indicator Team',
+    author: 'Web On Dev Team',
     date: '2023-12-20',
     readTime: '19 min read',
     category: 'Security',
@@ -538,7 +538,7 @@ test('loads and displays user profile', async () => {
   expect(screen.getByText('john@example.com')).toBeInTheDocument();
 });</code></pre>
     `,
-    author: 'Solutions Indicator Team',
+    author: 'Web On Dev Team',
     date: '2023-12-15',
     readTime: '17 min read',
     category: 'Testing',
@@ -623,7 +623,7 @@ CMD ["node", "server.js"]</code></pre>
         <li><strong>Monitoring:</strong> Track deployment success and application health</li>
       </ul>
     `,
-    author: 'Solutions Indicator Team',
+    author: 'Web On Dev Team',
     date: '2023-12-10',
     readTime: '21 min read',
     category: 'Deployment',

@@ -4,7 +4,7 @@ export function getBaseUrl(): string {
     return explicit.replace(/\/+$/, '');
   }
   // Always default to the live domain unless explicitly overridden
-  return 'https://www.solutionsindicator.com';
+  return 'https://www.webondev.com';
 }
 
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Calendar, Phone, X, Clock, User, Mail, Building, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -136,7 +137,7 @@ const CTASection = () => {
   ];
 
   return (
-    <section id="book-meeting" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden animate-on-scroll">
+    <section id="book-meeting" className="py-20 bg-gradient-to-br from-slate-900 via-orange-900 to-orange-800 relative overflow-hidden animate-on-scroll">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full" style={{
@@ -144,67 +145,106 @@ const CTASection = () => {
         }}></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <motion.div 
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           {/* Main CTA */}
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
             Ready to Transform
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Your Business?</span>
+            <motion.span
+              className="bg-gradient-to-r from-orange-300 to-orange-400 bg-clip-text text-transparent block mt-2"
+              animate={{ backgroundPosition: ['0%', '100%'] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            > Your Business?</motion.span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
             Let's discuss how our comprehensive software solutions can help you achieve your business goals. 
             Get started with a free consultation today.
           </p>
 
           {/* Primary CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button 
+            <motion.button
               onClick={handleEmailClick}
-              size="lg" 
-              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-lg px-10 py-6 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 border-0"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(249, 115, 22, 0.5)' }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-lg px-10 py-6 rounded-full text-white shadow-2xl transition-all duration-300 border-0 font-bold flex items-center gap-3"
             >
-              <MessageCircle className="w-6 h-6 mr-3" />
+              <MessageCircle className="w-6 h-6" />
               Start Your Project
-              <ArrowRight className="w-6 h-6 ml-3" />
-            </Button>
-            <Link 
-              href="/portfolio" 
-              className="inline-flex items-center justify-center text-lg px-10 py-6 rounded-full border-2 border-white/30 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm transform hover:scale-105 transition-all duration-300 gap-3 font-medium"
+              <ArrowRight className="w-6 h-6" />
+            </motion.button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full sm:w-auto"
             >
-              <Calendar className="w-6 h-6" />
-              View Our Work
-            </Link>
+              <Link 
+                href="/portfolio" 
+                className="inline-flex items-center justify-center text-lg px-10 py-6 rounded-full border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300 gap-3 font-medium w-full"
+              >
+                <Calendar className="w-6 h-6" />
+                View Our Work
+              </Link>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Contact Options */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ staggerChildren: 0.1 }}
+          viewport={{ once: true }}
+        >
           {/* Quick Contact */}
-          <button
+          <motion.button
             onClick={handlePhoneClick}
-            className="text-center p-8 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 w-full"
+            whileHover={{ y: -5 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:border-orange-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20 w-full group"
           >
-            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6">
+            <motion.div 
+              className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mx-auto mb-6"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+            >
               <Phone className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Call Us Now</h3>
-            <p className="text-gray-300 mb-4">Speak directly with our experts</p>
-            <span className="text-blue-400 hover:text-blue-300 font-semibold text-lg">
+            </motion.div>
+            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors">Call Us Now</h3>
+            <p className="text-slate-300 mb-4">Speak directly with our experts</p>
+            <motion.span 
+              className="text-orange-400 hover:text-orange-300 font-semibold text-lg transition-colors"
+              whileHover={{ x: 4 }}
+            >
               +92 310 6803687
-            </span>
-          </button>
+            </motion.span>
+          </motion.button>
 
           {/* Email Contact */}
           <button
             onClick={handleEmailClick}
             className="text-center p-8 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 w-full"
           >
-            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-6">
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mx-auto mb-6">
               <MessageCircle className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">Email Us</h3>
             <p className="text-gray-300 mb-4">Get detailed project information</p>
-            <span className="text-blue-400 hover:text-blue-300 font-semibold text-lg break-all overflow-hidden text-ellipsis max-w-full block px-2">
+            <span className="text-orange-300 hover:text-orange-200 font-semibold text-lg break-all overflow-hidden text-ellipsis max-w-full block px-2">
               muhammadrehmanyousaf786@gmail.com
             </span>
           </button>
@@ -214,16 +254,16 @@ const CTASection = () => {
             onClick={() => setIsBookingModalOpen(true)}
             className="text-center p-8 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 w-full"
           >
-            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-6">
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full mx-auto mb-6">
               <Calendar className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">Book Meeting</h3>
             <p className="text-gray-300 mb-4">Schedule a free consultation</p>
-            <span className="text-blue-400 hover:text-blue-300 font-semibold text-lg">
+            <span className="text-orange-300 hover:text-orange-200 font-semibold text-lg">
               Book Now
             </span>
           </button>
-        </div>
+        </motion.div>
 
         {/* Bottom Stats */}
         <div className="text-center border-t border-white/20 pt-12">
@@ -232,27 +272,27 @@ const CTASection = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-8 text-white">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+              <div className="w-3 h-3 bg-orange-400 rounded-full animate-pulse"></div>
               <span>Free Consultation</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+              <div className="w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
               <span>24/7 Support</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
+              <div className="w-3 h-3 bg-orange-600 rounded-full animate-pulse"></div>
               <span>100% Satisfaction Guarantee</span>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Booking Modal */}
+      {/* Booking Modal - Outside motion wrapper */}
       <Dialog open={isBookingModalOpen} onOpenChange={setIsBookingModalOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-              <Calendar className="w-6 h-6 text-blue-600" />
+              <Calendar className="w-6 h-6 text-orange-500" />
               Schedule Your Free Consultation
             </DialogTitle>
           </DialogHeader>
@@ -436,12 +476,12 @@ const CTASection = () => {
             </div>
 
             {/* Meeting Info */}
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-              <h4 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
+            <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+              <h4 className="font-semibold text-orange-900 mb-2 flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 Meeting Details
               </h4>
-              <ul className="text-sm text-blue-800 space-y-1">
+              <ul className="text-sm text-orange-800 space-y-1">
                 <li>• Duration: 30-60 minutes</li>
                 <li>• Free consultation with no obligations</li>
                 <li>• We'll send a calendar invite to your email</li>
@@ -462,7 +502,7 @@ const CTASection = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting || !bookingData.name || !bookingData.email || !bookingData.service || !bookingData.preferredDate || !bookingData.preferredTime || !bookingData.timezone || !bookingData.meetingType}
-                className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                className="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
               >
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">

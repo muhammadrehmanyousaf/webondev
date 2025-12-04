@@ -80,22 +80,22 @@ const CompanyStorySection = () => {
       icon: Sparkles,
       title: "Innovation First",
       description: "We started with a simple belief: technology should empower, not complicate. This philosophy drives every solution we create.",
-      gradient: "from-blue-500 via-purple-500 to-pink-500",
-      bgGradient: "from-blue-50 to-purple-50"
+      gradient: "from-orange-500 via-orange-600 to-orange-500",
+      bgGradient: "from-orange-50 to-orange-100"
     },
     {
       icon: Users,
       title: "People-Centered",
       description: "Behind every line of code is a human story. We build technology that connects people and transforms lives.",
-      gradient: "from-green-500 via-teal-500 to-blue-500",
-      bgGradient: "from-green-50 to-teal-50"
+      gradient: "from-orange-500 via-orange-600 to-orange-500",
+      bgGradient: "from-orange-50 to-orange-100"
     },
     {
       icon: Target,
       title: "Purpose-Driven",
       description: "Every project we take on has a clear mission: to solve real problems and create meaningful impact for businesses and their customers.",
-      gradient: "from-orange-500 via-red-500 to-pink-500",
-      bgGradient: "from-orange-50 to-red-50"
+      gradient: "from-orange-500 via-orange-600 to-orange-500",
+      bgGradient: "from-orange-50 to-orange-100"
     }
   ];
 
@@ -152,12 +152,12 @@ const CompanyStorySection = () => {
 
   const getColorClasses = (color: string) => {
     const colorMap = {
-      blue: { bg: "bg-blue-500", text: "text-blue-600", border: "border-blue-200", gradient: "from-blue-500 to-blue-600" },
-      green: { bg: "bg-green-500", text: "text-green-600", border: "border-green-200", gradient: "from-green-500 to-green-600" },
-      purple: { bg: "bg-purple-500", text: "text-purple-600", border: "border-purple-200", gradient: "from-purple-500 to-purple-600" },
+      blue: { bg: "bg-orange-500", text: "text-orange-600", border: "border-orange-200", gradient: "from-orange-500 to-orange-600" },
+      green: { bg: "bg-orange-500", text: "text-orange-600", border: "border-orange-200", gradient: "from-orange-500 to-orange-600" },
+      purple: { bg: "bg-orange-500", text: "text-orange-600", border: "border-orange-200", gradient: "from-orange-500 to-orange-600" },
       orange: { bg: "bg-orange-500", text: "text-orange-600", border: "border-orange-200", gradient: "from-orange-500 to-orange-600" },
-      pink: { bg: "bg-pink-500", text: "text-pink-600", border: "border-pink-200", gradient: "from-pink-500 to-pink-600" },
-      indigo: { bg: "bg-indigo-500", text: "text-indigo-600", border: "border-indigo-200", gradient: "from-indigo-500 to-indigo-600" }
+      pink: { bg: "bg-orange-500", text: "text-orange-600", border: "border-orange-200", gradient: "from-orange-500 to-orange-600" },
+      indigo: { bg: "bg-orange-500", text: "text-orange-600", border: "border-orange-200", gradient: "from-orange-500 to-orange-600" }
     };
     return colorMap[color as keyof typeof colorMap] || colorMap.blue;
   };
@@ -168,19 +168,19 @@ const CompanyStorySection = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="floating-element absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-200/30 to-purple-200/30 rounded-full blur-xl"></div>
         <div className="floating-element absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-pink-200/30 to-orange-200/30 rounded-full blur-xl"></div>
-        <div className="floating-element absolute bottom-40 left-1/4 w-40 h-40 bg-gradient-to-r from-green-200/30 to-teal-200/30 rounded-full blur-xl"></div>
+        <div className="floating-element absolute bottom-40 left-1/4 w-40 h-40 bg-gradient-to-r from-orange-200/30 to-orange-200/30 rounded-full blur-xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-purple-100 px-6 py-3 rounded-full mb-6">
-            <Sparkles className="w-5 h-5 text-blue-600" />
-            <span className="text-blue-700 font-semibold">Our Story</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-orange-100 px-6 py-3 rounded-full mb-6">
+            <Sparkles className="w-5 h-5 text-orange-600" />
+            <span className="text-orange-700 font-semibold">Our Story</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
             Crafting Digital
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"> Excellence </span>
+            <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 bg-clip-text text-transparent"> Excellence </span>
             Since Day One
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
@@ -204,7 +204,7 @@ const CompanyStorySection = () => {
                   <highlight.icon className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-orange-500 group-hover:bg-clip-text transition-all duration-300">
                   {highlight.title}
                 </h3>
                 
@@ -221,7 +221,7 @@ const CompanyStorySection = () => {
           <div className="text-center mb-16">
             <h3 className="text-4xl font-bold text-gray-900 mb-6">
               Our Journey of
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Innovation</span>
+              <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Innovation</span>
             </h3>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Every milestone tells a story of growth, learning, and our unwavering commitment to excellence.
@@ -249,7 +249,7 @@ const CompanyStorySection = () => {
                           </div>
                         </div>
                         
-                        <h4 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                        <h4 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
                           {milestone.title}
                         </h4>
                         
@@ -297,7 +297,7 @@ const CompanyStorySection = () => {
                 Join hundreds of businesses who have transformed their digital presence with our innovative solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <button className="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
                   Start Your Journey
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </button>

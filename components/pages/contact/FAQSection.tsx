@@ -63,7 +63,7 @@ const FAQSection = () => {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Frequently Asked
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Questions</span>
+            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Questions</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Get answers to the most common questions about our services, process, and how we can help your business succeed.
@@ -86,7 +86,7 @@ const FAQSection = () => {
                 </h3>
                 <div className="flex-shrink-0">
                   {openFAQ === index ? (
-                    <ChevronUp className="w-6 h-6 text-blue-600" />
+                    <ChevronUp className="w-6 h-6 text-orange-600" />
                   ) : (
                     <ChevronDown className="w-6 h-6 text-gray-400" />
                   )}
@@ -121,10 +121,10 @@ const FAQSection = () => {
               Get in touch and we'll respond within 2 hours during business hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+              <button className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-600 to-orange-700 text-white font-semibold rounded-full hover:from-orange-700 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/50">
                 Contact Support
               </button>
-              <button className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-blue-600 hover:text-blue-600 transition-all duration-300">
+              <button className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-blue-600 hover:text-orange-600 transition-all duration-300">
                 Schedule Call
               </button>
             </div>

@@ -1,4 +1,4 @@
-export function getOgUrl(title: string, subtitle: string = 'Solutions Indicator'): string {
+export function getOgUrl(title: string, subtitle: string = 'Web On Dev'): string {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   return `${base}/api/images/og?title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(subtitle)}`;
 }

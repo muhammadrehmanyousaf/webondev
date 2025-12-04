@@ -1,7 +1,7 @@
 /**
  * COMPREHENSIVE GOOGLE MY BUSINESS FEATURES IMPLEMENTATION
  * All 20 Google My Business Features with API Integration
- * For Solutions Indicator Location Pages
+ * For Web On Dev Location Pages
  */
 
 export interface GoogleMyBusinessConfig {
@@ -339,7 +339,7 @@ function generateBusinessInformationFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     description: `Professional ${locationData.service} services in ${locationData.city}`,
     url: locationData.businessInfo.website,
     telephone: locationData.businessInfo.phone,
@@ -409,7 +409,7 @@ function generateBusinessDescriptionFeature(locationData: LocationData) {
     '@context': 'https://schema.org',
     '@type': 'Text',
     name: 'Business Description',
-    text: `Solutions Indicator is a leading software development company providing comprehensive ${locationData.service} services in ${locationData.city}, ${locationData.state}, ${locationData.country}. We combine local market expertise with global standards to deliver exceptional digital solutions for businesses of all sizes.`,
+    text: `Web On Dev is a leading software development company providing comprehensive ${locationData.service} services in ${locationData.city}, ${locationData.state}, ${locationData.country}. We combine local market expertise with global standards to deliver exceptional digital solutions for businesses of all sizes.`,
     keywords: [
       `${locationData.service} services`,
       'software development',
@@ -442,14 +442,14 @@ function generatePhotosFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ImageGallery',
-    name: `Solutions Indicator ${locationData.city} Office Photos`,
+    name: `Web On Dev ${locationData.city} Office Photos`,
     description: `Photos of our ${locationData.service} service center in ${locationData.city}`,
     image: [
       {
         '@type': 'ImageObject',
         contentUrl: `${locationData.businessInfo.website}/images/office/${locationData.city.toLowerCase().replace(/\s+/g, '-')}-office-1.jpg`,
         description: `Main office entrance in ${locationData.city}`,
-        caption: `Solutions Indicator ${locationData.city} Office`,
+        caption: `Web On Dev ${locationData.city} Office`,
         category: 'Office Exterior',
         uploadDate: '2024-01-01'
       },
@@ -477,7 +477,7 @@ function generateVideosFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'VideoGallery',
-    name: `Solutions Indicator ${locationData.city} Videos`,
+    name: `Web On Dev ${locationData.city} Videos`,
     description: `Videos showcasing our ${locationData.service} services in ${locationData.city}`,
     video: [
       {
@@ -506,7 +506,7 @@ function generatePostsFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Posts`,
+    name: `Web On Dev ${locationData.city} Posts`,
     description: `Recent updates and posts about our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -517,7 +517,7 @@ function generatePostsFeature(locationData: LocationData) {
         datePublished: '2024-01-15T00:00:00Z',
         author: {
           '@type': 'Organization',
-          name: 'Solutions Indicator'
+          name: 'Web On Dev'
         },
         postType: 'Update',
         callToAction: {
@@ -534,7 +534,7 @@ function generatePostsFeature(locationData: LocationData) {
         datePublished: '2024-01-10T00:00:00Z',
         author: {
           '@type': 'Organization',
-          name: 'Solutions Indicator'
+          name: 'Web On Dev'
         },
         postType: 'Event',
         eventDate: '2024-12-15T09:00:00Z',
@@ -552,7 +552,7 @@ function generateReviewsFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Reviews`,
+    name: `Web On Dev ${locationData.city} Reviews`,
     description: `Customer reviews for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -567,18 +567,18 @@ function generateReviewsFeature(locationData: LocationData) {
           '@type': 'Person',
           name: 'Ahmed Khan'
         },
-        reviewBody: `Excellent ${locationData.service} services in ${locationData.city}. Solutions Indicator delivered exactly what we needed with professional quality and timely delivery. Highly recommended!`,
+        reviewBody: `Excellent ${locationData.service} services in ${locationData.city}. Web On Dev delivered exactly what we needed with professional quality and timely delivery. Highly recommended!`,
         datePublished: '2024-01-15T00:00:00Z',
         itemReviewed: {
           '@type': 'LocalBusiness',
-          name: 'Solutions Indicator',
+          name: 'Web On Dev',
           description: `${locationData.service} services in ${locationData.city}`
         },
         response: {
           '@type': 'Review',
           author: {
             '@type': 'Organization',
-            name: 'Solutions Indicator'
+            name: 'Web On Dev'
           },
           reviewBody: 'Thank you for your kind words, Ahmed! We\'re thrilled to hear about your positive experience with our services.',
           datePublished: '2024-01-16T00:00:00Z'
@@ -601,7 +601,7 @@ function generateReviewsFeature(locationData: LocationData) {
         datePublished: '2024-01-10T00:00:00Z',
         itemReviewed: {
           '@type': 'LocalBusiness',
-          name: 'Solutions Indicator',
+          name: 'Web On Dev',
           description: `${locationData.service} services in ${locationData.city}`
         },
         helpful: 8
@@ -614,7 +614,7 @@ function generateQAFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Q&A`,
+    name: `Web On Dev ${locationData.city} Q&A`,
     description: `Frequently asked questions about our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -625,7 +625,7 @@ function generateQAFeature(locationData: LocationData) {
           text: `We provide comprehensive ${locationData.service} services in ${locationData.city}, including custom development, maintenance, and support. Our services are tailored to meet the specific needs of businesses in ${locationData.city}.`,
           author: {
             '@type': 'Organization',
-            name: 'Solutions Indicator'
+            name: 'Web On Dev'
           },
           dateCreated: '2024-01-01T00:00:00Z'
         },
@@ -643,7 +643,7 @@ function generateQAFeature(locationData: LocationData) {
           text: `Our ${locationData.service} pricing in ${locationData.city} varies based on project scope and requirements. We offer flexible pricing models including fixed scope, time & materials, and dedicated team options. Contact us for a personalized quote.`,
           author: {
             '@type': 'Organization',
-            name: 'Solutions Indicator'
+            name: 'Web On Dev'
           },
           dateCreated: '2024-01-01T00:00:00Z'
         },
@@ -661,7 +661,7 @@ function generateProductsFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Products`,
+    name: `Web On Dev ${locationData.city} Products`,
     description: `Our ${locationData.service} product offerings in ${locationData.city}`,
     itemListElement: [
       {
@@ -700,7 +700,7 @@ function generateServicesFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Services`,
+    name: `Web On Dev ${locationData.city} Services`,
     description: `Our ${locationData.service} service offerings in ${locationData.city}`,
     itemListElement: [
       {
@@ -709,7 +709,7 @@ function generateServicesFeature(locationData: LocationData) {
         description: `Professional ${locationData.service} services in ${locationData.city}`,
         provider: {
           '@type': 'Organization',
-          name: 'Solutions Indicator'
+          name: 'Web On Dev'
         },
         areaServed: {
           '@type': 'City',
@@ -729,7 +729,7 @@ function generateServicesFeature(locationData: LocationData) {
         description: `Custom software development services in ${locationData.city}`,
         provider: {
           '@type': 'Organization',
-          name: 'Solutions Indicator'
+          name: 'Web On Dev'
         },
         areaServed: {
           '@type': 'City',
@@ -752,7 +752,7 @@ function generateAttributesFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Attributes`,
+    name: `Web On Dev ${locationData.city} Attributes`,
     description: `Business attributes and features for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -791,7 +791,7 @@ function generateInsightsFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Insights`,
+    name: `Web On Dev ${locationData.city} Insights`,
     description: `Performance insights for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -829,7 +829,7 @@ function generateMessagingFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ContactPoint',
-    name: `Solutions Indicator ${locationData.city} Messaging`,
+    name: `Web On Dev ${locationData.city} Messaging`,
     description: `Customer communication options for our ${locationData.service} services in ${locationData.city}`,
     telephone: locationData.businessInfo.phone,
     email: locationData.businessInfo.email,
@@ -843,7 +843,7 @@ function generateMessagingFeature(locationData: LocationData) {
     availability: '24/7',
     autoReply: {
       '@type': 'Text',
-      text: 'Thank you for contacting Solutions Indicator. We will respond to your inquiry within 2 hours during business hours.'
+      text: 'Thank you for contacting Web On Dev. We will respond to your inquiry within 2 hours during business hours.'
     }
   };
 }
@@ -852,7 +852,7 @@ function generateBookingFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Booking`,
+    name: `Web On Dev ${locationData.city} Booking`,
     description: `Appointment booking options for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -891,10 +891,10 @@ function generateWebsiteFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Solutions Indicator',
+    name: 'Web On Dev',
     url: locationData.businessInfo.website,
-    description: `Official website for Solutions Indicator ${locationData.service} services in ${locationData.city}`,
-    title: `Solutions Indicator - ${locationData.service} Services in ${locationData.city}`,
+    description: `Official website for Web On Dev ${locationData.service} services in ${locationData.city}`,
+    title: `Web On Dev - ${locationData.service} Services in ${locationData.city}`,
     keywords: [
       `${locationData.service} ${locationData.city}`,
       `software development ${locationData.city}`,
@@ -909,12 +909,12 @@ function generateSocialMediaFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Social Media`,
+    name: `Web On Dev ${locationData.city} Social Media`,
     description: `Social media profiles for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
         '@type': 'Organization',
-        name: 'Solutions Indicator LinkedIn',
+        name: 'Web On Dev LinkedIn',
         url: 'https://www.linkedin.com/company/solutions-indicator',
         platform: 'LinkedIn',
         username: 'solutions-indicator',
@@ -923,7 +923,7 @@ function generateSocialMediaFeature(locationData: LocationData) {
       },
       {
         '@type': 'Organization',
-        name: 'Solutions Indicator Twitter',
+        name: 'Web On Dev Twitter',
         url: 'https://twitter.com/solutionsind',
         platform: 'Twitter',
         username: 'solutionsind',
@@ -932,10 +932,10 @@ function generateSocialMediaFeature(locationData: LocationData) {
       },
       {
         '@type': 'Organization',
-        name: 'Solutions Indicator Facebook',
-        url: 'https://www.facebook.com/solutionsindicator',
+        name: 'Web On Dev Facebook',
+        url: 'https://www.facebook.com/webondev',
         platform: 'Facebook',
-        username: 'solutionsindicator',
+        username: 'webondev',
         followers: '3000',
         verified: true
       }
@@ -947,7 +947,7 @@ function generateAmenitiesFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Amenities`,
+    name: `Web On Dev ${locationData.city} Amenities`,
     description: `Business amenities and facilities for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -986,7 +986,7 @@ function generateAccessibilityFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Accessibility`,
+    name: `Web On Dev ${locationData.city} Accessibility`,
     description: `Accessibility features for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {
@@ -1025,7 +1025,7 @@ function generatePaymentMethodsFeature(locationData: LocationData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Solutions Indicator ${locationData.city} Payment Methods`,
+    name: `Web On Dev ${locationData.city} Payment Methods`,
     description: `Accepted payment methods for our ${locationData.service} services in ${locationData.city}`,
     itemListElement: [
       {

@@ -10,56 +10,56 @@ const PortfolioStatsSection = () => {
       number: '150+',
       label: 'Projects Completed',
       description: 'Successfully delivered across all categories',
-      color: 'from-blue-500 to-purple-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Users,
       number: '150+',
       label: 'Happy Clients',
       description: 'Satisfied customers worldwide',
-      color: 'from-green-500 to-blue-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Globe,
       number: '5+',
       label: 'Countries Served',
       description: 'Global reach and impact',
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: TrendingUp,
       number: '99%',
       label: 'Success Rate',
       description: 'Projects delivered on time and budget',
-      color: 'from-orange-500 to-red-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Clock,
       number: '98%',
       label: 'On-Time Delivery',
       description: 'Consistent project timeline adherence',
-      color: 'from-teal-500 to-green-500'
+      color: 'from-orange-400 to-orange-500'
     },
     {
       icon: Code,
       number: '50+',
       label: 'Technologies',
       description: 'Diverse tech stack expertise',
-      color: 'from-indigo-500 to-purple-500'
+      color: 'from-orange-600 to-orange-700'
     },
     {
       icon: Smartphone,
       number: '50+',
       label: 'Mobile Apps',
       description: 'iOS and Android applications',
-      color: 'from-pink-500 to-rose-500'
+      color: 'from-orange-300 to-orange-400'
     },
     {
       icon: Zap,
       number: '24/7',
       label: 'Support',
       description: 'Round-the-clock assistance',
-      color: 'from-yellow-500 to-orange-500'
+      color: 'from-orange-400 to-orange-600'
     }
   ];
 
@@ -91,7 +91,7 @@ const PortfolioStatsSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Portfolio
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Impact</span>
+            <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent"> Impact</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Our portfolio speaks for itself. Here are the numbers that showcase our commitment to excellence and client success.
@@ -105,7 +105,7 @@ const PortfolioStatsSection = () => {
               key={index}
               className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 text-center"
             >
-              <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${stat.color} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 <stat.icon className="w-8 h-8 text-white" />
               </div>
               
@@ -113,7 +113,7 @@ const PortfolioStatsSection = () => {
                 {stat.number}
               </div>
               
-              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
                 {stat.label}
               </h3>
               
@@ -174,15 +174,15 @@ const PortfolioStatsSection = () => {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
               <div className="text-gray-600">Awards Won</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">4.9/5</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">4.9/5</div>
               <div className="text-gray-600">Client Rating</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">95%</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">95%</div>
               <div className="text-gray-600">Client Retention</div>
             </div>
             <div className="text-center">

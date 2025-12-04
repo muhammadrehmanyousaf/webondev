@@ -1,6 +1,6 @@
 /**
  * ADVANCED SCHEMA COMPONENTS FOR ALL LOCATION PAGES
- * Comprehensive schema integration for Solutions Indicator location pages
+ * Comprehensive schema integration for Web On Dev location pages
  */
 
 import React from 'react';
@@ -159,7 +159,7 @@ export function ServicePageSchema({ locationData }: { locationData: LocationData
     url: `${locationData.businessInfo.website}/where-we-serve/${locationData.country.toLowerCase().replace(/\s+/g, '-')}/${locationData.state.toLowerCase().replace(/\s+/g, '-')}/${locationData.city.toLowerCase().replace(/\s+/g, '-')}/${locationData.service.toLowerCase().replace(/\s+/g, '-')}`,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       address: {
         '@type': 'PostalAddress',
         streetAddress: locationData.businessInfo.address,
@@ -191,7 +191,7 @@ export function ServicePageSchema({ locationData }: { locationData: LocationData
       availability: 'https://schema.org/InStock',
       seller: {
         '@type': 'Organization',
-        name: 'Solutions Indicator'
+        name: 'Web On Dev'
       }
     }
   };
@@ -216,12 +216,12 @@ export function ComprehensiveLocationSchema({ locationData }: { locationData: Lo
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: `${locationData.service} in ${locationData.city} - Solutions Indicator`,
+      name: `${locationData.service} in ${locationData.city} - Web On Dev`,
       description: `Professional ${locationData.service} services in ${locationData.city}, ${locationData.state}, ${locationData.country}`,
       url: `${locationData.businessInfo.website}/where-we-serve/${locationData.country.toLowerCase().replace(/\s+/g, '-')}/${locationData.state.toLowerCase().replace(/\s+/g, '-')}/${locationData.city.toLowerCase().replace(/\s+/g, '-')}/${locationData.service.toLowerCase().replace(/\s+/g, '-')}`,
       mainEntity: {
         '@type': 'LocalBusiness',
-        name: 'Solutions Indicator',
+        name: 'Web On Dev',
         description: `${locationData.service} services in ${locationData.city}`
       },
       breadcrumb: {
@@ -270,7 +270,7 @@ export function ComprehensiveLocationSchema({ locationData }: { locationData: Lo
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: 'Solutions Indicator',
+      name: 'Web On Dev',
       url: locationData.businessInfo.website,
       description: `Leading software development company providing ${locationData.service} services in ${locationData.city}`,
       potentialAction: {
@@ -283,7 +283,7 @@ export function ComprehensiveLocationSchema({ locationData }: { locationData: Lo
       },
       publisher: {
         '@type': 'Organization',
-        name: 'Solutions Indicator',
+        name: 'Web On Dev',
         logo: {
           '@type': 'ImageObject',
           url: `${locationData.businessInfo.website}/logo.png`,
@@ -296,7 +296,7 @@ export function ComprehensiveLocationSchema({ locationData }: { locationData: Lo
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: `Solutions Indicator ${locationData.city} Services`,
+      name: `Web On Dev ${locationData.city} Services`,
       description: `Our ${locationData.service} service offerings in ${locationData.city}`,
       itemListElement: [
         {
@@ -305,7 +305,7 @@ export function ComprehensiveLocationSchema({ locationData }: { locationData: Lo
           description: `Professional ${locationData.service} services in ${locationData.city}`,
           provider: {
             '@type': 'Organization',
-            name: 'Solutions Indicator'
+            name: 'Web On Dev'
           },
           areaServed: {
             '@type': 'City',
@@ -318,7 +318,7 @@ export function ComprehensiveLocationSchema({ locationData }: { locationData: Lo
           description: `Custom software development services in ${locationData.city}`,
           provider: {
             '@type': 'Organization',
-            name: 'Solutions Indicator'
+            name: 'Web On Dev'
           },
           areaServed: {
             '@type': 'City',
@@ -331,7 +331,7 @@ export function ComprehensiveLocationSchema({ locationData }: { locationData: Lo
           description: `Web development services in ${locationData.city}`,
           provider: {
             '@type': 'Organization',
-            name: 'Solutions Indicator'
+            name: 'Web On Dev'
           },
           areaServed: {
             '@type': 'City',
@@ -344,7 +344,7 @@ export function ComprehensiveLocationSchema({ locationData }: { locationData: Lo
           description: `Mobile app development services in ${locationData.city}`,
           provider: {
             '@type': 'Organization',
-            name: 'Solutions Indicator'
+            name: 'Web On Dev'
           },
           areaServed: {
             '@type': 'City',

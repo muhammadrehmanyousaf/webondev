@@ -9,56 +9,56 @@ const ServiceBenefitsSection = () => {
       icon: Shield,
       title: 'Quality Guarantee',
       description: 'We stand behind our work with a 100% satisfaction guarantee and comprehensive quality assurance.',
-      color: 'from-blue-500 to-indigo-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Clock,
       title: 'On-Time Delivery',
       description: 'Strict adherence to deadlines with transparent project tracking and regular milestone updates.',
-      color: 'from-green-500 to-teal-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: DollarSign,
       title: 'Cost-Effective Solutions',
       description: 'Competitive pricing with no hidden costs. Get maximum value for your investment.',
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Users,
       title: 'Expert Team',
       description: 'Work with experienced professionals who are experts in their respective fields.',
-      color: 'from-orange-500 to-red-500'
+      color: 'from-orange-500 to-orange-700'
     },
     {
       icon: Award,
       title: 'Industry Recognition',
       description: 'Award-winning solutions that meet industry standards and best practices.',
-      color: 'from-teal-500 to-cyan-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Zap,
       title: 'Fast Turnaround',
       description: 'Quick project initiation and efficient development cycles to get you to market faster.',
-      color: 'from-yellow-500 to-orange-500'
+      color: 'from-orange-400 to-orange-600'
     },
     {
       icon: Globe,
       title: 'Global Reach',
       description: 'Serving clients worldwide with 24/7 support and multi-timezone coverage.',
-      color: 'from-indigo-500 to-purple-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: HeartHandshake,
       title: 'Long-term Partnership',
       description: 'Building lasting relationships with ongoing support and continuous improvement.',
-      color: 'from-pink-500 to-rose-500'
+      color: 'from-orange-500 to-orange-600'
     }
   ];
 
   const testimonialStats = [
-    { number: '150+', label: 'Happy Clients', color: 'text-blue-600' },
-    { number: '150+', label: 'Projects Completed', color: 'text-green-600' },
-    { number: '99%', label: 'Client Retention', color: 'text-purple-600' },
+    { number: '150+', label: 'Happy Clients', color: 'text-orange-600' },
+    { number: '150+', label: 'Projects Completed', color: 'text-orange-600' },
+    { number: '99%', label: 'Client Retention', color: 'text-orange-600' },
     { number: '24/7', label: 'Support Available', color: 'text-orange-600' }
   ];
 
@@ -69,7 +69,7 @@ const ServiceBenefitsSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Why Choose
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> SoftwareAgency</span>
+            <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent"> SoftwareAgency</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We deliver exceptional value through our commitment to quality, innovation, and client success.
@@ -87,7 +87,7 @@ const ServiceBenefitsSection = () => {
                 <benefit.icon className="w-6 h-6 text-white" />
               </div>
               
-              <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
                 {benefit.title}
               </h3>
               
@@ -99,7 +99,7 @@ const ServiceBenefitsSection = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="bg-gradient-to-br from-gray-900 to-blue-900 rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-br from-gray-900 to-orange-900 rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full" style={{
@@ -134,9 +134,9 @@ const ServiceBenefitsSection = () => {
 
         {/* Client Testimonial */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border border-orange-100 max-w-4xl mx-auto">
             <blockquote className="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-relaxed">
-              "Solutions Indicator transformed our business with their comprehensive digital solutions. Their expertise, professionalism, and commitment to quality are unmatched."
+              "Web On Dev transformed our business with their comprehensive digital solutions. Their expertise, professionalism, and commitment to quality are unmatched."
             </blockquote>
             <div className="flex items-center justify-center gap-4">
               <img

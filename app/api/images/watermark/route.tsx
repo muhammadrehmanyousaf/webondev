@@ -7,7 +7,7 @@ export const runtime = 'edge';
 // Returns a simple watermarked image (OG-friendly). Accepts text via ?text=
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const text = searchParams.get('text') || 'Solutions Indicator';
+  const text = searchParams.get('text') || 'Web On Dev';
   const width = Math.max(600, Math.min(1600, Number(searchParams.get('w') || '1200')));
   const height = Math.max(315, Math.min(900, Number(searchParams.get('h') || '630')));
 
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
         >
           {text}
         </div>
-        <div style={{ marginTop: 24, color: 'rgba(255,255,255,0.9)' }}>solutionsindicator.com</div>
+        <div style={{ marginTop: 24, color: 'rgba(255,255,255,0.9)' }}>webondev.com</div>
       </div>
     ),
     { width, height }

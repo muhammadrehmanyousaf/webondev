@@ -45,12 +45,12 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
   const features = cluster?.features || ['Expert Development', 'Quality Assurance', 'Timely Delivery', 'Ongoing Support'];
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-20">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 pt-20">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-purple-100 rounded-full opacity-50 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-indigo-100 rounded-full opacity-40 animate-pulse delay-2000"></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-orange-100 rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-orange-200 rounded-full opacity-50 animate-pulse delay-1000"></div>
+        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-orange-50 rounded-full opacity-40 animate-pulse delay-2000"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,29 +59,29 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
           <div>
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
-              <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+              <Link href="/" className="hover:text-orange-400 transition-colors">Home</Link>
               <span>/</span>
-              <Link href="/services" className="hover:text-blue-600 transition-colors">Services</Link>
+              <Link href="/services" className="hover:text-orange-400 transition-colors">Services</Link>
               <span>/</span>
-              <Link href={`/${pillar.slug}`} className="hover:text-blue-600 transition-colors">{pillar.title}</Link>
+              <Link href={`/${pillar.slug}`} className="hover:text-orange-400 transition-colors">{pillar.title}</Link>
               {cluster && (
                 <>
                   <span>/</span>
-                  <span className="text-blue-600 font-medium">{cluster.title}</span>
+                  <span className="text-orange-600 font-medium">{cluster.title}</span>
                 </>
               )}
             </nav>
 
             {/* Service Badge */}
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Star className="w-4 h-4 fill-current" />
+            <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <Star className="w-4 h-4 fill-current text-orange-500" />
               {cluster ? 'Specialized Service' : 'Service Category'}
             </div>
 
             {/* Title */}
             <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Professional
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"> {currentService.title}</span>
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent"> {currentService.title}</span>
             </h1>
 
             {/* Description */}
@@ -93,7 +93,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0" />
                   <span className="text-gray-700 font-medium">{feature}</span>
                 </div>
               ))}
@@ -101,7 +101,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
 
             {/* CTA Buttons */}
             <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <Button asChild size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                 <Link href="/contact" className="flex items-center gap-2">
                   Get Started Today
                   <ArrowRight className="w-5 h-5" />
@@ -120,16 +120,16 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
                 <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 <span>4.9/5 Rating</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-600">
-                <Users className="w-4 h-4 text-blue-500" />
+                <div className="flex items-center gap-2 text-gray-600">
+                <Users className="w-4 h-4 text-orange-500" />
                 <span>150+ Clients</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600">
-                <Award className="w-4 h-4 text-purple-500" />
+                <Award className="w-4 h-4 text-orange-500" />
                 <span>Award Winning</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600">
-                <Shield className="w-4 h-4 text-green-500" />
+                <Shield className="w-4 h-4 text-orange-500" />
                 <span>100% Secure</span>
               </div>
             </div>
@@ -137,7 +137,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
 
           {/* Visual */}
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl transform rotate-3"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl transform rotate-3"></div>
             <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
               <img
                 src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -148,7 +148,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
               {/* Floating Stats */}
               <div className="absolute -top-6 -left-6 bg-white rounded-xl p-4 shadow-lg">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -160,7 +160,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
 
               <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-lg">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
                     <Clock className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -196,14 +196,14 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
                     <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
                       <CheckCircle className="w-5 h-5 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors">
                       {service.title}
                     </h3>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
                     {service.description}
                   </p>
-                  <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all duration-300">
+                  <div className="flex items-center text-orange-600 font-semibold text-sm group-hover:gap-2 transition-all duration-300">
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>

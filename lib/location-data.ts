@@ -75,7 +75,7 @@ export const locationData: Country[] = [
     currency: 'PKR',
     timezone: 'PKT (UTC+5)',
     seo: {
-      title: 'Software Development Services in Pakistan - Solutions Indicator',
+      title: 'Software Development Services in Pakistan - Web On Dev',
       description: 'Professional software development, web development, and digital solutions across Pakistan. Local expertise with global standards.',
       keywords: ['software development pakistan', 'web development pakistan', 'IT services pakistan', 'digital solutions pakistan']
     },
@@ -85,7 +85,7 @@ export const locationData: Country[] = [
         name: 'Punjab',
         description: 'Comprehensive software solutions across Punjab with local market expertise.',
         seo: {
-          title: 'Software Development Services in Punjab - Solutions Indicator',
+          title: 'Software Development Services in Punjab - Web On Dev',
           description: 'Professional software development and IT services across Punjab. Local expertise with proven results.',
           keywords: ['software development punjab', 'IT services punjab', 'web development punjab']
         },
@@ -104,7 +104,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 2 hours'
             },
             seo: {
-              title: 'Software Development Services in Lahore - Solutions Indicator',
+              title: 'Software Development Services in Lahore - Web On Dev',
               description: 'Professional software development, web development, and digital solutions in Lahore. Local expertise with global standards.',
               keywords: ['software development lahore', 'web development lahore', 'IT services lahore', 'digital solutions lahore']
             },
@@ -162,7 +162,7 @@ export const locationData: Country[] = [
               {
                 name: 'Ahmed Khan',
                 company: 'TechStart Lahore',
-                content: 'Solutions Indicator delivered an exceptional e-commerce platform that perfectly suited our local market needs. Their understanding of Lahore\'s business landscape was invaluable.',
+                content: 'Web On Dev delivered an exceptional e-commerce platform that perfectly suited our local market needs. Their understanding of Lahore\'s business landscape was invaluable.',
                 rating: 5
               },
               {
@@ -187,7 +187,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 3 hours'
             },
             seo: {
-              title: 'Software Development Services in Islamabad - Solutions Indicator',
+              title: 'Software Development Services in Islamabad - Web On Dev',
               description: 'Professional software development and IT services in Islamabad. Government and private sector solutions.',
               keywords: ['software development islamabad', 'IT services islamabad', 'government software islamabad']
             },
@@ -240,7 +240,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 4 hours'
             },
             seo: {
-              title: 'Software Development Services in Faisalabad - Solutions Indicator',
+              title: 'Software Development Services in Faisalabad - Web On Dev',
               description: 'Professional software development and IT services in Faisalabad. Industrial and manufacturing solutions.',
               keywords: ['software development faisalabad', 'IT services faisalabad', 'industrial software faisalabad']
             },
@@ -286,7 +286,7 @@ export const locationData: Country[] = [
         name: 'Sindh',
         description: 'Innovative software solutions across Sindh with focus on Karachi\'s dynamic business environment.',
         seo: {
-          title: 'Software Development Services in Sindh - Solutions Indicator',
+          title: 'Software Development Services in Sindh - Web On Dev',
           description: 'Professional software development and IT services across Sindh. Karachi-focused solutions with regional expertise.',
           keywords: ['software development sindh', 'IT services sindh', 'web development sindh']
         },
@@ -305,7 +305,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 1 hour'
             },
             seo: {
-              title: 'Software Development Services in Karachi - Solutions Indicator',
+              title: 'Software Development Services in Karachi - Web On Dev',
               description: 'Professional software development, web development, and digital solutions in Karachi. Economic hub expertise.',
               keywords: ['software development karachi', 'web development karachi', 'IT services karachi', 'digital solutions karachi']
             },
@@ -358,7 +358,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 3 hours'
             },
             seo: {
-              title: 'Software Development Services in Hyderabad - Solutions Indicator',
+              title: 'Software Development Services in Hyderabad - Web On Dev',
               description: 'Professional software development and IT services in Hyderabad. Educational and research solutions.',
               keywords: ['software development hyderabad', 'IT services hyderabad', 'educational software hyderabad']
             },
@@ -404,7 +404,7 @@ export const locationData: Country[] = [
         name: 'Khyber Pakhtunkhwa',
         description: 'Technology solutions for Pakistan\'s northwestern frontier with focus on security and tourism.',
         seo: {
-          title: 'Software Development Services in Khyber Pakhtunkhwa - Solutions Indicator',
+          title: 'Software Development Services in Khyber Pakhtunkhwa - Web On Dev',
           description: 'Professional software development and IT services across Khyber Pakhtunkhwa. Security and tourism solutions.',
           keywords: ['software development kpk', 'IT services kpk', 'web development kpk']
         },
@@ -423,7 +423,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 4 hours'
             },
             seo: {
-              title: 'Software Development Services in Peshawar - Solutions Indicator',
+              title: 'Software Development Services in Peshawar - Web On Dev',
               description: 'Professional software development and IT services in Peshawar. Security and defense solutions.',
               keywords: ['software development peshawar', 'IT services peshawar', 'security software peshawar']
             },
@@ -469,7 +469,7 @@ export const locationData: Country[] = [
         name: 'Gilgit-Baltistan',
         description: 'Technology solutions for Pakistan\'s northern region with focus on tourism and development.',
         seo: {
-          title: 'Software Development Services in Gilgit-Baltistan - Solutions Indicator',
+          title: 'Software Development Services in Gilgit-Baltistan - Web On Dev',
           description: 'Professional software development and IT services across Gilgit-Baltistan. Tourism and development solutions.',
           keywords: ['software development gilgit-baltistan', 'IT services gilgit-baltistan', 'web development gilgit-baltistan']
         },
@@ -488,7 +488,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 3 hours'
             },
             seo: {
-              title: 'Software Development Services in Gilgit - Solutions Indicator',
+              title: 'Software Development Services in Gilgit - Web On Dev',
               description: 'Professional software development and IT services in Gilgit. Tourism and development solutions.',
               keywords: ['software development gilgit', 'IT services gilgit', 'tourism software gilgit']
             },
@@ -613,7 +613,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 4 hours'
             },
             seo: {
-              title: 'Software Development Services in Barishal - Solutions Indicator',
+              title: 'Software Development Services in Barishal - Web On Dev',
               description: 'Professional software development and IT services in Barishal. Business and development solutions.',
               keywords: ['software development barishal', 'IT services barishal', 'web development barishal']
             },
@@ -664,7 +664,7 @@ export const locationData: Country[] = [
     currency: 'USD',
     timezone: 'Multiple',
     seo: {
-      title: 'Software Development Services in United States - Solutions Indicator',
+      title: 'Software Development Services in United States - Web On Dev',
       description: 'Professional software development and IT services across the United States. Local expertise with global standards.',
       keywords: ['software development USA', 'web development USA', 'IT services USA', 'digital solutions USA']
     },
@@ -674,7 +674,7 @@ export const locationData: Country[] = [
         name: 'California',
         description: 'Innovative software solutions in the heart of Silicon Valley and beyond.',
         seo: {
-          title: 'Software Development Services in California - Solutions Indicator',
+          title: 'Software Development Services in California - Web On Dev',
           description: 'Professional software development and IT services across California. Silicon Valley expertise.',
           keywords: ['software development california', 'IT services california', 'silicon valley development']
         },
@@ -693,7 +693,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 1 hour'
             },
             seo: {
-              title: 'Software Development Services in San Francisco - Solutions Indicator',
+              title: 'Software Development Services in San Francisco - Web On Dev',
               description: 'Professional software development and IT services in San Francisco. Silicon Valley expertise.',
               keywords: ['software development san francisco', 'IT services san francisco', 'silicon valley development']
             },
@@ -746,7 +746,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 2 hours'
             },
             seo: {
-              title: 'Software Development Services in Los Angeles - Solutions Indicator',
+              title: 'Software Development Services in Los Angeles - Web On Dev',
               description: 'Professional software development and IT services in Los Angeles. Entertainment and media solutions.',
               keywords: ['software development los angeles', 'IT services los angeles', 'entertainment software LA']
             },
@@ -792,7 +792,7 @@ export const locationData: Country[] = [
         name: 'New York',
         description: 'Financial and fintech software solutions in the world\'s financial capital.',
         seo: {
-          title: 'Software Development Services in New York - Solutions Indicator',
+          title: 'Software Development Services in New York - Web On Dev',
           description: 'Professional software development and IT services across New York. Financial and fintech solutions.',
           keywords: ['software development new york', 'IT services new york', 'fintech development NYC']
         },
@@ -811,7 +811,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 1 hour'
             },
             seo: {
-              title: 'Software Development Services in New York City - Solutions Indicator',
+              title: 'Software Development Services in New York City - Web On Dev',
               description: 'Professional software development and IT services in New York City. Financial technology expertise.',
               keywords: ['software development NYC', 'IT services NYC', 'fintech development new york']
             },
@@ -857,7 +857,7 @@ export const locationData: Country[] = [
         name: 'Texas',
         description: 'Energy and oil industry software solutions in the Lone Star State.',
         seo: {
-          title: 'Software Development Services in Texas - Solutions Indicator',
+          title: 'Software Development Services in Texas - Web On Dev',
           description: 'Professional software development and IT services across Texas. Energy and oil industry solutions.',
           keywords: ['software development texas', 'IT services texas', 'energy software texas']
         },
@@ -876,7 +876,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 2 hours'
             },
             seo: {
-              title: 'Software Development Services in Houston - Solutions Indicator',
+              title: 'Software Development Services in Houston - Web On Dev',
               description: 'Professional software development and IT services in Houston. Energy industry expertise.',
               keywords: ['software development houston', 'IT services houston', 'energy software houston']
             },
@@ -927,7 +927,7 @@ export const locationData: Country[] = [
     currency: 'GBP',
     timezone: 'GMT/BST',
     seo: {
-      title: 'Software Development Services in United Kingdom - Solutions Indicator',
+      title: 'Software Development Services in United Kingdom - Web On Dev',
       description: 'Professional software development and IT services across the United Kingdom. European expertise with global standards.',
       keywords: ['software development UK', 'web development UK', 'IT services UK', 'digital solutions UK']
     },
@@ -937,7 +937,7 @@ export const locationData: Country[] = [
         name: 'England',
         description: 'Innovative software solutions across England with focus on London\'s financial district.',
         seo: {
-          title: 'Software Development Services in England - Solutions Indicator',
+          title: 'Software Development Services in England - Web On Dev',
           description: 'Professional software development and IT services across England. London-focused solutions with European expertise.',
           keywords: ['software development england', 'IT services england', 'web development england']
         },
@@ -956,7 +956,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 1 hour'
             },
             seo: {
-              title: 'Software Development Services in London - Solutions Indicator',
+              title: 'Software Development Services in London - Web On Dev',
               description: 'Professional software development and IT services in London. Financial technology expertise.',
               keywords: ['software development london', 'IT services london', 'fintech development UK']
             },
@@ -1009,7 +1009,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 3 hours'
             },
             seo: {
-              title: 'Software Development Services in Manchester - Solutions Indicator',
+              title: 'Software Development Services in Manchester - Web On Dev',
               description: 'Professional software development and IT services in Manchester. Industrial and manufacturing solutions.',
               keywords: ['software development manchester', 'IT services manchester', 'industrial software manchester']
             },
@@ -1060,7 +1060,7 @@ export const locationData: Country[] = [
     currency: 'CAD',
     timezone: 'Multiple',
     seo: {
-      title: 'Software Development Services in Canada - Solutions Indicator',
+      title: 'Software Development Services in Canada - Web On Dev',
       description: 'Professional software development and IT services across Canada. North American expertise with global standards.',
       keywords: ['software development canada', 'web development canada', 'IT services canada', 'digital solutions canada']
     },
@@ -1070,7 +1070,7 @@ export const locationData: Country[] = [
         name: 'Ontario',
         description: 'Technology solutions across Ontario with focus on Toronto\'s financial district.',
         seo: {
-          title: 'Software Development Services in Ontario - Solutions Indicator',
+          title: 'Software Development Services in Ontario - Web On Dev',
           description: 'Professional software development and IT services across Ontario. Toronto-focused solutions with Canadian expertise.',
           keywords: ['software development ontario', 'IT services ontario', 'web development ontario']
         },
@@ -1089,7 +1089,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 2 hours'
             },
             seo: {
-              title: 'Software Development Services in Toronto - Solutions Indicator',
+              title: 'Software Development Services in Toronto - Web On Dev',
               description: 'Professional software development and IT services in Toronto. Financial technology expertise.',
               keywords: ['software development toronto', 'IT services toronto', 'fintech development canada']
             },
@@ -1140,7 +1140,7 @@ export const locationData: Country[] = [
     currency: 'AUD',
     timezone: 'Multiple',
     seo: {
-      title: 'Software Development Services in Australia - Solutions Indicator',
+      title: 'Software Development Services in Australia - Web On Dev',
       description: 'Professional software development and IT services across Australia. Asia-Pacific expertise with global standards.',
       keywords: ['software development australia', 'web development australia', 'IT services australia', 'digital solutions australia']
     },
@@ -1150,7 +1150,7 @@ export const locationData: Country[] = [
         name: 'New South Wales',
         description: 'Technology solutions across NSW with focus on Sydney\'s business district.',
         seo: {
-          title: 'Software Development Services in New South Wales - Solutions Indicator',
+          title: 'Software Development Services in New South Wales - Web On Dev',
           description: 'Professional software development and IT services across NSW. Sydney-focused solutions with Australian expertise.',
           keywords: ['software development nsw', 'IT services nsw', 'web development nsw']
         },
@@ -1169,7 +1169,7 @@ export const locationData: Country[] = [
               responseTime: '&lt; 3 hours'
             },
             seo: {
-              title: 'Software Development Services in Sydney - Solutions Indicator',
+              title: 'Software Development Services in Sydney - Web On Dev',
               description: 'Professional software development and IT services in Sydney. Business technology expertise.',
               keywords: ['software development sydney', 'IT services sydney', 'business software australia']
             },

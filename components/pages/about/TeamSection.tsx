@@ -55,48 +55,48 @@ const TeamSection = () => {
       name: 'Development Team',
       count: 25,
       description: 'Full-stack developers, mobile specialists, and DevOps engineers',
-      color: 'from-blue-500 to-purple-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       name: 'Design Team',
       count: 8,
       description: 'UI/UX designers, graphic designers, and brand specialists',
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       name: 'Marketing Team',
       count: 6,
       description: 'Digital marketers, content creators, and SEO specialists',
-      color: 'from-green-500 to-blue-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       name: 'Quality Assurance',
       count: 5,
       description: 'QA engineers, test automation specialists, and security experts',
-      color: 'from-orange-500 to-red-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       name: 'Project Management',
       count: 4,
       description: 'Project managers, scrum masters, and business analysts',
-      color: 'from-teal-500 to-green-500'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       name: 'Support Team',
       count: 2,
       description: 'Technical support specialists and client success managers',
-      color: 'from-indigo-500 to-purple-500'
+      color: 'from-orange-500 to-orange-600'
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Meet Our
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Team</span>
+            <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent"> Team</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Our diverse team of experts brings together decades of experience in software development, design, and digital strategy to deliver exceptional results.
@@ -117,28 +117,28 @@ const TeamSection = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-24 h-24 rounded-full object-cover mx-auto border-4 border-gray-100 group-hover:border-blue-200 transition-colors duration-300"
+                    className="w-24 h-24 rounded-full object-cover mx-auto border-4 border-gray-100 group-hover:border-orange-200 transition-colors duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
                 {/* Member Info */}
                 <div className="text-center">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
                     {member.name}
                   </h4>
-                  <p className="text-blue-600 font-semibold mb-3">{member.position}</p>
+                  <p className="text-orange-600 font-semibold mb-3">{member.position}</p>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.bio}</p>
 
                   {/* Social Links */}
                   <div className="flex justify-center gap-3">
                     {member.social.linkedin && (
-                      <a href={member.social.linkedin} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 hover:text-blue-600 transition-colors">
+                      <a href={member.social.linkedin} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 hover:text-orange-600 transition-colors">
                         <Linkedin className="w-4 h-4" />
                       </a>
                     )}
                     {member.social.twitter && (
-                      <a href={member.social.twitter} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 hover:text-blue-600 transition-colors">
+                      <a href={member.social.twitter} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 hover:text-orange-600 transition-colors">
                         <Twitter className="w-4 h-4" />
                       </a>
                     )}
@@ -148,7 +148,7 @@ const TeamSection = () => {
                       </a>
                     )}
                     {member.social.email && (
-                      <a href={`mailto:${member.social.email}`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-green-100 hover:text-green-600 transition-colors">
+                      <a href={`mailto:${member.social.email}`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-orange-100 hover:text-orange-600 transition-colors">
                         <Mail className="w-4 h-4" />
                       </a>
                     )}
@@ -172,7 +172,7 @@ const TeamSection = () => {
                   <span className="text-white font-bold text-lg">{dept.count}</span>
                 </div>
                 
-                <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
                   {dept.name}
                 </h4>
                 
@@ -188,15 +188,15 @@ const TeamSection = () => {
         <div className="mt-20 bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">50+</div>
               <div className="text-gray-600">Team Members</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">15+</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
               <div className="text-gray-600">Nationalities</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">8+</div>
+               <div className="text-3xl font-bold text-orange-600 mb-2">8+</div>
               <div className="text-gray-600">Time Zones</div>
             </div>
             <div>
@@ -211,3 +211,4 @@ const TeamSection = () => {
 };
 
 export default TeamSection;
+

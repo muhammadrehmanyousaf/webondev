@@ -102,7 +102,7 @@ const LocationSection = () => {
       case 'headquarters':
         return 'from-red-500 to-red-600';
       case 'regional':
-        return 'from-green-500 to-green-600';
+        return 'from-orange-500 to-orange-600';
       case 'international':
         return 'from-purple-500 to-purple-600';
       default:
@@ -115,11 +115,11 @@ const LocationSection = () => {
       case 'headquarters':
         return { label: 'HQ', color: 'bg-red-100 text-red-700 border-red-200' };
       case 'regional':
-        return { label: 'Regional', color: 'bg-green-100 text-green-700 border-green-200' };
+        return { label: 'Regional', color: 'bg-orange-100 text-orange-700 border-orange-200' };
       case 'international':
         return { label: 'International', color: 'bg-purple-100 text-purple-700 border-purple-200' };
       default:
-        return { label: 'Office', color: 'bg-blue-100 text-blue-700 border-blue-200' };
+        return { label: 'Office', color: 'bg-blue-100 text-blue-700 border-orange-200' };
     }
   };
 
@@ -130,7 +130,7 @@ const LocationSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our Global
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Presence</span>
+            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Presence</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             With offices across the globe, we're always close to our clients. Find the office nearest to you for in-person meetings and consultations.
@@ -206,7 +206,7 @@ const LocationSection = () => {
                 <span className="text-gray-600">Headquarters</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-gradient-to-r from-green-500 to-green-600 rounded-full"></div>
+                <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full"></div>
                 <span className="text-gray-600">Regional Office</span>
               </div>
               <div className="flex items-center gap-2">
@@ -275,7 +275,7 @@ const LocationSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <MapPin className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-medium text-gray-900 text-sm">Address</p>
                       <p className="text-gray-600 text-sm">{selectedOfficeData.address}</p>
@@ -284,7 +284,7 @@ const LocationSection = () => {
                   </div>
                   
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <Clock className="w-5 h-5 text-orange-500 flex-shrink-0" />
                     <div>
                       <p className="font-medium text-gray-900 text-sm">Business Hours</p>
                       <p className="text-gray-600 text-sm">{selectedOfficeData.hours}</p>
@@ -296,12 +296,12 @@ const LocationSection = () => {
                 <div className="space-y-3">
                   <button
                     onClick={() => window.open(`tel:${selectedOfficeData.phone}`)}
-                    className="flex items-center gap-3 w-full p-3 bg-green-50 hover:bg-green-100 rounded-lg transition-colors group"
+                    className="flex items-center gap-3 w-full p-3 bg-orange-50 hover:bg-orange-100 rounded-lg transition-colors group"
                   >
-                    <Phone className="w-5 h-5 text-green-500 group-hover:scale-110 transition-transform" />
+                    <Phone className="w-5 h-5 text-orange-500 group-hover:scale-110 transition-transform" />
                     <div className="text-left">
                       <p className="font-medium text-gray-900 text-sm">Phone</p>
-                      <p className="text-green-600 text-sm">{selectedOfficeData.phone}</p>
+                      <p className="text-orange-600 text-sm">{selectedOfficeData.phone}</p>
                     </div>
                   </button>
                   
@@ -309,10 +309,10 @@ const LocationSection = () => {
                     onClick={() => window.open(`mailto:${selectedOfficeData.email}`)}
                     className="flex items-center gap-3 w-full p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors group"
                   >
-                    <Mail className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform" />
+                    <Mail className="w-5 h-5 text-orange-500 group-hover:scale-110 transition-transform" />
                     <div className="text-left">
                       <p className="font-medium text-gray-900 text-sm">Email</p>
-                      <p className="text-blue-600 text-sm">{selectedOfficeData.email}</p>
+                      <p className="text-orange-600 text-sm">{selectedOfficeData.email}</p>
                     </div>
                   </button>
                 </div>
@@ -337,14 +337,14 @@ const LocationSection = () => {
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => window.open(`https://maps.google.com/?q=${encodeURIComponent(selectedOfficeData.address + ', ' + selectedOfficeData.city)}`)}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-orange-600 to-orange-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
                 >
                   <Navigation className="w-4 h-4" />
                   Get Directions
                 </button>
                 <button
                   onClick={() => window.open(`tel:${selectedOfficeData.phone}`)}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-blue-600 hover:text-orange-600 transition-all duration-300"
                 >
                   <Phone className="w-4 h-4" />
                   Call Office
@@ -363,17 +363,17 @@ const LocationSection = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">{offices.length}</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">{offices.length}</div>
               <div className="text-gray-600 font-medium">Office Locations</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">
+              <div className="text-3xl font-bold text-orange-600 mb-2">
                 {offices.reduce((sum, office) => sum + office.teamSize, 0)}+
               </div>
               <div className="text-gray-600 font-medium">Team Members</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">24/7</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">24/7</div>
               <div className="text-gray-600 font-medium">Global Support</div>
             </div>
             <div className="text-center">

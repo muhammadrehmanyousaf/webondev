@@ -26,7 +26,7 @@ import DynamicFAQ from '@/components/ui/DynamicFAQ';
 const siteUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: 'Where We Serve - Global Software Development Services | Solutions Indicator',
+  title: 'Where We Serve - Global Software Development Services | Web On Dev',
   description: 'Explore our global presence with software development services across multiple countries. Local expertise with global standards in web development, mobile apps, and digital solutions.',
   keywords: 'global software development, international IT services, software development worldwide, web development services, mobile app development, digital solutions',
   alternates: { canonical: `${siteUrl}/where-we-serve/` },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/api/images/og?title=Where%20We%20Serve&subtitle=Solutions%20Indicator`,
         width: 1200,
         height: 630,
-        alt: 'Where We Serve – Solutions Indicator'
+        alt: 'Where We Serve – Web On Dev'
       }
     ]
   },
@@ -55,7 +55,7 @@ export default async function WhereWeServePage() {
     <div className="py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+          <Button asChild size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
             <Link href="#book-meeting" className="flex items-center gap-2">
               Book Meeting
               <Calendar className="w-5 h-5" />
@@ -114,11 +114,11 @@ export default async function WhereWeServePage() {
         {/* 9) Testimonials Section (moved below EEAT for stronger narrative) */}
         
 
-        {/* SEO Section: Why Choose Solutions Indicator */}
+        {/* SEO Section: Why Choose Web On Dev */}
         <section className="py-20 bg-white animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Solutions Indicator</span> for global delivery?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why choose <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Web On Dev</span> for global delivery?</h2>
               <p className="text-xl text-gray-600 leading-relaxed">We specialize in search-first, conversion-focused software that pairs modern engineering with market-aware content. Our team builds websites, apps, and analytics pipelines that rank, load fast, and convert—across languages, currencies, and regulations.</p>
             </div>
             <div className="prose prose-lg max-w-none text-gray-700">
@@ -139,7 +139,7 @@ export default async function WhereWeServePage() {
         <SectionCTA />
 
         {/* SEO Section: How We Deliver Results */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">How we deliver measurable search and revenue outcomes</h3>
@@ -230,11 +230,11 @@ export default async function WhereWeServePage() {
         </section>
 
         {/* EEAT Section: Author Bio & Editorial Standards */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 animate-on-scroll">
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 animate-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who writes and reviews our content</h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">Our content is produced by senior engineers and growth strategists at Solutions Indicator, and reviewed for technical accuracy, accessibility, and SEO best practices.</p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">Our content is produced by senior engineers and growth strategists at Web On Dev, and reviewed for technical accuracy, accessibility, and SEO best practices.</p>
               <p className="text-lg text-gray-700 leading-relaxed">We maintain an editorial process that prioritizes helpfulness and clarity: research → drafting → technical review → SEO and accessibility checks → final approval.</p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
@@ -286,7 +286,7 @@ export default async function WhereWeServePage() {
               '@context': 'https://schema.org',
               '@type': 'CollectionPage',
               name: 'Where We Serve',
-              description: 'Global locations where Solutions Indicator delivers software development services.',
+              description: 'Global locations where Web On Dev delivers software development services.',
               hasPart: countries.map((c: any) => ({
                 '@type': 'WebPage',
                 name: `Software Development in ${c.name}`,
@@ -294,7 +294,7 @@ export default async function WhereWeServePage() {
               })),
               publisher: {
                 '@type': 'Organization',
-                name: 'Solutions Indicator',
+                name: 'Web On Dev',
               },
             }),
           }}

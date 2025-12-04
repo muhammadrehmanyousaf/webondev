@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   
   if (!service) {
     return {
-      title: 'Service Not Found - Solutions Indicator',
+      title: 'Service Not Found - Web On Dev',
       description: 'The requested service page could not be found.',
     };
   }
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
           url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/images/og?title=${encodeURIComponent(title)}&subtitle=Solutions%20Indicator`,
           width: 1200,
           height: 630,
-          alt: `${title} – Solutions Indicator`
+          alt: `${title} – Web On Dev`
         }
       ]
     }

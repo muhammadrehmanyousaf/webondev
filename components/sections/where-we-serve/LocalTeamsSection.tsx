@@ -4,35 +4,36 @@ import React from 'react';
 
 const LocalTeamsSection = () => {
   return (
-    <section className="py-20 bg-white animate-on-scroll">
+    <section className="py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 animate-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="mb-8">
-              <div className="mb-4">
-                <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full border border-gray-200 text-gray-700 bg-white shadow-sm">Trusted locally, delivered globally</span>
+            <div className="mb-12">
+              <div className="mb-6">
+                <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full border border-orange-200 text-orange-700 bg-orange-50 shadow-sm">Trusted locally, delivered globally</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Local teams, <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">global standards</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+                <span className="text-gray-900">Local teams,</span>
+                <span className="block bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent font-black">global standards</span>
               </h2>
             </div>
 
             <div className="space-y-6">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-100">
+              <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Regional Expertise</h3>
                 <p className="text-gray-700 leading-relaxed">
                   Our teams possess deep understanding of local market dynamics, cultural nuances, and regional business practices. We don't just translate—we adapt your digital presence to resonate with local audiences while maintaining global quality standards.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-6 border border-purple-100">
+              <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Time Zone Optimization</h3>
                 <p className="text-gray-700 leading-relaxed">
                   We structure our delivery teams to ensure optimal overlap with your working hours. Whether you're in New York, London, Tokyo, or Sydney, we maintain responsive communication and real-time collaboration throughout your project lifecycle.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-6 border border-green-100">
+              <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Localized Delivery</h3>
                 <p className="text-gray-700 leading-relaxed">
                   Every project incorporates region-specific considerations: local payment gateways, compliance requirements, language preferences, and cultural design elements. We ensure your digital solution feels native to your target market.
@@ -50,7 +51,7 @@ const LocalTeamsSection = () => {
                 'Local Payment Integration'
               ].map((feature, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
                     <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
@@ -70,7 +71,7 @@ const LocalTeamsSection = () => {
             </div>
 
             <div className="mt-8">
-              <a href="/contact" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition shadow-lg hover:shadow-xl">Start a project</a>
+              <a href="/contact" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 transition shadow-lg hover:shadow-xl">Start a project</a>
             </div>
           </div>
 
@@ -89,7 +90,7 @@ const LocalTeamsSection = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl transform rotate-3"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl transform rotate-3"></div>
             <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop"
@@ -98,7 +99,7 @@ const LocalTeamsSection = () => {
               />
               <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-lg">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>

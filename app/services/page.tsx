@@ -9,14 +9,14 @@ import ServiceBenefitsSection from '@/components/pages/services/ServiceBenefitsS
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Our Services - Solutions Indicator | Complete Software Development Solutions',
+  title: 'Our Services - Web On Dev | Complete Software Development Solutions',
   description: 'Explore our comprehensive range of software development services including web development, mobile apps, UI/UX design, digital marketing, cloud services, and more.',
   keywords: 'software development services, web development, mobile app development, UI/UX design, digital marketing, cloud services, consulting',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/services/`,
   },
   openGraph: {
-    title: 'Our Services - Solutions Indicator | Complete Software Development Solutions',
+    title: 'Our Services - Web On Dev | Complete Software Development Solutions',
     description: 'Explore our comprehensive range of software development services including web development, mobile apps, UI/UX design, digital marketing, cloud services, and more.',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/services/`,
     type: 'website',
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
         url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/images/og?title=Our%20Services&subtitle=Solutions%20Indicator`,
         width: 1200,
         height: 630,
-        alt: 'Our Services – Solutions Indicator'
+        alt: 'Our Services – Web On Dev'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Our Services - Solutions Indicator | Complete Software Development Solutions',
+    title: 'Our Services - Web On Dev | Complete Software Development Solutions',
     description: 'Explore our comprehensive range of software development services including web development, mobile apps, UI/UX design, digital marketing, cloud services, and more.',
   },
 };
@@ -111,7 +111,7 @@ export default function ServicesPage() {
               '@type': 'CollectionPage',
               name: 'Our Services',
               description: 'Comprehensive software development services.',
-              publisher: { '@type': 'Organization', name: 'Solutions Indicator' }
+              publisher: { '@type': 'Organization', name: 'Web On Dev' }
             })
           }}
         />

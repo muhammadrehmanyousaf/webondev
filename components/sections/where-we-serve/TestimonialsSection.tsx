@@ -15,7 +15,7 @@ const TestimonialsSection = () => {
       company: 'TechStart Inc.',
       location: 'New York, USA',
       rating: 5,
-      text: 'Solutions Indicator transformed our business with their exceptional web development services. Their team delivered a scalable, modern platform that exceeded our expectations and helped us expand globally.',
+      text: 'Web On Dev transformed our business with their exceptional web development services. Their team delivered a scalable, modern platform that exceeded our expectations and helped us expand globally.',
       avatar: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop'
     },
     {
@@ -99,13 +99,13 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden animate-on-scroll">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-orange-50 to-orange-100 overflow-hidden animate-on-scroll">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         {/* Section Header */}
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             What Our Global Clients
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Say About Us</span>
+            <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent"> Say About Us</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Don't just take our word for it. Here's what our satisfied clients from around the world have to say about our services and results.
@@ -124,7 +124,7 @@ const TestimonialsSection = () => {
             >
               {/* Quote Icon */}
               <div className="flex items-center justify-between mb-6">
-                <Quote className="w-8 h-8 text-blue-500 opacity-60" />
+                <Quote className="w-8 h-8 text-orange-400 opacity-60" />
                 <div className="flex gap-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
@@ -147,7 +147,7 @@ const TestimonialsSection = () => {
                 <div>
                   <div className="font-bold text-gray-900">{testimonial.name}</div>
                   <div className="text-gray-600 text-sm">{testimonial.position}</div>
-                  <div className="text-blue-600 text-sm font-medium">{testimonial.company}</div>
+                  <div className="text-orange-600 text-sm font-medium">{testimonial.company}</div>
                   <div className="text-gray-500 text-xs">{testimonial.location}</div>
                 </div>
               </div>
@@ -158,21 +158,21 @@ const TestimonialsSection = () => {
 
       {/* Bottom Stats */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-            <div className="text-3xl font-bold text-blue-600 mb-2">99%</div>
+            <div className="text-3xl font-bold text-orange-600 mb-2">99%</div>
             <div className="text-gray-700 font-medium">Client Satisfaction</div>
           </div>
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-            <div className="text-3xl font-bold text-purple-600 mb-2">4.9/5</div>
+            <div className="text-3xl font-bold text-orange-500 mb-2">4.9/5</div>
             <div className="text-gray-700 font-medium">Average Rating</div>
           </div>
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-            <div className="text-3xl font-bold text-indigo-600 mb-2">30+</div>
+            <div className="text-3xl font-bold text-orange-500 mb-2">30+</div>
             <div className="text-gray-700 font-medium">Countries Served</div>
           </div>
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-            <div className="text-3xl font-bold text-green-600 mb-2">150+</div>
+            <div className="text-3xl font-bold text-orange-600 mb-2">150+</div>
             <div className="text-gray-700 font-medium">Happy Clients</div>
           </div>
         </div>
