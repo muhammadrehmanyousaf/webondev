@@ -302,7 +302,7 @@ const Header = () => {
                 <Zap className="w-4 h-4" />
                 <span>Get Started</span>
               </Link>
-            </Button>
+            </Button> 
           </div>
 
           {/* Mobile Menu Toggle */}
