@@ -41,10 +41,14 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
       }
     ],
     sameAs: [
-      'https://linkedin.com/company/solutions-indicator',
-      'https://twitter.com/solutionsind',
-      'https://github.com/solutions-indicator',
-      'https://facebook.com/webondev'
+      'https://www.youtube.com/@webondev',
+      'https://x.com/webon_dev',
+      'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
+      'https://www.instagram.com/webondev/',
+      // 'https://linkedin.com/company/solutions-indicator',
+      // 'https://twitter.com/solutionsind',
+      // 'https://github.com/solutions-indicator',
+      // 'https://facebook.com/webondev'
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -508,12 +512,16 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     name: 'Web On Dev',
     url: siteUrl,
     sameAs: [
-      'https://linkedin.com/company/solutions-indicator',
-      'https://twitter.com/solutionsind',
-      'https://facebook.com/webondev',
-      'https://instagram.com/webondev',
-      'https://youtube.com/webondev',
-      'https://github.com/solutions-indicator'
+      'https://www.youtube.com/@webondev',
+      'https://x.com/webon_dev',
+      'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
+      'https://www.instagram.com/webondev/',
+      // 'https://linkedin.com/company/solutions-indicator',
+      // 'https://twitter.com/solutionsind',
+      // 'https://facebook.com/webondev',
+      // 'https://instagram.com/webondev',
+      // 'https://youtube.com/webondev',
+      // 'https://github.com/solutions-indicator'
     ]
   };
 

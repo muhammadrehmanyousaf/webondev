@@ -119,14 +119,14 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://www.facebook.com/share/1CFWLYFFR2/", label: "Facebook" },
-    { icon: Instagram, href: "https://www.instagram.com/webondevofficial", label: "Instagram" },
-    { icon: Twitter, href: "https://x.com/solut_indicator", label: "X (Twitter)" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/solutions-indicator/", label: "LinkedIn" },
-    { icon: Youtube, href: "https://www.youtube.com/@webondevOfficial", label: "YouTube" },
-    { icon: SiTiktok, href: "https://www.tiktok.com/@webondev.com", label: "TikTok" },
-    { icon: SiPinterest, href: "https://www.pinterest.com/webondev/", label: "Pinterest" },
-    { icon: SiReddit, href: "https://www.reddit.com/u/webondev/s/myNp9ZusS9", label: "Reddit" }
+    { icon: Youtube, href: "https://www.youtube.com/@webondev", label: "YouTube" },
+    { icon: Twitter, href: "https://x.com/webon_dev", label: "X (Twitter)" },
+    { icon: Facebook, href: "https://www.facebook.com/people/Web-On-Dev/61584774954945/", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/webondev/", label: "Instagram" },
+    // { icon: Linkedin, href: "https://www.linkedin.com/company/solutions-indicator/", label: "LinkedIn" },
+    // { icon: SiTiktok, href: "https://www.tiktok.com/@webondev.com", label: "TikTok" },
+    // { icon: SiPinterest, href: "https://www.pinterest.com/webondev/", label: "Pinterest" },
+    // { icon: SiReddit, href: "https://www.reddit.com/u/webondev/s/myNp9ZusS9", label: "Reddit" }
   ];
 
   return (

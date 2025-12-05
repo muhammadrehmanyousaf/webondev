@@ -535,14 +535,18 @@ function generateOrganizationSchema(locationData: LocationData) {
       availableLanguage: ['English', 'Urdu']
     },
     sameAs: [
-      'https://www.tiktok.com/@webondev.com',
-      'https://www.pinterest.com/webondev/',
-      'https://www.linkedin.com/company/solutions-indicator/',
-      'https://www.youtube.com/@webondevOfficial',
-      'https://www.facebook.com/profile.php?id=61580249803527',
-      'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
-      'https://x.com/solut_indicator?t=PDtkij5__XQG8tLz9Q7Z6Q&s=09',
-      'https://www.instagram.com/webondevofficial?igsh=NXBrdjQweDhtemVi'
+      'https://www.youtube.com/@webondev',
+      'https://x.com/webon_dev',
+      'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
+      'https://www.instagram.com/webondev/',
+      // 'https://www.tiktok.com/@webondev.com',
+      // 'https://www.pinterest.com/webondev/',
+      // 'https://www.linkedin.com/company/solutions-indicator/',
+      // 'https://www.youtube.com/@webondevOfficial',
+      // 'https://www.facebook.com/profile.php?id=61580249803527',
+      // 'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
+      // 'https://x.com/solut_indicator?t=PDtkij5__XQG8tLz9Q7Z6Q&s=09',
+      // 'https://www.instagram.com/webondevofficial?igsh=NXBrdjQweDhtemVi'
     ],
     foundingDate: '2020-01-01',
     numberOfEmployees: '50-100',

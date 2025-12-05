@@ -189,14 +189,15 @@ export default function RootLayout({
           ],
           areaServed: 'Worldwide',
           sameAs: [
-            'https://www.facebook.com/share/1CFWLYFFR2/',
-            'https://www.instagram.com/webondevofficial',
-            'https://x.com/solut_indicator',
-            'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
-            'https://www.tiktok.com/@webondev.com',
-            'https://www.pinterest.com/webondev/',
-            'https://www.linkedin.com/company/solutions-indicator/',
-            'https://www.youtube.com/@webondevOfficial',
+            'https://www.youtube.com/@webondev',
+            'https://x.com/webon_dev',
+            'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
+            'https://www.instagram.com/webondev/',
+            // 'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
+            // 'https://www.tiktok.com/@webondev.com',
+            // 'https://www.pinterest.com/webondev/',
+            // 'https://www.linkedin.com/company/solutions-indicator/',
+            // 'https://www.youtube.com/@webondevOfficial',
             'https://www.designrush.com/agency/profile/solutions-indicators',
             'https://clutch.co/profile/solutions-indicator',
             'https://www.goodfirms.co/company/solutions-indicator',
@@ -258,14 +259,15 @@ export default function RootLayout({
             }
           ],
           sameAs: [
-            'https://www.facebook.com/share/1CFWLYFFR2/',
-            'https://www.instagram.com/webondevofficial',
-            'https://x.com/solut_indicator',
-            'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
-            'https://www.tiktok.com/@webondev.com',
-            'https://www.pinterest.com/webondev/',
-            'https://www.linkedin.com/company/solutions-indicator/',
-            'https://www.youtube.com/@webondevOfficial'
+            'https://www.youtube.com/@webondev',
+            'https://x.com/webon_dev',
+            'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
+            'https://www.instagram.com/webondev/',
+            // 'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
+            // 'https://www.tiktok.com/@webondev.com',
+            // 'https://www.pinterest.com/webondev/',
+            // 'https://www.linkedin.com/company/solutions-indicator/',
+            // 'https://www.youtube.com/@webondevOfficial'
           ]
         },
         {

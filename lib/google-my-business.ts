@@ -914,31 +914,67 @@ function generateSocialMediaFeature(locationData: LocationData) {
     itemListElement: [
       {
         '@type': 'Organization',
-        name: 'Web On Dev LinkedIn',
-        url: 'https://www.linkedin.com/company/solutions-indicator',
-        platform: 'LinkedIn',
-        username: 'solutions-indicator',
-        followers: '5000',
+        name: 'Web On Dev YouTube',
+        url: 'https://www.youtube.com/@webondev',
+        platform: 'YouTube',
+        username: '@webondev',
+        followers: '1000',
         verified: true
       },
       {
         '@type': 'Organization',
         name: 'Web On Dev Twitter',
-        url: 'https://twitter.com/solutionsind',
+        url: 'https://x.com/webon_dev',
         platform: 'Twitter',
-        username: 'solutionsind',
-        followers: '2500',
+        username: '@webon_dev',
+        followers: '500',
         verified: true
       },
       {
         '@type': 'Organization',
         name: 'Web On Dev Facebook',
-        url: 'https://www.facebook.com/webondev',
+        url: 'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
         platform: 'Facebook',
+        username: 'Web-On-Dev',
+        followers: '500',
+        verified: true
+      },
+      {
+        '@type': 'Organization',
+        name: 'Web On Dev Instagram',
+        url: 'https://www.instagram.com/webondev/',
+        platform: 'Instagram',
         username: 'webondev',
-        followers: '3000',
+        followers: '500',
         verified: true
       }
+      // {
+      //   '@type': 'Organization',
+      //   name: 'Web On Dev LinkedIn',
+      //   url: 'https://www.linkedin.com/company/solutions-indicator',
+      //   platform: 'LinkedIn',
+      //   username: 'solutions-indicator',
+      //   followers: '5000',
+      //   verified: true
+      // },
+      // {
+      //   '@type': 'Organization',
+      //   name: 'Web On Dev Twitter',
+      //   url: 'https://twitter.com/solutionsind',
+      //   platform: 'Twitter',
+      //   username: 'solutionsind',
+      //   followers: '2500',
+      //   verified: true
+      // },
+      // {
+      //   '@type': 'Organization',
+      //   name: 'Web On Dev Facebook',
+      //   url: 'https://www.facebook.com/webondev',
+      //   platform: 'Facebook',
+      //   username: 'webondev',
+      //   followers: '3000',
+      //   verified: true
+      // }
     ]
   };
 }

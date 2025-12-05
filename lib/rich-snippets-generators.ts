@@ -177,14 +177,18 @@ export function generateOrganizationSnippetsSchema(locationData: LocationData) {
       availableLanguage: ['English', 'Urdu']
     },
     sameAs: [
-      'https://www.tiktok.com/@webondev.com',
-      'https://www.pinterest.com/webondev/',
-      'https://www.linkedin.com/company/solutions-indicator/',
-      'https://www.youtube.com/@webondevOfficial',
-      'https://www.facebook.com/profile.php?id=61580249803527',
-      'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
-      'https://x.com/solut_indicator?t=PDtkij5__XQG8tLz9Q7Z6Q&s=09',
-      'https://www.instagram.com/webondevofficial?igsh=NXBrdjQweDhtemVi'
+      'https://www.youtube.com/@webondev',
+      'https://x.com/webon_dev',
+      'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
+      'https://www.instagram.com/webondev/',
+      // 'https://www.tiktok.com/@webondev.com',
+      // 'https://www.pinterest.com/webondev/',
+      // 'https://www.linkedin.com/company/solutions-indicator/',
+      // 'https://www.youtube.com/@webondevOfficial',
+      // 'https://www.facebook.com/profile.php?id=61580249803527',
+      // 'https://www.reddit.com/u/webondev/s/myNp9ZusS9',
+      // 'https://x.com/solut_indicator?t=PDtkij5__XQG8tLz9Q7Z6Q&s=09',
+      // 'https://www.instagram.com/webondevofficial?igsh=NXBrdjQweDhtemVi'
     ],
     foundingDate: '2020-01-01',
     numberOfEmployees: '50-100',
@@ -335,8 +339,8 @@ export function generateAuthorSnippetsSchema(locationData: LocationData) {
       name: 'Web On Dev'
     },
     sameAs: [
-      'https://www.linkedin.com/company/solutions-indicator',
-      'https://twitter.com/solutionsind'
+      // 'https://www.linkedin.com/company/solutions-indicator',
+      // 'https://twitter.com/solutionsind'
     ],
     image: `${locationData.businessInfo.website}/images/team/author-${locationData.city.toLowerCase().replace(/\s+/g, '-')}.jpg`,
     description: `Expert ${locationData.service} professionals serving ${locationData.city} with local expertise and global standards.`
@@ -357,7 +361,7 @@ export function generatePersonSnippetsSchema(locationData: LocationData) {
       name: 'Web On Dev'
     },
     sameAs: [
-      'https://www.linkedin.com/in/solutions-indicator-lead'
+      // 'https://www.linkedin.com/in/solutions-indicator-lead'
     ],
     image: `${locationData.businessInfo.website}/images/team/team-lead-${locationData.city.toLowerCase().replace(/\s+/g, '-')}.jpg`,
     description: `Leading ${locationData.service} expert in ${locationData.city} with over 10 years of experience in software development.`,
