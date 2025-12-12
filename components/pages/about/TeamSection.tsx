@@ -133,22 +133,22 @@ const TeamSection = () => {
                   {/* Social Links */}
                   <div className="flex justify-center gap-3">
                     {member.social.linkedin && (
-                      <a href={member.social.linkedin} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 hover:text-orange-600 transition-colors">
+                      <a href={member.social.linkedin} title={`${member.name} on LinkedIn`} aria-label={`${member.name} on LinkedIn`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 hover:text-orange-600 transition-colors">
                         <Linkedin className="w-4 h-4" />
                       </a>
                     )}
                     {member.social.twitter && (
-                      <a href={member.social.twitter} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 hover:text-orange-600 transition-colors">
+                      <a href={member.social.twitter} title={`${member.name} on Twitter`} aria-label={`${member.name} on Twitter`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 hover:text-orange-600 transition-colors">
                         <Twitter className="w-4 h-4" />
                       </a>
                     )}
                     {member.social.github && (
-                      <a href={member.social.github} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-800 hover:text-white transition-colors">
+                      <a href={member.social.github} title={`${member.name} on Github`} aria-label={`${member.name} on Github`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-800 hover:text-white transition-colors">
                         <Github className="w-4 h-4" />
                       </a>
                     )}
                     {member.social.email && (
-                      <a href={`mailto:${member.social.email}`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-orange-100 hover:text-orange-600 transition-colors">
+                      <a href={`mailto:${member.social.email}`} title={`Email ${member.name}`} aria-label={`Email ${member.name}`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-orange-100 hover:text-orange-600 transition-colors">
                         <Mail className="w-4 h-4" />
                       </a>
                     )}

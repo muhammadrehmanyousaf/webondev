@@ -529,32 +529,6 @@ export default async function CountryPage({ params }: CountryPageProps) {
             }),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: [
-                {
-                  '@type': 'Question',
-                  name: `Which states are supported in ${country.name}?`,
-                  acceptedAnswer: { '@type': 'Answer', text: `We support major regions across ${country.name} with consistent delivery and timezone alignment.` }
-                },
-                {
-                  '@type': 'Question',
-                  name: 'Do you offer local pricing and invoicing?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Yes. Where applicable, we offer localized currency and tax-compliant invoicing.' }
-                },
-                {
-                  '@type': 'Question',
-                  name: 'How fast can we start?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Typically within 3–5 business days after scope alignment and resourcing.' }
-                }
-              ]
-            })
-          }}
-        />
       </main>
       <Footer />
     </div>

@@ -366,32 +366,6 @@ export default async function StatePage({ params }: StatePageProps) {
             }),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: [
-                {
-                  '@type': 'Question',
-                  name: `Which cities in ${state.name} are supported?`,
-                  acceptedAnswer: { '@type': 'Answer', text: `We serve all major cities across ${state.name} with local alignment and consistent delivery.` }
-                },
-                {
-                  '@type': 'Question',
-                  name: 'Do you support local compliance and payments?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Yes—regional compliance and currency/tax settings are supported.' }
-                },
-                {
-                  '@type': 'Question',
-                  name: 'How soon can we start?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Most engagements start in 3–5 business days post-scope alignment.' }
-                }
-              ]
-            })
-          }}
-        />
       </main>
       <Footer />
     </div>

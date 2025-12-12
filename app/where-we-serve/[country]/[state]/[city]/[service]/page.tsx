@@ -670,37 +670,6 @@ export default async function ServiceInCityPage({ params }: ServicePageProps) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: [
-                {
-                  '@type': 'Question',
-                  name: `How long does ${serviceTitle.toLowerCase()} typically take?`,
-                  acceptedAnswer: { '@type': 'Answer', text: 'Timelines vary by scope, but we define milestones upfront and report weekly with clear KPIs and risks.' }
-                },
-                {
-                  '@type': 'Question',
-                  name: 'Do you provide ongoing optimization and support?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Yes—retainers cover technical upkeep, SEO improvements, analytics insights, and CRO experiments.' }
-                },
-                {
-                  '@type': 'Question',
-                  name: `Do you serve neighborhoods near ${city.name}?`,
-                  acceptedAnswer: { '@type': 'Answer', text: `Yes—we support the broader ${city.name} metro. Tell us your area when you reach out and we’ll align schedules and onsite availability.` }
-                },
-                {
-                  '@type': 'Question',
-                  name: 'Can you integrate with our existing stack?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'We integrate with popular stacks across cloud, data, and frontend—minimizing change risk and preserving what works.' }
-                }
-              ]
-            })
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
               '@type': 'Service',
               name: serviceTitle,
               areaServed: {
