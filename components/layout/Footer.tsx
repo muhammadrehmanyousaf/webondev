@@ -307,19 +307,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800">
+        {/* <div className="border-t border-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4"> */}
               
               {/* Copyright */}
-              <div className="text-center md:text-left">
+              {/* <div className="text-center md:text-left">
                 <p className="text-gray-400 text-sm">
                   © {currentYear} {companyInfo.name}. All rights reserved.
                 </p>
-              </div>
+              </div> */}
 
               {/* Trust Indicators */}
-              <div className="flex flex-col sm:flex-row items-center gap-4 text-xs text-gray-400">
+              {/* <div className="flex flex-col sm:flex-row items-center gap-4 text-xs text-gray-400">
                 <div className="flex items-center gap-2">
                   <Globe className="w-4 h-4 text-orange-400" />
                   <span>Global Presence</span>
@@ -334,7 +334,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Agency Partnerships */}
           <div className="border-t border-gray-800 pt-8">
@@ -408,7 +408,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </footer>
   );
 };
