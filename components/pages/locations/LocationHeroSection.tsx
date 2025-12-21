@@ -138,7 +138,7 @@ const LocationHeroSection = ({
                 <Calendar className="w-5 h-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" className="border-2 border-orange-400 text-orange-600 hover:bg-orange-50 text-lg px-10 py-5 rounded-full font-bold transform hover:scale-105 transition-all duration-300">
+            <Button asChild size="lg" className=" border-2 border-orange-400 text-white hover:bg-orange-600 text-lg px-10 py-5 rounded-full font-bold transform hover:scale-105 transition-all duration-300">
               <Link href="#book-meeting" className="flex items-center gap-3">
                 Let's Talk
                 <MessageCircle className="w-5 h-5" />
