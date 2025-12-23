@@ -1,0 +1,28 @@
+/* TEAM */
+Company: Web On Dev
+Website: https://www.webondev.com
+Email: webondev@gmail.com
+Location: Lahore, Punjab, Pakistan
+
+Founders:
+  Muhammad Rehman Yousaf - Co-Founder
+  Daniyal Bahadur - Co-Founder
+  Waheed UI Islam - Co-Founder
+  Ihtisham UL Haq - Co-Founder
+
+/* THANKS */
+Next.js - https://nextjs.org
+React - https://react.dev
+Tailwind CSS - https://tailwindcss.com
+Vercel - https://vercel.com
+TypeScript - https://www.typescriptlang.org
+
+/* SITE */
+Last update: 2024-12-23
+Standards: HTML5, CSS3, JavaScript ES2024
+Components: React Server Components, App Router
+Framework: Next.js 15
+Styling: Tailwind CSS
+Deployment: Vercel
+Language: TypeScript
+Analytics: Google Analytics, Microsoft Clarity

@@ -1,0 +1,182 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Web On Dev API",
+    "description": "API for Web On Dev - Professional Software Development Company. Use this API to get information about our services, portfolio, and contact details.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Web On Dev Support",
+      "email": "webondev@gmail.com",
+      "url": "https://www.webondev.com/contact/"
+    },
+    "termsOfService": "https://www.webondev.com/terms/"
+  },
+  "servers": [
+    {
+      "url": "https://www.webondev.com/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/services": {
+      "get": {
+        "summary": "Get all services",
+        "description": "Returns a list of all services offered by Web On Dev",
+        "operationId": "getServices",
+        "responses": {
+          "200": {
+            "description": "List of services",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Service"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio": {
+      "get": {
+        "summary": "Get portfolio projects",
+        "description": "Returns a list of completed projects and case studies",
+        "operationId": "getPortfolio",
+        "responses": {
+          "200": {
+            "description": "List of portfolio items",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PortfolioItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact": {
+      "post": {
+        "summary": "Submit contact form",
+        "description": "Submit a contact request or project inquiry",
+        "operationId": "submitContact",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Contact request submitted successfully"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Service": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique service identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Service name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Service description"
+          },
+          "priceRange": {
+            "type": "string",
+            "description": "Price range for the service"
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Technologies used for this service"
+          }
+        }
+      },
+      "PortfolioItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "ContactRequest": {
+        "type": "object",
+        "required": ["name", "email", "message"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Contact name"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Contact email"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Contact phone number"
+          },
+          "company": {
+            "type": "string",
+            "description": "Company name"
+          },
+          "message": {
+            "type": "string",
+            "description": "Message or project description"
+          },
+          "service": {
+            "type": "string",
+            "description": "Service of interest"
+          },
+          "budget": {
+            "type": "string",
+            "description": "Project budget range"
+          }
+        }
+      }
+    }
+  }
+}

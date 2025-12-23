@@ -1,10 +1,7 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { Search, Filter, Calendar, Clock, User } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Search, X } from 'lucide-react';
 import { blogData } from '@/lib/blog-data';
 
 interface BlogSearchSectionProps {
@@ -15,14 +12,12 @@ interface BlogSearchSectionProps {
 const BlogSearchSection = ({ onSearchResults, onCategoryFilter }: BlogSearchSectionProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const categories = ['All', 'Web Development', 'Digital Marketing', 'Mobile Apps', 'UI/UX Design', 'SEO', 'E-commerce'];
-  const allTags = Array.from(new Set(blogData.flatMap(post => post.tags)));
 
   const filteredPosts = useMemo(() => {
     return blogData.filter(post => {
-      const matchesSearch = searchQuery === '' || 
+      const matchesSearch = searchQuery === '' ||
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -30,135 +25,71 @@ const BlogSearchSection = ({ onSearchResults, onCategoryFilter }: BlogSearchSect
 
       const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
 
-      const matchesTags = selectedTags.length === 0 || 
-        selectedTags.some(tag => post.tags.includes(tag));
-
-      return matchesSearch && matchesCategory && matchesTags;
+      return matchesSearch && matchesCategory;
     });
-  }, [searchQuery, selectedCategory, selectedTags]);
+  }, [searchQuery, selectedCategory]);
 
-  const handleSearch = () => {
+  useEffect(() => {
     onSearchResults(filteredPosts);
-  };
+  }, [filteredPosts, onSearchResults]);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     onCategoryFilter(category);
   };
 
-  const handleTagToggle = (tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag) 
-        ? prev.filter(t => t !== tag)
-        : [...prev, tag]
-    );
-  };
-
-  const clearFilters = () => {
-    setSearchQuery('');
-    setSelectedCategory('All');
-    setSelectedTags([]);
-    onSearchResults(blogData);
-  };
-
   return (
-    <section className="bg-white border-b border-gray-200 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-slate-950 py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Search Bar */}
-        <div className="mb-8">
-          <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <Input
-                type="text"
-                placeholder="Search articles, topics, or keywords..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 py-3"
-                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-              />
-            </div>
-            <Button 
-              onClick={handleSearch}
-              className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-blue-700 hover:to-purple-700"
-            >
-              Search
-            </Button>
+        <div className="max-w-2xl mx-auto mb-8">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <input
+              type="text"
+              placeholder="Search articles..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-12 py-3.5 bg-slate-900 border border-slate-800 rounded-full text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-500 transition-colors"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
+                aria-label="Clear search"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
           </div>
         </div>
 
-        {/* Categories */}
-        <div className="mb-6">
-          <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-            <Filter className="w-4 h-4" />
-            Categories
-          </h3>
-          <div className="flex flex-wrap gap-2">
+        {/* Category Tabs */}
+        <div className="flex justify-center">
+          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 bg-slate-900/80 rounded-full border border-slate-800">
             {categories.map((category) => (
-              <Badge
+              <button
                 key={category}
-                variant={selectedCategory === category ? 'default' : 'secondary'}
-                className="cursor-pointer hover:bg-blue-100 transition-colors"
+                type="button"
                 onClick={() => handleCategoryChange(category)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  selectedCategory === category
+                    ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/30'
+                    : 'text-gray-400 hover:text-white hover:bg-slate-800'
+                }`}
               >
                 {category}
-              </Badge>
+              </button>
             ))}
           </div>
         </div>
-
-        {/* Tags */}
-        <div className="mb-6">
-          <h3 className="text-sm font-semibold text-gray-700 mb-3">Popular Tags</h3>
-          <div className="flex flex-wrap gap-2">
-            {allTags.slice(0, 12).map((tag) => (
-              <Badge
-                key={tag}
-                variant={selectedTags.includes(tag) ? 'default' : 'outline'}
-                className="cursor-pointer hover:bg-blue-100 transition-colors text-xs"
-                onClick={() => handleTagToggle(tag)}
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        </div>
-
-        {/* Active Filters */}
-        {(selectedCategory !== 'All' || selectedTags.length > 0 || searchQuery) && (
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600">Active filters:</span>
-              {selectedCategory !== 'All' && (
-                <Badge variant="secondary" className="text-xs">
-                  Category: {selectedCategory}
-                </Badge>
-              )}
-              {selectedTags.map(tag => (
-                <Badge key={tag} variant="secondary" className="text-xs">
-                  {tag}
-                </Badge>
-              ))}
-              {searchQuery && (
-                <Badge variant="secondary" className="text-xs">
-                  Search: "{searchQuery}"
-                </Badge>
-              )}
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={clearFilters}
-              className="text-gray-600 hover:text-gray-800"
-            >
-              Clear All
-            </Button>
-          </div>
-        )}
 
         {/* Results Count */}
-        <div className="mt-4 text-sm text-gray-600">
-          Showing {filteredPosts.length} of {blogData.length} articles
+        <div className="text-center mt-6">
+          <span className="text-sm text-gray-500">
+            Showing <span className="text-white font-medium">{filteredPosts.length}</span> of {blogData.length} articles
+          </span>
         </div>
       </div>
     </section>
@@ -166,4 +97,3 @@ const BlogSearchSection = ({ onSearchResults, onCategoryFilter }: BlogSearchSect
 };
 
 export default BlogSearchSection;
-

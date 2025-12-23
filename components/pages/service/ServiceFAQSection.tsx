@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, HelpCircle, MessageCircle, Phone, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { PillarPage, ClusterPage } from '@/lib/site-structure';
 
 interface ServiceFAQSectionProps {
@@ -53,88 +56,194 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 lg:py-32 bg-slate-950 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[150px]"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 -left-40 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[150px]"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.15, 0.1, 0.15] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Grid Pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px',
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brand-500 to-teal-500 rounded-2xl mb-6 shadow-lg shadow-brand-500/25"
+          >
             <HelpCircle className="w-8 h-8 text-white" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Frequently Asked
-            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Questions</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
+          >
+            <Sparkles className="w-4 h-4" />
+            Got Questions?
+          </motion.div>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <span className="text-white">Frequently Asked </span>
+            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              Questions
+            </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
             Get answers to common questions about our {currentService.title.toLowerCase()} services and development process.
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-4 mb-16">
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="group"
             >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-              >
-                <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                  {faq.question}
-                </h3>
-                <div className="flex-shrink-0">
-                  {openFAQ === index ? (
-                    <ChevronUp className="w-6 h-6 text-orange-600" />
-                  ) : (
-                    <ChevronDown className="w-6 h-6 text-gray-400" />
+              <div className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${
+                openFAQ === index
+                  ? 'bg-white/10 border-brand-500/50'
+                  : 'bg-white/5 border-white/10 hover:bg-white/[0.07]'
+              } border backdrop-blur-xl`}>
+                {/* Glow on open */}
+                {openFAQ === index && (
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-2xl blur opacity-20" />
+                )}
+
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="relative w-full px-6 py-5 text-left flex items-center justify-between transition-colors duration-200"
+                >
+                  <h3 className={`text-lg font-semibold pr-4 transition-colors ${
+                    openFAQ === index ? 'text-brand-400' : 'text-white'
+                  }`}>
+                    {faq.question}
+                  </h3>
+                  <motion.div
+                    animate={{ rotate: openFAQ === index ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+                      openFAQ === index
+                        ? 'bg-brand-500/20 text-brand-400'
+                        : 'bg-white/10 text-slate-400'
+                    }`}
+                  >
+                    <ChevronDown className="w-5 h-5" />
+                  </motion.div>
+                </button>
+
+                <AnimatePresence>
+                  {openFAQ === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="relative px-6 pb-5">
+                        <div className="border-t border-white/10 pt-4">
+                          <p className="text-slate-300 leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
                   )}
-                </div>
-              </button>
-              
-              <div className={`transition-all duration-300 ease-in-out ${
-                openFAQ === index 
-                  ? 'max-h-96 opacity-100' 
-                  : 'max-h-0 opacity-0'
-              } overflow-hidden`}>
-                <div className="px-6 pb-6">
-                  <div className="border-t border-gray-100 pt-4">
-                    <p className="text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
+                </AnimatePresence>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Still Have Questions */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+        {/* Still Have Questions CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-3xl overflow-hidden"
+        >
+          {/* Background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/90 via-slate-800/90 to-slate-800/90" />
+          <div className="absolute inset-0 bg-white/5 backdrop-blur-xl" />
+
+          {/* Decorative */}
+          <div className="absolute -top-20 -right-20 w-48 h-48 bg-brand-500/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-teal-500/20 rounded-full blur-3xl" />
+
+          <div className="relative z-10 p-8 lg:p-10 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl mb-6 shadow-lg shadow-brand-500/25"
+            >
+              <MessageCircle className="w-7 h-7 text-white" />
+            </motion.div>
+
+            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
               Still Have Questions?
             </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Can't find the answer you're looking for? Our team is here to help. 
+            <p className="text-slate-300 mb-8 max-w-lg mx-auto">
+              Can't find the answer you're looking for? Our team is here to help.
               Get in touch and we'll respond within 2 hours during business hours.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-600 to-orange-700 text-white font-semibold rounded-full hover:from-orange-700 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/50"
+              <Button
+                asChild
+                variant="glow"
+                size="lg"
+                className="rounded-full px-8"
               >
-                Contact Our Experts
-              </a>
-              <a
-                href="tel:+15551234567"
-                className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-blue-600 hover:text-orange-600 transition-all duration-300"
+                <Link href="/contact" className="flex items-center gap-2">
+                  <MessageCircle className="w-5 h-5" />
+                  Contact Our Experts
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="rounded-full px-8 border-white/20 text-white hover:bg-white/10"
               >
-                Call Us Now
-              </a>
+                <a href="tel:+15551234567" className="flex items-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  Call Us Now
+                </a>
+              </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

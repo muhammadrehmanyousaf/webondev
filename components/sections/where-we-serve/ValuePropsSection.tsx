@@ -1,123 +1,202 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Globe, Zap, Shield, CheckCircle2, Sparkles } from 'lucide-react';
+
+// =============================================================================
+// VALUE PROPS SECTION - Premium Emerald Green Design
+// =============================================================================
 
 const ValuePropsSection = () => {
+  const valueProps = [
+    {
+      icon: Globe,
+      title: 'Local + Global',
+      description: 'We pair local market fluency with repeatable delivery systems. Expect content, UX, and analytics that reflect your customers\' language, devices, and expectations while maintaining world-class engineering standards.',
+      gradient: 'from-brand-500 to-teal-500',
+      features: [
+        'Regional market expertise',
+        'Global delivery standards',
+        'Cultural adaptation'
+      ]
+    },
+    {
+      icon: Zap,
+      title: 'Performance & SEO',
+      description: 'Core Web Vitals, schema.org structured data, and clean IA that drives discoverability and intent matching across search engines. We optimize for both user experience and search visibility.',
+      gradient: 'from-teal-500 to-cyan-500',
+      features: [
+        'Core Web Vitals optimization',
+        'Structured data implementation',
+        'Search intent optimization'
+      ]
+    },
+    {
+      icon: Shield,
+      title: 'Security First',
+      description: 'Proactive security reviews, threat modeling, and hardened CI/CD pipelines with environment-specific controls. We build security into every layer of your application.',
+      gradient: 'from-cyan-500 to-blue-500',
+      features: [
+        'Threat modeling & assessment',
+        'Secure CI/CD pipelines',
+        'Environment-specific controls'
+      ]
+    }
+  ];
+
+  const stats = [
+    { value: '100%', label: 'Code Review', gradient: 'from-brand-400 to-teal-400' },
+    { value: '99.9%', label: 'Uptime Guarantee', gradient: 'from-teal-400 to-cyan-400' },
+    { value: '24/7', label: 'Support Available', gradient: 'from-cyan-400 to-brand-400' }
+  ];
+
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-orange-50 to-white animate-on-scroll">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
-            <span className="text-gray-900">Why Choose</span>
-            <span className="block bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent font-black">Us</span>
+    <section className="relative py-20 lg:py-32 bg-slate-950 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-brand-500/15 rounded-full blur-[120px]"
+          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-teal-500/15 rounded-full blur-[120px]"
+          animate={{ x: [0, -30, 0], y: [0, -20, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `radial-gradient(rgba(16, 185, 129, 0.2) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Why Choose Us</span>
+          </motion.div>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+            <span className="text-white">Why Choose</span>
+            <br />
+            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              Us
+            </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium">
-            We combine global expertise with local market understanding to deliver exceptional results that drive your business forward.
+          <p className="text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            We combine global expertise with local market understanding to deliver exceptional results
+            that drive your business forward.
           </p>
+        </motion.div>
+
+        {/* Value Props Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+          {valueProps.map((prop, index) => (
+            <motion.div
+              key={prop.title}
+              className="group relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+            >
+              {/* Glow Effect */}
+              <div className={`absolute -inset-0.5 bg-gradient-to-r ${prop.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+
+              <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500 h-full">
+                {/* Icon */}
+                <motion.div
+                  className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${prop.gradient} rounded-xl mb-6 shadow-lg`}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <prop.icon className="w-8 h-8 text-white" />
+                </motion.div>
+
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-brand-400 transition-colors">
+                  {prop.title}
+                </h3>
+                <p className="text-slate-300 leading-relaxed mb-6">
+                  {prop.description}
+                </p>
+
+                {/* Features List */}
+                <div className="space-y-3">
+                  {prop.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className={`w-2 h-2 bg-gradient-to-r ${prop.gradient} rounded-full`} />
+                      <span className="text-slate-400 text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
-            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl mb-6 mx-auto">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Local + Global</h3>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              We pair local market fluency with repeatable delivery systems. Expect content, UX, and analytics that reflect your customers' language, devices, and expectations while maintaining world-class engineering standards.
-            </p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-gray-700 text-sm">Regional market expertise</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-gray-700 text-sm">Global delivery standards</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-gray-700 text-sm">Cultural adaptation</span>
-              </div>
-            </div>
-          </div>
+        {/* Quality Assurance Section */}
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          {/* Glow */}
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-2xl blur opacity-10" />
 
-          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
-            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-500 rounded-xl mb-6 mx-auto">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+          <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 lg:p-12 border border-white/10">
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <CheckCircle2 className="w-5 h-5 text-brand-400" />
+              <span className="text-brand-400 font-semibold">Quality Guarantee</span>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Performance & SEO</h3>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Core Web Vitals, schema.org structured data, and clean IA that drives discoverability and intent matching across search engines. We optimize for both user experience and search visibility.
-            </p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-gray-700 text-sm">Core Web Vitals optimization</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-gray-700 text-sm">Structured data implementation</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-gray-700 text-sm">Search intent optimization</span>
-              </div>
-            </div>
-          </div>
 
-          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
-            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-600 to-orange-700 rounded-xl mb-6 mx-auto">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Security First</h3>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Proactive security reviews, threat modeling, and hardened CI/CD pipelines with environment-specific controls. We build security into every layer of your application.
+            <h3 className="text-2xl lg:text-3xl font-bold text-white text-center mb-4">
+              Comprehensive Quality Assurance
+            </h3>
+            <p className="text-slate-300 text-center leading-relaxed mb-10 max-w-2xl mx-auto">
+              Every project undergoes rigorous testing, code reviews, and quality checks to ensure your digital solution
+              meets the highest standards of performance, security, and user experience.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                <span className="text-gray-700 text-sm">Threat modeling & assessment</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                <span className="text-gray-700 text-sm">Secure CI/CD pipelines</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                <span className="text-gray-700 text-sm">Environment-specific controls</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Comprehensive Quality Assurance</h3>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Every project undergoes rigorous testing, code reviews, and quality checks to ensure your digital solution meets the highest standards of performance, security, and user experience.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-600 mb-2">100%</div>
-                <div className="text-gray-700 font-medium">Code Review</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-500 mb-2">99.9%</div>
-                <div className="text-gray-700 font-medium">Uptime Guarantee</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-700 mb-2">24/7</div>
-                <div className="text-gray-700 font-medium">Support Available</div>
-              </div>
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  className="text-center group"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className={`text-4xl lg:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
+                    {stat.value}
+                  </div>
+                  <div className="text-white font-semibold">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

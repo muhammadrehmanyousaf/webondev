@@ -138,17 +138,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
             // Add city service pages for top 5 cities per state
             const topCities = cities.slice(0, 5);
-            const { getAllSlugs } = await import('@/lib/site-structure');
-            const serviceSlugs = getAllSlugs().slice(0, 6); // Limit to 6 services for performance
-            
-            const cityServicePages = topCities.flatMap((city) =>
-              serviceSlugs.map((service) => ({
-                url: `${baseUrl}/where-we-serve/${country.code?.toLowerCase() || country.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}/${state.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}/${city.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}/${service}/`,
+            const { enrichedSiteStructure } = await import('@/lib/site-structure');
+
+            // Generate both 5-level (pillar) and 6-level (pillar/cluster) URLs
+            const cityServicePages = topCities.flatMap((city) => {
+              const countrySlug = country.code?.toLowerCase() || country.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+              const stateSlug = state.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+              const citySlug = city.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+              const basePath = `${baseUrl}/where-we-serve/${countrySlug}/${stateSlug}/${citySlug}`;
+
+              // Get top 4 pillars for 5-level URLs
+              const pillarPages = enrichedSiteStructure.slice(0, 4).map((pillar) => ({
+                url: `${basePath}/${pillar.slug}/`,
                 lastModified: new Date(),
                 changeFrequency: 'monthly' as const,
                 priority: 0.4,
-              }))
-            );
+              }));
+
+              // Get top 2 pillars with their top 3 clusters for 6-level URLs
+              const clusterPages = enrichedSiteStructure.slice(0, 2).flatMap((pillar) =>
+                pillar.clusters.slice(0, 3).map((cluster) => ({
+                  url: `${basePath}/${pillar.slug}/${cluster.slug}/`,
+                  lastModified: new Date(),
+                  changeFrequency: 'monthly' as const,
+                  priority: 0.35,
+                }))
+              );
+
+              return [...pillarPages, ...clusterPages];
+            });
             allCityServicePages.push(...cityServicePages);
           } catch (error) {
             console.error(`Failed to fetch cities for ${state.name}, ${country.name}`);
@@ -206,11 +224,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // Additional location-based service pages for major countries
+  // Additional location-based service pages for major countries (using proper /where-we-serve/ prefix)
   const majorCountries = ['united-states', 'canada', 'united-kingdom', 'australia', 'germany', 'france', 'india', 'china', 'japan', 'brazil'];
   const additionalServicePages = majorCountries.flatMap((country) =>
     serviceSlugs.slice(0, 10).map((service) => ({
-      url: `${baseUrl}/${country}/${service}/`,
+      url: `${baseUrl}/where-we-serve/${country}/${service}/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,

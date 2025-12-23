@@ -95,7 +95,7 @@ export const blogData: BlogPost[] = [
     readTime: '25 min read',
     category: 'Web Development',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Next.js', 'Web Development'],
-    featuredImage: '/images/blog/web-development-2024.svg',
+    featuredImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80',
     featured: true
   },
   {
@@ -158,7 +158,7 @@ function App() {
     readTime: '18 min read',
     category: 'React',
     tags: ['React', 'Performance', 'Optimization', 'JavaScript', 'Frontend'],
-    featuredImage: '/images/blog/react-performance.svg',
+    featuredImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80',
     featured: true
   },
   {
@@ -214,7 +214,7 @@ export default function Page() {
     readTime: '20 min read',
     category: 'Next.js',
     tags: ['Next.js', 'React', 'App Router', 'Server Components', 'Web Development'],
-    featuredImage: '/images/blog/nextjs-14.svg',
+    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
     featured: true
   },
   {
@@ -277,7 +277,7 @@ loggingIdentity([1, 2, 3]);
     readTime: '22 min read',
     category: 'TypeScript',
     tags: ['TypeScript', 'JavaScript', 'Type Safety', 'Programming', 'Best Practices'],
-    featuredImage: '/images/blog/typescript-guide.svg',
+    featuredImage: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80',
     featured: false
   },
   {
@@ -340,7 +340,7 @@ loggingIdentity([1, 2, 3]);
     readTime: '16 min read',
     category: 'CSS',
     tags: ['CSS', 'Grid', 'Flexbox', 'Layout', 'Responsive Design'],
-    featuredImage: '/images/blog/css-layout.svg',
+    featuredImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
     featured: false
   },
   {
@@ -388,7 +388,7 @@ const result = 10 |> addFive |> multiplyByTwo; // 30</code></pre>
     readTime: '14 min read',
     category: 'JavaScript',
     tags: ['JavaScript', 'ES2024', 'Modern JS', 'Programming', 'Web Development'],
-    featuredImage: '/images/blog/javascript-es2024.svg',
+    featuredImage: 'https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&q=80',
     featured: false
   },
   {
@@ -468,7 +468,7 @@ const sanitizeInput = (input) => {
     readTime: '19 min read',
     category: 'Security',
     tags: ['Security', 'Authentication', 'Authorization', 'Web Development', 'Best Practices'],
-    featuredImage: '/images/blog/web-security.svg',
+    featuredImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80',
     featured: false
   },
   {
@@ -543,7 +543,7 @@ test('loads and displays user profile', async () => {
     readTime: '17 min read',
     category: 'Testing',
     tags: ['Testing', 'React', 'Jest', 'React Testing Library', 'Quality Assurance'],
-    featuredImage: '/images/blog/testing-react.svg',
+    featuredImage: 'https://images.unsplash.com/photo-1576444356170-66073046b1bc?w=800&q=80',
     featured: false
   },
   {
@@ -628,7 +628,7 @@ CMD ["node", "server.js"]</code></pre>
     readTime: '21 min read',
     category: 'Deployment',
     tags: ['Deployment', 'Docker', 'CI/CD', 'DevOps', 'Cloud Computing'],
-    featuredImage: '/images/blog/deployment-strategies.svg',
+    featuredImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
     featured: false
   }
 ];

@@ -1,136 +1,206 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { MessageCircle, Phone, Mail, Clock } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { MessageCircle, Phone, Mail, Clock, ArrowRight, Sparkles } from 'lucide-react';
 
 const ContactHeroSection = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-      
-      tl.fromTo(titleRef.current, 
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
-      )
-      .fromTo(subtitleRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-        "-=0.6"
-      )
-      .fromTo(cardsRef.current,
-        { opacity: 0, scale: 0.9 },
-        { opacity: 1, scale: 1, duration: 1, ease: "back.out(1.7)" },
-        "-=0.4"
-      );
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
   const contactMethods = [
     {
       icon: MessageCircle,
       title: 'Live Chat',
       description: 'Get instant answers to your questions',
       action: 'Start Chat',
-      color: 'from-orange-500 to-orange-600'
+      gradient: 'from-brand-400 to-teal-400'
     },
     {
       icon: Phone,
       title: 'Call Us',
       description: 'Speak directly with our experts',
       action: '+92 310 6803687',
-      color: 'from-orange-500 to-orange-600'
+      gradient: 'from-teal-400 to-cyan-400'
     },
     {
       icon: Mail,
       title: 'Email Us',
       description: 'Send us your detailed requirements',
-      action: 'muhammadrehmanyousaf786 \n      @gmail.com',
-      color: 'from-orange-500 to-orange-600'
+      action: 'muhammadrehmanyousaf786@gmail.com',
+      gradient: 'from-cyan-400 to-brand-400'
     },
     {
       icon: Clock,
       title: '24/7 Support',
       description: 'Round-the-clock technical assistance',
       action: 'Get Support',
-      color: 'from-orange-500 to-orange-600'
+      gradient: 'from-brand-400 to-emerald-400'
     }
-  ];  return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 pt-20">
-      {/* Background Elements */}
+  ];
+
+  const stats = [
+    { value: '< 24h', label: 'Response Time' },
+    { value: 'Free', label: 'Consultation' },
+    { value: '150+', label: 'Happy Clients' },
+    { value: '24/7', label: 'Support' }
+  ];
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-24 pb-16">
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-orange-100 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-orange-100 rounded-full opacity-50 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-orange-100 rounded-full opacity-40 animate-pulse delay-2000"></div>
+        {/* Gradient Orbs */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-500/20 rounded-full blur-[150px]"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-500/20 rounded-full blur-[150px]"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 right-1/3 w-[300px] h-[300px] bg-cyan-500/15 rounded-full blur-[120px]"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4,
+          }}
+        />
+
+        {/* Grid Pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.3) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }}
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto mb-16">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 mb-8"
+          >
+            <Sparkles className="w-4 h-4 text-brand-400" />
+            <span className="text-brand-400 text-sm font-medium">Let's Connect</span>
+          </motion.div>
+
           {/* Hero Title */}
-          <h1 ref={titleRef} className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+          >
             Let's Build Something
-            <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent"> Amazing </span>
+            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent"> Amazing </span>
             Together
-          </h1>
+          </motion.h1>
 
           {/* Hero Subtitle */}
-          <p ref={subtitleRef} className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto"
+          >
             Ready to transform your business with cutting-edge software solutions? Get in touch with our experts for a free consultation and discover how we can help you achieve your goals.
-          </p>
+          </motion.p>
         </div>
 
         {/* Contact Methods */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+        >
           {contactMethods.map((method, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 border border-gray-100"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative"
             >
-              <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${method.color} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <method.icon className="w-8 h-8 text-white" />
+              {/* Glow Effect */}
+              <div className={`absolute -inset-0.5 bg-gradient-to-r ${method.gradient} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+
+              <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-brand-500/30 transition-all duration-500">
+                <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r ${method.gradient} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <method.icon className="w-7 h-7 text-white" />
+                </div>
+
+                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                  {method.title}
+                </h3>
+
+                <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+                  {method.description}
+                </p>
+
+                <div className="flex items-center gap-2 text-brand-400 font-semibold text-sm group-hover:text-brand-300 transition-colors">
+                  <span className="truncate">{method.action}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
-              
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
-                {method.title}
-              </h3>
-              
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                {method.description}
-              </p>
-              
-              <div className="text-orange-600 font-semibold group-hover:text-orange-700 transition-colors">
-                {method.action}
-              </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Quick Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-orange-600 mb-1">{'< 24h'}</div>
-            <div className="text-gray-600 text-sm">Response Time</div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="relative"
+        >
+          <div className="absolute -inset-1 bg-gradient-to-r from-brand-500/20 via-teal-500/20 to-cyan-500/20 rounded-2xl blur-xl opacity-50" />
+          <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-400 text-sm">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-orange-600 mb-1">Free</div>
-            <div className="text-gray-600 text-sm">Consultation</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-orange-600 mb-1">150+</div>
-            <div className="text-gray-600 text-sm">Happy Clients</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-orange-600 mb-1">24/7</div>
-            <div className="text-gray-600 text-sm">Support</div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

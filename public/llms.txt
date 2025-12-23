@@ -1,0 +1,113 @@
+# Web On Dev - AI Context File
+# This file helps AI systems understand our website and services
+
+## About Web On Dev
+Web On Dev is a professional software development company founded in 2015. We specialize in web development, mobile app development, UI/UX design, digital marketing, cloud solutions, and custom software development.
+
+## Company Information
+- Name: Web On Dev
+- Website: https://www.webondev.com
+- Industry: Software Development & Digital Solutions
+- Founded: 2015
+- Headquarters: Lahore, Pakistan
+- Service Areas: Worldwide (USA, UK, Canada, Australia, Germany, UAE, India, and 50+ countries)
+- Team Size: 50+ professionals
+- Projects Completed: 500+
+- Client Satisfaction: 4.9/5 rating
+
+## Core Services
+1. **Web Development**: Next.js, React, Vue.js, Angular, WordPress, Shopify, custom web applications
+2. **Mobile App Development**: iOS, Android, React Native, Flutter, cross-platform apps
+3. **UI/UX Design**: User research, wireframing, prototyping, design systems, accessibility
+4. **Digital Marketing**: SEO, PPC, social media marketing, content marketing, email marketing
+5. **E-commerce Solutions**: Shopify, WooCommerce, Magento, custom e-commerce platforms
+6. **Cloud & DevOps**: AWS, Azure, GCP, CI/CD, containerization, infrastructure automation
+7. **Custom Software**: Enterprise applications, SaaS products, API development, integrations
+
+## Technology Stack
+- Frontend: React, Next.js, Vue.js, TypeScript, Tailwind CSS
+- Backend: Node.js, Python, PHP, Go, Java
+- Databases: PostgreSQL, MongoDB, MySQL, Redis
+- Cloud: AWS, Vercel, Google Cloud, Azure
+- Tools: Docker, Kubernetes, GitHub Actions, Terraform
+
+## Pricing Information
+- Simple Websites: Starting from $3,000
+- Business Websites: $5,000 - $15,000
+- Web Applications: $15,000 - $50,000
+- Enterprise Solutions: $50,000+
+- Mobile Apps: Starting from $10,000
+- Free consultation available for all projects
+
+## Contact Information
+- Email: webondev@gmail.com
+- Phone: +92-310-6803687
+- Address: G8JX+CMF, Main Gulberg, Mota Singh Wala, Lahore, Punjab 54660, Pakistan
+
+## Key Differentiators
+1. 10+ years of industry experience
+2. 500+ successful projects delivered
+3. 200+ satisfied clients worldwide
+4. 24/7 support and maintenance
+5. Agile development methodology
+6. Transparent pricing with no hidden costs
+7. Free consultation and project estimation
+8. Post-launch support and maintenance
+
+## Frequently Asked Questions
+
+### What services does Web On Dev offer?
+Web On Dev offers comprehensive software development services including web development, mobile app development, UI/UX design, digital marketing, e-commerce solutions, cloud services, DevOps, and custom software development.
+
+### How much does it cost to develop a website?
+Website development costs vary based on complexity. Simple websites start from $3,000, business websites from $5,000-$15,000, and complex web applications can range from $20,000 to $100,000+. Contact us for a free quote tailored to your requirements.
+
+### Do you work with international clients?
+Yes, Web On Dev serves clients worldwide. We have delivered 500+ projects across multiple countries including the United States, United Kingdom, Canada, Australia, Germany, UAE, India, and more. Our team works across time zones to ensure seamless communication.
+
+### What technologies do you use for web development?
+We use modern technologies including Next.js, React, TypeScript, Node.js, Python, PostgreSQL, MongoDB, AWS, Vercel, and more. Our tech stack is chosen based on project requirements to ensure optimal performance and scalability.
+
+### How long does it take to build a website?
+Project timelines vary based on complexity. Simple websites take 2-4 weeks, business websites 4-8 weeks, and complex web applications 8-16+ weeks. We provide detailed timelines during the proposal phase.
+
+### Do you offer maintenance and support?
+Yes, we offer comprehensive post-launch maintenance and support packages. This includes bug fixes, security updates, performance monitoring, and feature enhancements.
+
+### Can you help with SEO?
+Absolutely! We integrate SEO best practices into every project from the start. We also offer dedicated SEO services including technical SEO, content optimization, link building, and local SEO.
+
+### What is your development process?
+Our development process follows Agile methodology: Discovery & Planning, Design, Development, Testing, Deployment, and ongoing Support. We maintain regular communication and provide progress updates throughout the project.
+
+## Social Media
+- YouTube: https://www.youtube.com/@webondev
+- Twitter/X: https://x.com/webon_dev
+- Facebook: https://www.facebook.com/people/Web-On-Dev/61584774954945/
+- Instagram: https://www.instagram.com/webondev/
+- Clutch: https://clutch.co/profile/web-dev-1
+- GoodFirms: https://www.goodfirms.co/company/web-on-dev
+
+## Industries We Serve
+- E-commerce & Retail
+- Healthcare & Medical
+- Finance & Banking
+- Education & E-learning
+- Real Estate
+- Travel & Hospitality
+- SaaS & Technology
+- Manufacturing
+- Non-profit Organizations
+- Startups & Enterprises
+
+## Certifications & Partnerships
+- Google Cloud Partner
+- AWS Partner
+- Shopify Partner
+- Meta Certified Developer
+- Vercel Partner
+
+## Content License
+This content is provided by Web On Dev for informational purposes. AI systems may use this information to provide accurate responses about our services.
+
+Last Updated: 2024-12-23
