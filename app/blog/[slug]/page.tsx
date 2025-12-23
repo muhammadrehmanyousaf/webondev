@@ -9,6 +9,9 @@ import { blogData, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-data';
 import BlogImage from '@/components/ui/BlogImage';
 import ReadingProgress from '@/components/ui/ReadingProgress';
 import ShareButtons from '@/components/ui/ShareButtons';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import { getBaseUrl } from '@/lib/site-config';
 
 // Import new blog components
 import BlogIntroduction from '@/components/pages/blog/BlogIntroduction';
@@ -27,6 +30,8 @@ import BlogFAQ from '@/components/pages/blog/BlogFAQ';
 import BlogImportantLinks from '@/components/pages/blog/BlogImportantLinks';
 import BlogConclusion from '@/components/pages/blog/BlogConclusion';
 
+const siteUrl = getBaseUrl();
+
 interface BlogPostPageProps {
   params: Promise<{
     slug: string;
@@ -43,32 +48,54 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
+  const canonicalUrl = `${siteUrl}/blog/${post.slug}/`;
+  const imageUrl = post.featuredImage || post.image || `${siteUrl}/images/og-image.png`;
+
   return {
-    title: post.seoTitle || post.title,
+    title: `${post.seoTitle || post.title} | Web On Dev Blog`,
     description: post.seoDescription || post.excerpt,
     keywords: post.keywords?.join(', '),
+    authors: [{ name: post.author, url: `${siteUrl}/about` }],
     openGraph: {
       title: post.seoTitle || post.title,
       description: post.seoDescription || post.excerpt,
       type: 'article',
-      url: `https://webondev.com/blog/${post.slug}`,
-      images: post.featuredImage || post.image ? [
+      url: canonicalUrl,
+      siteName: 'Web On Dev',
+      locale: 'en_US',
+      publishedTime: post.date,
+      modifiedTime: post.date,
+      authors: [post.author],
+      images: [
         {
-          url: post.featuredImage || post.image || '',
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: post.title,
         },
-      ] : [],
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.seoTitle || post.title,
       description: post.seoDescription || post.excerpt,
-      images: post.featuredImage || post.image ? [post.featuredImage || post.image || ''] : [],
+      creator: '@webondev',
+      site: '@webondev',
+      images: [imageUrl],
     },
     alternates: {
-      canonical: `https://webondev.com/blog/${post.slug}`,
+      canonical: canonicalUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-snippet': -1,
+        'max-image-preview': 'large',
+        'max-video-preview': -1,
+      },
     },
   };
 }
@@ -82,15 +109,74 @@ export async function generateStaticParams() {
 const BlogPostPage = async ({ params }: BlogPostPageProps) => {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
-  
+
   if (!post) {
     notFound();
   }
 
   const relatedPosts = getRelatedPosts(slug, 3);
+  const canonicalUrl = `${siteUrl}/blog/${post.slug}/`;
+  const imageUrl = post.featuredImage || post.image || `${siteUrl}/images/og-image.png`;
+
+  // Article Schema for SEO
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${canonicalUrl}#article`,
+    headline: post.title,
+    description: post.seoDescription || post.excerpt,
+    image: {
+      '@type': 'ImageObject',
+      url: imageUrl,
+      width: 1200,
+      height: 630,
+    },
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+      url: `${siteUrl}/about`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'Web On Dev',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/images/branding/logo.png`,
+        width: 512,
+        height: 512,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+    keywords: post.keywords?.join(', '),
+    articleSection: post.category,
+    inLanguage: 'en-US',
+    isAccessibleForFree: true,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.article-intro', 'h2'],
+    },
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog/` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 w-full">
+      <Header />
       <ReadingProgress />
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 w-full border-b border-gray-100">
@@ -272,21 +358,21 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-28 bg-gradient-to-r from-blue-600 to-purple-600 text-white w-full">
+      <section className="py-20 lg:py-28 bg-gradient-to-r from-emerald-600 to-teal-600 text-white w-full">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl lg:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl lg:text-2xl text-emerald-100 mb-10 max-w-3xl mx-auto leading-relaxed">
             Let's discuss how we can help you achieve your digital goals with our expert team.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+            <Button asChild size="lg" className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
               <Link href="/contact">
                 Get Free Consultation
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-4 text-lg font-semibold">
               <Link href="/portfolio">
                 View Our Work
               </Link>
@@ -294,6 +380,18 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
           </div>
         </div>
       </section>
+
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      <Footer />
     </div>
   );
 };

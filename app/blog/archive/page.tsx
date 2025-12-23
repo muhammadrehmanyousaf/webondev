@@ -176,7 +176,7 @@ const BlogArchivePage = () => {
               </div>
             </Link>
             
-            <Link href="/blog?category=featured">
+            <Link href="/blog">
               <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 text-center hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-gray-900 mb-2">Featured Posts</h3>
                 <p className="text-sm text-gray-600">Our most popular articles</p>

@@ -101,7 +101,7 @@ export const locationData: Country[] = [
               projectsCompleted: 150,
               clientsServed: 89,
               satisfactionRate: 98,
-              responseTime: '&lt; 2 hours'
+              responseTime: '< 2 hours'
             },
             seo: {
               title: 'Software Development Services in Lahore - Web On Dev',
@@ -138,7 +138,7 @@ export const locationData: Country[] = [
                 title: 'Mobile App Development',
                 description: 'Native and cross-platform mobile applications designed for Lahore\'s growing digital market.',
                 features: [
-                  'iOS &amp; Android Development',
+                  'iOS & Android Development',
                   'Cross-Platform Solutions',
                   'App Store Optimization',
                   'Push Notifications',
@@ -184,7 +184,7 @@ export const locationData: Country[] = [
               projectsCompleted: 85,
               clientsServed: 52,
               satisfactionRate: 97,
-              responseTime: '&lt; 3 hours'
+              responseTime: '< 3 hours'
             },
             seo: {
               title: 'Software Development Services in Islamabad - Web On Dev',
@@ -237,7 +237,7 @@ export const locationData: Country[] = [
               projectsCompleted: 65,
               clientsServed: 38,
               satisfactionRate: 96,
-              responseTime: '&lt; 4 hours'
+              responseTime: '< 4 hours'
             },
             seo: {
               title: 'Software Development Services in Faisalabad - Web On Dev',
@@ -302,7 +302,7 @@ export const locationData: Country[] = [
               projectsCompleted: 200,
               clientsServed: 120,
               satisfactionRate: 99,
-              responseTime: '&lt; 1 hour'
+              responseTime: '< 1 hour'
             },
             seo: {
               title: 'Software Development Services in Karachi - Web On Dev',
@@ -355,7 +355,7 @@ export const locationData: Country[] = [
               projectsCompleted: 45,
               clientsServed: 28,
               satisfactionRate: 95,
-              responseTime: '&lt; 3 hours'
+              responseTime: '< 3 hours'
             },
             seo: {
               title: 'Software Development Services in Hyderabad - Web On Dev',
@@ -420,7 +420,7 @@ export const locationData: Country[] = [
               projectsCompleted: 35,
               clientsServed: 22,
               satisfactionRate: 94,
-              responseTime: '&lt; 4 hours'
+              responseTime: '< 4 hours'
             },
             seo: {
               title: 'Software Development Services in Peshawar - Web On Dev',
@@ -485,7 +485,7 @@ export const locationData: Country[] = [
               projectsCompleted: 45,
               clientsServed: 28,
               satisfactionRate: 96,
-              responseTime: '&lt; 3 hours'
+              responseTime: '< 3 hours'
             },
             seo: {
               title: 'Software Development Services in Gilgit - Web On Dev',
@@ -610,7 +610,7 @@ export const locationData: Country[] = [
               projectsCompleted: 35,
               clientsServed: 22,
               satisfactionRate: 95,
-              responseTime: '&lt; 4 hours'
+              responseTime: '< 4 hours'
             },
             seo: {
               title: 'Software Development Services in Barishal - Web On Dev',
@@ -690,7 +690,7 @@ export const locationData: Country[] = [
               projectsCompleted: 300,
               clientsServed: 180,
               satisfactionRate: 99,
-              responseTime: '&lt; 1 hour'
+              responseTime: '< 1 hour'
             },
             seo: {
               title: 'Software Development Services in San Francisco - Web On Dev',
@@ -743,7 +743,7 @@ export const locationData: Country[] = [
               projectsCompleted: 250,
               clientsServed: 150,
               satisfactionRate: 98,
-              responseTime: '&lt; 2 hours'
+              responseTime: '< 2 hours'
             },
             seo: {
               title: 'Software Development Services in Los Angeles - Web On Dev',
@@ -808,7 +808,7 @@ export const locationData: Country[] = [
               projectsCompleted: 400,
               clientsServed: 250,
               satisfactionRate: 99,
-              responseTime: '&lt; 1 hour'
+              responseTime: '< 1 hour'
             },
             seo: {
               title: 'Software Development Services in New York City - Web On Dev',
@@ -873,7 +873,7 @@ export const locationData: Country[] = [
               projectsCompleted: 180,
               clientsServed: 110,
               satisfactionRate: 97,
-              responseTime: '&lt; 2 hours'
+              responseTime: '< 2 hours'
             },
             seo: {
               title: 'Software Development Services in Houston - Web On Dev',
@@ -887,7 +887,7 @@ export const locationData: Country[] = [
                 description: 'Energy industry web solutions for Houston\'s oil and gas sector.',
                 features: [
                   'Energy Management Systems',
-                  'Oil &amp; Gas Platforms',
+                  'Oil & Gas Platforms',
                   'Pipeline Monitoring',
                   'Safety Compliance',
                   'Environmental Tracking',
@@ -900,7 +900,7 @@ export const locationData: Country[] = [
                 },
                 localBenefits: [
                   'Energy sector expertise',
-                  'Oil &amp; gas knowledge',
+                  'Oil & gas knowledge',
                   'Industry compliance',
                   'Energy market connections'
                 ]
@@ -953,7 +953,7 @@ export const locationData: Country[] = [
               projectsCompleted: 350,
               clientsServed: 200,
               satisfactionRate: 99,
-              responseTime: '&lt; 1 hour'
+              responseTime: '< 1 hour'
             },
             seo: {
               title: 'Software Development Services in London - Web On Dev',
@@ -1006,7 +1006,7 @@ export const locationData: Country[] = [
               projectsCompleted: 120,
               clientsServed: 75,
               satisfactionRate: 96,
-              responseTime: '&lt; 3 hours'
+              responseTime: '< 3 hours'
             },
             seo: {
               title: 'Software Development Services in Manchester - Web On Dev',
@@ -1086,7 +1086,7 @@ export const locationData: Country[] = [
               projectsCompleted: 280,
               clientsServed: 170,
               satisfactionRate: 98,
-              responseTime: '&lt; 2 hours'
+              responseTime: '< 2 hours'
             },
             seo: {
               title: 'Software Development Services in Toronto - Web On Dev',
@@ -1166,7 +1166,7 @@ export const locationData: Country[] = [
               projectsCompleted: 220,
               clientsServed: 130,
               satisfactionRate: 97,
-              responseTime: '&lt; 3 hours'
+              responseTime: '< 3 hours'
             },
             seo: {
               title: 'Software Development Services in Sydney - Web On Dev',

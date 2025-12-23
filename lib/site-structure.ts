@@ -70,7 +70,7 @@ export const siteStructure: PillarPage[] = [
         slug: "api-development",
         description: "RESTful and GraphQL API development",
         keywords: ["API development", "REST API", "GraphQL"],
-        features: ["RESTful APIs", "GraphQL", "API Documentation", "Authentication &amp; Security"]
+        features: ["RESTful APIs", "GraphQL", "API Documentation", "Authentication & Security"]
       },
       {
         title: "Frontend Development",
@@ -165,7 +165,7 @@ export const siteStructure: PillarPage[] = [
         features: ["User-centered Design", "Intuitive Interface", "Accessibility", "Platform Guidelines"]
       },
       {
-        title: "App Maintenance &amp; Support",
+        title: "App Maintenance & Support",
         slug: "app-maintenance-support",
         description: "Ongoing mobile app maintenance",
         keywords: ["app maintenance", "mobile app support", "bug fixes"],
@@ -184,7 +184,7 @@ export const siteStructure: PillarPage[] = [
         slug: "custom-software-development",
         description: "Tailor-made software solutions",
         keywords: ["custom software", "bespoke solutions", "enterprise software"],
-        features: ["Custom Architecture", "Scalable Solutions", "Integration Capabilities", "Maintenance &amp; Support"]
+        features: ["Custom Architecture", "Scalable Solutions", "Integration Capabilities", "Maintenance & Support"]
       },
       {
         title: "Enterprise Software Solutions",
@@ -212,7 +212,7 @@ export const siteStructure: PillarPage[] = [
         slug: "database-development",
         description: "Database design and optimization",
         keywords: ["database development", "data modeling", "database optimization"],
-        features: ["Database Design", "Performance Optimization", "Data Migration", "Backup &amp; Recovery"]
+        features: ["Database Design", "Performance Optimization", "Data Migration", "Backup & Recovery"]
       },
       {
         title: "Legacy System Modernization",
@@ -236,7 +236,7 @@ export const siteStructure: PillarPage[] = [
         features: ["Automated Deployment", "Continuous Integration", "Infrastructure as Code", "Monitoring"]
       },
       {
-        title: "Quality Assurance &amp; Testing",
+        title: "Quality Assurance & Testing",
         slug: "quality-assurance-testing",
         description: "Comprehensive software testing",
         keywords: ["software testing", "QA", "test automation"],
@@ -272,7 +272,7 @@ export const siteStructure: PillarPage[] = [
         features: ["Mobile-first Design", "Platform Guidelines", "Gesture-based Interaction", "Accessibility"]
       },
       {
-        title: "Logo Design &amp; Branding",
+        title: "Logo Design & Branding",
         slug: "logo-design-branding",
         description: "Professional brand identity design",
         keywords: ["logo design", "branding", "brand identity"],
@@ -293,7 +293,7 @@ export const siteStructure: PillarPage[] = [
         features: ["Visual Design", "Interactive Elements", "Design Systems", "Responsive Layouts"]
       },
       {
-        title: "Prototyping &amp; Wireframing",
+        title: "Prototyping & Wireframing",
         slug: "prototyping-wireframing",
         description: "Interactive prototypes and wireframes",
         keywords: ["prototyping", "wireframing", "design mockups"],
@@ -330,7 +330,7 @@ export const siteStructure: PillarPage[] = [
     ]
   },
   {
-            title: "Digital Marketing &amp; Ads",
+            title: "Digital Marketing & Ads",
     slug: "digital-marketing",
     description: "Comprehensive digital marketing and advertising solutions",
     icon: "TrendingUp",
@@ -354,7 +354,7 @@ export const siteStructure: PillarPage[] = [
         slug: "social-media-marketing",
         description: "Social media strategy and management",
         keywords: ["social media marketing", "social media management", "content marketing"],
-        features: ["Content Strategy", "Community Management", "Paid Social Ads", "Analytics &amp; Reporting"]
+        features: ["Content Strategy", "Community Management", "Paid Social Ads", "Analytics & Reporting"]
       },
       {
         title: "Content Marketing",
@@ -378,7 +378,7 @@ export const siteStructure: PillarPage[] = [
         features: ["A/B Testing", "User Behavior Analysis", "Landing Page Optimization", "Funnel Optimization"]
       },
       {
-        title: "Analytics &amp; Reporting",
+        title: "Analytics & Reporting",
         slug: "analytics-reporting",
         description: "Data-driven marketing insights",
         keywords: ["marketing analytics", "data analysis", "performance reporting"],
@@ -399,7 +399,7 @@ export const siteStructure: PillarPage[] = [
         features: ["Influencer Selection", "Campaign Management", "Content Collaboration", "Performance Tracking"]
       },
       {
-        title: "Brand Strategy &amp; Positioning",
+        title: "Brand Strategy & Positioning",
         slug: "brand-strategy-positioning",
         description: "Strategic brand development",
         keywords: ["brand strategy", "brand positioning", "market positioning"],
@@ -460,14 +460,14 @@ export const siteStructure: PillarPage[] = [
         slug: "marketplace-development",
         description: "Multi-vendor marketplace platforms",
         keywords: ["marketplace development", "multi-vendor", "online marketplace"],
-        features: ["Vendor Management", "Commission System", "Rating &amp; Reviews", "Multi-payment Support"]
+        features: ["Vendor Management", "Commission System", "Rating & Reviews", "Multi-payment Support"]
       },
       {
         title: "Inventory Management Systems",
         slug: "inventory-management-systems",
         description: "Advanced inventory tracking",
         keywords: ["inventory management", "stock tracking", "warehouse management"],
-        features: ["Real-time Tracking", "Multi-location Support", "Automated Reordering", "Reporting &amp; Analytics"]
+        features: ["Real-time Tracking", "Multi-location Support", "Automated Reordering", "Reporting & Analytics"]
       },
       {
         title: "E-commerce SEO",
@@ -486,7 +486,7 @@ export const siteStructure: PillarPage[] = [
     ]
   },
   {
-            title: "Cloud Services &amp; DevOps",
+            title: "Cloud Services & DevOps",
     slug: "cloud-devops",
     description: "Cloud infrastructure and DevOps solutions",
     icon: "Cloud",
@@ -534,21 +534,21 @@ export const siteStructure: PillarPage[] = [
         features: ["Terraform", "CloudFormation", "Ansible", "Version Control"]
       },
       {
-        title: "Monitoring &amp; Logging",
+        title: "Monitoring & Logging",
         slug: "monitoring-logging",
         description: "Application and infrastructure monitoring",
         keywords: ["monitoring", "logging", "observability"],
         features: ["Real-time Monitoring", "Log Aggregation", "Alerting", "Performance Metrics"]
       },
       {
-        title: "Security &amp; Compliance",
+        title: "Security & Compliance",
         slug: "security-compliance",
         description: "Cloud security and compliance",
         keywords: ["cloud security", "compliance", "data protection"],
         features: ["Security Audit", "Compliance Setup", "Access Control", "Data Encryption"]
       },
       {
-        title: "Backup &amp; Disaster Recovery",
+        title: "Backup & Disaster Recovery",
         slug: "backup-disaster-recovery",
         description: "Data backup and recovery solutions",
         keywords: ["backup", "disaster recovery", "data protection"],
@@ -564,7 +564,7 @@ export const siteStructure: PillarPage[] = [
     ]
   },
   {
-            title: "Consulting &amp; Strategy",
+            title: "Consulting & Strategy",
     slug: "consulting-strategy",
     description: "Technology consulting and strategic planning",
     icon: "Users",
@@ -605,7 +605,7 @@ export const siteStructure: PillarPage[] = [
         features: ["System Architecture", "Scalability Design", "Integration Planning", "Performance Architecture"]
       },
       {
-        title: "Code Review &amp; Audit",
+        title: "Code Review & Audit",
         slug: "code-review-audit",
         description: "Code quality assessment and improvement",
         keywords: ["code review", "code audit", "quality assessment"],
@@ -697,14 +697,14 @@ export const siteStructure: PillarPage[] = [
         features: ["Comprehensive Testing", "Test Automation", "Quality Processes", "Bug Tracking"]
       },
       {
-        title: "Maintenance &amp; Support",
+        title: "Maintenance & Support",
         slug: "maintenance-support-outsourcing",
         description: "Ongoing maintenance and support",
         keywords: ["maintenance outsourcing", "application support", "ongoing support"],
         features: ["Application Maintenance", "Bug Fixes", "Performance Monitoring", "Feature Updates"]
       },
       {
-        title: "Data Entry &amp; Processing",
+        title: "Data Entry & Processing",
         slug: "data-entry-processing",
         description: "Data management and processing services",
         keywords: ["data entry", "data processing", "data management"],
@@ -720,7 +720,7 @@ export const siteStructure: PillarPage[] = [
     ]
   },
   {
-            title: "Maintenance &amp; Support",
+            title: "Maintenance & Support",
     slug: "maintenance-support",
     description: "Ongoing maintenance and technical support services",
     icon: "Settings",
@@ -761,21 +761,21 @@ export const siteStructure: PillarPage[] = [
         features: ["Real-time Monitoring", "Performance Alerts", "Resource Optimization", "Uptime Monitoring"]
       },
       {
-        title: "Bug Fixes &amp; Updates",
+        title: "Bug Fixes & Updates",
         slug: "bug-fixes-updates",
         description: "Regular bug fixes and feature updates",
         keywords: ["bug fixes", "software updates", "maintenance updates"],
-        features: ["Bug Resolution", "Feature Updates", "Code Improvements", "Testing &amp; Validation"]
+        features: ["Bug Resolution", "Feature Updates", "Code Improvements", "Testing & Validation"]
       },
       {
-        title: "Backup &amp; Recovery",
+        title: "Backup & Recovery",
         slug: "backup-recovery",
         description: "Data backup and disaster recovery",
         keywords: ["backup services", "disaster recovery", "data protection"],
         features: ["Automated Backups", "Recovery Testing", "Data Restoration", "Business Continuity"]
       },
       {
-        title: "Version Control &amp; Updates",
+        title: "Version Control & Updates",
         slug: "version-control-updates",
         description: "Software version management",
         keywords: ["version control", "software updates", "release management"],

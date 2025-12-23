@@ -1,9 +1,14 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
-import { Globe, MapPin, Users, Award, Calendar, MessageCircle } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Globe, MapPin, Users, Award, Calendar, MessageCircle, Sparkles, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+
+// =============================================================================
+// LOCATION HERO SECTION - Premium Emerald Green Design
+// =============================================================================
 
 interface LocationHeroSectionProps {
   title?: string;
@@ -11,169 +16,235 @@ interface LocationHeroSectionProps {
   flag?: string;
   currency?: string;
   timezone?: string;
+  locationName?: string;
 }
 
-const LocationHeroSection = ({ 
+const LocationHeroSection = ({
   title = "Where We Serve",
   subtitle = "Discover our global presence with local expertise. We deliver cutting-edge software solutions across multiple countries, bringing world-class technology to your doorstep.",
   flag,
   currency,
-  timezone
+  timezone,
+  locationName
 }: LocationHeroSectionProps) => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    if (!heroRef.current) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsInView(true);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    observer.observe(heroRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (isInView) {
-      titleRef.current?.classList.add('animate-fade-in-up');
-      subtitleRef.current?.classList.add('animate-fade-in-up');
-      ctaRef.current?.classList.add('animate-fade-in-up');
-      statsRef.current?.classList.add('animate-fade-in-up');
-    }
-  }, [isInView]);
 
   const stats = [
     {
       icon: Globe,
       number: '5+',
       label: 'Countries Served',
-      color: 'from-orange-500 to-orange-600'
+      gradient: 'from-brand-500 to-teal-500'
     },
     {
       icon: MapPin,
       number: '20+',
       label: 'Cities Covered',
-      color: 'from-orange-500 to-orange-600'
+      gradient: 'from-teal-500 to-cyan-500'
     },
     {
       icon: Users,
       number: '150+',
       label: 'Happy Clients',
-      color: 'from-orange-500 to-orange-600'
+      gradient: 'from-cyan-500 to-blue-500'
     },
     {
       icon: Award,
       number: '99%',
       label: 'Satisfaction Rate',
-      color: 'from-orange-500 to-orange-600'
+      gradient: 'from-brand-500 to-lime-500'
     }
   ];
 
   return (
-    <section ref={heroRef} className="relative pt-32 lg:pt-40 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 via-orange-50 to-orange-100">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='7'/%3E%3Ccircle cx='53' cy='7' r='7'/%3E%3Ccircle cx='7' cy='53' r='7'/%3E%3Ccircle cx='53' cy='53' r='7'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
+    <section className="relative min-h-[90vh] pt-32 lg:pt-40 pb-20 overflow-hidden bg-slate-950">
+      {/* Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Animated Gradient Orbs */}
+        <motion.div
+          className="absolute top-0 left-1/4 w-[700px] h-[700px] bg-brand-500/20 rounded-full blur-[150px]"
+          animate={{
+            x: [0, 50, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-teal-500/20 rounded-full blur-[150px]"
+          animate={{
+            x: [0, -50, 0],
+            y: [0, -30, 0],
+            scale: [1.1, 1, 1.1],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px]"
+          animate={{ rotate: [0, 360] }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        />
+
+        {/* Dot Pattern */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `radial-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+          }}
+        />
+
+        {/* Grid Lines */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(16, 185, 129, 0.5) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(16, 185, 129, 0.5) 1px, transparent 1px)
+            `,
+            backgroundSize: '100px 100px',
+          }}
+        />
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full opacity-20 animate-float"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full opacity-20 animate-float-delayed"></div>
-      <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full opacity-20 animate-float-slow"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex items-center justify-center min-h-[70vh]">
+        <div className="max-w-5xl mx-auto">
+          {/* Badge */}
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Global Presence, Local Excellence</span>
+          </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center min-h-[70vh] flex items-center justify-center">
-        <div className="max-w-4xl mx-auto">
           {/* Hero Title */}
-          <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-gray-900 via-orange-600 to-gray-900 bg-clip-text text-transparent mb-8 leading-tight opacity-0 transition-all duration-1000">
-            {title.includes('Where We') ? (
-              <>
-                Where We
-                <span className=""> Serve</span>
-              </>
-            ) : (
-              <>
-                {title.split(' ').slice(0, -1).join(' ')}
-                <span className=""> {title.split(' ').slice(-1)[0]}</span>
-              </>
-            )}
-          </h1>
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <span className="text-white">{title.split(' ').slice(0, -1).join(' ')} </span>
+            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              {title.split(' ').slice(-1)[0]}
+            </span>
+          </motion.h1>
 
           {/* Hero Subtitle */}
-          <p ref={subtitleRef} className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto opacity-0 transition-all duration-1000 delay-300 font-medium">
+          <motion.p
+            className="text-lg md:text-xl lg:text-2xl text-slate-300 mb-10 leading-relaxed max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             {subtitle}
-          </p>
+          </motion.p>
 
           {/* Location Info */}
           {flag && currency && timezone && (
-            <div className="flex items-center justify-center gap-8 mb-12 opacity-0 transition-all duration-1000 delay-400">
-              <div className="flex items-center gap-3 text-lg">
+            <motion.div
+              className="flex flex-wrap items-center justify-center gap-6 mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="flex items-center gap-3 px-5 py-3 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10">
                 <span className="text-4xl">{flag}</span>
-                <span className="font-bold text-gray-900">{currency}</span>
+                <div>
+                  <span className="font-bold text-white block">{locationName}</span>
+                  <span className="text-slate-400 text-sm">{currency}</span>
+                </div>
               </div>
-              <div className="w-px h-8 bg-orange-300"></div>
-              <div className="text-lg">
-                <span className="font-bold text-gray-900">{timezone}</span>
+              <div className="px-5 py-3 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10">
+                <span className="text-slate-400 text-sm block">Timezone</span>
+                <span className="font-bold text-white">{timezone}</span>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {/* CTA Buttons */}
-          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 opacity-0 transition-all duration-1000 delay-500">
-            <Button asChild size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-lg px-10 py-5 rounded-full shadow-xl hover:shadow-2xl hover:shadow-orange-500/40 transform hover:scale-105 transition-all duration-300 font-bold">
-              <Link href="#book-meeting" className="flex items-center gap-3">
-                Book Meeting
-                <Calendar className="w-5 h-5" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" className=" border-2 border-orange-400 text-white hover:bg-orange-600 text-lg px-10 py-5 rounded-full font-bold transform hover:scale-105 transition-all duration-300">
-              <Link href="#book-meeting" className="flex items-center gap-3">
-                Let's Talk
-                <MessageCircle className="w-5 h-5" />
-              </Link>
-            </Button>
-          </div>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Button asChild variant="glow" size="xl" className="rounded-full px-10 group">
+                <Link href="#book-meeting" className="flex items-center gap-3">
+                  <Calendar className="w-5 h-5" />
+                  Book Meeting
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Button asChild variant="outline" size="xl" className="rounded-full px-10 border-white/20 text-white hover:bg-white/10">
+                <Link href="#book-meeting" className="flex items-center gap-3">
+                  <MessageCircle className="w-5 h-5" />
+                  Let&apos;s Talk
+                </Link>
+              </Button>
+            </motion.div>
+          </motion.div>
 
-          {/* Stats */}
-          <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto opacity-0 transition-all duration-1000 delay-700">
+          {/* Stats Grid */}
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
             {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-orange-500/50`}>
-                  <stat.icon className="w-8 h-8 text-white" />
+              <motion.div
+                key={index}
+                className="group relative"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 + index * 0.1 }}
+              >
+                {/* Glow Effect */}
+                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+
+                <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-brand-500/50 transition-all duration-500">
+                  <motion.div
+                    className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${stat.gradient} rounded-xl mb-4 shadow-lg`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <stat.icon className="w-7 h-7 text-white" />
+                  </motion.div>
+                  <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
+                    {stat.number}
+                  </div>
+                  <div className="text-slate-300 font-medium text-sm">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent mb-2 group-hover:from-orange-700 group-hover:to-orange-600 transition-all">
-                  {stat.number}
-                </div>
-                <div className="text-gray-700 font-semibold">
-                  {stat.label}
-                </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-orange-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-orange-400 rounded-full mt-2 animate-pulse"></div>
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="w-6 h-10 border-2 border-brand-500/50 rounded-full flex justify-center">
+          <motion.div
+            className="w-1.5 h-3 bg-brand-500 rounded-full mt-2"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
 
 export default LocationHeroSection;
-

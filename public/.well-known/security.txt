@@ -1,0 +1,12 @@
+# Web On Dev Security Policy
+# https://securitytxt.org/
+
+Contact: mailto:webondev@gmail.com
+Contact: https://www.webondev.com/contact/
+Expires: 2026-12-31T23:59:00.000Z
+Preferred-Languages: en
+Canonical: https://www.webondev.com/.well-known/security.txt
+Hiring: https://www.webondev.com/careers/
+
+# If you discover a security vulnerability, please report it to us.
+# We take security seriously and will respond promptly.

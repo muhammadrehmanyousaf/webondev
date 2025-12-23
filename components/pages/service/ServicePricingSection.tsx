@@ -2,7 +2,17 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { CheckCircle, ArrowRight, Star, Clock, Shield, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import {
+  CheckCircle2,
+  ArrowRight,
+  Star,
+  Clock,
+  Shield,
+  Zap,
+  Sparkles,
+  MessageSquare
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PillarPage, ClusterPage } from '@/lib/site-structure';
 
@@ -17,7 +27,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
   // Dynamic pricing based on service type
   const getPricingTiers = () => {
     const serviceType = cluster?.slug || pillar.slug;
-    
+
     if (serviceType.includes('mobile') || serviceType.includes('app')) {
       return [
         {
@@ -33,7 +43,8 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Basic Analytics'
           ],
           popular: false,
-          color: 'from-orange-500 to-orange-600'
+          gradient: 'from-slate-600 to-slate-700',
+          borderGradient: 'from-slate-500 to-slate-600'
         },
         {
           name: 'Professional App',
@@ -50,7 +61,8 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'API Integration'
           ],
           popular: true,
-          color: 'from-orange-500 to-orange-600'
+          gradient: 'from-brand-500 to-teal-500',
+          borderGradient: 'from-brand-500 to-teal-500'
         },
         {
           name: 'Enterprise App',
@@ -69,7 +81,8 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Compliance Features'
           ],
           popular: false,
-          color: 'from-purple-500 to-pink-500'
+          gradient: 'from-purple-500 to-pink-500',
+          borderGradient: 'from-purple-500 to-pink-500'
         }
       ];
     }
@@ -89,7 +102,8 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'SSL Certificate'
           ],
           popular: false,
-          color: 'from-blue-500 to-purple-500'
+          gradient: 'from-slate-600 to-slate-700',
+          borderGradient: 'from-slate-500 to-slate-600'
         },
         {
           name: 'Professional Store',
@@ -106,7 +120,8 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Email Marketing Setup'
           ],
           popular: true,
-          color: 'from-orange-500 to-orange-600'
+          gradient: 'from-brand-500 to-teal-500',
+          borderGradient: 'from-brand-500 to-teal-500'
         },
         {
           name: 'Enterprise Store',
@@ -125,7 +140,8 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Performance Optimization'
           ],
           popular: false,
-          color: 'from-purple-500 to-pink-500'
+          gradient: 'from-purple-500 to-pink-500',
+          borderGradient: 'from-purple-500 to-pink-500'
         }
       ];
     }
@@ -145,7 +161,8 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
           'Basic Training'
         ],
         popular: false,
-        color: 'from-blue-500 to-purple-500'
+        gradient: 'from-slate-600 to-slate-700',
+        borderGradient: 'from-slate-500 to-slate-600'
       },
       {
         name: 'Professional',
@@ -162,7 +179,8 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
           'Security Hardening'
         ],
         popular: true,
-        color: 'from-orange-500 to-orange-600'
+        gradient: 'from-brand-500 to-teal-500',
+        borderGradient: 'from-brand-500 to-teal-500'
       },
       {
         name: 'Enterprise',
@@ -181,7 +199,8 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
           'Dedicated Account Manager'
         ],
         popular: false,
-        color: 'from-purple-500 to-pink-500'
+        gradient: 'from-purple-500 to-pink-500',
+        borderGradient: 'from-purple-500 to-pink-500'
       }
     ];
   };
@@ -189,134 +208,223 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
   const pricingTiers = getPricingTiers();
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 lg:py-32 bg-slate-900 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-1/4 -left-40 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[150px]"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.08, 0.12, 0.08] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 -right-40 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[150px]"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.12, 0.08, 0.12] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Grid Pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px',
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {currentService.title}
-            <span className="bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent"> Pricing</span>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
+          >
+            <Sparkles className="w-4 h-4" />
+            Transparent Pricing
+          </motion.div>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <span className="text-white">{currentService.title} </span>
+            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              Pricing
+            </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
             Choose the perfect plan for your {currentService.title.toLowerCase()} needs. All plans include our quality guarantee and ongoing support.
           </p>
-        </div>
+        </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {pricingTiers.map((tier, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 ${
-                tier.popular ? 'scale-105 border-orange-200 shadow-xl ring-2 ring-blue-100' : 'hover:scale-105'
-              }`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15 }}
+              whileHover={{ y: tier.popular ? 0 : -8 }}
+              className={`relative group ${tier.popular ? 'md:-mt-8 md:mb-8' : ''}`}
             >
-              {/* Popular Badge */}
-              {tier.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
-                    <Star className="w-4 h-4 fill-current" />
-                    Most Popular
+              {/* Glow Effect */}
+              <div className={`absolute -inset-0.5 bg-gradient-to-r ${tier.borderGradient} rounded-3xl blur ${tier.popular ? 'opacity-40' : 'opacity-0 group-hover:opacity-20'} transition-all duration-500`} />
+
+              <div className={`relative h-full bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border ${tier.popular ? 'border-brand-500/50' : 'border-white/10'} transition-all duration-500`}>
+                {/* Popular Badge */}
+                {tier.popular && (
+                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-gradient-to-r from-brand-500 to-teal-500 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg shadow-brand-500/25">
+                      <Star className="w-4 h-4 fill-current" />
+                      Most Popular
+                    </div>
                   </div>
+                )}
+
+                {/* Header */}
+                <div className="text-center mb-8 pt-4">
+                  <h3 className="text-2xl font-bold text-white mb-3">{tier.name}</h3>
+                  <div className={`text-4xl lg:text-5xl font-bold bg-gradient-to-r ${tier.gradient} bg-clip-text text-transparent mb-4`}>
+                    {tier.price}
+                  </div>
+                  <p className="text-slate-400 leading-relaxed">{tier.description}</p>
                 </div>
-              )}
 
-              {/* Header */}
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{tier.name}</h3>
-                <div className="text-4xl font-bold text-gray-900 mb-4">{tier.price}</div>
-                <p className="text-gray-600 leading-relaxed">{tier.description}</p>
+                {/* Features */}
+                <div className="space-y-4 mb-8">
+                  {tier.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${tier.gradient} flex items-center justify-center flex-shrink-0`}>
+                        <CheckCircle2 className="w-3 h-3 text-white" />
+                      </div>
+                      <span className="text-slate-300">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <Button
+                  asChild
+                  className={`w-full ${
+                    tier.popular
+                      ? 'bg-gradient-to-r from-brand-500 to-teal-500 hover:from-brand-600 hover:to-teal-600 text-white shadow-lg shadow-brand-500/25'
+                      : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                  } font-bold py-6 rounded-xl transition-all duration-300`}
+                >
+                  <Link href="/contact" className="flex items-center justify-center gap-2">
+                    Get Started
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
               </div>
-
-              {/* Features */}
-              <div className="space-y-4 mb-8">
-                {tier.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA Button */}
-              <Button
-                asChild
-                className={`w-full ${
-                  tier.popular
-                    ? 'bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 shadow-lg hover:shadow-orange-500/50'
-                    : 'bg-gray-900 hover:bg-gray-800'
-                } text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105`}
-              >
-                <Link href="/contact" className="flex items-center justify-center gap-2">
-                  Get Started
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Value Propositions */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl border border-blue-100">
-            <Clock className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Fast Delivery</h3>
-            <p className="text-gray-600 text-sm">Quick turnaround times without compromising quality</p>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl border border-orange-100">
-            <Shield className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Quality Assured</h3>
-            <p className="text-gray-600 text-sm">100% satisfaction guarantee with rigorous testing</p>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border border-purple-100">
-            <Zap className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Ongoing Support</h3>
-            <p className="text-gray-600 text-sm">Continuous support and maintenance included</p>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20"
+        >
+          {[
+            { icon: Clock, title: 'Fast Delivery', desc: 'Quick turnaround times without compromising quality', gradient: 'from-brand-500 to-teal-500' },
+            { icon: Shield, title: 'Quality Assured', desc: '100% satisfaction guarantee with rigorous testing', gradient: 'from-teal-500 to-cyan-500' },
+            { icon: Zap, title: 'Ongoing Support', desc: 'Continuous support and maintenance included', gradient: 'from-cyan-500 to-blue-500' }
+          ].map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + idx * 0.1 }}
+              whileHover={{ y: -4 }}
+              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:border-brand-500/30 transition-all duration-300"
+            >
+              <div className={`w-14 h-14 bg-gradient-to-br ${item.gradient} rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg`}>
+                <item.icon className="w-7 h-7 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+              <p className="text-slate-400 text-sm">{item.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
 
-        {/* Additional Information */}
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Need a Custom Solution?
-            </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Every business is unique. If our standard packages don't fit your needs, we'll create a custom solution tailored specifically for your requirements.
-            </p>
-          </div>
+        {/* Custom Quote Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-3xl overflow-hidden"
+        >
+          {/* Background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-600/90 via-teal-600/90 to-cyan-600/90" />
+          <div className="absolute inset-0 bg-slate-900/30" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600 mb-2">Free</div>
-              <div className="text-gray-700 font-medium mb-1">Consultation</div>
-              <div className="text-gray-600 text-sm">Detailed project analysis</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600 mb-2">24h</div>
-              <div className="text-gray-700 font-medium mb-1">Response Time</div>
-              <div className="text-gray-600 text-sm">Quick project quotes</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600 mb-2">100%</div>
-              <div className="text-gray-700 font-medium mb-1">Satisfaction</div>
-              <div className="text-gray-600 text-sm">Quality guarantee</div>
-            </div>
-          </div>
+          {/* Decorative */}
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
 
-          <div className="text-center">
-            <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 px-8 py-4 rounded-full shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300 font-semibold">
-              <Link href="/contact" className="flex items-center gap-2">
-                Request Custom Quote
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
+          <div className="relative z-10 p-8 lg:p-12">
+            <div className="text-center mb-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white text-sm font-semibold mb-4"
+              >
+                <MessageSquare className="w-4 h-4" />
+                Custom Solutions
+              </motion.div>
+              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                Need a Custom Solution?
+              </h3>
+              <p className="text-white/80 max-w-2xl mx-auto">
+                Every business is unique. If our standard packages don't fit your needs, we'll create a custom solution tailored specifically for your requirements.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+              {[
+                { value: 'Free', label: 'Consultation', desc: 'Detailed project analysis' },
+                { value: '24h', label: 'Response Time', desc: 'Quick project quotes' },
+                { value: '100%', label: 'Satisfaction', desc: 'Quality guarantee' }
+              ].map((stat, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + idx * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="text-3xl lg:text-4xl font-bold text-white mb-2">{stat.value}</div>
+                  <div className="text-white font-semibold mb-1">{stat.label}</div>
+                  <div className="text-white/60 text-sm">{stat.desc}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Button asChild size="lg" className="bg-white text-brand-600 hover:bg-white/90 rounded-full px-8 font-bold shadow-xl">
+                <Link href="/contact" className="flex items-center gap-2">
+                  Request Custom Quote
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default ServicePricingSection;
-
