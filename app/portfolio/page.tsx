@@ -2,11 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import PortfolioHeroSection from '@/components/pages/portfolio/PortfolioHeroSection';
-import PortfolioGridSection from '@/components/pages/portfolio/PortfolioGridSection';
-import PortfolioCategoriesSection from '@/components/pages/portfolio/PortfolioCategoriesSection';
-import PortfolioStatsSection from '@/components/pages/portfolio/PortfolioStatsSection';
-import CTASection from '@/components/sections/CTASection';
+import PortfolioPageContent from '@/components/pages/portfolio/PortfolioPageContent';
 
 export const metadata: Metadata = {
   title: 'Our Portfolio - Web On Dev | Showcase of Successful Projects',
@@ -38,14 +34,10 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-950">
       <Header />
       <main>
-        <PortfolioHeroSection />
-        <PortfolioCategoriesSection />
-        <PortfolioGridSection />
-        <PortfolioStatsSection />
-        <CTASection />
+        <PortfolioPageContent />
         {/* JSON-LD: Portfolio CollectionPage */}
         <script
           type="application/ld+json"

@@ -108,6 +108,7 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   other: {
     'google-site-verification': 'iZg3gTHT6aZ91d7tRH1ExVgVOyD_d44UgafUZ1HgUII',
+    'tiktok-developers-site-verification': '4KEFGE3EaZQWBw7oPf3jrhTnGhmfQ9hZ',
   },
 };
 

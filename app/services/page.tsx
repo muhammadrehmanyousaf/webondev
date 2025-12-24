@@ -6,7 +6,31 @@ import ServicesHeroSection from '@/components/pages/services/ServicesHeroSection
 import ServicesGridSection from '@/components/pages/services/ServicesGridSection';
 import ServiceProcessSection from '@/components/pages/services/ServiceProcessSection';
 import ServiceBenefitsSection from '@/components/pages/services/ServiceBenefitsSection';
+import FAQSection from '@/components/sections/FAQSection';
 import CTASection from '@/components/sections/CTASection';
+
+const servicesFAQs = [
+  {
+    question: 'How do you scope complex, multi-service engagements?',
+    answer: 'We start with discovery and a written proposal outlining problem, goals, scope, deliverables, assumptions, timeline, dependencies, risks, and acceptance criteria. That reduces ambiguity and aligns stakeholders upfront.',
+  },
+  {
+    question: 'Can you align development with SEO, performance, and accessibility from day one?',
+    answer: 'Yes—our process bakes in technical SEO (semantic HTML, schema), Core Web Vitals, and WCAG compliance alongside design/development to avoid late rework and ensure search-friendly, inclusive experiences.',
+  },
+  {
+    question: 'Do you support internationalization and programmatic content at scale?',
+    answer: 'We implement i18n routing, localized currency/tax, and scalable content models for programmatic pages—plus hreflang, canonical logic, and feeds for discovery and syndication.',
+  },
+  {
+    question: 'What technologies do you specialize in?',
+    answer: 'We specialize in modern technologies including Next.js, React, Node.js, TypeScript, Python, and cloud platforms like AWS, Google Cloud, and Vercel. We also work with databases like PostgreSQL, MongoDB, and Redis.',
+  },
+  {
+    question: 'How do you ensure quality and security in your development process?',
+    answer: 'We follow industry best practices including code reviews, automated testing (unit, integration, E2E), CI/CD pipelines, security audits, and OWASP guidelines. All projects include comprehensive documentation and knowledge transfer.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Our Services - Web On Dev | Complete Software Development Solutions',
@@ -38,68 +62,17 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-950">
       <Header />
       <main>
         <ServicesHeroSection />
         <ServicesGridSection />
         <ServiceProcessSection />
         <ServiceBenefitsSection />
-        {/* Semantic FAQs */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Frequently asked questions about our services</h3>
-            <div className="space-y-5 text-gray-700 text-lg leading-relaxed max-w-4xl">
-              <details className="group border border-gray-100 rounded-2xl p-6 bg-white">
-                <summary className="flex cursor-pointer items-center justify-between">
-                  <span className="font-semibold text-gray-900">How do you scope complex, multi-service engagements?</span>
-                  <span className="ml-4 text-gray-500 group-open:rotate-180 transition">▾</span>
-                </summary>
-                <div className="mt-4">We start with discovery and a written proposal outlining problem, goals, scope, deliverables, assumptions, timeline, dependencies, risks, and acceptance criteria. That reduces ambiguity and aligns stakeholders upfront.</div>
-              </details>
-              <details className="group border border-gray-100 rounded-2xl p-6 bg-white">
-                <summary className="flex cursor-pointer items-center justify-between">
-                  <span className="font-semibold text-gray-900">Can you align development with SEO, performance, and accessibility from day one?</span>
-                  <span className="ml-4 text-gray-500 group-open:rotate-180 transition">▾</span>
-                </summary>
-                <div className="mt-4">Yes—our process bakes in technical SEO (semantic HTML, schema), Core Web Vitals, and WCAG compliance alongside design/development to avoid late rework and ensure search-friendly, inclusive experiences.</div>
-              </details>
-              <details className="group border border-gray-100 rounded-2xl p-6 bg-white">
-                <summary className="flex cursor-pointer items-center justify-between">
-                  <span className="font-semibold text-gray-900">Do you support internationalization and programmatic content at scale?</span>
-                  <span className="ml-4 text-gray-500 group-open:rotate-180 transition">▾</span>
-                </summary>
-                <div className="mt-4">We implement i18n routing, localized currency/tax, and scalable content models for programmatic pages—plus hreflang, canonical logic, and feeds for discovery and syndication.</div>
-              </details>
-            </div>
-          </div>
-        </section>
-        {/* FAQPage JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: [
-                {
-                  '@type': 'Question',
-                  name: 'How do you scope complex, multi-service engagements?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'We start with discovery and a written proposal outlining problem, goals, scope, deliverables, assumptions, timeline, dependencies, risks, and acceptance criteria.' }
-                },
-                {
-                  '@type': 'Question',
-                  name: 'Can you align development with SEO, performance, and accessibility from day one?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Yes—our process bakes in technical SEO (semantic HTML, schema), Core Web Vitals, and WCAG compliance alongside design/development.' }
-                },
-                {
-                  '@type': 'Question',
-                  name: 'Do you support internationalization and programmatic content at scale?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'We implement i18n routing, localized currency/tax, and scalable content models for programmatic pages—plus hreflang, canonical logic, and feeds for discovery and syndication.' }
-                }
-              ]
-            })
-          }}
+        <FAQSection
+          faqs={servicesFAQs}
+          subtitle="Find answers to common questions about our development services, process, and expertise"
+          showCTA={false}
         />
         <CTASection />
         {/* JSON-LD: Services CollectionPage and ItemList */}
