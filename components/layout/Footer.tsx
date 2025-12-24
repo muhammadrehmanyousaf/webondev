@@ -87,10 +87,29 @@ const Footer = () => {
     }
   };
 
+<<<<<<< Updated upstream
   const companyInfo = {
     name: "Web On Dev",
     tagline: "Transforming businesses through innovative software solutions",
     description: "We are a leading software development company specializing in custom web applications, mobile apps, and digital transformation services for businesses worldwide."
+=======
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://www.webondev.com/#organization',
+    name: 'Web On Dev',
+    url: 'https://www.webondev.com',
+    logo: 'https://www.webondev.com/images/branding/logo.png',
+    description: companyInfo.description,
+    foundingDate: '2020',
+    address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' },
+    contactPoint: [
+      { '@type': 'ContactPoint', telephone: '+92-310-6803687', contactType: 'sales' },
+      { '@type': 'ContactPoint', email: 'webondev@gmail.com', contactType: 'customer service' },
+    ],
+    sameAs: socialLinks.map(s => s.href),
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', ratingCount: '250', reviewCount: '250', bestRating: '5', worstRating: '1' },
+>>>>>>> Stashed changes
   };
 
   const quickLinks = [

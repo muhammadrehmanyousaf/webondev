@@ -536,6 +536,56 @@ export default async function CityPage({ params }: CityPageProps) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
+<<<<<<< Updated upstream
+=======
+              '@type': 'ProfessionalService',
+              '@id': `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}/${toSlug(city.name)}/#localbusiness`,
+              name: `Web On Dev - ${city.name}`,
+              description: `Professional software development and web development services in ${city.name}, ${state.name}, ${country.name}.`,
+              url: `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}/${toSlug(city.name)}/`,
+              image: `${siteUrl}/images/branding/logo.png`,
+              telephone: '+92-310-6803687',
+              email: 'webondev@gmail.com',
+              priceRange: '$$',
+              areaServed: {
+                '@type': 'City',
+                name: city.name,
+                containedInPlace: {
+                  '@type': 'AdministrativeArea',
+                  name: state.name,
+                  containedInPlace: {
+                    '@type': 'Country',
+                    name: country.name,
+                  },
+                },
+              },
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.9',
+                ratingCount: '250',
+                reviewCount: '150',
+                bestRating: '5',
+                worstRating: '1',
+              },
+              sameAs: [
+                'https://www.youtube.com/@webondev',
+                'https://x.com/webon_dev',
+                'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
+                'https://www.instagram.com/webondev/',
+              ],
+              parentOrganization: {
+                '@type': 'Organization',
+                '@id': 'https://www.webondev.com/#organization',
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+>>>>>>> Stashed changes
               '@type': 'Service',
               areaServed: {
                 '@type': 'City',

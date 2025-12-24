@@ -58,6 +58,226 @@ export const metadata: Metadata = {
   },
 };
 
+<<<<<<< Updated upstream
+=======
+// Organization Schema
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://www.webondev.com/#organization',
+  name: 'Web On Dev',
+  alternateName: 'webondev',
+  legalName: 'Web On Dev',
+  url: 'https://www.webondev.com',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://www.webondev.com/images/branding/logo.png',
+    width: 512,
+    height: 512,
+  },
+  foundingDate: '2015',
+  founders: [
+    { '@type': 'Person', name: 'Muhammad Rehman Yousaf' },
+    { '@type': 'Person', name: 'Daniyal Bahadur' },
+    { '@type': 'Person', name: 'Waheed UI Islam' },
+    { '@type': 'Person', name: 'Ihtisham UL Haq' },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'G8JX+CMF, Main Gulberg, Mota Singh Wala',
+    addressLocality: 'Lahore',
+    addressRegion: 'Punjab',
+    postalCode: '54660',
+    addressCountry: 'PK',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      telephone: '+92-310-6803687',
+      email: 'webondev@gmail.com',
+      availableLanguage: ['English', 'Urdu'],
+      areaServed: 'Worldwide',
+    },
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: '+92-310-6803687',
+      email: 'webondev@gmail.com',
+      availableLanguage: ['English', 'Urdu'],
+      areaServed: 'Worldwide',
+    },
+  ],
+  sameAs: [
+    'https://www.youtube.com/@webondev',
+    'https://x.com/webon_dev',
+    'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
+    'https://www.instagram.com/webondev/',
+    'https://www.designrush.com/agency/profile/solutions-indicators',
+    'https://clutch.co/profile/solutions-indicator',
+    'https://www.goodfirms.co/company/solutions-indicator',
+  ],
+  numberOfEmployees: {
+    '@type': 'QuantitativeValue',
+    minValue: 11,
+    maxValue: 50,
+  },
+  slogan: 'Transforming Digital Vision Into Reality',
+  description:
+    'Web On Dev is a premium digital transformation agency helping businesses achieve measurable growth through innovative software development, marketing, and data-driven strategies.',
+};
+
+// WebSite Schema with SearchAction
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://www.webondev.com/#website',
+  url: 'https://www.webondev.com',
+  name: 'Web On Dev',
+  description: 'Premium Web Development & Digital Solutions',
+  inLanguage: 'en-US',
+  publisher: { '@id': 'https://www.webondev.com/#organization' },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://www.webondev.com/search?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+// LocalBusiness Schema
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://www.webondev.com/#localbusiness',
+  name: 'Web On Dev',
+  image: 'https://www.webondev.com/images/branding/logo.png',
+  description:
+    'Premium web development agency specializing in custom websites, mobile apps, and digital solutions.',
+  url: 'https://www.webondev.com',
+  telephone: '+92-310-6803687',
+  email: 'webondev@gmail.com',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'G8JX+CMF, Main Gulberg, Mota Singh Wala',
+    addressLocality: 'Lahore',
+    addressRegion: 'Punjab',
+    postalCode: '54660',
+    addressCountry: 'PK',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 31.440541,
+    longitude: 74.444666,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    ratingCount: '250',
+    reviewCount: '150',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'United States' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'Canada' },
+    { '@type': 'Country', name: 'Australia' },
+    { '@type': 'Country', name: 'Pakistan' },
+    { '@type': 'Country', name: 'United Arab Emirates' },
+    { '@type': 'Country', name: 'Germany' },
+    { '@type': 'Country', name: 'India' },
+  ],
+  sameAs: [
+    'https://www.youtube.com/@webondev',
+    'https://x.com/webon_dev',
+    'https://www.facebook.com/people/Web-On-Dev/61584774954945/',
+    'https://www.instagram.com/webondev/',
+  ],
+};
+
+// Service Catalog Schema
+const offerCatalogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  '@id': 'https://www.webondev.com/#offercatalog',
+  name: 'Web On Dev Services',
+  provider: { '@id': 'https://www.webondev.com/#organization' },
+  itemListElement: [
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Web Development',
+        description:
+          'Custom websites and web applications built with Next.js, React, and modern technologies.',
+        url: 'https://www.webondev.com/web-development',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Mobile App Development',
+        description: 'Native and cross-platform mobile apps for iOS and Android.',
+        url: 'https://www.webondev.com/mobile-development',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'UI/UX Design',
+        description: 'User-centric designs that enhance engagement and conversions.',
+        url: 'https://www.webondev.com/ui-ux-design',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Digital Marketing',
+        description: 'SEO, PPC, social media marketing, and content strategies.',
+        url: 'https://www.webondev.com/digital-marketing',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'E-commerce Development',
+        description: 'Shopify, WooCommerce, and custom e-commerce solutions.',
+        url: 'https://www.webondev.com/ecommerce-solutions',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Cloud & DevOps',
+        description: 'Cloud migration, infrastructure, and DevOps automation.',
+        url: 'https://www.webondev.com/cloud-devops',
+      },
+    },
+  ],
+};
+
+// Combined Schema Graph
+const schemaGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [organizationSchema, websiteSchema, localBusinessSchema, offerCatalogSchema],
+};
+
+>>>>>>> Stashed changes
 export default function RootLayout({
   children,
 }: {

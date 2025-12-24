@@ -116,6 +116,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
+      ratingCount: '247',
       reviewCount: '247',
       bestRating: '5',
       worstRating: '1'
@@ -275,6 +276,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
+      ratingCount: '156',
       reviewCount: '156',
       bestRating: '5',
       worstRating: '1'
@@ -308,7 +310,10 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.7',
-      reviewCount: '89'
+      ratingCount: '89',
+      reviewCount: '89',
+      bestRating: '5',
+      worstRating: '1'
     }
   };
 
@@ -468,6 +473,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
+      ratingCount: '203',
       reviewCount: '203',
       bestRating: '5',
       worstRating: '1'
@@ -533,6 +539,7 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
       name: 'Web On Dev'
     },
     ratingValue: '4.8',
+    ratingCount: '247',
     reviewCount: '247',
     bestRating: '5',
     worstRating: '1',
