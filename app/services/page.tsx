@@ -102,16 +102,184 @@ export default function ServicesPage() {
           }}
         />
         <CTASection />
-        {/* JSON-LD: Services CollectionPage and ItemList */}
+        {/* JSON-LD: Services CollectionPage */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'CollectionPage',
-              name: 'Our Services',
-              description: 'Comprehensive software development services.',
-              publisher: { '@type': 'Organization', name: 'Web On Dev' }
+              '@id': 'https://www.webondev.com/services/#collectionpage',
+              name: 'Our Services - Complete Software Development Solutions',
+              description: 'Comprehensive software development services including web development, mobile apps, UI/UX design, digital marketing, cloud services, and more.',
+              url: 'https://www.webondev.com/services/',
+              isPartOf: { '@id': 'https://www.webondev.com/#website' },
+              about: { '@id': 'https://www.webondev.com/#organization' },
+              publisher: { '@id': 'https://www.webondev.com/#organization' },
+              inLanguage: 'en-US',
+              speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['h1', 'h2', '.service-description']
+              }
+            })
+          }}
+        />
+        {/* JSON-LD: Breadcrumb */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.webondev.com/' },
+                { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.webondev.com/services/' }
+              ]
+            })
+          }}
+        />
+        {/* JSON-LD: ItemList of Services with Offers */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              name: 'Web On Dev Services',
+              description: 'Complete list of software development services offered by Web On Dev',
+              numberOfItems: 7,
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  item: {
+                    '@type': 'Service',
+                    name: 'Web Development',
+                    description: 'Custom websites and web applications built with Next.js, React, Vue.js, and modern technologies',
+                    url: 'https://www.webondev.com/web-development/',
+                    provider: { '@id': 'https://www.webondev.com/#organization' },
+                    offers: {
+                      '@type': 'Offer',
+                      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '3000', maxPrice: '100000' }
+                    },
+                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '120' }
+                  }
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  item: {
+                    '@type': 'Service',
+                    name: 'Mobile App Development',
+                    description: 'Native iOS, Android, and cross-platform mobile apps using React Native and Flutter',
+                    url: 'https://www.webondev.com/mobile-development/',
+                    provider: { '@id': 'https://www.webondev.com/#organization' },
+                    offers: {
+                      '@type': 'Offer',
+                      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '10000', maxPrice: '150000' }
+                    },
+                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '85' }
+                  }
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 3,
+                  item: {
+                    '@type': 'Service',
+                    name: 'UI/UX Design',
+                    description: 'User-centric design solutions including wireframing, prototyping, and design systems',
+                    url: 'https://www.webondev.com/ui-ux-design/',
+                    provider: { '@id': 'https://www.webondev.com/#organization' },
+                    offers: {
+                      '@type': 'Offer',
+                      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '2000', maxPrice: '25000' }
+                    },
+                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '65' }
+                  }
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 4,
+                  item: {
+                    '@type': 'Service',
+                    name: 'Digital Marketing',
+                    description: 'SEO, PPC, social media marketing, content marketing, and email campaigns',
+                    url: 'https://www.webondev.com/digital-marketing/',
+                    provider: { '@id': 'https://www.webondev.com/#organization' },
+                    offers: {
+                      '@type': 'Offer',
+                      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '500', maxPrice: '10000', unitText: 'MONTH' }
+                    },
+                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.7', reviewCount: '92' }
+                  }
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 5,
+                  item: {
+                    '@type': 'Service',
+                    name: 'E-commerce Development',
+                    description: 'Shopify, WooCommerce, Magento, and custom e-commerce platform development',
+                    url: 'https://www.webondev.com/ecommerce-solutions/',
+                    provider: { '@id': 'https://www.webondev.com/#organization' },
+                    offers: {
+                      '@type': 'Offer',
+                      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '5000', maxPrice: '75000' }
+                    },
+                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '78' }
+                  }
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 6,
+                  item: {
+                    '@type': 'Service',
+                    name: 'Cloud & DevOps',
+                    description: 'AWS, Azure, GCP cloud services, CI/CD, Docker, Kubernetes, and infrastructure automation',
+                    url: 'https://www.webondev.com/cloud-devops/',
+                    provider: { '@id': 'https://www.webondev.com/#organization' },
+                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '45' }
+                  }
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 7,
+                  item: {
+                    '@type': 'Service',
+                    name: 'Custom Software Development',
+                    description: 'Enterprise applications, SaaS products, API development, and legacy system modernization',
+                    url: 'https://www.webondev.com/custom-software/',
+                    provider: { '@id': 'https://www.webondev.com/#organization' },
+                    offers: {
+                      '@type': 'Offer',
+                      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '20000', maxPrice: '500000' }
+                    },
+                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '55' }
+                  }
+                }
+              ]
+            })
+          }}
+        />
+        {/* JSON-LD: HowTo Schema for Getting Started */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'HowTo',
+              name: 'How to Get Started with Web On Dev Services',
+              description: 'Step-by-step guide to starting your software development project with Web On Dev',
+              totalTime: 'P7D',
+              estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '0' },
+              step: [
+                { '@type': 'HowToStep', position: 1, name: 'Free Consultation', text: 'Schedule a free 30-60 minute consultation to discuss your project requirements and goals.' },
+                { '@type': 'HowToStep', position: 2, name: 'Project Proposal', text: 'Receive a detailed proposal with scope, timeline, deliverables, and transparent pricing.' },
+                { '@type': 'HowToStep', position: 3, name: 'Design Phase', text: 'Our UI/UX team creates wireframes, prototypes, and visual designs for your approval.' },
+                { '@type': 'HowToStep', position: 4, name: 'Development Sprint', text: 'Agile development with regular updates, demos, and feedback integration.' },
+                { '@type': 'HowToStep', position: 5, name: 'Testing & QA', text: 'Comprehensive testing including unit tests, integration tests, and user acceptance testing.' },
+                { '@type': 'HowToStep', position: 6, name: 'Launch & Support', text: 'Production deployment with ongoing maintenance, monitoring, and support.' }
+              ]
             })
           }}
         />

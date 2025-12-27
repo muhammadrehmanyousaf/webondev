@@ -129,6 +129,157 @@ const homeFAQSchema = {
   ],
 };
 
+// Video Schema for Testimonials
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Web On Dev - Client Success Stories',
+  description: 'Hear from our satisfied clients about their experience working with Web On Dev on web development, mobile app, and digital marketing projects.',
+  thumbnailUrl: `${siteUrl}/images/video-thumbnail.jpg`,
+  uploadDate: '2024-01-15',
+  duration: 'PT5M30S',
+  contentUrl: 'https://www.youtube.com/@webondev',
+  embedUrl: 'https://www.youtube.com/embed/webondev',
+  publisher: {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Web On Dev',
+  },
+};
+
+// Event Schema for Free Consultation
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'Free Software Development Consultation',
+  description: 'Schedule a free 30-60 minute consultation with our experts to discuss your software development project requirements.',
+  startDate: new Date().toISOString(),
+  endDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+  location: {
+    '@type': 'VirtualLocation',
+    url: `${siteUrl}/contact/`,
+  },
+  organizer: {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Web On Dev',
+    url: siteUrl,
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    url: `${siteUrl}/contact/`,
+    validFrom: '2024-01-01',
+  },
+  performer: {
+    '@type': 'Organization',
+    name: 'Web On Dev Expert Team',
+  },
+};
+
+// Service Catalog with Pricing
+const serviceCatalogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  '@id': `${siteUrl}/#offercatalog`,
+  name: 'Web On Dev Services',
+  provider: { '@id': `${siteUrl}/#organization` },
+  itemListElement: [
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Web Development',
+        description: 'Custom websites and web applications built with Next.js, React, and modern technologies.',
+        url: `${siteUrl}/web-development/`,
+      },
+      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '3000', maxPrice: '100000' },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Mobile App Development',
+        description: 'Native and cross-platform mobile apps for iOS and Android.',
+        url: `${siteUrl}/mobile-development/`,
+      },
+      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '10000', maxPrice: '150000' },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'UI/UX Design',
+        description: 'User-centric designs that enhance engagement and conversions.',
+        url: `${siteUrl}/ui-ux-design/`,
+      },
+      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '2000', maxPrice: '25000' },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Digital Marketing',
+        description: 'SEO, PPC, social media marketing, and content strategies.',
+        url: `${siteUrl}/digital-marketing/`,
+      },
+      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '500', maxPrice: '10000', unitText: 'MONTH' },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'E-commerce Development',
+        description: 'Shopify, WooCommerce, and custom e-commerce solutions.',
+        url: `${siteUrl}/ecommerce-solutions/`,
+      },
+      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '5000', maxPrice: '75000' },
+    },
+  ],
+};
+
+// Aggregate Rating Schema
+const aggregateRatingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
+  name: 'Web On Dev',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '250',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Michael Thompson' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Web On Dev delivered an exceptional e-commerce platform. Our sales increased by 200% within the first quarter.',
+      datePublished: '2024-08-15',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Jennifer Adams' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Their mobile app development team created a flawless cross-platform solution. Highly recommend!',
+      datePublished: '2024-07-20',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Robert Chen' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Outstanding SEO results - we now rank #1 for all our target keywords. Traffic increased 400%.',
+      datePublished: '2024-06-10',
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <>
@@ -141,6 +292,22 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFAQSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceCatalogSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
       />
     </>
   );

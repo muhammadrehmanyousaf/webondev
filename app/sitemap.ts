@@ -2,9 +2,10 @@ import { MetadataRoute } from 'next';
 import { blogData } from '@/lib/blog-data';
 import { locationData } from '@/lib/location-data';
 import { getAllCountriesAPI, getStatesByCountryAPI, getCitiesByStateAPI } from '@/lib/location-api';
+import { toSlug } from '@/lib/slug';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://webondev.com';
+  const baseUrl = 'https://www.webondev.com';
   
   // Static pages
   const staticPages = [
@@ -90,8 +91,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // Location pages - Countries (from API)
+  // Use full country names (like 'thailand', 'united-states', 'spain') to match indexed URLs
   const countryPages = filteredCountries.map((country) => ({
-    url: `${baseUrl}/where-we-serve/${country.code?.toLowerCase() || country.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}/`,
+    url: `${baseUrl}/where-we-serve/${toSlug(country.name)}/`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
@@ -112,9 +114,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Fetch states for this country
         const states = await getStatesByCountryAPI(country.name);
         
-        // Add state pages
+        // Add state pages - use full country names to match indexed URLs
+        const countrySlug = toSlug(country.name);
         const statePages = states.map((state) => ({
-          url: `${baseUrl}/where-we-serve/${country.code?.toLowerCase() || country.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}/${state.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}/`,
+          url: `${baseUrl}/where-we-serve/${countrySlug}/${toSlug(state.name)}/`,
           lastModified: new Date(),
           changeFrequency: 'monthly' as const,
           priority: 0.6,
@@ -126,10 +129,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         await Promise.all(statesToProcess.map(async (state) => {
           try {
             const cities = await getCitiesByStateAPI(country.name, state.name);
-            
-            // Add city pages (limit to 15 cities per state)
+            const stateSlug = toSlug(state.name);
+
+            // Add city pages (limit to 15 cities per state) - use toSlug() for consistent URLs
             const cityPages = cities.slice(0, 15).map((city) => ({
-              url: `${baseUrl}/where-we-serve/${country.code?.toLowerCase() || country.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}/${state.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}/${city.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}/`,
+              url: `${baseUrl}/where-we-serve/${countrySlug}/${stateSlug}/${toSlug(city.name)}/`,
               lastModified: new Date(),
               changeFrequency: 'monthly' as const,
               priority: 0.5,
@@ -140,11 +144,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             const topCities = cities.slice(0, 5);
             const { enrichedSiteStructure } = await import('@/lib/site-structure');
 
-            // Generate both 5-level (pillar) and 6-level (pillar/cluster) URLs
+            // Generate both 5-level (pillar) and 6-level (pillar/cluster) URLs - use toSlug() for consistent URLs
             const cityServicePages = topCities.flatMap((city) => {
-              const countrySlug = country.code?.toLowerCase() || country.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
-              const stateSlug = state.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
-              const citySlug = city.name?.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+              const citySlug = toSlug(city.name);
               const basePath = `${baseUrl}/where-we-serve/${countrySlug}/${stateSlug}/${citySlug}`;
 
               // Get top 4 pillars for 5-level URLs

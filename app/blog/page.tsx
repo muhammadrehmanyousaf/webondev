@@ -25,5 +25,93 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  return <BlogPageClient />;
+  return (
+    <>
+      <BlogPageClient />
+
+      {/* JSON-LD: Blog CollectionPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            '@id': `${siteUrl}/blog/#collectionpage`,
+            name: 'Web On Dev Blog - Expert Software Development Insights',
+            description: 'Expert insights on web development, mobile apps, UI/UX design, digital marketing, and technology trends.',
+            url: `${siteUrl}/blog/`,
+            isPartOf: { '@id': `${siteUrl}/#website` },
+            about: { '@id': `${siteUrl}/#organization` },
+            publisher: { '@id': `${siteUrl}/#organization` },
+            inLanguage: 'en-US',
+            speakable: {
+              '@type': 'SpeakableSpecification',
+              cssSelector: ['h1', '.blog-intro', 'h2']
+            }
+          })
+        }}
+      />
+
+      {/* JSON-LD: Breadcrumb */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog/` }
+            ]
+          })
+        }}
+      />
+
+      {/* JSON-LD: Blog ItemList */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            name: 'Latest Blog Posts',
+            description: 'Expert articles on software development, web development, and digital solutions',
+            itemListOrder: 'https://schema.org/ItemListOrderDescending',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                item: {
+                  '@type': 'BlogPosting',
+                  headline: 'Complete Guide to Web Development in 2024',
+                  url: `${siteUrl}/blog/complete-guide-web-development-2024/`,
+                  author: { '@type': 'Organization', name: 'Web On Dev' }
+                }
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                item: {
+                  '@type': 'BlogPosting',
+                  headline: 'React Performance Optimization Guide',
+                  url: `${siteUrl}/blog/react-performance-optimization-guide/`,
+                  author: { '@type': 'Organization', name: 'Web On Dev' }
+                }
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                item: {
+                  '@type': 'BlogPosting',
+                  headline: 'Next.js 14 Features Complete Guide',
+                  url: `${siteUrl}/blog/nextjs-14-features-complete-guide/`,
+                  author: { '@type': 'Organization', name: 'Web On Dev' }
+                }
+              }
+            ]
+          })
+        }}
+      />
+    </>
+  );
 }

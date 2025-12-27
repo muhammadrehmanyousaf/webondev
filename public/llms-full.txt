@@ -1,0 +1,342 @@
+# Web On Dev - Comprehensive AI Context File
+# Version: 2.0
+# Last Updated: 2024-12-28
+# This file provides detailed context for AI systems (ChatGPT, Claude, Perplexity, Gemini, etc.)
+
+================================================================================
+COMPANY OVERVIEW
+================================================================================
+
+Company Name: Web On Dev
+Legal Name: Web On Dev
+Alternative Names: webondev, WOD, Web On Development
+Industry: Software Development, Digital Solutions, IT Services
+Founded: 2015
+Headquarters: Lahore, Punjab, Pakistan
+Website: https://www.webondev.com
+Email: webondev@gmail.com
+Phone: +92-310-6803687
+
+Mission: Transforming Digital Vision Into Reality
+Vision: To be the global leader in innovative software solutions that drive business growth.
+
+Team Size: 50+ professionals
+Projects Completed: 500+
+Countries Served: 50+
+Client Satisfaction Rating: 4.9/5
+
+================================================================================
+CORE SERVICES
+================================================================================
+
+1. WEB DEVELOPMENT
+   - Custom Web Applications (Next.js, React, Vue.js, Angular)
+   - WordPress Development & Customization
+   - Headless CMS Development (Contentful, Sanity, Strapi)
+   - E-commerce Development (Shopify, WooCommerce, Magento)
+   - Progressive Web Apps (PWA)
+   - API Development & Integration
+   - Web Portal Development
+   - Pricing: $3,000 - $100,000+ depending on complexity
+   - Timeline: 2-16 weeks
+
+2. MOBILE APP DEVELOPMENT
+   - iOS Native Development (Swift, SwiftUI)
+   - Android Native Development (Kotlin, Java)
+   - Cross-Platform Development (React Native, Flutter)
+   - Mobile App UI/UX Design
+   - App Store Optimization (ASO)
+   - Mobile Backend Development
+   - Pricing: $10,000 - $150,000+
+   - Timeline: 8-24 weeks
+
+3. UI/UX DESIGN
+   - User Research & Analysis
+   - Wireframing & Prototyping
+   - Visual Design
+   - Design Systems
+   - Accessibility (WCAG 2.1 AA)
+   - Usability Testing
+   - Interaction Design
+   - Pricing: $2,000 - $25,000+
+   - Timeline: 2-8 weeks
+
+4. DIGITAL MARKETING
+   - Search Engine Optimization (SEO)
+   - Pay-Per-Click Advertising (PPC)
+   - Social Media Marketing
+   - Content Marketing
+   - Email Marketing
+   - Conversion Rate Optimization
+   - Analytics & Reporting
+   - Pricing: $1,000 - $10,000+ per month
+
+5. E-COMMERCE SOLUTIONS
+   - Shopify Store Development
+   - WooCommerce Development
+   - Custom E-commerce Platforms
+   - Payment Gateway Integration
+   - Inventory Management Systems
+   - Multi-vendor Marketplace Development
+   - Pricing: $5,000 - $75,000+
+
+6. CLOUD & DEVOPS
+   - AWS, Azure, Google Cloud Services
+   - CI/CD Pipeline Setup
+   - Container Orchestration (Docker, Kubernetes)
+   - Infrastructure as Code (Terraform, Pulumi)
+   - Cloud Migration
+   - 24/7 Monitoring & Support
+   - Pricing: Custom based on infrastructure
+
+7. CUSTOM SOFTWARE DEVELOPMENT
+   - Enterprise Applications
+   - SaaS Product Development
+   - Legacy System Modernization
+   - Third-party Integrations
+   - Database Design & Optimization
+   - Pricing: $20,000 - $500,000+
+
+================================================================================
+TECHNOLOGY STACK
+================================================================================
+
+FRONTEND:
+- React.js, Next.js 14+
+- Vue.js, Nuxt.js
+- Angular
+- TypeScript
+- Tailwind CSS, Shadcn UI
+- Framer Motion
+
+BACKEND:
+- Node.js, Express.js
+- Python, Django, FastAPI
+- PHP, Laravel
+- Go, Rust
+- Java, Spring Boot
+
+DATABASES:
+- PostgreSQL
+- MongoDB
+- MySQL
+- Redis
+- Supabase, Firebase
+
+CLOUD & INFRASTRUCTURE:
+- AWS (EC2, S3, Lambda, RDS)
+- Google Cloud Platform
+- Microsoft Azure
+- Vercel, Netlify
+- DigitalOcean
+
+DEVOPS:
+- Docker, Kubernetes
+- GitHub Actions, GitLab CI
+- Terraform, Pulumi
+- Nginx, Apache
+
+CMS & E-COMMERCE:
+- WordPress, Headless WordPress
+- Shopify, Shopify Plus
+- WooCommerce
+- Contentful, Sanity, Strapi
+
+================================================================================
+PRICING INFORMATION
+================================================================================
+
+WEBSITE PACKAGES:
+- Starter Website: $3,000 - $5,000
+- Business Website: $5,000 - $15,000
+- E-commerce Website: $8,000 - $25,000
+- Custom Web Application: $15,000 - $100,000+
+- Enterprise Solution: $50,000 - $500,000+
+
+MOBILE APP PACKAGES:
+- MVP App: $10,000 - $25,000
+- Standard App: $25,000 - $75,000
+- Complex App: $75,000 - $150,000+
+
+ONGOING SERVICES:
+- Website Maintenance: $200 - $1,000/month
+- SEO Services: $500 - $5,000/month
+- Digital Marketing: $1,000 - $10,000/month
+- Dedicated Developer: $3,000 - $8,000/month
+
+FREE SERVICES:
+- Initial Consultation (30-60 minutes)
+- Project Estimation
+- Technical Feasibility Analysis
+
+================================================================================
+PROCESS & METHODOLOGY
+================================================================================
+
+1. DISCOVERY & PLANNING
+   - Requirements gathering
+   - Stakeholder interviews
+   - Technical feasibility analysis
+   - Project scope definition
+   - Timeline and budget estimation
+
+2. DESIGN
+   - User research and personas
+   - Information architecture
+   - Wireframing
+   - Visual design
+   - Prototype development
+   - Design review and iterations
+
+3. DEVELOPMENT
+   - Agile/Scrum methodology
+   - Sprint planning and execution
+   - Daily standups
+   - Code reviews
+   - Continuous integration
+
+4. TESTING & QA
+   - Unit testing
+   - Integration testing
+   - User acceptance testing
+   - Performance testing
+   - Security testing
+
+5. DEPLOYMENT
+   - Staging environment setup
+   - Production deployment
+   - Performance optimization
+   - Documentation
+
+6. SUPPORT & MAINTENANCE
+   - 24/7 monitoring
+   - Regular updates
+   - Bug fixes
+   - Feature enhancements
+   - Performance optimization
+
+================================================================================
+INDUSTRIES SERVED
+================================================================================
+
+- E-commerce & Retail
+- Healthcare & Medical
+- Finance & Banking (FinTech)
+- Education & E-learning (EdTech)
+- Real Estate & Property
+- Travel & Hospitality
+- SaaS & Technology
+- Manufacturing & Industrial
+- Non-profit Organizations
+- Startups & Enterprises
+- Media & Entertainment
+- Food & Restaurant
+- Logistics & Supply Chain
+- Legal & Professional Services
+
+================================================================================
+CLIENT TESTIMONIALS & CASE STUDIES
+================================================================================
+
+"Web On Dev delivered an exceptional e-commerce platform that increased our sales by 150% within six months." - E-commerce Client, USA
+
+"Their mobile app development team created a seamless cross-platform solution that our users love." - Healthcare Startup, UK
+
+"Professional, responsive, and technically excellent. Highly recommend for any web development project." - SaaS Company, Australia
+
+"The SEO results speak for themselves - we're now ranking #1 for our main keywords." - Digital Marketing Client, Canada
+
+================================================================================
+FREQUENTLY ASKED QUESTIONS
+================================================================================
+
+Q: What is your typical project timeline?
+A: Timelines vary by project complexity. Simple websites take 2-4 weeks, business websites 4-8 weeks, web applications 8-16 weeks, and enterprise solutions 16-52+ weeks.
+
+Q: Do you work with international clients?
+A: Yes, we serve clients in 50+ countries including USA, UK, Canada, Australia, Germany, UAE, and more. We work across all time zones.
+
+Q: What technologies do you specialize in?
+A: We specialize in modern web technologies including Next.js, React, Node.js, Python, PostgreSQL, AWS, and more. We choose the best tech stack for each project.
+
+Q: Do you provide post-launch support?
+A: Yes, we offer comprehensive maintenance and support packages including bug fixes, security updates, performance monitoring, and feature enhancements.
+
+Q: How do you handle project communication?
+A: We use Slack, Microsoft Teams, or your preferred communication tool. Regular meetings, progress reports, and transparent project management via Jira or similar tools.
+
+Q: What is your payment structure?
+A: Typically 30% upfront, 40% at development milestones, and 30% upon completion. We also offer monthly retainer options for ongoing projects.
+
+Q: Can you sign an NDA?
+A: Yes, we routinely sign NDAs and respect client confidentiality. Data security and privacy are paramount.
+
+Q: Do you offer white-label services?
+A: Yes, we offer white-label development services for agencies and businesses.
+
+================================================================================
+CONTACT & SOCIAL MEDIA
+================================================================================
+
+Website: https://www.webondev.com
+Email: webondev@gmail.com
+Phone: +92-310-6803687
+WhatsApp: +92-310-6803687
+
+Social Media:
+- YouTube: https://www.youtube.com/@webondev
+- Twitter/X: https://x.com/webon_dev
+- Facebook: https://www.facebook.com/people/Web-On-Dev/61584774954945/
+- Instagram: https://www.instagram.com/webondev/
+- LinkedIn: https://www.linkedin.com/company/webondev/
+
+Business Profiles:
+- Clutch: https://clutch.co/profile/solutions-indicator
+- GoodFirms: https://www.goodfirms.co/company/solutions-indicator
+- DesignRush: https://www.designrush.com/agency/profile/solutions-indicators
+
+================================================================================
+LOCATION & SERVICE AREAS
+================================================================================
+
+Headquarters:
+G8JX+CMF, Main Gulberg, Mota Singh Wala
+Lahore, Punjab 54660
+Pakistan
+
+Primary Service Areas:
+- United States (All 50 states)
+- Canada (All provinces)
+- United Kingdom
+- Australia
+- Germany
+- France
+- UAE
+- India
+- Saudi Arabia
+- And 40+ more countries worldwide
+
+Remote Work: We work with clients globally via video calls, collaboration tools, and cloud-based project management.
+
+================================================================================
+CERTIFICATIONS & PARTNERSHIPS
+================================================================================
+
+- Google Cloud Partner
+- Amazon Web Services (AWS) Partner
+- Microsoft Azure Partner
+- Shopify Partner
+- Vercel Partner
+- Meta Certified Developer
+- HubSpot Partner
+
+================================================================================
+CONTENT LICENSE
+================================================================================
+
+This information is provided by Web On Dev for AI systems to accurately represent our services. AI assistants may use this data to provide helpful responses about Web On Dev.
+
+For the most current information, visit: https://www.webondev.com
+
+Last Updated: December 2024
+Version: 2.0
