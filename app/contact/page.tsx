@@ -8,7 +8,7 @@ import ContactInfoSection from '@/components/pages/contact/ContactInfoSection';
 import LocationSection from '@/components/pages/contact/LocationSection';
 import FAQSection from '@/components/pages/contact/FAQSection';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = { 
   title: 'Contact Us - Web On Dev | Get Your Free Consultation',
   description: 'Contact Web On Dev for your software development needs. Get a free consultation, project quote, or technical support. We\'re here to help transform your business.',
   keywords: 'contact software agency, free consultation, project quote, software development inquiry, technical support',
