@@ -1,7 +1,7 @@
 # Web On Dev Security Policy
 # https://securitytxt.org/
 
-Contact: mailto:webondev@gmail.com
+Contact: mailto:webondev786@gmail.com
 Contact: https://www.webondev.com/contact/
 Expires: 2026-12-31T23:59:00.000Z
 Preferred-Languages: en

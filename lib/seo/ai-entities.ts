@@ -43,7 +43,7 @@ export const companyEntity = {
 
   // Contact info
   contact: {
-    email: 'webondev@gmail.com',
+    email: 'webondev786@gmail.com',
     phone: '+92-310-6803687',
     website: 'https://www.webondev.com',
   },

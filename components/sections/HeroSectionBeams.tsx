@@ -243,7 +243,7 @@ const RotatingText = () => {
   }, []);
 
   return (
-    <span className="relative inline-block min-w-[300px]">
+    <span className="relative inline-block min-w-[200px] sm:min-w-[300px]">
       <AnimatePresence mode="wait">
         <motion.span
           key={currentIndex}

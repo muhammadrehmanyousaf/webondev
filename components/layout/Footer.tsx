@@ -587,7 +587,7 @@ const Footer = () => {
     address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' },
     contactPoint: [
       { '@type': 'ContactPoint', telephone: '+92-310-6803687', contactType: 'sales' },
-      { '@type': 'ContactPoint', email: 'webondev@gmail.com', contactType: 'customer service' },
+      { '@type': 'ContactPoint', email: 'webondev786@gmail.com', contactType: 'customer service' },
     ],
     sameAs: socialLinks.map(s => s.href),
     aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '250', bestRating: '5' },
@@ -820,7 +820,7 @@ const Footer = () => {
                 {/* Contact */}
                 <div className="space-y-4 mb-8">
                   {[
-                    { icon: Mail, text: 'webondev@gmail.com', href: 'mailto:webondev@gmail.com', color: 'brand' },
+                    { icon: Mail, text: 'webondev786@gmail.com', href: 'mailto:webondev786@gmail.com', color: 'brand' },
                     { icon: Phone, text: '+92 310 6803687', href: 'tel:+923106803687', color: 'teal' },
                     { icon: MapPin, text: 'Pakistan • UAE • USA • UK', color: 'cyan' },
                   ].map((item, index) => (

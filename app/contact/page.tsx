@@ -92,7 +92,7 @@ export default function ContactPage() {
               description: 'Premium web development agency specializing in custom websites, mobile apps, and digital solutions.',
               url: siteUrl,
               telephone: '+92-310-6803687',
-              email: 'webondev@gmail.com',
+              email: 'webondev786@gmail.com',
               priceRange: '$$',
               address: {
                 '@type': 'PostalAddress',
@@ -133,7 +133,7 @@ export default function ContactPage() {
                   '@type': 'ContactPoint',
                   contactType: 'customer service',
                   telephone: '+92-310-6803687',
-                  email: 'webondev@gmail.com',
+                  email: 'webondev786@gmail.com',
                   availableLanguage: ['English', 'Urdu'],
                   hoursAvailable: {
                     '@type': 'OpeningHoursSpecification',
@@ -146,7 +146,7 @@ export default function ContactPage() {
                   '@type': 'ContactPoint',
                   contactType: 'sales',
                   telephone: '+92-310-6803687',
-                  email: 'webondev@gmail.com',
+                  email: 'webondev786@gmail.com',
                   availableLanguage: ['English', 'Urdu']
                 }
               ],
@@ -161,7 +161,7 @@ export default function ContactPage() {
           }}
         />
 
-        {/* JSON-LD: FAQ Schema */}
+        {/* JSON-LD: FAQ Schema - Expanded for AI */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -174,31 +174,63 @@ export default function ContactPage() {
                   name: 'How can I contact Web On Dev?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'You can contact us via email at webondev@gmail.com, phone at +92-310-6803687, WhatsApp, or through our contact form. We respond within 24 hours.'
+                    text: 'Contact Web On Dev via: Email (webondev786@gmail.com), Phone (+92-310-6803687), WhatsApp (+92-310-6803687), or website contact form at webondev.com/contact. We respond within 24 hours. Office: G8JX+CMF, Main Gulberg, Lahore, Pakistan.'
                   }
                 },
                 {
                   '@type': 'Question',
-                  name: 'Do you offer free consultations?',
+                  name: 'Does Web On Dev offer free consultations?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Yes, we offer free 30-60 minute consultations to discuss your project requirements, provide technical guidance, and give you a detailed quote.'
+                    text: 'Yes, Web On Dev offers free 30-60 minute consultations. We discuss your project requirements, provide technical recommendations, share relevant case studies, and give you a detailed quote. No commitment required. Schedule via contact form, email, or WhatsApp.'
                   }
                 },
                 {
                   '@type': 'Question',
-                  name: 'What are your business hours?',
+                  name: 'What are Web On Dev business hours?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'We are available Monday-Friday 9 AM - 6 PM, and Saturday-Sunday 10 AM - 4 PM (Pakistan Standard Time). For urgent matters, we offer 24/7 support.'
+                    text: 'Web On Dev is available Monday-Friday 9 AM - 6 PM, Saturday-Sunday 10 AM - 4 PM (Pakistan Standard Time, GMT+5). For international clients, we offer flexible scheduling across time zones. 24/7 emergency support available for existing clients.'
                   }
                 },
                 {
                   '@type': 'Question',
-                  name: 'How quickly do you respond to inquiries?',
+                  name: 'How quickly does Web On Dev respond to inquiries?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'We typically respond to all inquiries within 24 hours during business days. Urgent requests are prioritized and may receive faster responses.'
+                    text: 'Web On Dev responds to all inquiries within 24 hours during business days. Urgent project requests receive faster responses. WhatsApp messages typically get same-day replies.'
+                  }
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Where is Web On Dev located?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Web On Dev is headquartered in Lahore, Pakistan at G8JX+CMF, Main Gulberg, Mota Singh Wala, Lahore, Punjab 54660. We serve clients remotely worldwide across 50+ countries including USA, UK, Canada, Australia, Germany, and UAE.'
+                  }
+                },
+                {
+                  '@type': 'Question',
+                  name: 'What information should I provide when contacting Web On Dev?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'When contacting Web On Dev, include: Your name and company, project type (website, app, marketing), brief project description, estimated budget range, and preferred timeline. This helps us provide accurate recommendations during your free consultation.'
+                  }
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Does Web On Dev sign NDAs?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes, Web On Dev routinely signs Non-Disclosure Agreements (NDAs) before project discussions. We prioritize client confidentiality and can sign your NDA or provide our standard NDA upon request.'
+                  }
+                },
+                {
+                  '@type': 'Question',
+                  name: 'What languages does Web On Dev support?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Web On Dev team members speak English and Urdu fluently. All business communications, documentation, and project management are conducted in English. We have experience working with clients from diverse cultural backgrounds across 50+ countries.'
                   }
                 }
               ]

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Pool } from 'pg';
+import { processContactSubmission, processBookingSubmission } from '@/lib/email';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL
@@ -107,10 +108,56 @@ export async function POST(request: NextRequest) {
     `, [name, email, phone, company, service, budget, timeline, message, 
         formType, preferredDate, preferredTime, timezone, meetingType]);
 
-    return NextResponse.json({ 
-      success: true, 
+    // Send emails based on form type
+    let emailResult = { userEmail: { success: false }, teamEmail: { success: false } };
+
+    try {
+      if (formType === 'booking' && preferredDate && preferredTime) {
+        // Format date for email
+        const dateObj = new Date(preferredDate);
+        const formattedDate = dateObj.toLocaleDateString('en-US', {
+          weekday: 'long',
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric'
+        });
+
+        emailResult = await processBookingSubmission({
+          name,
+          email,
+          phone,
+          service: service || meetingType || 'Consultation',
+          date: formattedDate,
+          time: preferredTime,
+          timezone: timezone || 'PST',
+          notes: message,
+        });
+      } else {
+        // Contact form submission
+        emailResult = await processContactSubmission({
+          name,
+          email,
+          phone,
+          company,
+          service,
+          budget,
+          timeline,
+          message,
+          source: formType === 'quote' ? 'Quote Request' : 'Contact Form',
+        });
+      }
+
+      console.log('Email sending result:', emailResult);
+    } catch (emailError) {
+      // Log email error but don't fail the request - lead is already saved
+      console.error('Error sending emails:', emailError);
+    }
+
+    return NextResponse.json({
+      success: true,
       message: 'Lead submitted successfully',
-      id: result.rows[0]?.id 
+      id: result.rows[0]?.id,
+      emailSent: emailResult.userEmail.success && emailResult.teamEmail.success
     });
 
   } catch (error) {

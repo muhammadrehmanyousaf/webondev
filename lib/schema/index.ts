@@ -34,7 +34,7 @@ export const siteConfig = {
     longitude: 74.44466607506611,
   },
   phone: '+92 310 6803687',
-  email: 'webondev@gmail.com',
+  email: 'webondev786@gmail.com',
   logo: 'https://www.webondev.com/images/branding/logo.png',
   image: 'https://www.webondev.com/og-image.jpg',
   socialProfiles: [

@@ -729,17 +729,21 @@ const Header = () => {
 
               {/* CTA Button */}
               <MagneticElement>
-                <Button asChild variant="glow" className="rounded-xl group">
-                  <Link href="/contact" className="flex items-center gap-2">
-                    <motion.div
-                      animate={{ rotate: [0, 10, -10, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <Zap className="w-4 h-4" />
-                    </motion.div>
-                    <span>Get Started</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                <Button
+                  variant="glow"
+                  className="rounded-xl group flex items-center gap-2"
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('openBookingModal'));
+                  }}
+                >
+                  <motion.div
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Zap className="w-4 h-4" />
+                  </motion.div>
+                  <span>Get Started</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </MagneticElement>
             </div>
@@ -888,11 +892,16 @@ const Header = () => {
                   transition={{ delay: 0.3 }}
                   className="pt-4 border-t border-white/10"
                 >
-                  <Button asChild variant="glow" className="w-full rounded-xl">
-                    <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2">
-                      <Zap className="w-4 h-4" />
-                      <span>Get Started</span>
-                    </Link>
+                  <Button
+                    variant="glow"
+                    className="w-full rounded-xl flex items-center justify-center gap-2"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      window.dispatchEvent(new CustomEvent('openBookingModal'));
+                    }}
+                  >
+                    <Zap className="w-4 h-4" />
+                    <span>Get Started</span>
                   </Button>
                 </motion.div>
               </div>

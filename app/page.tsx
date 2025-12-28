@@ -89,41 +89,89 @@ const homePageSchema = {
   },
 };
 
-// FAQ Schema for homepage
+// FAQ Schema for homepage - Comprehensive for AI Search
 const homeFAQSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
     {
       '@type': 'Question',
+      name: 'What is Web On Dev?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Web On Dev is a professional software development company founded in 2015, headquartered in Lahore, Pakistan. We specialize in web development, mobile app development, UI/UX design, digital marketing, and custom software solutions for businesses worldwide. With 500+ completed projects and a 4.9/5 rating, we serve clients across 50+ countries.',
+      },
+    },
+    {
+      '@type': 'Question',
       name: 'What services does Web On Dev offer?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Web On Dev offers comprehensive software development services including web development, mobile app development, UI/UX design, digital marketing, e-commerce solutions, cloud services, DevOps, and custom software development.',
+        text: 'Web On Dev offers comprehensive software development services including: Web Development (Next.js, React, Vue.js - $3,000-$100,000), Mobile App Development (iOS, Android, React Native, Flutter - $10,000-$150,000), UI/UX Design ($2,000-$25,000), Digital Marketing & SEO ($500-$10,000/month), E-commerce Development (Shopify, WooCommerce - $5,000-$75,000), and Cloud & DevOps (AWS, Azure, GCP).',
       },
     },
     {
       '@type': 'Question',
-      name: 'How much does it cost to develop a website?',
+      name: 'How much does it cost to develop a website with Web On Dev?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Website development costs vary based on complexity. Simple websites start from $3,000, business websites from $5,000-$15,000, and complex web applications can range from $20,000 to $100,000+. Contact us for a free quote tailored to your requirements.',
+        text: 'Website development costs at Web On Dev range from $3,000 for simple websites to $100,000+ for complex enterprise applications. Landing pages: $3,000-$5,000. Business websites: $5,000-$15,000. E-commerce sites: $5,000-$75,000. Web applications: $20,000-$100,000+. We offer free consultations and transparent pricing.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Do you work with international clients?',
+      name: 'Does Web On Dev work with international clients?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes, Web On Dev serves clients worldwide. We have delivered 500+ projects across multiple countries including the United States, United Kingdom, Canada, Australia, and more. Our team works across time zones to ensure seamless communication.',
+        text: 'Yes, Web On Dev serves clients in 50+ countries worldwide including the United States, United Kingdom, Canada, Australia, Germany, UAE, and India. We work across all time zones and offer 24/7 support for international clients. 70% of our clients are from North America and Europe.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What technologies do you use for web development?',
+      name: 'What technologies does Web On Dev use?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We use modern technologies including Next.js, React, TypeScript, Node.js, Python, PostgreSQL, MongoDB, AWS, Vercel, and more. Our tech stack is chosen based on project requirements to ensure optimal performance and scalability.',
+        text: 'Web On Dev uses modern technologies: Frontend (React, Next.js, TypeScript, Vue.js, Tailwind CSS), Backend (Node.js, Python, PHP, Go, Java), Databases (PostgreSQL, MongoDB, MySQL, Redis), Mobile (React Native, Flutter, Swift, Kotlin), Cloud (AWS, Vercel, Google Cloud, Azure), and DevOps (Docker, Kubernetes, CI/CD).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to build a website?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Website development timelines at Web On Dev: Simple websites take 2-4 weeks, business websites 4-8 weeks, e-commerce sites 6-12 weeks, and complex web applications 8-16+ weeks. We follow agile methodology with weekly updates and milestone deliveries.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Web On Dev offer free consultations?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, Web On Dev offers free 30-60 minute consultations. During the consultation, we discuss your project requirements, provide technical recommendations, share relevant case studies, and give you a detailed quote. No commitment required. Schedule via our contact form, email (webondev786@gmail.com), or WhatsApp (+92-310-6803687).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is Web On Dev\'s payment structure?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Web On Dev uses a milestone-based payment structure: 30% upfront deposit, 40% at project milestones (design approval, development phases), and 30% upon project completion. We accept bank transfers, PayPal, Wise, and Payoneer. Monthly retainers are available for ongoing work.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Web On Dev provide ongoing support and maintenance?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, Web On Dev offers ongoing support and maintenance packages. Options include: Bug fixes and security updates, Performance monitoring, Content updates, Feature additions, 24/7 emergency support, and Hosting management. Maintenance plans start from $200/month depending on project complexity.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How can I contact Web On Dev?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Contact Web On Dev through: Email (webondev786@gmail.com), Phone (+92-310-6803687), WhatsApp (+92-310-6803687), or our website contact form at webondev.com/contact. We respond within 24 hours. Office: G8JX+CMF, Main Gulberg, Lahore, Pakistan.',
       },
     },
   ],

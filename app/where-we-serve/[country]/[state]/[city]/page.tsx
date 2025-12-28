@@ -222,7 +222,7 @@ export default async function CityPage({ params }: CityPageProps) {
               url: `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}/${toSlug(city.name)}/`,
               image: `${siteUrl}/images/branding/logo.png`,
               telephone: '+92-310-6803687',
-              email: 'webondev@gmail.com',
+              email: 'webondev786@gmail.com',
               priceRange: '$$',
               areaServed: {
                 '@type': 'City',

@@ -12,7 +12,10 @@
       "Bash(timeout /t 8 /nobreak)",
       "Bash(curl:*)",
       "Bash(powershell -Command \"\\(Get-Content ''lib/site-structure.ts''\\) -replace ''&amp;'', ''&'' | Set-Content ''lib/site-structure.ts''\")",
-      "Bash(powershell -Command:*)"
+      "Bash(powershell -Command:*)",
+      "Bash(npm install:*)",
+      "Bash(npx email:*)",
+      "Bash(timeout /t 5 /nobreak)"
     ]
   }
 }

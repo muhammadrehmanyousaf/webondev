@@ -152,60 +152,45 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
 
   return (
     <>
-      <section className="relative py-20 lg:py-32 bg-slate-900 overflow-hidden">
-        {/* Background Effects */}
+      <section className="relative py-12 sm:py-16 lg:py-24 bg-slate-900 overflow-hidden">
+        {/* Background Effects - Simplified for mobile */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-brand-500/15 rounded-full blur-[120px]"
-            animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-teal-500/15 rounded-full blur-[120px]"
-            animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `radial-gradient(rgba(16, 185, 129, 0.2) 1px, transparent 1px)`,
-              backgroundSize: '40px 40px',
-            }}
-          />
+          <div className="absolute top-1/4 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-brand-500/10 rounded-full blur-[80px] sm:blur-[120px]" />
+          <div className="absolute bottom-0 left-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-teal-500/10 rounded-full blur-[80px] sm:blur-[120px]" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 lg:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs sm:text-sm font-semibold mb-4 sm:mb-6"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <Briefcase className="w-4 h-4" />
+              <Briefcase className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>Case Studies</span>
             </motion.div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-6 leading-tight">
               <span className="text-white">Case Studies in </span>
               <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
                 {countryName}
               </span>
             </h2>
-            <p className="text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
               Explore successful projects that demonstrate our expertise in delivering measurable outcomes for businesses across {countryName}.
             </p>
           </motion.div>
 
           {/* Case Studies Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {caseStudies.map((caseStudy, index) => (
               <motion.div
                 key={caseStudy.id}
@@ -224,7 +209,7 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
                   whileHover={{ y: -5 }}
                 >
                   {/* Image */}
-                  <div className="relative overflow-hidden h-52">
+                  <div className="relative overflow-hidden h-40 sm:h-48 lg:h-52">
                     <motion.img
                       src={caseStudy.image}
                       alt={caseStudy.title}
@@ -235,36 +220,36 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className={`px-3 py-1 rounded-full bg-gradient-to-r ${gradients[index]} text-white text-xs font-semibold shadow-lg`}>
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                      <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-gradient-to-r ${gradients[index]} text-white text-[10px] sm:text-xs font-semibold shadow-lg`}>
                         {caseStudy.category}
                       </span>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-4 mb-4 text-sm">
-                      <div className="flex items-center gap-1.5 text-slate-400">
-                        <Clock className="w-4 h-4" />
-                        {caseStudy.duration}
+                  <div className="p-4 sm:p-5 lg:p-6">
+                    <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 text-xs sm:text-sm">
+                      <div className="flex items-center gap-1 sm:gap-1.5 text-slate-400">
+                        <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span>{caseStudy.duration}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 text-slate-400">
-                        <Users className="w-4 h-4" />
-                        {caseStudy.teamSize}
+                      <div className="flex items-center gap-1 sm:gap-1.5 text-slate-400">
+                        <Users className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span>{caseStudy.teamSize}</span>
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors line-clamp-2">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-brand-400 transition-colors line-clamp-2">
                       {caseStudy.title}
                     </h3>
-                    <p className="text-slate-400 text-sm leading-relaxed mb-4 line-clamp-2">
+                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2">
                       {caseStudy.subtitle}
                     </p>
 
-                    <div className="flex items-center text-brand-400 font-semibold text-sm group-hover:gap-2 transition-all">
+                    <div className="flex items-center text-brand-400 font-semibold text-xs sm:text-sm group-hover:gap-2 transition-all">
                       View Details
-                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </motion.div>

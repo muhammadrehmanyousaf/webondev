@@ -31,7 +31,7 @@ export const generalFAQs: FAQ[] = [
   {
     question: 'How do I get started with Web On Dev?',
     answer:
-      'Getting started is easy! Contact us through our website, email (webondev@gmail.com), or WhatsApp (+92-310-6803687) to schedule a free consultation. We will discuss your project requirements, provide a detailed proposal with timeline and pricing, and begin development once approved.',
+      'Getting started is easy! Contact us through our website, email (webondev786@gmail.com), or WhatsApp (+92-310-6803687) to schedule a free consultation. We will discuss your project requirements, provide a detailed proposal with timeline and pricing, and begin development once approved.',
     category: 'general',
   },
   {
