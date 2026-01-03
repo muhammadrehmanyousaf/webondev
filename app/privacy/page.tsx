@@ -2,12 +2,13 @@ import React from 'react';
 import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { Shield, Eye, Lock, Database, Users, Globe, Mail, Phone } from 'lucide-react';
+import { Shield, Eye, Lock, Database, Users, Globe, Mail, Phone, Smartphone, Share2 } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy - Web On Dev | Data Protection & Privacy',
   description: 'Learn how Web On Dev protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
-  keywords: 'privacy policy, data protection, GDPR, personal data, privacy rights',
+  keywords: 'privacy policy, data protection, GDPR, personal data, privacy rights, Facebook login, Meta app',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/privacy/`,
   },
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  const lastUpdated = "January 15, 2025";
+  const lastUpdated = "January 3, 2026";
 
   return (
     <div className="min-h-screen bg-white">
@@ -53,7 +54,7 @@ export default function PrivacyPage() {
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="prose prose-lg max-w-none">
-              
+
               {/* Introduction */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
@@ -61,7 +62,7 @@ export default function PrivacyPage() {
                   Introduction
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Web On Dev ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.
+                  Web On Dev (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, mobile applications, or interact with us through third-party platforms including Meta (Facebook/Instagram).
                 </p>
               </div>
 
@@ -71,7 +72,7 @@ export default function PrivacyPage() {
                   <Database className="w-6 h-6 text-green-600" />
                   Information We Collect
                 </h2>
-                
+
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Personal Information</h3>
                 <p className="text-gray-700 mb-4">We may collect personal information that you provide directly to us, including:</p>
                 <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
@@ -91,6 +92,34 @@ export default function PrivacyPage() {
                   <li>Pages visited and time spent on our site</li>
                   <li>Referral sources and search terms</li>
                 </ul>
+              </div>
+
+              {/* Facebook/Meta Data Collection */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                  <Smartphone className="w-6 h-6 text-blue-600" />
+                  Facebook/Meta Login & Data Collection
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  When you use Facebook Login or connect through Meta platforms to access our services, we may collect the following information from your Facebook/Meta account:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                  <li><strong>Public Profile:</strong> Your name, profile picture, and other public information</li>
+                  <li><strong>Email Address:</strong> The email address associated with your Facebook account</li>
+                  <li><strong>User ID:</strong> Your unique Facebook/Meta user identifier</li>
+                </ul>
+                <p className="text-gray-700 mb-4">
+                  We use this information to:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                  <li>Create and authenticate your account</li>
+                  <li>Personalize your experience on our platform</li>
+                  <li>Communicate with you about our services</li>
+                  <li>Provide customer support</li>
+                </ul>
+                <p className="text-gray-700">
+                  You can revoke our access to your Facebook data at any time through your Facebook settings or by contacting us directly.
+                </p>
               </div>
 
               {/* How We Use Information */}
@@ -115,7 +144,7 @@ export default function PrivacyPage() {
               {/* Information Sharing */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                  <Globe className="w-6 h-6 text-orange-600" />
+                  <Share2 className="w-6 h-6 text-orange-600" />
                   Information Sharing and Disclosure
                 </h2>
                 <p className="text-gray-700 mb-4">We may share your information in the following situations:</p>
@@ -127,6 +156,26 @@ export default function PrivacyPage() {
                 </ul>
                 <p className="text-gray-700">
                   We do not sell, trade, or rent your personal information to third parties for marketing purposes.
+                </p>
+              </div>
+
+              {/* Third-Party Platforms */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                  <Globe className="w-6 h-6 text-indigo-600" />
+                  Third-Party Platforms (Meta/Facebook)
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  Our services may integrate with Meta platforms (Facebook, Instagram). When you use these integrations:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                  <li>Your use is subject to Meta&apos;s Privacy Policy and Terms of Service</li>
+                  <li>We only request permissions necessary for our services to function</li>
+                  <li>We do not store your Facebook password</li>
+                  <li>You can disconnect your Facebook account at any time</li>
+                </ul>
+                <p className="text-gray-700">
+                  For information about Meta&apos;s privacy practices, please visit: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Meta Privacy Policy</a>
                 </p>
               </div>
 
@@ -148,6 +197,26 @@ export default function PrivacyPage() {
                 </ul>
               </div>
 
+              {/* Data Retention and Deletion */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Data Retention and Deletion</h2>
+                <p className="text-gray-700 mb-4">
+                  We retain your personal information for as long as necessary to provide our services and fulfill the purposes outlined in this policy. You have the right to request deletion of your data at any time.
+                </p>
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mt-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Request Data Deletion</h3>
+                  <p className="text-gray-700 mb-3">
+                    To request deletion of your data, including data obtained through Facebook/Meta login, please visit our dedicated data deletion page:
+                  </p>
+                  <Link
+                    href="/data-deletion"
+                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    Data Deletion Instructions
+                  </Link>
+                </div>
+              </div>
+
               {/* Your Rights */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Your Privacy Rights</h2>
@@ -166,7 +235,7 @@ export default function PrivacyPage() {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Cookies and Tracking</h2>
                 <p className="text-gray-700 mb-4">
-                  We use cookies and similar tracking technologies to enhance your experience. For detailed information about our cookie practices, please see our <a href="/cookies" className="text-blue-600 hover:text-blue-700 underline">Cookie Policy</a>.
+                  We use cookies and similar tracking technologies to enhance your experience. For detailed information about our cookie practices, please see our <Link href="/cookies" className="text-blue-600 hover:text-blue-700 underline">Cookie Policy</Link>.
                 </p>
               </div>
 
@@ -180,7 +249,7 @@ export default function PrivacyPage() {
 
               {/* Children's Privacy */}
               <div className="mb-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Children's Privacy</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Children&apos;s Privacy</h2>
                 <p className="text-gray-700">
                   Our services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will take steps to delete it.
                 </p>
@@ -190,7 +259,7 @@ export default function PrivacyPage() {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Changes to This Policy</h2>
                 <p className="text-gray-700">
-                  We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date. We encourage you to review this policy periodically.
+                  We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the &quot;Last updated&quot; date. We encourage you to review this policy periodically.
                 </p>
               </div>
 
@@ -198,7 +267,7 @@ export default function PrivacyPage() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
                 <p className="text-gray-700 mb-6">
-                  If you have any questions about this Privacy Policy or our data practices, please contact us:
+                  If you have any questions about this Privacy Policy, our data practices, or wish to exercise your privacy rights, please contact us:
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">

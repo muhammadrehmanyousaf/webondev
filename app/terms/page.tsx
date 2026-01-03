@@ -2,12 +2,13 @@ import React from 'react';
 import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { FileText, Scale, Shield, AlertTriangle, Users, Globe, Mail, Phone } from 'lucide-react';
+import { FileText, Scale, Shield, AlertTriangle, Users, Globe, Mail, Phone, Smartphone, Trash2 } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms of Service - Web On Dev | Legal Terms & Conditions',
   description: 'Read our Terms of Service to understand the legal terms and conditions for using Web On Dev services.',
-  keywords: 'terms of service, legal terms, conditions, user agreement, service agreement',
+  keywords: 'terms of service, legal terms, conditions, user agreement, service agreement, Meta app, Facebook',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/terms/`,
   },
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
-  const lastUpdated = "January 15, 2025";
+  const lastUpdated = "January 3, 2026";
 
   return (
     <div className="min-h-screen bg-white">
@@ -53,7 +54,7 @@ export default function TermsPage() {
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="prose prose-lg max-w-none">
-              
+
               {/* Agreement */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
@@ -61,7 +62,7 @@ export default function TermsPage() {
                   Agreement to Terms
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  These Terms of Service ("Terms") constitute a legally binding agreement between you and Web On Dev ("Company," "we," "our," or "us") regarding your use of our website, services, and products. By accessing or using our services, you agree to be bound by these Terms.
+                  These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you and Web On Dev (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) regarding your use of our website, services, mobile applications, and products. By accessing or using our services, including through third-party platforms like Meta (Facebook/Instagram), you agree to be bound by these Terms.
                 </p>
               </div>
 
@@ -82,6 +83,27 @@ export default function TermsPage() {
                   <li>Cloud services and DevOps</li>
                   <li>Consulting and strategy services</li>
                 </ul>
+              </div>
+
+              {/* Meta Platform Terms */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                  <Smartphone className="w-6 h-6 text-blue-600" />
+                  Meta Platform Integration
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  When you access our services through Meta platforms (Facebook, Instagram), the following additional terms apply:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                  <li>You must comply with Meta&apos;s Terms of Service and Community Standards</li>
+                  <li>We may access certain information from your Meta profile as described in our <Link href="/privacy" className="text-blue-600 hover:text-blue-700 underline">Privacy Policy</Link></li>
+                  <li>You grant us permission to use the data you authorize through Meta login</li>
+                  <li>You can revoke our access at any time through your Meta account settings</li>
+                  <li>Meta is not responsible for our services or any content provided through our platform</li>
+                </ul>
+                <p className="text-gray-700">
+                  Our use of information received from Meta APIs will adhere to Meta&apos;s Platform Terms and Developer Policies.
+                </p>
               </div>
 
               {/* User Responsibilities */}
@@ -118,7 +140,37 @@ export default function TermsPage() {
                   <li>Spam or send unsolicited communications</li>
                   <li>Attempt to gain unauthorized access to our systems</li>
                   <li>Reverse engineer or copy our services</li>
+                  <li>Scrape or collect data in violation of Meta&apos;s Platform Terms</li>
+                  <li>Use automated systems to access our services without permission</li>
                 </ul>
+              </div>
+
+              {/* Account and Data Deletion */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                  <Trash2 className="w-6 h-6 text-gray-600" />
+                  Account and Data Deletion
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  You have the right to request deletion of your account and associated data at any time. This includes:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                  <li>All personal information provided to us</li>
+                  <li>Data obtained through Meta/Facebook login</li>
+                  <li>Account preferences and settings</li>
+                  <li>Communication history with our team</li>
+                </ul>
+                <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 mt-4">
+                  <p className="text-gray-700 mb-3">
+                    To request account or data deletion, please visit:
+                  </p>
+                  <Link
+                    href="/data-deletion"
+                    className="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors"
+                  >
+                    Data Deletion Instructions
+                  </Link>
+                </div>
               </div>
 
               {/* Intellectual Property */}
@@ -128,7 +180,7 @@ export default function TermsPage() {
                 <p className="text-gray-700 mb-4">
                   All content, features, and functionality of our services, including but not limited to text, graphics, logos, images, and software, are owned by Web On Dev and are protected by copyright, trademark, and other intellectual property laws.
                 </p>
-                
+
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Client Intellectual Property</h3>
                 <p className="text-gray-700 mb-6">
                   Upon full payment for custom development work, clients retain ownership of their custom code, designs, and content created specifically for their project. We retain the right to use general methodologies, techniques, and know-how developed during the project.
@@ -176,13 +228,27 @@ export default function TermsPage() {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Warranties and Disclaimers</h2>
                 <p className="text-gray-700 mb-4">
-                  We provide our services "as is" and "as available." While we strive for excellence, we make no warranties regarding:
+                  We provide our services &quot;as is&quot; and &quot;as available.&quot; While we strive for excellence, we make no warranties regarding:
                 </p>
                 <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
                   <li>Uninterrupted or error-free service</li>
                   <li>Complete security of data transmission</li>
                   <li>Compatibility with all systems or browsers</li>
                   <li>Achievement of specific business results</li>
+                </ul>
+              </div>
+
+              {/* Third-Party Services Disclaimer */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Third-Party Services</h2>
+                <p className="text-gray-700 mb-4">
+                  Our services may integrate with third-party platforms including Meta (Facebook, Instagram). Please note:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                  <li>We are not responsible for third-party platform availability or performance</li>
+                  <li>Third-party services are governed by their own terms and policies</li>
+                  <li>Changes to third-party APIs may affect our service functionality</li>
+                  <li>We are not affiliated with or endorsed by Meta Platforms, Inc.</li>
                 </ul>
               </div>
 
@@ -205,6 +271,7 @@ export default function TermsPage() {
                   <li>Access to our services will be discontinued</li>
                   <li>Confidentiality obligations remain in effect</li>
                   <li>Client retains ownership of completed deliverables</li>
+                  <li>You may request deletion of your data per our <Link href="/data-deletion" className="text-blue-600 hover:text-blue-700 underline">Data Deletion Instructions</Link></li>
                 </ul>
               </div>
 
