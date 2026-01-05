@@ -6,7 +6,7 @@ import { toSlug } from '@/lib/slug';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.webondev.com';
-  
+
   // Static pages
   const staticPages = [
     {
@@ -51,7 +51,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
-    // Exclude admin pages from sitemap; do not add /admin/publish
+    {
+      url: `${baseUrl}/privacy/`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/terms/`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/data-deletion/`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
   ];
 
   // Blog posts
@@ -62,60 +79,64 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  // Fetch all countries from API
+  // Fetch ALL countries from API (250+ countries!)
   let allCountries: any[] = [];
   try {
     const countriesResponse = await getAllCountriesAPI();
     allCountries = countriesResponse || [];
+    console.log(`Fetched ${allCountries.length} countries from API`);
   } catch (error) {
     console.error('Failed to fetch countries from API, using fallback data');
-    // Fallback to existing location data
     allCountries = locationData.map(country => ({
       name: country.name,
       code: country.slug
     }));
   }
 
-  // Focus on major countries for better performance
-  const majorCountryNames = [
-    'United States', 'Canada', 'United Kingdom', 'Australia', 'Germany', 
-    'France', 'India', 'China', 'Japan', 'Brazil', 'Mexico', 'Italy', 
+  // Tier 1: Major countries - get more states and cities
+  const tier1Countries = [
+    'United States', 'Canada', 'United Kingdom', 'Australia', 'Germany',
+    'France', 'India', 'China', 'Japan', 'Brazil', 'Mexico', 'Italy',
     'Spain', 'Netherlands', 'Sweden', 'Norway', 'Denmark', 'Finland',
     'Switzerland', 'Austria', 'Belgium', 'Ireland', 'New Zealand',
     'South Korea', 'Singapore', 'Malaysia', 'Thailand', 'Vietnam',
-    'Philippines', 'Indonesia', 'Pakistan', 'Bangladesh', 'Sri Lanka'
+    'Philippines', 'Indonesia', 'Pakistan', 'Bangladesh', 'Sri Lanka',
+    'Russia', 'Poland', 'Turkey', 'Saudi Arabia', 'United Arab Emirates',
+    'South Africa', 'Nigeria', 'Egypt', 'Kenya', 'Argentina', 'Colombia',
+    'Chile', 'Peru', 'Venezuela', 'Portugal', 'Greece', 'Czech Republic',
+    'Romania', 'Hungary', 'Ukraine', 'Israel', 'Qatar', 'Kuwait', 'Bahrain',
+    'Oman', 'Morocco', 'Tunisia', 'Algeria', 'Ghana', 'Tanzania', 'Ethiopia'
   ];
 
-  const filteredCountries = allCountries.filter(country => 
-    majorCountryNames.includes(country.name)
-  );
+  // Tier 2: All other countries
+  const tier1CountrySet = new Set(tier1Countries);
+  const tier1List = allCountries.filter(c => tier1CountrySet.has(c.name));
+  const tier2List = allCountries.filter(c => !tier1CountrySet.has(c.name));
 
-  // Location pages - Countries (from API)
-  // Use full country names (like 'thailand', 'united-states', 'spain') to match indexed URLs
-  const countryPages = filteredCountries.map((country) => ({
+  // ALL Country pages (250+ countries!)
+  const countryPages = allCountries.map((country) => ({
     url: `${baseUrl}/where-we-serve/${toSlug(country.name)}/`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
-  // Fetch states for each country
   let allStatePages: any[] = [];
   let allCityPages: any[] = [];
   let allCityServicePages: any[] = [];
-  
-  // Process countries in smaller batches for better performance
-  const batchSize = 8;
-  for (let i = 0; i < filteredCountries.length; i += batchSize) {
-    const batch = filteredCountries.slice(i, i + batchSize);
-    
+
+  // Process Tier 1 countries (major countries - more depth)
+  console.log(`Processing ${tier1List.length} Tier 1 countries...`);
+  const batchSize = 5;
+  for (let i = 0; i < tier1List.length; i += batchSize) {
+    const batch = tier1List.slice(i, i + batchSize);
+
     await Promise.all(batch.map(async (country) => {
       try {
-        // Fetch states for this country
         const states = await getStatesByCountryAPI(country.name);
-        
-        // Add state pages - use full country names to match indexed URLs
         const countrySlug = toSlug(country.name);
+
+        // Add ALL state pages for tier 1 countries
         const statePages = states.map((state) => ({
           url: `${baseUrl}/where-we-serve/${countrySlug}/${toSlug(state.name)}/`,
           lastModified: new Date(),
@@ -124,15 +145,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }));
         allStatePages.push(...statePages);
 
-        // Fetch cities for each state (limit to 8 states per country)
-        const statesToProcess = states.slice(0, 8);
+        // Fetch cities for top 10 states per tier 1 country
+        const statesToProcess = states.slice(0, 10);
         await Promise.all(statesToProcess.map(async (state) => {
           try {
             const cities = await getCitiesByStateAPI(country.name, state.name);
             const stateSlug = toSlug(state.name);
 
-            // Add city pages (limit to 15 cities per state) - use toSlug() for consistent URLs
-            const cityPages = cities.slice(0, 15).map((city) => ({
+            // Add top 20 cities per state for tier 1 countries
+            const cityPages = cities.slice(0, 20).map((city) => ({
               url: `${baseUrl}/where-we-serve/${countrySlug}/${stateSlug}/${toSlug(city.name)}/`,
               lastModified: new Date(),
               changeFrequency: 'monthly' as const,
@@ -140,26 +161,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             }));
             allCityPages.push(...cityPages);
 
-            // Add city service pages for top 5 cities per state
-            const topCities = cities.slice(0, 5);
+            // Add service pages for top 8 cities
+            const topCities = cities.slice(0, 8);
             const { enrichedSiteStructure } = await import('@/lib/site-structure');
 
-            // Generate both 5-level (pillar) and 6-level (pillar/cluster) URLs - use toSlug() for consistent URLs
             const cityServicePages = topCities.flatMap((city) => {
               const citySlug = toSlug(city.name);
               const basePath = `${baseUrl}/where-we-serve/${countrySlug}/${stateSlug}/${citySlug}`;
 
-              // Get top 4 pillars for 5-level URLs
-              const pillarPages = enrichedSiteStructure.slice(0, 4).map((pillar) => ({
+              // Get top 6 pillars for 5-level URLs
+              const pillarPages = enrichedSiteStructure.slice(0, 6).map((pillar) => ({
                 url: `${basePath}/${pillar.slug}/`,
                 lastModified: new Date(),
                 changeFrequency: 'monthly' as const,
                 priority: 0.4,
               }));
 
-              // Get top 2 pillars with their top 3 clusters for 6-level URLs
-              const clusterPages = enrichedSiteStructure.slice(0, 2).flatMap((pillar) =>
-                pillar.clusters.slice(0, 3).map((cluster) => ({
+              // Get top 3 pillars with their top 4 clusters for 6-level URLs
+              const clusterPages = enrichedSiteStructure.slice(0, 3).flatMap((pillar) =>
+                pillar.clusters.slice(0, 4).map((cluster) => ({
                   url: `${basePath}/${pillar.slug}/${cluster.slug}/`,
                   lastModified: new Date(),
                   changeFrequency: 'monthly' as const,
@@ -171,16 +191,80 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             });
             allCityServicePages.push(...cityServicePages);
           } catch (error) {
-            console.error(`Failed to fetch cities for ${state.name}, ${country.name}`);
+            // Silently continue
           }
         }));
       } catch (error) {
-        console.error(`Failed to fetch states for ${country.name}`);
+        // Silently continue
       }
     }));
   }
 
-  // Location pages - States and Cities (from existing location data as fallback)
+  // Process Tier 2 countries (all other countries - less depth but still included!)
+  console.log(`Processing ${tier2List.length} Tier 2 countries...`);
+  for (let i = 0; i < tier2List.length; i += batchSize) {
+    const batch = tier2List.slice(i, i + batchSize);
+
+    await Promise.all(batch.map(async (country) => {
+      try {
+        const states = await getStatesByCountryAPI(country.name);
+        const countrySlug = toSlug(country.name);
+
+        // Add ALL state pages for tier 2 countries too
+        const statePages = states.map((state) => ({
+          url: `${baseUrl}/where-we-serve/${countrySlug}/${toSlug(state.name)}/`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly' as const,
+          priority: 0.55,
+        }));
+        allStatePages.push(...statePages);
+
+        // Fetch cities for top 5 states per tier 2 country
+        const statesToProcess = states.slice(0, 5);
+        await Promise.all(statesToProcess.map(async (state) => {
+          try {
+            const cities = await getCitiesByStateAPI(country.name, state.name);
+            const stateSlug = toSlug(state.name);
+
+            // Add top 10 cities per state for tier 2 countries
+            const cityPages = cities.slice(0, 10).map((city) => ({
+              url: `${baseUrl}/where-we-serve/${countrySlug}/${stateSlug}/${toSlug(city.name)}/`,
+              lastModified: new Date(),
+              changeFrequency: 'monthly' as const,
+              priority: 0.45,
+            }));
+            allCityPages.push(...cityPages);
+
+            // Add service pages for top 3 cities only for tier 2
+            const topCities = cities.slice(0, 3);
+            const { enrichedSiteStructure } = await import('@/lib/site-structure');
+
+            const cityServicePages = topCities.flatMap((city) => {
+              const citySlug = toSlug(city.name);
+              const basePath = `${baseUrl}/where-we-serve/${countrySlug}/${stateSlug}/${citySlug}`;
+
+              // Get top 4 pillars
+              const pillarPages = enrichedSiteStructure.slice(0, 4).map((pillar) => ({
+                url: `${basePath}/${pillar.slug}/`,
+                lastModified: new Date(),
+                changeFrequency: 'monthly' as const,
+                priority: 0.35,
+              }));
+
+              return pillarPages;
+            });
+            allCityServicePages.push(...cityServicePages);
+          } catch (error) {
+            // Silently continue
+          }
+        }));
+      } catch (error) {
+        // Silently continue
+      }
+    }));
+  }
+
+  // Location pages from existing location data as fallback
   const statePages = locationData.flatMap((country) =>
     country.states.map((state) => ({
       url: `${baseUrl}/where-we-serve/${country.slug}/${state.slug}/`,
@@ -201,7 +285,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     )
   );
 
-  // Location pages - Services (from existing location data)
   const servicePages = locationData.flatMap((country) =>
     country.states.flatMap((state) =>
       state.cities.flatMap((city) =>
@@ -215,10 +298,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     )
   );
 
-  // Service pages (from site structure)
+  // Service pages from site structure
   const { getAllSlugs } = await import('@/lib/site-structure');
   const serviceSlugs = getAllSlugs();
-  
+
   const generalServicePages = serviceSlugs.map((service) => ({
     url: `${baseUrl}/${service}/`,
     lastModified: new Date(),
@@ -226,10 +309,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // Additional location-based service pages for major countries (using proper /where-we-serve/ prefix)
-  const majorCountries = ['united-states', 'canada', 'united-kingdom', 'australia', 'germany', 'france', 'india', 'china', 'japan', 'brazil'];
-  const additionalServicePages = majorCountries.flatMap((country) =>
-    serviceSlugs.slice(0, 10).map((service) => ({
+  // Additional location-based service pages for top countries
+  const topCountrySlugs = tier1Countries.slice(0, 20).map(c => toSlug(c));
+  const additionalServicePages = topCountrySlugs.flatMap((country) =>
+    serviceSlugs.slice(0, 15).map((service) => ({
       url: `${baseUrl}/where-we-serve/${country}/${service}/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
@@ -239,46 +322,47 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Combine all sitemap entries
   const allEntries = [
-    ...staticPages, 
-    ...blogPosts, 
-    ...countryPages, 
-    ...allStatePages, 
+    ...staticPages,
+    ...blogPosts,
+    ...countryPages,
+    ...allStatePages,
     ...allCityPages,
     ...allCityServicePages,
-    ...statePages, 
-    ...cityPages, 
-    ...servicePages, 
+    ...statePages,
+    ...cityPages,
+    ...servicePages,
     ...generalServicePages,
     ...additionalServicePages
   ];
 
-  // Remove duplicates based on URL and filter out invalid URLs
+  // Remove duplicates and filter out invalid URLs
   const uniqueEntries = allEntries
-    .filter((entry, index, self) => 
+    .filter((entry, index, self) =>
       index === self.findIndex(e => e.url === entry.url)
     )
     .filter(entry => {
-      // Filter out invalid URLs
       const invalidPatterns = [
-        /\$/, // URLs with $ symbol
-        /\/careers$/, // careers page
-        /\/5$/, // URLs ending with /5
-        /\/[0-9]+$/, // URLs ending with numbers
-        /\/undefined/, // URLs with undefined
-        /\/null/, // URLs with null
+        /\$/,
+        /\/careers$/,
+        /\/5$/,
+        /\/[0-9]+$/,
+        /\/undefined/,
+        /\/null/,
       ];
-      
       return !invalidPatterns.some(pattern => pattern.test(entry.url));
     });
 
-  console.log(`Generated sitemap with ${uniqueEntries.length} entries`);
-  console.log(`- Static pages: ${staticPages.length}`);
-  console.log(`- Blog posts: ${blogPosts.length}`);
-  console.log(`- Country pages: ${countryPages.length}`);
-  console.log(`- State pages: ${allStatePages.length + statePages.length}`);
-  console.log(`- City pages: ${allCityPages.length + cityPages.length}`);
-  console.log(`- City service pages: ${allCityServicePages.length}`);
-  console.log(`- Service pages: ${servicePages.length + generalServicePages.length + additionalServicePages.length}`);
+  console.log('='.repeat(50));
+  console.log(`🌍 SITEMAP GENERATED WITH ${uniqueEntries.length} URLS!`);
+  console.log('='.repeat(50));
+  console.log(`📄 Static pages: ${staticPages.length}`);
+  console.log(`📝 Blog posts: ${blogPosts.length}`);
+  console.log(`🌎 Country pages: ${countryPages.length}`);
+  console.log(`🏛️ State pages: ${allStatePages.length + statePages.length}`);
+  console.log(`🏙️ City pages: ${allCityPages.length + cityPages.length}`);
+  console.log(`💼 City service pages: ${allCityServicePages.length}`);
+  console.log(`🔧 Service pages: ${servicePages.length + generalServicePages.length + additionalServicePages.length}`);
+  console.log('='.repeat(50));
 
   return uniqueEntries;
 }

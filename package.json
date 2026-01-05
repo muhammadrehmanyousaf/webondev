@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/post-build-index.js || true",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "index": "npx tsx scripts/bulk-index.ts",
+    "index:google": "curl -X POST https://www.webondev.com/api/google-indexing -H 'Content-Type: application/json' -d '{\"submitAll\": true}'"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.15",
