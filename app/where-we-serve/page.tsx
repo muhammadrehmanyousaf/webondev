@@ -43,7 +43,8 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = 'force-dynamic';
+// ISR: Revalidate every 24 hours for better SEO indexing
+export const revalidate = 86400;
 
 export default async function WhereWeServePage() {
   const countries = await getAllCountriesAPI();

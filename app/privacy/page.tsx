@@ -8,7 +8,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Privacy Policy - Web On Dev | Data Protection & Privacy',
   description: 'Learn how Web On Dev protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
-  keywords: 'privacy policy, data protection, GDPR, personal data, privacy rights, Facebook login, Meta app',
+  keywords: 'privacy policy, data protection, GDPR, personal data, privacy rights, Facebook login, Google login, social media login',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/privacy/`,
   },
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
                   Introduction
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Web On Dev (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, mobile applications, or interact with us through third-party platforms including Meta (Facebook/Instagram).
+                  Web On Dev (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, mobile applications, or interact with us through third-party platforms including social media networks.
                 </p>
               </div>
 
@@ -94,21 +94,90 @@ export default function PrivacyPage() {
                 </ul>
               </div>
 
-              {/* Facebook/Meta Data Collection */}
+              {/* Social Media Login & Data Collection */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <Smartphone className="w-6 h-6 text-blue-600" />
-                  Facebook/Meta Login & Data Collection
+                  Social Media Login & Data Collection
                 </h2>
                 <p className="text-gray-700 mb-4">
-                  When you use Facebook Login or connect through Meta platforms to access our services, we may collect the following information from your Facebook/Meta account:
+                  When you use social login or connect through third-party platforms to access our services, we may collect information from your social media accounts. Below are the platforms we support and the data we collect:
                 </p>
-                <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                  <li><strong>Public Profile:</strong> Your name, profile picture, and other public information</li>
-                  <li><strong>Email Address:</strong> The email address associated with your Facebook account</li>
-                  <li><strong>User ID:</strong> Your unique Facebook/Meta user identifier</li>
-                </ul>
-                <p className="text-gray-700 mb-4">
+
+                {/* Facebook/Meta */}
+                <div className="bg-blue-50 rounded-xl p-5 border border-blue-200 mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Facebook / Meta (Instagram)</h3>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1 text-sm">
+                    <li>Public profile (name, profile picture)</li>
+                    <li>Email address</li>
+                    <li>User ID</li>
+                  </ul>
+                </div>
+
+                {/* Google */}
+                <div className="bg-red-50 rounded-xl p-5 border border-red-200 mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Google</h3>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1 text-sm">
+                    <li>Name and profile picture</li>
+                    <li>Email address</li>
+                    <li>Google User ID</li>
+                  </ul>
+                </div>
+
+                {/* Twitter/X */}
+                <div className="bg-gray-100 rounded-xl p-5 border border-gray-300 mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Twitter / X</h3>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1 text-sm">
+                    <li>Username and display name</li>
+                    <li>Profile picture</li>
+                    <li>Email address (if available)</li>
+                    <li>Twitter User ID</li>
+                  </ul>
+                </div>
+
+                {/* LinkedIn */}
+                <div className="bg-sky-50 rounded-xl p-5 border border-sky-200 mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">LinkedIn</h3>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1 text-sm">
+                    <li>Name and profile picture</li>
+                    <li>Email address</li>
+                    <li>LinkedIn User ID</li>
+                    <li>Professional headline (if authorized)</li>
+                  </ul>
+                </div>
+
+                {/* Apple */}
+                <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Apple</h3>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1 text-sm">
+                    <li>Name (as shared by you)</li>
+                    <li>Email address (or private relay email)</li>
+                    <li>Apple User ID</li>
+                  </ul>
+                </div>
+
+                {/* TikTok */}
+                <div className="bg-pink-50 rounded-xl p-5 border border-pink-200 mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">TikTok</h3>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1 text-sm">
+                    <li>Display name and username</li>
+                    <li>Profile picture</li>
+                    <li>TikTok User ID</li>
+                  </ul>
+                </div>
+
+                {/* GitHub */}
+                <div className="bg-gray-800 rounded-xl p-5 border border-gray-700 mb-4">
+                  <h3 className="text-lg font-semibold text-white mb-2">GitHub</h3>
+                  <ul className="list-disc pl-6 text-gray-300 space-y-1 text-sm">
+                    <li>Username and display name</li>
+                    <li>Profile picture</li>
+                    <li>Email address</li>
+                    <li>GitHub User ID</li>
+                  </ul>
+                </div>
+
+                <p className="text-gray-700 mt-6 mb-4">
                   We use this information to:
                 </p>
                 <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
@@ -118,7 +187,7 @@ export default function PrivacyPage() {
                   <li>Provide customer support</li>
                 </ul>
                 <p className="text-gray-700">
-                  You can revoke our access to your Facebook data at any time through your Facebook settings or by contacting us directly.
+                  You can revoke our access to your social media data at any time through the respective platform&apos;s settings or by contacting us directly.
                 </p>
               </div>
 
@@ -163,20 +232,29 @@ export default function PrivacyPage() {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <Globe className="w-6 h-6 text-indigo-600" />
-                  Third-Party Platforms (Meta/Facebook)
+                  Third-Party Platforms & Social Networks
                 </h2>
                 <p className="text-gray-700 mb-4">
-                  Our services may integrate with Meta platforms (Facebook, Instagram). When you use these integrations:
+                  Our services may integrate with various third-party platforms and social networks. When you use these integrations:
                 </p>
                 <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                  <li>Your use is subject to Meta&apos;s Privacy Policy and Terms of Service</li>
+                  <li>Your use is subject to each platform&apos;s Privacy Policy and Terms of Service</li>
                   <li>We only request permissions necessary for our services to function</li>
-                  <li>We do not store your Facebook password</li>
-                  <li>You can disconnect your Facebook account at any time</li>
+                  <li>We do not store your social media passwords</li>
+                  <li>You can disconnect your accounts at any time</li>
                 </ul>
-                <p className="text-gray-700">
-                  For information about Meta&apos;s privacy practices, please visit: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Meta Privacy Policy</a>
+                <p className="text-gray-700 mb-4">
+                  For information about each platform&apos;s privacy practices, please visit:
                 </p>
+                <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                  <li><a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Meta (Facebook/Instagram) Privacy Policy</a></li>
+                  <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Google Privacy Policy</a></li>
+                  <li><a href="https://twitter.com/en/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Twitter/X Privacy Policy</a></li>
+                  <li><a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">LinkedIn Privacy Policy</a></li>
+                  <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Apple Privacy Policy</a></li>
+                  <li><a href="https://www.tiktok.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">TikTok Privacy Policy</a></li>
+                  <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">GitHub Privacy Statement</a></li>
+                </ul>
               </div>
 
               {/* Data Security */}
@@ -206,7 +284,7 @@ export default function PrivacyPage() {
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mt-4">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Request Data Deletion</h3>
                   <p className="text-gray-700 mb-3">
-                    To request deletion of your data, including data obtained through Facebook/Meta login, please visit our dedicated data deletion page:
+                    To request deletion of your data, including data obtained through social media login (Facebook, Google, Twitter, LinkedIn, Apple, TikTok, GitHub, etc.), please visit our dedicated data deletion page:
                   </p>
                   <Link
                     href="/data-deletion"

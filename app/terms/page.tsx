@@ -2,13 +2,13 @@ import React from 'react';
 import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { FileText, Scale, Shield, AlertTriangle, Users, Globe, Mail, Phone, Smartphone, Trash2 } from 'lucide-react';
+import { FileText, Scale, Shield, AlertTriangle, Users, Globe, Mail, Phone, Smartphone, Trash2, Link2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms of Service - Web On Dev | Legal Terms & Conditions',
   description: 'Read our Terms of Service to understand the legal terms and conditions for using Web On Dev services.',
-  keywords: 'terms of service, legal terms, conditions, user agreement, service agreement, Meta app, Facebook',
+  keywords: 'terms of service, legal terms, conditions, user agreement, service agreement, social media login, Facebook, Google, Twitter',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/terms/`,
   },
@@ -62,7 +62,7 @@ export default function TermsPage() {
                   Agreement to Terms
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you and Web On Dev (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) regarding your use of our website, services, mobile applications, and products. By accessing or using our services, including through third-party platforms like Meta (Facebook/Instagram), you agree to be bound by these Terms.
+                  These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you and Web On Dev (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) regarding your use of our website, services, mobile applications, and products. By accessing or using our services, including through third-party platforms and social media networks, you agree to be bound by these Terms.
                 </p>
               </div>
 
@@ -85,25 +85,96 @@ export default function TermsPage() {
                 </ul>
               </div>
 
-              {/* Meta Platform Terms */}
+              {/* Social Media Platform Integration */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <Smartphone className="w-6 h-6 text-blue-600" />
-                  Meta Platform Integration
+                  Social Media Platform Integration
                 </h2>
                 <p className="text-gray-700 mb-4">
-                  When you access our services through Meta platforms (Facebook, Instagram), the following additional terms apply:
+                  When you access our services through social media platforms or use social login features, the following additional terms apply:
                 </p>
+
+                {/* Platform Grid */}
+                <div className="grid md:grid-cols-2 gap-4 mb-6">
+                  {/* Facebook/Meta */}
+                  <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Facebook / Meta</h3>
+                    <p className="text-gray-600 text-sm">Instagram integration included</p>
+                  </div>
+
+                  {/* Google */}
+                  <div className="bg-red-50 rounded-xl p-4 border border-red-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Google</h3>
+                    <p className="text-gray-600 text-sm">YouTube integration included</p>
+                  </div>
+
+                  {/* Twitter/X */}
+                  <div className="bg-gray-100 rounded-xl p-4 border border-gray-300">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Twitter / X</h3>
+                    <p className="text-gray-600 text-sm">Social sharing features</p>
+                  </div>
+
+                  {/* LinkedIn */}
+                  <div className="bg-sky-50 rounded-xl p-4 border border-sky-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">LinkedIn</h3>
+                    <p className="text-gray-600 text-sm">Professional networking</p>
+                  </div>
+
+                  {/* Apple */}
+                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Apple</h3>
+                    <p className="text-gray-600 text-sm">Sign in with Apple</p>
+                  </div>
+
+                  {/* TikTok */}
+                  <div className="bg-pink-50 rounded-xl p-4 border border-pink-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">TikTok</h3>
+                    <p className="text-gray-600 text-sm">Content integration</p>
+                  </div>
+
+                  {/* GitHub */}
+                  <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
+                    <h3 className="text-lg font-semibold text-white mb-2">GitHub</h3>
+                    <p className="text-gray-400 text-sm">Developer authentication</p>
+                  </div>
+
+                  {/* Discord */}
+                  <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Discord</h3>
+                    <p className="text-gray-600 text-sm">Community features</p>
+                  </div>
+                </div>
+
+                <p className="text-gray-700 mb-4">By using social login or platform integrations, you agree to:</p>
                 <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                  <li>You must comply with Meta&apos;s Terms of Service and Community Standards</li>
-                  <li>We may access certain information from your Meta profile as described in our <Link href="/privacy" className="text-blue-600 hover:text-blue-700 underline">Privacy Policy</Link></li>
-                  <li>You grant us permission to use the data you authorize through Meta login</li>
-                  <li>You can revoke our access at any time through your Meta account settings</li>
-                  <li>Meta is not responsible for our services or any content provided through our platform</li>
+                  <li>Comply with each platform&apos;s Terms of Service and Community Guidelines</li>
+                  <li>Allow us to access certain information from your profile as described in our <Link href="/privacy" className="text-blue-600 hover:text-blue-700 underline">Privacy Policy</Link></li>
+                  <li>Grant us permission to use the data you authorize through social login</li>
+                  <li>Understand that you can revoke our access at any time through your account settings on each platform</li>
+                  <li>Acknowledge that third-party platforms are not responsible for our services</li>
                 </ul>
-                <p className="text-gray-700">
-                  Our use of information received from Meta APIs will adhere to Meta&apos;s Platform Terms and Developer Policies.
+              </div>
+
+              {/* Third-Party Platform Terms */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                  <Link2 className="w-6 h-6 text-indigo-600" />
+                  Third-Party Platform Terms
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  Our use of information received from third-party platforms will adhere to each platform&apos;s terms and developer policies. For reference:
                 </p>
+                <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+                  <li><a href="https://www.facebook.com/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Meta (Facebook/Instagram) Terms of Service</a></li>
+                  <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Google Terms of Service</a></li>
+                  <li><a href="https://twitter.com/en/tos" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Twitter/X Terms of Service</a></li>
+                  <li><a href="https://www.linkedin.com/legal/user-agreement" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">LinkedIn User Agreement</a></li>
+                  <li><a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Apple Terms and Conditions</a></li>
+                  <li><a href="https://www.tiktok.com/legal/terms-of-service" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">TikTok Terms of Service</a></li>
+                  <li><a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">GitHub Terms of Service</a></li>
+                  <li><a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Discord Terms of Service</a></li>
+                </ul>
               </div>
 
               {/* User Responsibilities */}
@@ -140,8 +211,9 @@ export default function TermsPage() {
                   <li>Spam or send unsolicited communications</li>
                   <li>Attempt to gain unauthorized access to our systems</li>
                   <li>Reverse engineer or copy our services</li>
-                  <li>Scrape or collect data in violation of Meta&apos;s Platform Terms</li>
+                  <li>Scrape or collect data in violation of any platform&apos;s terms</li>
                   <li>Use automated systems to access our services without permission</li>
+                  <li>Violate social media platform community guidelines</li>
                 </ul>
               </div>
 
@@ -156,7 +228,7 @@ export default function TermsPage() {
                 </p>
                 <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
                   <li>All personal information provided to us</li>
-                  <li>Data obtained through Meta/Facebook login</li>
+                  <li>Data obtained through social media login (Facebook, Google, Twitter, LinkedIn, Apple, TikTok, GitHub, Discord, etc.)</li>
                   <li>Account preferences and settings</li>
                   <li>Communication history with our team</li>
                 </ul>
@@ -242,13 +314,13 @@ export default function TermsPage() {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Third-Party Services</h2>
                 <p className="text-gray-700 mb-4">
-                  Our services may integrate with third-party platforms including Meta (Facebook, Instagram). Please note:
+                  Our services may integrate with third-party platforms and social networks. Please note:
                 </p>
                 <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
                   <li>We are not responsible for third-party platform availability or performance</li>
                   <li>Third-party services are governed by their own terms and policies</li>
                   <li>Changes to third-party APIs may affect our service functionality</li>
-                  <li>We are not affiliated with or endorsed by Meta Platforms, Inc.</li>
+                  <li>We are not affiliated with or endorsed by Meta, Google, Twitter/X, LinkedIn, Apple, TikTok, GitHub, Discord, or any other third-party platform</li>
                 </ul>
               </div>
 

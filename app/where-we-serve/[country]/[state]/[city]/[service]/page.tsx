@@ -21,7 +21,8 @@ import { getServiceBySlug, enrichedSiteStructure } from '@/lib/site-structure';
 import { getBaseUrl } from '@/lib/site-config';
 import DynamicFAQ from '@/components/ui/DynamicFAQ';
 
-export const dynamic = 'force-dynamic';
+// ISR: Revalidate every 24 hours for better SEO indexing
+export const revalidate = 86400;
 
 interface ServicePageProps {
   params: Promise<{

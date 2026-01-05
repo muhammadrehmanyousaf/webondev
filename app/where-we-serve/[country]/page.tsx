@@ -28,7 +28,8 @@ interface CountryPageProps {
   }>;
 }
 
-export const dynamic = 'force-dynamic';
+// ISR: Revalidate every 24 hours for better SEO indexing
+export const revalidate = 86400;
 
 export async function generateMetadata({ params }: CountryPageProps): Promise<Metadata> {
   const resolvedParams = await params;

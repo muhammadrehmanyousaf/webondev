@@ -2,26 +2,26 @@ import React from 'react';
 import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { Trash2, Mail, Clock, CheckCircle, AlertCircle, Shield, Phone, Globe } from 'lucide-react';
+import { Trash2, Mail, Clock, CheckCircle, AlertCircle, Shield, Phone, Globe, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Data Deletion Instructions - Web On Dev | Delete Your Data',
-  description: 'Learn how to request deletion of your personal data from Web On Dev. Complete instructions for deleting your account and Facebook/Meta data.',
-  keywords: 'data deletion, delete account, remove data, Facebook data deletion, Meta data deletion, GDPR, privacy rights',
+  description: 'Learn how to request deletion of your personal data from Web On Dev. Complete instructions for deleting your account and social media data.',
+  keywords: 'data deletion, delete account, remove data, Facebook data deletion, Google data deletion, social media deletion, GDPR, privacy rights',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/data-deletion/`,
   },
   openGraph: {
     title: 'Data Deletion Instructions - Web On Dev | Delete Your Data',
-    description: 'Learn how to request deletion of your personal data from Web On Dev. Complete instructions for deleting your account and Facebook/Meta data.',
+    description: 'Learn how to request deletion of your personal data from Web On Dev. Complete instructions for deleting your account and social media data.',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/data-deletion`,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Data Deletion Instructions - Web On Dev | Delete Your Data',
-    description: 'Learn how to request deletion of your personal data from Web On Dev. Complete instructions for deleting your account and Facebook/Meta data.',
+    description: 'Learn how to request deletion of your personal data from Web On Dev. Complete instructions for deleting your account and social media data.',
   },
 };
 
@@ -42,7 +42,7 @@ export default function DataDeletionPage() {
               Data Deletion Instructions
             </h1>
             <p className="text-xl text-gray-600 mb-4">
-              Learn how to request deletion of your personal data from our services, including data obtained through Facebook/Meta login.
+              Learn how to request deletion of your personal data from our services, including data obtained through social media login.
             </p>
             <p className="text-sm text-gray-500">
               Last updated: {lastUpdated}
@@ -65,7 +65,7 @@ export default function DataDeletionPage() {
                   At Web On Dev, we respect your privacy and your right to control your personal data. You can request deletion of your data at any time, and we will process your request in accordance with applicable data protection laws including GDPR and CCPA.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  This page provides instructions for requesting deletion of your data, including any information obtained through Facebook/Meta login integration.
+                  This page provides instructions for requesting deletion of your data, including any information obtained through social media login integrations.
                 </p>
               </div>
 
@@ -97,45 +97,87 @@ export default function DataDeletionPage() {
                     </ul>
                   </div>
 
-                  <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Facebook/Meta Data</h3>
+                  <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Additional Data</h3>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span>Facebook User ID</span>
+                        <span>Communication history</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span>Profile picture URL</span>
+                        <span>Support tickets</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span>Public profile information</span>
+                        <span>Usage analytics</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span>Access tokens</span>
+                        <span>Uploaded files/content</span>
                       </li>
                     </ul>
                   </div>
                 </div>
 
-                <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">Additional Data</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Communication history and support tickets</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Usage data and analytics associated with your account</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Any files or content you uploaded</span>
-                    </li>
-                  </ul>
+                {/* Social Media Data */}
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Social Media Login Data</h3>
+                <p className="text-gray-700 mb-4">If you logged in using any of the following platforms, we will also delete the data obtained from them:</p>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  {/* Facebook */}
+                  <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 text-center">
+                    <h4 className="font-semibold text-gray-900 mb-1">Facebook</h4>
+                    <p className="text-xs text-gray-600">Meta / Instagram</p>
+                  </div>
+
+                  {/* Google */}
+                  <div className="bg-red-50 rounded-xl p-4 border border-red-200 text-center">
+                    <h4 className="font-semibold text-gray-900 mb-1">Google</h4>
+                    <p className="text-xs text-gray-600">YouTube included</p>
+                  </div>
+
+                  {/* Twitter/X */}
+                  <div className="bg-gray-100 rounded-xl p-4 border border-gray-300 text-center">
+                    <h4 className="font-semibold text-gray-900 mb-1">Twitter / X</h4>
+                    <p className="text-xs text-gray-600">Profile data</p>
+                  </div>
+
+                  {/* LinkedIn */}
+                  <div className="bg-sky-50 rounded-xl p-4 border border-sky-200 text-center">
+                    <h4 className="font-semibold text-gray-900 mb-1">LinkedIn</h4>
+                    <p className="text-xs text-gray-600">Professional data</p>
+                  </div>
+
+                  {/* Apple */}
+                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center">
+                    <h4 className="font-semibold text-gray-900 mb-1">Apple</h4>
+                    <p className="text-xs text-gray-600">Sign in data</p>
+                  </div>
+
+                  {/* TikTok */}
+                  <div className="bg-pink-50 rounded-xl p-4 border border-pink-200 text-center">
+                    <h4 className="font-semibold text-gray-900 mb-1">TikTok</h4>
+                    <p className="text-xs text-gray-600">Profile data</p>
+                  </div>
+
+                  {/* GitHub */}
+                  <div className="bg-gray-800 rounded-xl p-4 border border-gray-700 text-center">
+                    <h4 className="font-semibold text-white mb-1">GitHub</h4>
+                    <p className="text-xs text-gray-400">Developer data</p>
+                  </div>
+
+                  {/* Discord */}
+                  <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200 text-center">
+                    <h4 className="font-semibold text-gray-900 mb-1">Discord</h4>
+                    <p className="text-xs text-gray-600">User data</p>
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
+                  <p className="text-gray-700 text-sm">
+                    <strong>Data we delete from social logins includes:</strong> User ID, name, email address, profile picture URL, username/display name, and any access tokens stored.
+                  </p>
                 </div>
               </div>
 
@@ -180,21 +222,140 @@ export default function DataDeletionPage() {
                   </Link>
                 </div>
 
-                {/* Method 3: For Facebook Users */}
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Option 3: Facebook Users</h3>
+                {/* Method 3: Social Media Settings */}
+                <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-6 border border-orange-200">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Option 3: Revoke Access via Social Media Settings</h3>
                   <p className="text-gray-700 mb-4">
-                    If you signed up using Facebook Login, you can also revoke our app&apos;s access directly from your Facebook settings:
+                    You can also revoke our app&apos;s access directly from your social media account settings. Click on any platform below for instructions:
                   </p>
-                  <ol className="list-decimal pl-6 text-gray-700 space-y-2 mb-4">
-                    <li>Go to your Facebook Settings</li>
-                    <li>Navigate to &quot;Security and Login&quot; → &quot;Apps and Websites&quot;</li>
-                    <li>Find &quot;Web On Dev&quot; in the list of connected apps</li>
-                    <li>Click &quot;Remove&quot; to revoke access</li>
-                  </ol>
-                  <p className="text-gray-600 text-sm">
-                    Note: Revoking access from Facebook will prevent future data sharing but will not automatically delete data already stored. Please also submit a deletion request using Option 1 or 2 above for complete removal.
-                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {/* Facebook */}
+                    <a
+                      href="https://www.facebook.com/settings?tab=applications"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-white rounded-lg p-4 border border-blue-200 hover:border-blue-400 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">f</div>
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900">Facebook / Meta</div>
+                        <div className="text-xs text-gray-500">Apps and Websites settings</div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-gray-400" />
+                    </a>
+
+                    {/* Google */}
+                    <a
+                      href="https://myaccount.google.com/permissions"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-white rounded-lg p-4 border border-red-200 hover:border-red-400 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold">G</div>
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900">Google</div>
+                        <div className="text-xs text-gray-500">Third-party access settings</div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-gray-400" />
+                    </a>
+
+                    {/* Twitter/X */}
+                    <a
+                      href="https://twitter.com/settings/connected_apps"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-white rounded-lg p-4 border border-gray-300 hover:border-gray-500 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center text-white font-bold">X</div>
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900">Twitter / X</div>
+                        <div className="text-xs text-gray-500">Connected apps settings</div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-gray-400" />
+                    </a>
+
+                    {/* LinkedIn */}
+                    <a
+                      href="https://www.linkedin.com/psettings/permitted-services"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-white rounded-lg p-4 border border-sky-200 hover:border-sky-400 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-sky-600 rounded-lg flex items-center justify-center text-white font-bold">in</div>
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900">LinkedIn</div>
+                        <div className="text-xs text-gray-500">Permitted services settings</div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-gray-400" />
+                    </a>
+
+                    {/* Apple */}
+                    <a
+                      href="https://appleid.apple.com/account/manage"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-white rounded-lg p-4 border border-gray-200 hover:border-gray-400 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold"></div>
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900">Apple</div>
+                        <div className="text-xs text-gray-500">Sign in with Apple settings</div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-gray-400" />
+                    </a>
+
+                    {/* TikTok */}
+                    <a
+                      href="https://www.tiktok.com/setting"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-white rounded-lg p-4 border border-pink-200 hover:border-pink-400 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center text-white font-bold text-xs">TT</div>
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900">TikTok</div>
+                        <div className="text-xs text-gray-500">Privacy settings</div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-gray-400" />
+                    </a>
+
+                    {/* GitHub */}
+                    <a
+                      href="https://github.com/settings/applications"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-white rounded-lg p-4 border border-gray-300 hover:border-gray-500 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">GH</div>
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900">GitHub</div>
+                        <div className="text-xs text-gray-500">Authorized OAuth Apps</div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-gray-400" />
+                    </a>
+
+                    {/* Discord */}
+                    <a
+                      href="https://discord.com/settings/authorized-apps"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-white rounded-lg p-4 border border-indigo-200 hover:border-indigo-400 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">D</div>
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900">Discord</div>
+                        <div className="text-xs text-gray-500">Authorized Apps settings</div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-gray-400" />
+                    </a>
+                  </div>
+
+                  <div className="mt-4 p-4 bg-orange-100 rounded-lg">
+                    <p className="text-gray-700 text-sm">
+                      <strong>Note:</strong> Revoking access from social media platforms will prevent future data sharing but will not automatically delete data already stored. Please also submit a deletion request using Option 1 or 2 above for complete removal from our systems.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -265,6 +426,10 @@ export default function DataDeletionPage() {
                     <li className="flex items-start gap-2">
                       <AlertCircle className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
                       <span><strong>Backup Systems:</strong> Data in backup systems will be deleted according to our backup rotation policy (typically within 90 days).</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <AlertCircle className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+                      <span><strong>Third-Party Data:</strong> Revoking access on social media platforms is separate from our deletion process. Do both for complete removal.</span>
                     </li>
                   </ul>
                 </div>
