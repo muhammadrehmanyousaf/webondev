@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // IndexNow API for instant indexing on Bing, Yandex, Seznam, Naver
 // This submits URLs for immediate crawling
 
-const INDEXNOW_KEY = process.env.INDEXNOW_KEY || 'e8f7a9b2c3d4e5f6a7b8c9d0e1f2a3b4';
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY || '9c53f436d18d4706aa5243baf434ce1f';
 const SITE_HOST = 'www.webondev.com';
 
 export async function POST(request: NextRequest) {

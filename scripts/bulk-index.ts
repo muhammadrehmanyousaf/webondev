@@ -7,7 +7,7 @@
  */
 
 const SITE_URL = 'https://www.webondev.com';
-const INDEXNOW_KEY = 'e8f7a9b2c3d4e5f6a7b8c9d0e1f2a3b4';
+const INDEXNOW_KEY = '9c53f436d18d4706aa5243baf434ce1f';
 
 async function fetchSitemapUrls(): Promise<string[]> {
   try {

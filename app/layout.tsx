@@ -367,7 +367,7 @@ export default function RootLayout({
         <link rel="author" type="text/plain" href={`${siteUrl}/humans.txt`} />
 
         {/* IndexNow Key Verification */}
-        <link rel="indexnow" href={`${siteUrl}/e8f7a9b2c3d4e5f6a7b8c9d0e1f2a3b4.txt`} />
+        <link rel="indexnow" href={`${siteUrl}/9c53f436d18d4706aa5243baf434ce1f.txt`} />
 
         {/* Hreflang Tags for International SEO */}
         <link rel="alternate" hrefLang="en" href={siteUrl} />
