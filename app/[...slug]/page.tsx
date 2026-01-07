@@ -22,9 +22,12 @@ interface ServicePageProps {
 
 export async function generateStaticParams() {
   const slugs = getAllSlugs();
-  return slugs.map((slug) => ({
-    slug: slug.split('/'),
-  }));
+  // Filter out paths that should be handled by other routes
+  return slugs
+    .filter(slug => !slug.startsWith('api/') && !slug.startsWith('sitemaps/'))
+    .map((slug) => ({
+      slug: slug.split('/'),
+    }));
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
@@ -99,6 +102,13 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const resolvedParams = await params;
+  const slugPath = resolvedParams.slug.join('/');
+
+  // Exclude paths that should be handled by other routes
+  if (slugPath.startsWith('api/') || slugPath.startsWith('sitemaps/') || slugPath.endsWith('.xml')) {
+    notFound();
+  }
+
   const service = getServiceBySlug(resolvedParams.slug[0], resolvedParams.slug[1]);
 
   if (!service) {
