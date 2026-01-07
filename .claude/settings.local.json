@@ -15,7 +15,16 @@
       "Bash(powershell -Command:*)",
       "Bash(npm install:*)",
       "Bash(npx email:*)",
-      "Bash(timeout /t 5 /nobreak)"
+      "Bash(timeout /t 5 /nobreak)",
+      "Bash(git push:*)",
+      "Bash(copy \"c:\\\\Users\\\\TECH ZONE\\\\Downloads\\\\9c53f436d18d4706aa5243baf434ce1f.txt\" \"c:\\\\Users\\\\TECH ZONE\\\\Desktop\\\\WOD\\\\public\\\\9c53f436d18d4706aa5243baf434ce1f.txt\")",
+      "Bash(del \"c:\\\\Users\\\\TECH ZONE\\\\Desktop\\\\WOD\\\\public\\\\e8f7a9b2c3d4e5f6a7b8c9d0e1f2a3b4.txt\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(cat:*)",
+      "Bash(npx tsx:*)",
+      "Bash(timeout /t 30 /nobreak)",
+      "Bash(del \"c:\\\\Users\\\\TECH ZONE\\\\Desktop\\\\WOD\\\\app\\\\sitemap.ts\")"
     ]
   }
 }

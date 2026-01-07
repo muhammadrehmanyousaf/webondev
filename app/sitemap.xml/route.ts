@@ -49,7 +49,7 @@ export async function GET() {
   // Generate sitemap index XML
   const sitemapEntries = sitemaps.map(name => `
   <sitemap>
-    <loc>${BASE_URL}/sitemaps/${name}.xml</loc>
+    <loc>${BASE_URL}/api/sitemaps/${name}.xml</loc>
     <lastmod>${now}</lastmod>
   </sitemap>`).join('');
 
