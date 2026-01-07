@@ -1,57 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { blogData } from '@/lib/blog-data';
-import { locationData } from '@/lib/location-data';
 import { getAllCountriesAPI, getStatesByCountryAPI, getCitiesByStateAPI } from '@/lib/location-api';
 import { toSlug } from '@/lib/slug';
+import { siteStructure } from '@/lib/site-structure';
 
 const BASE_URL = 'https://www.webondev.com';
-const MAX_URLS_PER_SITEMAP = 45000; // Keep under 50k limit with buffer
+const MAX_URLS_PER_SITEMAP = 45000;
 
-// Region mappings for countries
-const REGION_COUNTRIES: Record<string, string[]> = {
-  americas: [
-    'United States', 'Canada', 'Mexico', 'Brazil', 'Argentina', 'Colombia',
-    'Chile', 'Peru', 'Venezuela', 'Ecuador', 'Bolivia', 'Paraguay', 'Uruguay',
-    'Costa Rica', 'Panama', 'Guatemala', 'Cuba', 'Dominican Republic', 'Honduras',
-    'El Salvador', 'Nicaragua', 'Puerto Rico', 'Jamaica', 'Trinidad and Tobago',
-    'Bahamas', 'Barbados', 'Belize', 'Guyana', 'Suriname', 'Haiti'
-  ],
-  europe: [
-    'United Kingdom', 'Germany', 'France', 'Italy', 'Spain', 'Netherlands',
-    'Belgium', 'Sweden', 'Norway', 'Denmark', 'Finland', 'Switzerland', 'Austria',
-    'Ireland', 'Portugal', 'Greece', 'Poland', 'Czech Republic', 'Romania',
-    'Hungary', 'Ukraine', 'Russia', 'Turkey', 'Croatia', 'Serbia', 'Bulgaria',
-    'Slovakia', 'Slovenia', 'Estonia', 'Latvia', 'Lithuania', 'Luxembourg',
-    'Malta', 'Cyprus', 'Iceland', 'Albania', 'North Macedonia', 'Montenegro',
-    'Bosnia and Herzegovina', 'Moldova', 'Belarus'
-  ],
-  asia: [
-    'China', 'Japan', 'India', 'South Korea', 'Indonesia', 'Thailand', 'Vietnam',
-    'Philippines', 'Malaysia', 'Singapore', 'Pakistan', 'Bangladesh', 'Sri Lanka',
-    'Myanmar', 'Cambodia', 'Nepal', 'Afghanistan', 'Kazakhstan', 'Uzbekistan',
-    'Taiwan', 'Hong Kong', 'Macau', 'Mongolia', 'North Korea', 'Laos', 'Brunei',
-    'Timor-Leste', 'Bhutan', 'Maldives', 'Turkmenistan', 'Tajikistan', 'Kyrgyzstan',
-    'Saudi Arabia', 'United Arab Emirates', 'Qatar', 'Kuwait', 'Bahrain', 'Oman',
-    'Israel', 'Jordan', 'Lebanon', 'Iraq', 'Iran', 'Syria', 'Yemen', 'Armenia',
-    'Azerbaijan', 'Georgia'
-  ],
-  africa: [
-    'South Africa', 'Nigeria', 'Egypt', 'Kenya', 'Morocco', 'Ghana', 'Tanzania',
-    'Ethiopia', 'Algeria', 'Tunisia', 'Uganda', 'Zimbabwe', 'Zambia', 'Botswana',
-    'Namibia', 'Mozambique', 'Angola', 'Cameroon', 'Ivory Coast', 'Senegal',
-    'Rwanda', 'Madagascar', 'Mauritius', 'Seychelles', 'Libya', 'Sudan',
-    'Democratic Republic of the Congo', 'Republic of the Congo', 'Gabon',
-    'Equatorial Guinea', 'Central African Republic', 'Chad', 'Niger', 'Mali',
-    'Burkina Faso', 'Benin', 'Togo', 'Sierra Leone', 'Liberia', 'Guinea',
-    'Guinea-Bissau', 'Gambia', 'Cape Verde', 'Mauritania', 'Western Sahara',
-    'Eritrea', 'Djibouti', 'Somalia', 'Comoros', 'Malawi', 'Lesotho', 'Eswatini'
-  ],
-  oceania: [
-    'Australia', 'New Zealand', 'Fiji', 'Papua New Guinea', 'Samoa', 'Tonga',
-    'Vanuatu', 'Solomon Islands', 'Micronesia', 'Kiribati', 'Marshall Islands',
-    'Palau', 'Nauru', 'Tuvalu', 'New Caledonia', 'French Polynesia', 'Guam'
-  ]
-};
+// Get all service pillars and clusters
+const SERVICE_PILLARS = siteStructure.map(p => ({
+  slug: p.slug,
+  clusters: p.clusters.map(c => c.slug)
+}));
 
 // Generate XML sitemap
 function generateSitemapXml(urls: Array<{ url: string; lastmod?: string; changefreq?: string; priority?: number }>) {
@@ -69,206 +29,283 @@ ${urlEntries}
 </urlset>`;
 }
 
-// Get static pages
+// ============================================
+// STATIC PAGES SITEMAP
+// ============================================
 function getStaticUrls() {
   const now = new Date().toISOString();
-  return [
+  const urls = [
     { url: `${BASE_URL}/`, lastmod: now, changefreq: 'weekly', priority: 1 },
     { url: `${BASE_URL}/about/`, lastmod: now, changefreq: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/services/`, lastmod: now, changefreq: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/portfolio/`, lastmod: now, changefreq: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/blog/`, lastmod: now, changefreq: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/contact/`, lastmod: now, changefreq: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/where-we-serve/`, lastmod: now, changefreq: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/where-we-serve/`, lastmod: now, changefreq: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/privacy/`, lastmod: now, changefreq: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/terms/`, lastmod: now, changefreq: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/data-deletion/`, lastmod: now, changefreq: 'monthly', priority: 0.5 },
-    // Blog posts
-    ...blogData.map(post => ({
+  ];
+
+  // Add blog posts
+  for (const post of blogData) {
+    urls.push({
       url: `${BASE_URL}/blog/${post.slug}/`,
       lastmod: new Date(post.date).toISOString(),
       changefreq: 'monthly',
       priority: 0.6
-    }))
-  ];
-}
-
-// Get all countries
-async function getAllCountries() {
-  try {
-    const countries = await getAllCountriesAPI();
-    return countries || [];
-  } catch {
-    return locationData.map(c => ({ name: c.name }));
+    });
   }
-}
 
-// Get states for a region
-async function getStatesForRegion(region: string) {
-  const countries = REGION_COUNTRIES[region] || [];
-  const urls: Array<{ url: string; lastmod: string; changefreq: string; priority: number }> = [];
-  const now = new Date().toISOString();
-
-  for (const countryName of countries) {
-    try {
-      const states = await getStatesByCountryAPI(countryName);
-      const countrySlug = toSlug(countryName);
-
-      for (const state of states) {
-        urls.push({
-          url: `${BASE_URL}/where-we-serve/${countrySlug}/${toSlug(state.name)}/`,
-          lastmod: now,
-          changefreq: 'monthly',
-          priority: 0.6
-        });
-
-        if (urls.length >= MAX_URLS_PER_SITEMAP) break;
-      }
-    } catch {
-      // Continue with next country
+  // Add service pillar pages (top-level services)
+  for (const pillar of SERVICE_PILLARS) {
+    urls.push({
+      url: `${BASE_URL}/${pillar.slug}/`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: 0.8
+    });
+    // Add cluster pages (subservices)
+    for (const cluster of pillar.clusters) {
+      urls.push({
+        url: `${BASE_URL}/${pillar.slug}/${cluster}/`,
+        lastmod: now,
+        changefreq: 'monthly',
+        priority: 0.7
+      });
     }
-
-    if (urls.length >= MAX_URLS_PER_SITEMAP) break;
   }
 
   return urls;
 }
 
-// Get cities chunk
-async function getCitiesChunk(chunkNumber: number) {
-  const urls: Array<{ url: string; lastmod: string; changefreq: string; priority: number }> = [];
+// ============================================
+// COUNTRIES SITEMAP - All 250+ countries
+// ============================================
+async function getCountriesUrls() {
   const now = new Date().toISOString();
+  const urls: Array<{ url: string; lastmod: string; changefreq: string; priority: number }> = [];
 
-  // Define priority countries for each chunk - expanded for 10M+ pages
-  const chunkCountries: Record<number, string[]> = {
-    1: ['United States'],
-    2: ['Canada', 'United Kingdom'],
-    3: ['Australia', 'Germany'],
-    4: ['France', 'India'],
-    5: ['China', 'Japan'],
-    6: ['Brazil', 'Mexico'],
-    7: ['Italy', 'Spain', 'Netherlands'],
-    8: ['Sweden', 'Norway', 'Denmark', 'Finland'],
-    9: ['South Korea', 'Singapore', 'Malaysia', 'Thailand'],
-    10: ['Pakistan', 'Bangladesh', 'Indonesia', 'Vietnam', 'Philippines']
-  };
+  try {
+    const countries = await getAllCountriesAPI();
+    for (const country of countries) {
+      urls.push({
+        url: `${BASE_URL}/where-we-serve/${toSlug(country.name)}/`,
+        lastmod: now,
+        changefreq: 'monthly',
+        priority: 0.7
+      });
+    }
+  } catch (error) {
+    console.error('Error fetching countries:', error);
+  }
 
-  const countries = chunkCountries[chunkNumber] || [];
+  return urls;
+}
 
-  for (const countryName of countries) {
-    try {
-      const states = await getStatesByCountryAPI(countryName);
-      const countrySlug = toSlug(countryName);
+// ============================================
+// STATES SITEMAP - Paginated by country chunks
+// Format: states-[page].xml where page is 1-based
+// ============================================
+async function getStatesUrls(page: number) {
+  const now = new Date().toISOString();
+  const urls: Array<{ url: string; lastmod: string; changefreq: string; priority: number }> = [];
 
-      for (const state of states.slice(0, 15)) {
-        try {
-          const cities = await getCitiesByStateAPI(countryName, state.name);
-          const stateSlug = toSlug(state.name);
+  try {
+    const allCountries = await getAllCountriesAPI();
+    const countriesPerPage = 10; // Process 10 countries per sitemap page
+    const startIdx = (page - 1) * countriesPerPage;
+    const endIdx = startIdx + countriesPerPage;
+    const countriesToProcess = allCountries.slice(startIdx, endIdx);
 
-          for (const city of cities.slice(0, 50)) {
+    for (const country of countriesToProcess) {
+      try {
+        const states = await getStatesByCountryAPI(country.name);
+        const countrySlug = toSlug(country.name);
+
+        for (const state of states) {
+          urls.push({
+            url: `${BASE_URL}/where-we-serve/${countrySlug}/${toSlug(state.name)}/`,
+            lastmod: now,
+            changefreq: 'monthly',
+            priority: 0.6
+          });
+
+          if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+        }
+      } catch {
+        // Continue with next country
+      }
+
+      if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+    }
+  } catch (error) {
+    console.error('Error fetching states:', error);
+  }
+
+  return urls;
+}
+
+// ============================================
+// CITIES SITEMAP - Paginated
+// Format: cities-[country-slug]-[page].xml
+// ============================================
+async function getCitiesUrlsByCountry(countryName: string, page: number) {
+  const now = new Date().toISOString();
+  const urls: Array<{ url: string; lastmod: string; changefreq: string; priority: number }> = [];
+
+  try {
+    const states = await getStatesByCountryAPI(countryName);
+    const countrySlug = toSlug(countryName);
+    const statesPerPage = 5;
+    const startIdx = (page - 1) * statesPerPage;
+    const endIdx = startIdx + statesPerPage;
+    const statesToProcess = states.slice(startIdx, endIdx);
+
+    for (const state of statesToProcess) {
+      try {
+        const cities = await getCitiesByStateAPI(countryName, state.name);
+        const stateSlug = toSlug(state.name);
+
+        for (const city of cities) {
+          urls.push({
+            url: `${BASE_URL}/where-we-serve/${countrySlug}/${stateSlug}/${toSlug(city.name)}/`,
+            lastmod: now,
+            changefreq: 'monthly',
+            priority: 0.5
+          });
+
+          if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+        }
+      } catch {
+        // Continue
+      }
+
+      if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+    }
+  } catch (error) {
+    console.error('Error fetching cities:', error);
+  }
+
+  return urls;
+}
+
+// ============================================
+// SERVICES SITEMAP - City + Service URLs (5-level)
+// Format: services-[country-slug]-[page].xml
+// ============================================
+async function getServicesUrlsByCountry(countryName: string, page: number) {
+  const now = new Date().toISOString();
+  const urls: Array<{ url: string; lastmod: string; changefreq: string; priority: number }> = [];
+
+  try {
+    const states = await getStatesByCountryAPI(countryName);
+    const countrySlug = toSlug(countryName);
+    const statesPerPage = 2; // Less states because more URLs per state
+    const startIdx = (page - 1) * statesPerPage;
+    const endIdx = startIdx + statesPerPage;
+    const statesToProcess = states.slice(startIdx, endIdx);
+
+    for (const state of statesToProcess) {
+      try {
+        const cities = await getCitiesByStateAPI(countryName, state.name);
+        const stateSlug = toSlug(state.name);
+
+        // Limit cities for services to avoid explosion
+        const citiesToProcess = cities.slice(0, 50);
+
+        for (const city of citiesToProcess) {
+          const citySlug = toSlug(city.name);
+          const basePath = `${BASE_URL}/where-we-serve/${countrySlug}/${stateSlug}/${citySlug}`;
+
+          // Add all service pillar pages for this city
+          for (const pillar of SERVICE_PILLARS) {
             urls.push({
-              url: `${BASE_URL}/where-we-serve/${countrySlug}/${stateSlug}/${toSlug(city.name)}/`,
+              url: `${basePath}/${pillar.slug}/`,
               lastmod: now,
               changefreq: 'monthly',
-              priority: 0.5
+              priority: 0.4
             });
 
             if (urls.length >= MAX_URLS_PER_SITEMAP) break;
           }
-        } catch {
-          // Continue
+
+          if (urls.length >= MAX_URLS_PER_SITEMAP) break;
         }
-
-        if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+      } catch {
+        // Continue
       }
-    } catch {
-      // Continue
-    }
 
-    if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+      if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+    }
+  } catch (error) {
+    console.error('Error fetching services:', error);
   }
 
   return urls;
 }
 
-// Get services chunk
-async function getServicesChunk(chunkNumber: number) {
-  const urls: Array<{ url: string; lastmod: string; changefreq: string; priority: number }> = [];
+// ============================================
+// SUBSERVICES SITEMAP - City + Service + Subservice URLs (6-level)
+// Format: subservices-[country-slug]-[page].xml
+// ============================================
+async function getSubservicesUrlsByCountry(countryName: string, page: number) {
   const now = new Date().toISOString();
+  const urls: Array<{ url: string; lastmod: string; changefreq: string; priority: number }> = [];
 
-  // Import site structure
-  const { enrichedSiteStructure } = await import('@/lib/site-structure');
+  try {
+    const states = await getStatesByCountryAPI(countryName);
+    const countrySlug = toSlug(countryName);
+    const statesPerPage = 1; // Even less because of URL explosion
+    const startIdx = (page - 1) * statesPerPage;
+    const endIdx = startIdx + statesPerPage;
+    const statesToProcess = states.slice(startIdx, endIdx);
 
-  // Define priority countries for each chunk - expanded for 10M+ pages
-  const chunkCountries: Record<number, string[]> = {
-    1: ['United States'],
-    2: ['Canada', 'United Kingdom'],
-    3: ['Australia', 'Germany'],
-    4: ['India', 'France'],
-    5: ['Japan', 'China'],
-    6: ['Brazil', 'Mexico', 'Italy'],
-    7: ['Spain', 'Netherlands', 'Sweden'],
-    8: ['South Korea', 'Singapore', 'Malaysia'],
-    9: ['Thailand', 'Vietnam', 'Indonesia'],
-    10: ['Pakistan', 'Bangladesh', 'Philippines', 'UAE', 'Saudi Arabia']
-  };
+    for (const state of statesToProcess) {
+      try {
+        const cities = await getCitiesByStateAPI(countryName, state.name);
+        const stateSlug = toSlug(state.name);
 
-  const countries = chunkCountries[chunkNumber] || [];
+        // Limit cities
+        const citiesToProcess = cities.slice(0, 30);
 
-  for (const countryName of countries) {
-    try {
-      const states = await getStatesByCountryAPI(countryName);
-      const countrySlug = toSlug(countryName);
+        for (const city of citiesToProcess) {
+          const citySlug = toSlug(city.name);
+          const basePath = `${BASE_URL}/where-we-serve/${countrySlug}/${stateSlug}/${citySlug}`;
 
-      for (const state of states.slice(0, 10)) {
-        try {
-          const cities = await getCitiesByStateAPI(countryName, state.name);
-          const stateSlug = toSlug(state.name);
-
-          for (const city of cities.slice(0, 20)) {
-            const citySlug = toSlug(city.name);
-            const basePath = `${BASE_URL}/where-we-serve/${countrySlug}/${stateSlug}/${citySlug}`;
-
-            // Add pillar pages (5-level)
-            for (const pillar of enrichedSiteStructure.slice(0, 8)) {
+          // Add all service + subservice combinations
+          for (const pillar of SERVICE_PILLARS) {
+            for (const cluster of pillar.clusters) {
               urls.push({
-                url: `${basePath}/${pillar.slug}/`,
+                url: `${basePath}/${pillar.slug}/${cluster}/`,
                 lastmod: now,
                 changefreq: 'monthly',
-                priority: 0.4
+                priority: 0.35
               });
-
-              // Add cluster pages (6-level)
-              for (const cluster of pillar.clusters.slice(0, 5)) {
-                urls.push({
-                  url: `${basePath}/${pillar.slug}/${cluster.slug}/`,
-                  lastmod: now,
-                  changefreq: 'monthly',
-                  priority: 0.35
-                });
-              }
 
               if (urls.length >= MAX_URLS_PER_SITEMAP) break;
             }
-
             if (urls.length >= MAX_URLS_PER_SITEMAP) break;
           }
-        } catch {
-          // Continue
+
+          if (urls.length >= MAX_URLS_PER_SITEMAP) break;
         }
-
-        if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+      } catch {
+        // Continue
       }
-    } catch {
-      // Continue
-    }
 
-    if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+      if (urls.length >= MAX_URLS_PER_SITEMAP) break;
+    }
+  } catch (error) {
+    console.error('Error fetching subservices:', error);
   }
 
   return urls;
 }
 
+// ============================================
+// MAIN ROUTE HANDLER
+// ============================================
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ type: string }> }
@@ -281,36 +318,70 @@ export async function GET(
   let urls: Array<{ url: string; lastmod?: string; changefreq?: string; priority?: number }> = [];
 
   try {
+    // Static pages
     if (sitemapType === 'static') {
       urls = getStaticUrls();
     }
+    // All countries
     else if (sitemapType === 'countries') {
-      const countries = await getAllCountries();
-      const now = new Date().toISOString();
-      urls = countries.map(c => ({
-        url: `${BASE_URL}/where-we-serve/${toSlug(c.name)}/`,
-        lastmod: now,
-        changefreq: 'monthly',
-        priority: 0.7
-      }));
+      urls = await getCountriesUrls();
     }
+    // States - paginated: states-1, states-2, etc.
     else if (sitemapType.startsWith('states-')) {
-      const region = sitemapType.replace('states-', '');
-      urls = await getStatesForRegion(region);
+      const page = parseInt(sitemapType.replace('states-', ''), 10);
+      if (!isNaN(page)) {
+        urls = await getStatesUrls(page);
+      }
     }
+    // Cities by country: cities-united-states-1, cities-india-1, etc.
     else if (sitemapType.startsWith('cities-')) {
-      const chunkNum = parseInt(sitemapType.replace('cities-', ''), 10);
-      urls = await getCitiesChunk(chunkNum);
+      const match = sitemapType.match(/^cities-(.+)-(\d+)$/);
+      if (match) {
+        const countrySlug = match[1];
+        const page = parseInt(match[2], 10);
+        // Convert slug back to country name
+        const countries = await getAllCountriesAPI();
+        const country = countries.find(c => toSlug(c.name) === countrySlug);
+        if (country) {
+          urls = await getCitiesUrlsByCountry(country.name, page);
+        }
+      }
     }
+    // Services by country: services-united-states-1, etc.
     else if (sitemapType.startsWith('services-')) {
-      const chunkNum = parseInt(sitemapType.replace('services-', ''), 10);
-      urls = await getServicesChunk(chunkNum);
+      const match = sitemapType.match(/^services-(.+)-(\d+)$/);
+      if (match) {
+        const countrySlug = match[1];
+        const page = parseInt(match[2], 10);
+        const countries = await getAllCountriesAPI();
+        const country = countries.find(c => toSlug(c.name) === countrySlug);
+        if (country) {
+          urls = await getServicesUrlsByCountry(country.name, page);
+        }
+      }
+    }
+    // Subservices by country: subservices-united-states-1, etc.
+    else if (sitemapType.startsWith('subservices-')) {
+      const match = sitemapType.match(/^subservices-(.+)-(\d+)$/);
+      if (match) {
+        const countrySlug = match[1];
+        const page = parseInt(match[2], 10);
+        const countries = await getAllCountriesAPI();
+        const country = countries.find(c => toSlug(c.name) === countrySlug);
+        if (country) {
+          urls = await getSubservicesUrlsByCountry(country.name, page);
+        }
+      }
     }
     else {
-      return NextResponse.json({ error: 'Invalid sitemap type' }, { status: 404 });
+      return NextResponse.json({ error: 'Invalid sitemap type', type: sitemapType }, { status: 404 });
     }
 
     console.log(`Generated ${urls.length} URLs for sitemap: ${sitemapType}`);
+
+    if (urls.length === 0) {
+      return NextResponse.json({ error: 'No URLs found', type: sitemapType }, { status: 404 });
+    }
 
     const xml = generateSitemapXml(urls);
 
@@ -325,7 +396,8 @@ export async function GET(
     console.error(`Error generating sitemap ${sitemapType}:`, error);
     return NextResponse.json({
       error: 'Failed to generate sitemap',
-      type: sitemapType
+      type: sitemapType,
+      message: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });
   }
 }
