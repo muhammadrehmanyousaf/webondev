@@ -4,25 +4,57 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import LocationBreadcrumb from '@/components/pages/locations/LocationBreadcrumb';
-import LocationHeroSection from '@/components/pages/locations/LocationHeroSection';
-import LocationStatsSection from '@/components/pages/locations/LocationStatsSection';
-import CTASection from '@/components/sections/CTASection';
-import ServicesDirectorySection from '@/components/sections/where-we-serve/ServicesDirectorySection';
-import OutcomesSection from '@/components/sections/where-we-serve/OutcomesSection';
-import WebDevelopmentSection from '@/components/sections/where-we-serve/WebDevelopmentSection';
-import MobileAppsSection from '@/components/sections/where-we-serve/MobileAppsSection';
-import IndustryFitSection from '@/components/sections/where-we-serve/IndustryFitSection';
-import LocalTeamsSection from '@/components/sections/where-we-serve/LocalTeamsSection';
-import TestimonialsSection from '@/components/sections/where-we-serve/TestimonialsSection';
-import CaseStudiesSection from '@/components/sections/where-we-serve/CaseStudiesSection';
 import { getAllCountriesAPI, getStatesByCountryAPI, getCitiesByStateAPI } from '@/lib/location-api';
 import { fromSlugMatch, fromCountrySlugMatch, toSlug } from '@/lib/slug';
-import { getServiceBySlug, enrichedSiteStructure } from '@/lib/site-structure';
+import { getServiceBySlug } from '@/lib/site-structure';
 import { getBaseUrl } from '@/lib/site-config';
-import DynamicFAQ from '@/components/ui/DynamicFAQ';
+import {
+  ServiceHeroWithForm,
+  ServicePainPoints,
+  ServiceSolutions,
+  ServiceProcess,
+  ServiceBenefits,
+  ServiceTechStack,
+  ServicePortfolio,
+  ServicePricing,
+  ServiceTestimonials,
+  ServiceFAQ,
+  ServiceRelated,
+  ServiceCTA,
+} from '@/components/services/sections';
+import { getPillarServiceData } from '@/data/services/pillars';
+import { getClusterServiceData } from '@/data/services/clusters';
 
 // ISR: Revalidate every 24 hours for better SEO indexing
 export const revalidate = 86400;
+
+const serviceSlugAliases: Record<string, string> = {
+  'uiux-design': 'ui-ux-design',
+};
+
+const subserviceSlugAliases: Record<string, string> = {
+  'e-commerce-development': 'ecommerce-development',
+  'ios-app-development': 'ios-development',
+  'android-app-development': 'android-development',
+  'mobile-app-maintenance': 'app-maintenance-support',
+  'brand-identity-design': 'logo-design-branding',
+  'prototyping': 'prototyping-wireframing',
+  'search-engine-optimization': 'seo-services',
+  'local-seo': 'seo-services',
+  'pay-per-click-advertising': 'ppc-advertising',
+  'database-design': 'database-development',
+  'cloud-solutions': 'cloud-infrastructure',
+  'devops-services': 'devops-automation',
+  'it-consulting': 'technology-consulting',
+  'custom-e-commerce-platforms': 'ecommerce-website-development',
+  'inventory-management': 'inventory-management-systems',
+};
+
+const toTitleCase = (value: string) =>
+  value
+    .split('-')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
 
 interface SubServicePageProps {
   params: Promise<{
@@ -36,24 +68,23 @@ interface SubServicePageProps {
 
 export async function generateMetadata({ params }: SubServicePageProps): Promise<Metadata> {
   const { country: countrySlug, state: stateSlug, city: citySlug, service, subservice } = await params;
+  const resolvedServiceSlug = serviceSlugAliases[service] || service;
+  const resolvedSubserviceSlug = subserviceSlugAliases[subservice] || subservice;
 
   const countries = await getAllCountriesAPI();
   const matchCountry = fromCountrySlugMatch(countrySlug, countries.map((c) => c.name));
-  const country = countries.find((c) => c.name === matchCountry);
-  if (!country) return { title: 'Service Not Found - Web On Dev' };
+  const countryName = matchCountry || toTitleCase(countrySlug);
 
-  const states = await getStatesByCountryAPI(country.name);
+  const states = countryName ? await getStatesByCountryAPI(countryName) : [];
   const matchState = fromSlugMatch(stateSlug, states.map((s) => s.name));
-  const state = states.find((s) => s.name === matchState);
-  if (!state) return { title: 'Service Not Found - Web On Dev' };
+  const stateName = matchState || toTitleCase(stateSlug);
 
-  const cities = await getCitiesByStateAPI(country.name, state.name);
+  const cities = countryName ? await getCitiesByStateAPI(countryName, stateName) : [];
   const matchCity = fromSlugMatch(citySlug, cities.map((c) => c.name));
-  const city = cities.find((c) => c.name === matchCity);
-  if (!city) return { title: 'Service Not Found - Web On Dev' };
+  const cityName = matchCity || toTitleCase(citySlug);
 
   // Get service info from site structure
-  const serviceData = getServiceBySlug(service, subservice);
+  const serviceData = getServiceBySlug(resolvedServiceSlug, resolvedSubserviceSlug);
   const serviceTitle = serviceData?.cluster?.title ||
     subservice.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
   const parentServiceTitle = serviceData?.pillar?.title ||
@@ -61,16 +92,16 @@ export async function generateMetadata({ params }: SubServicePageProps): Promise
 
   const lsi = (serviceData?.cluster?.keywords || []).slice(0, 20);
   const siteUrl = getBaseUrl();
-  const canonicalUrl = `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}/${toSlug(city.name)}/${service}/${subservice}`;
+  const canonicalUrl = `${siteUrl}/where-we-serve/${toSlug(countryName)}/${toSlug(stateName)}/${toSlug(cityName)}/${service}/${subservice}`;
 
   return {
-    title: `${serviceTitle} in ${city.name}, ${state.name} - Web On Dev`,
-    description: `Expert ${serviceTitle.toLowerCase()} services in ${city.name}, ${state.name}, ${country.name}. Part of our ${parentServiceTitle.toLowerCase()} solutions. Local expertise with global standards.`,
-    keywords: `${serviceTitle}, ${parentServiceTitle}, ${city.name}, ${state.name}, ${country.name}, ${lsi.join(', ')}`,
+    title: `${serviceTitle} in ${cityName}, ${stateName} - Web On Dev`,
+    description: `Expert ${serviceTitle.toLowerCase()} services in ${cityName}, ${stateName}, ${countryName}. Part of our ${parentServiceTitle.toLowerCase()} solutions. Local expertise with global standards.`,
+    keywords: `${serviceTitle}, ${parentServiceTitle}, ${cityName}, ${stateName}, ${countryName}, ${lsi.join(', ')}`,
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `${serviceTitle} in ${city.name}, ${state.name}`,
-      description: `Expert ${serviceTitle.toLowerCase()} services in ${city.name}, ${state.name}, ${country.name}.`,
+      title: `${serviceTitle} in ${cityName}, ${stateName}`,
+      description: `Expert ${serviceTitle.toLowerCase()} services in ${cityName}, ${stateName}, ${countryName}.`,
       url: canonicalUrl,
       type: 'website',
     },
@@ -79,24 +110,30 @@ export async function generateMetadata({ params }: SubServicePageProps): Promise
 
 export default async function SubServiceInCityPage({ params }: SubServicePageProps) {
   const { country: countrySlug, state: stateSlug, city: citySlug, service, subservice } = await params;
+  const resolvedServiceSlug = serviceSlugAliases[service] || service;
+  const resolvedSubserviceSlug = subserviceSlugAliases[subservice] || subservice;
 
   const countries = await getAllCountriesAPI();
   const matchCountry = fromCountrySlugMatch(countrySlug, countries.map((c) => c.name));
-  const country = countries.find((c) => c.name === matchCountry);
-  if (!country) notFound();
+  const countryName = matchCountry || toTitleCase(countrySlug);
+  const country = countries.find((c) => c.name === countryName) || {
+    name: countryName,
+    code: countrySlug.toUpperCase(),
+    flag: '',
+    currencies: [],
+    timezones: [],
+  };
 
-  const states = await getStatesByCountryAPI(country.name);
+  const states = countryName ? await getStatesByCountryAPI(countryName) : [];
   const matchState = fromSlugMatch(stateSlug, states.map((s) => s.name));
-  const state = states.find((s) => s.name === matchState);
-  if (!state) notFound();
+  const state = states.find((s) => s.name === matchState) || { name: toTitleCase(stateSlug) };
 
-  const cities = await getCitiesByStateAPI(country.name, state.name);
+  const cities = countryName ? await getCitiesByStateAPI(countryName, state.name) : [];
   const matchCity = fromSlugMatch(citySlug, cities.map((c) => c.name));
-  const city = cities.find((c) => c.name === matchCity);
-  if (!city) notFound();
+  const city = cities.find((c) => c.name === matchCity) || { name: toTitleCase(citySlug) };
 
   // Get service info from site structure
-  const serviceData = getServiceBySlug(service, subservice);
+  const serviceData = getServiceBySlug(resolvedServiceSlug, resolvedSubserviceSlug);
   const serviceTitle = serviceData?.cluster?.title ||
     subservice.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
   const parentServiceTitle = serviceData?.pillar?.title ||
@@ -113,6 +150,23 @@ export default async function SubServiceInCityPage({ params }: SubServicePagePro
   ];
 
   const siteUrl = getBaseUrl();
+  const namespacedClusterKey = `${resolvedServiceSlug}/${resolvedSubserviceSlug}`;
+  const clusterData =
+    getClusterServiceData(resolvedSubserviceSlug) ||
+    getClusterServiceData(namespacedClusterKey) ||
+    getClusterServiceData(subservice);
+  const pillarData = getPillarServiceData(resolvedServiceSlug) || getPillarServiceData(service);
+  const pageServiceData = clusterData || pillarData;
+  const locationBaseUrl = `/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}/${toSlug(city.name)}`;
+  const relatedBaseUrl = `${locationBaseUrl}/${service}`;
+  const relatedServices = clusterData?.relatedServices.map((relatedService) => ({
+    ...relatedService,
+    slug: relatedService.slug.startsWith('/') ? relatedService.slug.slice(1) : relatedService.slug,
+  })) || [];
+
+  if (!pageServiceData) {
+    notFound();
+  }
 
   return (
     <div className="min-h-screen bg-slate-950">
@@ -121,56 +175,41 @@ export default async function SubServiceInCityPage({ params }: SubServicePagePro
         {/* 1) Breadcrumb */}
         <LocationBreadcrumb items={breadcrumbItems} />
 
-        {/* 2) Hero Section */}
-        <LocationHeroSection
-          title={`${serviceTitle} in ${city.name}`}
-          subtitle={`Professional ${serviceTitle.toLowerCase()} as part of our ${parentServiceTitle.toLowerCase()} solutions for businesses in ${city.name}, ${state.name}.`}
-          flag={country.flag}
-          currency={country.currencies.join(', ')}
-          timezone={country.timezones[0] || ''}
-        />
-
-        {/* 3) Outcomes Section */}
-        <OutcomesSection />
-
-        {/* 4) Web Development Section */}
-        <WebDevelopmentSection />
-
-        {/* 5) Mobile Apps Section */}
-        <MobileAppsSection />
-
-        {/* 6) Industry Fit Section */}
-        <IndustryFitSection />
-
-        {/* 7) Local Teams Section */}
-        <LocalTeamsSection />
-
-        {/* 8) Services Directory */}
-        <ServicesDirectorySection
-          title={`Explore more ${parentServiceTitle.toLowerCase()} services`}
-          subtitle={`Related services to ${serviceTitle.toLowerCase()} in ${city.name}`}
-        />
-
-        {/* 9) Stats */}
-        <LocationStatsSection />
-
-        {/* 10) Case Studies */}
-        <CaseStudiesSection countryName={city.name} />
-
-        {/* 11) Testimonials */}
-        <TestimonialsSection />
-
-        {/* 12) Dynamic FAQ */}
-        <DynamicFAQ
-          location={`in ${city.name}, ${state.name}`}
-          service={serviceTitle.toLowerCase()}
-          city={city.name}
-          state={state.name}
-          country={country.name}
-        />
-
-        {/* 13) Primary CTA */}
-        <CTASection />
+        <>
+          {/* Service Sections */}
+          <ServiceHeroWithForm
+            data={pageServiceData}
+            city={city.name}
+            state={state.name}
+            country={country.name}
+          />
+          <ServicePainPoints data={pageServiceData} />
+          <ServiceSolutions data={pageServiceData} />
+          <ServiceProcess data={pageServiceData} />
+          <ServiceBenefits data={pageServiceData} />
+          <ServiceTechStack data={pageServiceData} />
+          <ServicePortfolio data={pageServiceData} />
+          <ServicePricing data={pageServiceData} />
+          <ServiceTestimonials data={pageServiceData} />
+          <ServiceFAQ
+            data={pageServiceData}
+            city={city.name}
+            state={state.name}
+            country={country.name}
+          />
+          {relatedServices.length > 0 && (
+            <ServiceRelated
+              services={relatedServices}
+              baseUrl={relatedBaseUrl}
+              currentService={resolvedSubserviceSlug}
+            />
+          )}
+          <ServiceCTA
+            data={pageServiceData}
+            city={city.name}
+            serviceName={serviceTitle}
+          />
+        </>
 
         {/* JSON-LD Structured Data */}
         <script

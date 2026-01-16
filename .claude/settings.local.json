@@ -24,7 +24,12 @@
       "Bash(cat:*)",
       "Bash(npx tsx:*)",
       "Bash(timeout /t 30 /nobreak)",
-      "Bash(del \"c:\\\\Users\\\\TECH ZONE\\\\Desktop\\\\WOD\\\\app\\\\sitemap.ts\")"
+      "Bash(del \"c:\\\\Users\\\\TECH ZONE\\\\Desktop\\\\WOD\\\\app\\\\sitemap.ts\")",
+      "Bash(grep:*)",
+      "Bash(for file in wordpress-development.ts ecommerce-development.ts progressive-web-apps.ts api-development.ts frontend-development.ts backend-development.ts fullstack-development.ts)",
+      "Bash(do sed -i 's/features: \\\\[/highlights: [/g' \"$file\")",
+      "Bash(done)",
+      "Bash(npm run dev:*)"
     ]
   }
 }

@@ -492,39 +492,60 @@ export const siteStructure: PillarPage[] = [
     icon: "Cloud",
     clusters: [
       {
-        title: "AWS Cloud Services",
-        slug: "aws-cloud-services",
+        title: "Cloud Infrastructure",
+        slug: "cloud-infrastructure",
+        description: "Scalable cloud infrastructure solutions",
+        keywords: ["cloud infrastructure", "cloud architecture", "scalable infrastructure"],
+        features: ["Auto-scaling", "Load Balancing", "High Availability", "Disaster Recovery"]
+      },
+      {
+        title: "AWS Services",
+        slug: "aws-services",
         description: "Amazon Web Services implementation",
         keywords: ["AWS", "cloud computing", "Amazon Web Services"],
         features: ["EC2 Setup", "S3 Storage", "RDS Database", "Lambda Functions"]
       },
       {
-        title: "Azure Cloud Solutions",
-        slug: "azure-cloud-solutions",
+        title: "Azure Services",
+        slug: "azure-services",
         description: "Microsoft Azure cloud services",
         keywords: ["Azure", "Microsoft cloud", "cloud solutions"],
         features: ["Virtual Machines", "App Services", "SQL Database", "Active Directory"]
       },
       {
-        title: "Google Cloud Platform",
-        slug: "google-cloud-platform",
+        title: "Google Cloud Services",
+        slug: "google-cloud-services",
         description: "GCP services and implementation",
         keywords: ["Google Cloud", "GCP", "cloud platform"],
         features: ["Compute Engine", "Cloud Storage", "BigQuery", "Kubernetes Engine"]
       },
       {
-        title: "Container Orchestration",
-        slug: "container-orchestration",
-        description: "Docker and Kubernetes solutions",
-        keywords: ["containers", "Docker", "Kubernetes"],
-        features: ["Docker Containerization", "Kubernetes Orchestration", "Microservices", "Auto-scaling"]
+        title: "DevOps Automation",
+        slug: "devops-automation",
+        description: "Automated DevOps workflows and processes",
+        keywords: ["DevOps", "automation", "infrastructure automation"],
+        features: ["Workflow Automation", "Infrastructure Automation", "Deployment Automation", "Monitoring"]
       },
       {
-        title: "CI/CD Pipeline Setup",
-        slug: "cicd-pipeline-setup",
+        title: "CI/CD Pipelines",
+        slug: "ci-cd-pipelines",
         description: "Continuous integration and deployment",
         keywords: ["CI/CD", "continuous integration", "automated deployment"],
         features: ["Automated Testing", "Deployment Automation", "Pipeline Configuration", "Quality Gates"]
+      },
+      {
+        title: "Kubernetes Services",
+        slug: "kubernetes-services",
+        description: "Kubernetes orchestration and management",
+        keywords: ["Kubernetes", "K8s", "container orchestration"],
+        features: ["Cluster Management", "Pod Orchestration", "Auto-scaling", "Service Mesh"]
+      },
+      {
+        title: "Docker Containerization",
+        slug: "docker-containerization",
+        description: "Docker container solutions",
+        keywords: ["Docker", "containers", "containerization"],
+        features: ["Container Setup", "Image Management", "Docker Compose", "Registry Management"]
       },
       {
         title: "Infrastructure as Code",
@@ -534,32 +555,11 @@ export const siteStructure: PillarPage[] = [
         features: ["Terraform", "CloudFormation", "Ansible", "Version Control"]
       },
       {
-        title: "Monitoring & Logging",
-        slug: "monitoring-logging",
-        description: "Application and infrastructure monitoring",
-        keywords: ["monitoring", "logging", "observability"],
-        features: ["Real-time Monitoring", "Log Aggregation", "Alerting", "Performance Metrics"]
-      },
-      {
-        title: "Security & Compliance",
-        slug: "security-compliance",
+        title: "Cloud Security",
+        slug: "cloud-security",
         description: "Cloud security and compliance",
         keywords: ["cloud security", "compliance", "data protection"],
         features: ["Security Audit", "Compliance Setup", "Access Control", "Data Encryption"]
-      },
-      {
-        title: "Backup & Disaster Recovery",
-        slug: "backup-disaster-recovery",
-        description: "Data backup and recovery solutions",
-        keywords: ["backup", "disaster recovery", "data protection"],
-        features: ["Automated Backups", "Recovery Planning", "Data Replication", "Business Continuity"]
-      },
-      {
-        title: "Performance Optimization",
-        slug: "performance-optimization",
-        description: "Cloud performance optimization",
-        keywords: ["performance optimization", "cloud optimization", "cost optimization"],
-        features: ["Resource Optimization", "Cost Reduction", "Performance Tuning", "Scalability Planning"]
       }
     ]
   },
@@ -570,6 +570,13 @@ export const siteStructure: PillarPage[] = [
     icon: "Users",
     clusters: [
       {
+        title: "Technology Consulting",
+        slug: "technology-consulting",
+        description: "Expert technology advisory services",
+        keywords: ["technology consulting", "IT consulting", "technical advisory"],
+        features: ["Technology Assessment", "Architecture Review", "Best Practices", "Technology Selection"]
+      },
+      {
         title: "Digital Transformation",
         slug: "digital-transformation",
         description: "Complete digital transformation strategy",
@@ -577,11 +584,11 @@ export const siteStructure: PillarPage[] = [
         features: ["Strategy Development", "Technology Assessment", "Change Management", "Implementation Planning"]
       },
       {
-        title: "Technology Consulting",
-        slug: "technology-consulting",
-        description: "Expert technology advisory services",
-        keywords: ["technology consulting", "IT consulting", "technical advisory"],
-        features: ["Technology Assessment", "Architecture Review", "Best Practices", "Technology Selection"]
+        title: "IT Strategy",
+        slug: "it-strategy",
+        description: "Strategic IT planning and roadmapping",
+        keywords: ["IT strategy", "technology roadmap", "strategic planning"],
+        features: ["Strategic Planning", "Technology Roadmap", "Budget Planning", "Governance"]
       },
       {
         title: "Business Analysis",
@@ -598,46 +605,39 @@ export const siteStructure: PillarPage[] = [
         features: ["Agile Methodology", "Project Planning", "Risk Management", "Quality Assurance"]
       },
       {
-        title: "Software Architecture",
-        slug: "software-architecture",
-        description: "Enterprise software architecture design",
-        keywords: ["software architecture", "system design", "technical architecture"],
-        features: ["System Architecture", "Scalability Design", "Integration Planning", "Performance Architecture"]
+        title: "Agile Consulting",
+        slug: "agile-consulting",
+        description: "Agile methodology implementation and coaching",
+        keywords: ["agile consulting", "scrum", "agile coaching"],
+        features: ["Agile Assessment", "Scrum Implementation", "Team Training", "Continuous Improvement"]
       },
       {
-        title: "Code Review & Audit",
-        slug: "code-review-audit",
-        description: "Code quality assessment and improvement",
-        keywords: ["code review", "code audit", "quality assessment"],
-        features: ["Code Quality Review", "Security Audit", "Performance Analysis", "Best Practices"]
+        title: "Product Strategy",
+        slug: "product-strategy",
+        description: "Product development strategy and planning",
+        keywords: ["product strategy", "product development", "product management"],
+        features: ["Product Roadmap", "Market Analysis", "Feature Planning", "Go-to-Market Strategy"]
       },
       {
-        title: "Startup Consulting",
-        slug: "startup-consulting",
-        description: "Technology consulting for startups",
-        keywords: ["startup consulting", "MVP development", "technology strategy"],
-        features: ["MVP Strategy", "Technology Stack Selection", "Scaling Planning", "Investment Preparation"]
+        title: "Technology Roadmapping",
+        slug: "technology-roadmapping",
+        description: "Strategic technology planning",
+        keywords: ["technology roadmap", "tech planning", "strategic technology"],
+        features: ["Technology Assessment", "Roadmap Development", "Migration Planning", "Risk Assessment"]
       },
       {
-        title: "Enterprise Solutions",
-        slug: "enterprise-solutions",
-        description: "Large-scale enterprise consulting",
-        keywords: ["enterprise consulting", "large-scale solutions", "enterprise architecture"],
-        features: ["Enterprise Architecture", "Integration Strategy", "Scalability Planning", "Governance"]
+        title: "Vendor Selection",
+        slug: "vendor-selection",
+        description: "Technology vendor evaluation and selection",
+        keywords: ["vendor selection", "technology evaluation", "RFP management"],
+        features: ["Vendor Evaluation", "RFP Development", "Contract Negotiation", "Implementation Support"]
       },
       {
-        title: "Agile Transformation",
-        slug: "agile-transformation",
-        description: "Agile methodology implementation",
-        keywords: ["agile transformation", "scrum implementation", "agile coaching"],
-        features: ["Agile Assessment", "Process Implementation", "Team Training", "Continuous Improvement"]
-      },
-      {
-        title: "Technical Training",
-        slug: "technical-training",
-        description: "Professional development and training",
-        keywords: ["technical training", "team development", "skill enhancement"],
-        features: ["Custom Training Programs", "Skill Assessment", "Hands-on Workshops", "Certification Preparation"]
+        title: "Process Optimization",
+        slug: "process-optimization",
+        description: "Business process improvement",
+        keywords: ["process optimization", "business process", "efficiency improvement"],
+        features: ["Process Analysis", "Workflow Optimization", "Automation Opportunities", "Performance Metrics"]
       }
     ]
   },
@@ -676,39 +676,18 @@ export const siteStructure: PillarPage[] = [
         features: ["Time Zone Alignment", "Cultural Compatibility", "Easy Communication", "Quality Assurance"]
       },
       {
-        title: "Project-Based Outsourcing",
-        slug: "project-based-outsourcing",
+        title: "Project Outsourcing",
+        slug: "project-outsourcing",
         description: "Complete project outsourcing",
         keywords: ["project outsourcing", "complete solutions", "end-to-end development"],
         features: ["End-to-end Delivery", "Project Management", "Quality Guarantee", "Fixed Timeline"]
       },
       {
-        title: "Technical Support Outsourcing",
-        slug: "technical-support-outsourcing",
-        description: "Outsourced technical support services",
-        keywords: ["technical support", "help desk", "customer support"],
-        features: ["24/7 Support", "Multi-channel Support", "Technical Expertise", "Escalation Management"]
-      },
-      {
-        title: "Quality Assurance Outsourcing",
-        slug: "quality-assurance-outsourcing",
+        title: "QA Testing Outsourcing",
+        slug: "qa-testing-outsourcing",
         description: "Professional QA and testing services",
         keywords: ["QA outsourcing", "testing services", "quality assurance"],
         features: ["Comprehensive Testing", "Test Automation", "Quality Processes", "Bug Tracking"]
-      },
-      {
-        title: "Maintenance & Support",
-        slug: "maintenance-support-outsourcing",
-        description: "Ongoing maintenance and support",
-        keywords: ["maintenance outsourcing", "application support", "ongoing support"],
-        features: ["Application Maintenance", "Bug Fixes", "Performance Monitoring", "Feature Updates"]
-      },
-      {
-        title: "Data Entry & Processing",
-        slug: "data-entry-processing",
-        description: "Data management and processing services",
-        keywords: ["data entry", "data processing", "data management"],
-        features: ["Data Entry", "Data Validation", "Data Migration", "Quality Control"]
       },
       {
         title: "DevOps Outsourcing",
@@ -716,6 +695,27 @@ export const siteStructure: PillarPage[] = [
         description: "DevOps and infrastructure management",
         keywords: ["DevOps outsourcing", "infrastructure management", "deployment services"],
         features: ["Infrastructure Management", "Deployment Automation", "Monitoring Setup", "Security Management"]
+      },
+      {
+        title: "UI/UX Outsourcing",
+        slug: "ui-ux-outsourcing",
+        description: "Outsourced design services",
+        keywords: ["design outsourcing", "UI/UX outsourcing", "creative outsourcing"],
+        features: ["UI Design", "UX Research", "Prototyping", "Design Systems"]
+      },
+      {
+        title: "IT Helpdesk Outsourcing",
+        slug: "it-helpdesk-outsourcing",
+        description: "Outsourced IT helpdesk support",
+        keywords: ["IT helpdesk", "technical support", "help desk outsourcing"],
+        features: ["24/7 Support", "Ticket Management", "Remote Support", "User Training"]
+      },
+      {
+        title: "Managed IT Services",
+        slug: "managed-it-services",
+        description: "Complete managed IT services",
+        keywords: ["managed IT", "MSP", "IT management"],
+        features: ["Infrastructure Management", "Security Management", "Monitoring", "Maintenance"]
       }
     ]
   },
@@ -733,18 +733,25 @@ export const siteStructure: PillarPage[] = [
         features: ["Regular Updates", "Security Patches", "Content Updates", "Performance Monitoring"]
       },
       {
-        title: "Application Support",
-        slug: "application-support",
-        description: "24/7 application support services",
-        keywords: ["application support", "app maintenance", "technical support"],
-        features: ["24/7 Support", "Bug Fixes", "Performance Optimization", "User Support"]
+        title: "Application Maintenance",
+        slug: "application-maintenance",
+        description: "Application maintenance and support services",
+        keywords: ["application maintenance", "app support", "software maintenance"],
+        features: ["Bug Fixes", "Performance Optimization", "Feature Updates", "Technical Support"]
       },
       {
-        title: "Database Maintenance",
-        slug: "database-maintenance",
-        description: "Database optimization and maintenance",
-        keywords: ["database maintenance", "DB optimization", "data management"],
-        features: ["Performance Tuning", "Backup Management", "Data Integrity", "Query Optimization"]
+        title: "Bug Fixing Services",
+        slug: "bug-fixing-services",
+        description: "Professional bug fixing and issue resolution",
+        keywords: ["bug fixing", "bug resolution", "software debugging"],
+        features: ["Bug Diagnosis", "Issue Resolution", "Root Cause Analysis", "Prevention Strategies"]
+      },
+      {
+        title: "Performance Optimization",
+        slug: "performance-optimization",
+        description: "Application and website performance optimization",
+        keywords: ["performance optimization", "speed optimization", "performance tuning"],
+        features: ["Speed Optimization", "Resource Optimization", "Load Time Reduction", "Caching Strategies"]
       },
       {
         title: "Security Updates",
@@ -754,18 +761,18 @@ export const siteStructure: PillarPage[] = [
         features: ["Security Patches", "Vulnerability Scanning", "Security Audits", "Compliance Updates"]
       },
       {
-        title: "Performance Monitoring",
-        slug: "performance-monitoring",
-        description: "Continuous performance monitoring",
-        keywords: ["performance monitoring", "application monitoring", "system monitoring"],
-        features: ["Real-time Monitoring", "Performance Alerts", "Resource Optimization", "Uptime Monitoring"]
+        title: "Technical Support",
+        slug: "technical-support",
+        description: "Professional technical support services",
+        keywords: ["technical support", "IT support", "help desk"],
+        features: ["24/7 Support", "Multi-channel Support", "Issue Resolution", "Knowledge Base"]
       },
       {
-        title: "Bug Fixes & Updates",
-        slug: "bug-fixes-updates",
-        description: "Regular bug fixes and feature updates",
-        keywords: ["bug fixes", "software updates", "maintenance updates"],
-        features: ["Bug Resolution", "Feature Updates", "Code Improvements", "Testing & Validation"]
+        title: "Emergency Support",
+        slug: "emergency-support",
+        description: "24/7 emergency technical support",
+        keywords: ["emergency support", "urgent support", "crisis support"],
+        features: ["24/7 Availability", "Rapid Response", "Critical Issue Resolution", "Disaster Recovery"]
       },
       {
         title: "Backup & Recovery",
@@ -775,18 +782,11 @@ export const siteStructure: PillarPage[] = [
         features: ["Automated Backups", "Recovery Testing", "Data Restoration", "Business Continuity"]
       },
       {
-        title: "Version Control & Updates",
-        slug: "version-control-updates",
-        description: "Software version management",
-        keywords: ["version control", "software updates", "release management"],
-        features: ["Version Management", "Release Planning", "Rollback Procedures", "Change Documentation"]
-      },
-      {
-        title: "Technical Documentation",
-        slug: "technical-documentation",
-        description: "Comprehensive technical documentation",
-        keywords: ["technical documentation", "user manuals", "API documentation"],
-        features: ["User Manuals", "API Documentation", "Process Documentation", "Training Materials"]
+        title: "SLA Support Services",
+        slug: "sla-support-services",
+        description: "Service level agreement based support",
+        keywords: ["SLA support", "guaranteed support", "enterprise support"],
+        features: ["Guaranteed Response Times", "Priority Support", "Dedicated Resources", "Reporting"]
       },
       {
         title: "Legacy System Support",

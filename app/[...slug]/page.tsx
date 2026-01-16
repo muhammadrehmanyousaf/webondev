@@ -3,14 +3,33 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+// Legacy sections (fallback)
 import ServiceHeroSection from '@/components/pages/service/ServiceHeroSection';
 import ServiceFeaturesSection from '@/components/pages/service/ServiceFeaturesSection';
 import ServiceProcessSection from '@/components/pages/service/ServiceProcessSection';
 import ServicePricingSection from '@/components/pages/service/ServicePricingSection';
 import ServiceFAQSection from '@/components/pages/service/ServiceFAQSection';
 import CTASection from '@/components/sections/CTASection';
+// New World-Class Sections
+import {
+  ServiceHeroWithForm,
+  ServicePainPoints,
+  ServiceSolutions,
+  ServiceProcess,
+  ServiceBenefits,
+  ServiceTechStack,
+  ServicePortfolio,
+  ServicePricing,
+  ServiceTestimonials,
+  ServiceFAQ,
+  ServiceRelated,
+  ServiceCTA,
+} from '@/components/services/sections';
+// Data
 import { getServiceBySlug, getAllSlugs, enrichedSiteStructure } from '@/lib/site-structure';
 import { getBaseUrl } from '@/lib/site-config';
+import { getPillarServiceData, hasPillarServiceData } from '@/data/services/pillars';
+import { getClusterServiceData, hasClusterServiceData } from '@/data/services/clusters';
 
 const siteUrl = getBaseUrl();
 
@@ -243,16 +262,44 @@ export default async function ServicePage({ params }: ServicePageProps) {
     cssSelector: ['h1', '.service-description', '.feature-title'],
   };
 
+  // Check if we have rich service data for world-class sections
+  // For cluster pages, check cluster data first, then fall back to pillar
+  // For pillar pages, use pillar data
+  const clusterData = cluster ? getClusterServiceData(cluster.slug) : null;
+  const pillarData = getPillarServiceData(pillar.slug);
+  const serviceData = clusterData || pillarData;
+  const useWorldClassSections = !!serviceData;
+
   return (
     <div className="min-h-screen bg-slate-950">
       <Header />
       <main>
-        <ServiceHeroSection pillar={pillar} cluster={cluster} />
-        <ServiceFeaturesSection pillar={pillar} cluster={cluster} />
-        {/* <ServiceProcessSection pillar={pillar} cluster={cluster} /> */}
-        <ServicePricingSection pillar={pillar} cluster={cluster} />
-        <ServiceFAQSection pillar={pillar} cluster={cluster} />
-        <CTASection />
+        {useWorldClassSections && serviceData ? (
+          <>
+            {/* World-Class 12-Section Layout */}
+            <ServiceHeroWithForm data={serviceData} />
+            <ServicePainPoints data={serviceData} />
+            <ServiceSolutions data={serviceData} />
+            <ServiceProcess data={serviceData} />
+            <ServiceBenefits data={serviceData} />
+            <ServiceTechStack data={serviceData} />
+            <ServicePortfolio data={serviceData} />
+            <ServicePricing data={serviceData} />
+            <ServiceTestimonials data={serviceData} />
+            <ServiceFAQ data={serviceData} />
+            <ServiceRelated data={serviceData} />
+            <ServiceCTA data={serviceData} />
+          </>
+        ) : (
+          <>
+            {/* Legacy Sections (fallback for services without rich data) */}
+            <ServiceHeroSection pillar={pillar} cluster={cluster} />
+            <ServiceFeaturesSection pillar={pillar} cluster={cluster} />
+            <ServicePricingSection pillar={pillar} cluster={cluster} />
+            <ServiceFAQSection pillar={pillar} cluster={cluster} />
+            <CTASection />
+          </>
+        )}
       </main>
 
       {/* JSON-LD Structured Data for SEO */}
