@@ -20,6 +20,7 @@ import { getAllCountriesAPI, getStatesByCountryAPI } from '@/lib/location-api';
 import { fromCountrySlugMatch, toSlug } from '@/lib/slug';
 import { getBaseUrl } from '@/lib/site-config';
 import DynamicFAQ from '@/components/ui/DynamicFAQ';
+import { staticCountries } from '@/lib/location-static-data';
 
 
 interface CountryPageProps {
@@ -28,8 +29,15 @@ interface CountryPageProps {
   }>;
 }
 
-// ISR: Revalidate every 24 hours for better SEO indexing
-export const revalidate = 86400;
+// ISR: Revalidate every 30 days (content doesn't change) - maximum cost savings
+export const revalidate = 2592000;
+
+// Generate static params at BUILD TIME - eliminates runtime function calls
+export async function generateStaticParams() {
+  return staticCountries.map((country) => ({
+    country: toSlug(country.name),
+  }));
+}
 
 export async function generateMetadata({ params }: CountryPageProps): Promise<Metadata> {
   const resolvedParams = await params;

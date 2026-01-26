@@ -24,9 +24,40 @@ import {
 } from '@/components/services/sections';
 import { getPillarServiceData } from '@/data/services/pillars';
 import { getClusterServiceData } from '@/data/services/clusters';
+import { staticCities, staticCountries } from '@/lib/location-static-data';
 
-// ISR: Revalidate every 24 hours for better SEO indexing
-export const revalidate = 86400;
+// ISR: Revalidate every 30 days (content doesn't change) - maximum cost savings
+export const revalidate = 2592000;
+
+// Allow dynamic pages for services not in staticParams
+export const dynamicParams = true;
+
+// Generate static params for TOP cities + all pillar services at BUILD TIME
+export async function generateStaticParams() {
+  const params: { country: string; state: string; city: string; service: string }[] = [];
+
+  // Get all pillar service slugs (main services)
+  const pillarSlugs = enrichedSiteStructure.map(p => p.slug);
+
+  // Generate for top 50 cities (most important for SEO)
+  const topCities = staticCities.slice(0, 50);
+
+  for (const city of topCities) {
+    const country = staticCountries.find(c => c.name === city.countryName);
+    if (country) {
+      for (const serviceSlug of pillarSlugs) {
+        params.push({
+          country: toSlug(country.name),
+          state: toSlug(city.stateName),
+          city: toSlug(city.name),
+          service: serviceSlug,
+        });
+      }
+    }
+  }
+
+  return params;
+}
 
 type ServiceAlias = {
   slug: string;

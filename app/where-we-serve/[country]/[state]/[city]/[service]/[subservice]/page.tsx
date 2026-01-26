@@ -24,9 +24,43 @@ import {
 } from '@/components/services/sections';
 import { getPillarServiceData } from '@/data/services/pillars';
 import { getClusterServiceData } from '@/data/services/clusters';
+import { staticCities, staticCountries } from '@/lib/location-static-data';
+import { enrichedSiteStructure } from '@/lib/site-structure';
 
-// ISR: Revalidate every 24 hours for better SEO indexing
-export const revalidate = 86400;
+// ISR: Revalidate every 30 days (content doesn't change) - maximum cost savings
+export const revalidate = 2592000;
+
+// Allow dynamic pages for subservices not in staticParams
+export const dynamicParams = true;
+
+// Generate static params for TOP cities + pillar/cluster combinations at BUILD TIME
+export async function generateStaticParams() {
+  const params: { country: string; state: string; city: string; service: string; subservice: string }[] = [];
+
+  // Top 20 cities for subservice pages (most important for SEO)
+  const topCities = staticCities.slice(0, 20);
+
+  for (const city of topCities) {
+    const country = staticCountries.find(c => c.name === city.countryName);
+    if (country) {
+      // Generate pillar + first 3 clusters for each pillar
+      for (const pillar of enrichedSiteStructure) {
+        const topClusters = pillar.clusters.slice(0, 3);
+        for (const cluster of topClusters) {
+          params.push({
+            country: toSlug(country.name),
+            state: toSlug(city.stateName),
+            city: toSlug(city.name),
+            service: pillar.slug,
+            subservice: cluster.slug,
+          });
+        }
+      }
+    }
+  }
+
+  return params;
+}
 
 const serviceSlugAliases: Record<string, string> = {
   'uiux-design': 'ui-ux-design',

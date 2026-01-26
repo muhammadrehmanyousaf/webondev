@@ -21,6 +21,7 @@ import { getAllCountriesAPI, getStatesByCountryAPI, getCitiesByStateAPI } from '
 import { fromSlugMatch, fromCountrySlugMatch, toSlug } from '@/lib/slug';
 import { getBaseUrl } from '@/lib/site-config';
 import DynamicFAQ from '@/components/ui/DynamicFAQ';
+import { staticCountries, staticStates, staticCities } from '@/lib/location-static-data';
 
 interface CityPageProps {
   params: Promise<{
@@ -30,8 +31,26 @@ interface CityPageProps {
   }>;
 }
 
-// ISR: Revalidate every 24 hours for better SEO indexing
-export const revalidate = 86400;
+// ISR: Revalidate every 30 days (content doesn't change) - maximum cost savings
+export const revalidate = 2592000;
+
+// Generate static params at BUILD TIME - eliminates runtime function calls
+export async function generateStaticParams() {
+  const params: { country: string; state: string; city: string }[] = [];
+
+  for (const city of staticCities) {
+    const country = staticCountries.find(c => c.name === city.countryName);
+    if (country) {
+      params.push({
+        country: toSlug(country.name),
+        state: toSlug(city.stateName),
+        city: toSlug(city.name),
+      });
+    }
+  }
+
+  return params;
+}
 
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
   const { country: countrySlug, state: stateSlug, city: citySlug } = await params;

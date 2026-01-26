@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   },
 };
 
-// ISR: Revalidate every 24 hours for better SEO indexing
-export const revalidate = 86400;
+// ISR: Revalidate every 30 days (content doesn't change) - maximum cost savings
+export const revalidate = 2592000;
 
 export default async function WhereWeServePage() {
   const countries = await getAllCountriesAPI();

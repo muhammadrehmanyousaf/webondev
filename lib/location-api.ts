@@ -1,7 +1,6 @@
-// Free APIs used:
-// - Countries: https://restcountries.com/v3.1/all
-// - States/Cities: https://countriesnow.space/api/v0.1/countries/states and /state/cities
-// Note: We cache results in-memory on the server to avoid rate limits.
+// Location API - Full coverage with AGGRESSIVE caching
+// Uses external APIs for COMPLETE data (205 countries, all states, all cities)
+// But with smart caching to minimize costs
 
 type CountryAPI = {
   name: { common: string };
@@ -12,21 +11,9 @@ type CountryAPI = {
   flag?: string;
 };
 
-const memoryCache = new Map<string, { timestamp: number; data: any }>();
-const HOUR = 1000 * 60 * 60;
-
-async function cachedFetch<T>(key: string, fetcher: () => Promise<T>, ttlMs = HOUR): Promise<T> {
-  const now = Date.now();
-  const cached = memoryCache.get(key);
-  if (cached && now - cached.timestamp < ttlMs) return cached.data as T;
-  const data = await fetcher();
-  memoryCache.set(key, { timestamp: now, data });
-  return data as T;
-}
-
 export type Country = {
   name: string;
-  code: string; // cca2 or cca3
+  code: string;
   flag: string;
   currencies: string[];
   timezones: string[];
@@ -40,37 +27,58 @@ export type City = {
   name: string;
 };
 
+// In-memory cache with LONG TTL (survives during build)
+const memoryCache = new Map<string, { timestamp: number; data: unknown }>();
+const HOUR = 1000 * 60 * 60;
+const DAY = HOUR * 24;
+
+async function cachedFetch<T>(key: string, fetcher: () => Promise<T>, ttlMs = DAY * 7): Promise<T> {
+  const now = Date.now();
+  const cached = memoryCache.get(key);
+  if (cached && now - cached.timestamp < ttlMs) return cached.data as T;
+  const data = await fetcher();
+  memoryCache.set(key, { timestamp: now, data });
+  return data as T;
+}
+
+/**
+ * Get ALL countries (205+) - cached for 7 days
+ */
 export async function getAllCountriesAPI(): Promise<Country[]> {
   return cachedFetch('countries', async () => {
-    // Primary source: restcountries
     try {
-      const res = await fetch('https://restcountries.com/v3.1/all', { next: { revalidate: 86400 } });
+      // Use Next.js fetch cache - revalidate every 30 days (2592000 seconds)
+      const res = await fetch('https://restcountries.com/v3.1/all', {
+        next: { revalidate: 2592000 } // 30 days cache!
+      });
       if (!res.ok) throw new Error('restcountries not ok');
       const json = (await res.json()) as CountryAPI[];
       const out = json
         .map((c) => ({
           name: c.name?.common ?? 'Unknown',
           code: c.cca2 || c.cca3 || c.name?.common || 'XX',
-          flag: (c as any).flag || '',
+          flag: (c as Record<string, unknown>).flag as string || '',
           currencies: c.currencies ? Object.keys(c.currencies) : [],
           timezones: c.timezones || [],
         }))
         .filter((c) => !!c.name)
         .sort((a, b) => a.name.localeCompare(b.name));
       if (out.length) return out;
-    } catch (e) {
+    } catch {
       // fallthrough to secondary source
     }
 
     // Secondary source: countriesnow
     try {
-      const res2 = await fetch('https://countriesnow.space/api/v0.1/countries', { next: { revalidate: 86400 } });
+      const res2 = await fetch('https://countriesnow.space/api/v0.1/countries', {
+        next: { revalidate: 2592000 } // 30 days cache!
+      });
       const json2 = await res2.json();
-      const list = (json2?.data as any[]) || [];
+      const list = (json2?.data as Record<string, unknown>[]) || [];
       const out2: Country[] = list
         .map((x) => ({
           name: x.country as string,
-          code: x.iso2 || x.iso3 || x.country,
+          code: (x.iso2 || x.iso3 || x.country) as string,
           flag: '',
           currencies: [],
           timezones: [],
@@ -78,44 +86,56 @@ export async function getAllCountriesAPI(): Promise<Country[]> {
         .filter((c) => !!c.name)
         .sort((a, b) => a.name.localeCompare(b.name));
       if (out2.length) return out2;
-    } catch (e) {
+    } catch {
       // give up
     }
 
     return [];
-  }, 12 * HOUR);
+  }, DAY * 30); // 30 days memory cache
 }
 
+/**
+ * Get ALL states for a country - cached for 30 days
+ */
 export async function getStatesByCountryAPI(countryName: string): Promise<State[]> {
   return cachedFetch(`states:${countryName}`, async () => {
-    const res = await fetch('https://countriesnow.space/api/v0.1/countries/states', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ country: countryName }),
-      next: { revalidate: 86400 },
-    });
-    const json = await res.json();
-    if (!json?.data?.states) return [];
-    return (json.data.states as any[])
-      .map((s) => ({ name: s.name as string }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }, 12 * HOUR);
+    try {
+      const res = await fetch('https://countriesnow.space/api/v0.1/countries/states', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ country: countryName }),
+        next: { revalidate: 2592000 }, // 30 days cache!
+      });
+      const json = await res.json();
+      if (!json?.data?.states) return [];
+      return (json.data.states as { name: string }[])
+        .map((s) => ({ name: s.name }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    } catch {
+      return [];
+    }
+  }, DAY * 30); // 30 days memory cache
 }
 
+/**
+ * Get ALL cities for a state - cached for 30 days
+ */
 export async function getCitiesByStateAPI(countryName: string, stateName: string): Promise<City[]> {
   return cachedFetch(`cities:${countryName}:${stateName}`, async () => {
-    const res = await fetch('https://countriesnow.space/api/v0.1/countries/state/cities', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ country: countryName, state: stateName }),
-      next: { revalidate: 86400 },
-    });
-    const json = await res.json();
-    if (!json?.data) return [];
-    return (json.data as string[])
-      .map((name) => ({ name }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }, 12 * HOUR);
+    try {
+      const res = await fetch('https://countriesnow.space/api/v0.1/countries/state/cities', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ country: countryName, state: stateName }),
+        next: { revalidate: 2592000 }, // 30 days cache!
+      });
+      const json = await res.json();
+      if (!json?.data) return [];
+      return (json.data as string[])
+        .map((name) => ({ name }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    } catch {
+      return [];
+    }
+  }, DAY * 30); // 30 days memory cache
 }
-
-
