@@ -4,63 +4,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-// =============================================================================
-// PREMIUM BUTTON VARIANTS - World-Class Design System
-// =============================================================================
-
 const buttonVariants = cva(
-  // Base styles with premium transitions
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        // Default - Gradient with glow
         default:
-          "bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-lg shadow-brand-500/25 hover:from-brand-600 hover:to-brand-700 hover:shadow-xl hover:shadow-brand-500/30 hover:-translate-y-0.5 active:scale-[0.98]",
-
-        // Destructive
+          "bg-brand-500 text-white hover:bg-brand-600 shadow-soft hover:shadow-medium active:scale-[0.98]",
         destructive:
-          "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/25 hover:from-red-600 hover:to-red-700 hover:shadow-xl hover:shadow-red-500/30 hover:-translate-y-0.5 active:scale-[0.98]",
-
-        // Outline - Border with fill on hover
+          "bg-red-500 text-white hover:bg-red-600 shadow-soft hover:shadow-medium active:scale-[0.98]",
         outline:
-          "border-2 border-brand-500 bg-transparent text-brand-600 hover:bg-brand-50 hover:border-brand-600 dark:text-brand-400 dark:hover:bg-brand-950/50 dark:hover:text-brand-300",
-
-        // Secondary
+          "border border-white/10 bg-transparent text-white hover:bg-white/5 hover:border-white/20",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 hover:-translate-y-0.5",
-
-        // Ghost - Minimal
+          "bg-secondary text-secondary-foreground shadow-soft hover:bg-secondary/80",
         ghost:
           "hover:bg-accent hover:text-accent-foreground",
-
-        // Link
         link:
-          "text-brand-600 underline-offset-4 hover:underline dark:text-brand-400",
-
-        // Glass - Glassmorphism effect
-        glass:
-          "bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-glass hover:bg-white/90 dark:hover:bg-slate-800/90 hover:shadow-glass-hover text-foreground",
-
-        // Glow - Pulsing glow effect
-        glow:
-          "bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-[0_0_20px_rgba(16,185,129,0.5)] hover:shadow-[0_0_30px_rgba(16,185,129,0.7)] hover:-translate-y-0.5 active:scale-[0.98]",
-
-        // Premium - Shimmer effect
-        premium:
-          "relative overflow-hidden bg-gradient-to-r from-brand-500 via-brand-400 to-brand-600 text-white shadow-xl before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700 hover:-translate-y-0.5 active:scale-[0.98]",
-
-        // Gradient Aurora - Multi-color gradient
-        aurora:
-          "bg-gradient-to-r from-brand-500 via-teal-500 to-cyan-500 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] bg-[length:200%_100%] hover:bg-right transition-all duration-500",
-
-        // Soft - Subtle background
+          "text-brand-500 underline-offset-4 hover:underline",
         soft:
-          "bg-brand-100 text-brand-700 hover:bg-brand-200 dark:bg-brand-900/50 dark:text-brand-300 dark:hover:bg-brand-900/70",
-
-        // Neumorphic
-        neu:
-          "bg-slate-100 dark:bg-slate-800 shadow-neu-light dark:shadow-neu-dark hover:shadow-neu-light-pressed dark:hover:shadow-neu-dark-pressed text-foreground",
+          "bg-brand-500/10 text-brand-500 hover:bg-brand-500/20",
       },
       size: {
         default: "h-11 px-5 py-2.5",
@@ -78,10 +40,6 @@ const buttonVariants = cva(
     },
   }
 )
-
-// =============================================================================
-// BUTTON COMPONENT
-// =============================================================================
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -107,8 +65,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }, ref) => {
     const isDisabled = disabled || loading
 
-    // When asChild is true, Slot expects a single child element
-    // Pass children directly without wrapping with icons/spinner
     if (asChild) {
       return (
         <Slot
@@ -121,7 +77,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       )
     }
 
-    // Standard button with icons and loading state
     return (
       <button
         className={cn(buttonVariants({ variant, size, className }))}
@@ -129,7 +84,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled}
         {...props}
       >
-        {/* Loading Spinner */}
         {loading && (
           <svg
             className="animate-spin h-4 w-4"
@@ -152,16 +106,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             />
           </svg>
         )}
-
-        {/* Left Icon */}
         {!loading && leftIcon && (
           <span className="shrink-0">{leftIcon}</span>
         )}
-
-        {/* Button Text */}
         {children}
-
-        {/* Right Icon */}
         {rightIcon && (
           <span className="shrink-0">{rightIcon}</span>
         )}
@@ -170,10 +118,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 )
 Button.displayName = "Button"
-
-// =============================================================================
-// ICON BUTTON - Specialized for icon-only buttons
-// =============================================================================
 
 export interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -202,10 +146,6 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   }
 )
 IconButton.displayName = "IconButton"
-
-// =============================================================================
-// BUTTON GROUP
-// =============================================================================
 
 interface ButtonGroupProps {
   children: React.ReactNode

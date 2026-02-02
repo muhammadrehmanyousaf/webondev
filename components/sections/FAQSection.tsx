@@ -2,46 +2,62 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, MessageCircleQuestion, ArrowRight, HelpCircle, Sparkles } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { FAQSchema } from '@/components/seo/SchemaScript';
 import type { FAQItem } from '@/lib/schema';
 
 // =============================================================================
-// FAQ DATA
+// FAQ DATA - SEO-OPTIMIZED FOR GOOGLE FEATURED SNIPPETS
+// Questions target high-volume long-tail keywords that trigger FAQ rich results
 // =============================================================================
 
 const homeFAQs: FAQItem[] = [
   {
     question: 'What services does Web On Dev offer?',
     answer:
-      'Web On Dev provides comprehensive digital solutions including custom web development, mobile app development, e-commerce solutions, SEO optimization, digital marketing, and UI/UX design. We specialize in building scalable, high-performance applications using modern technologies like Next.js, React, and Node.js.',
+      'Web On Dev is a full-service software development company offering custom web development, mobile app development (iOS & Android), e-commerce solutions, SaaS product development, UI/UX design, SEO optimization, digital marketing, cloud infrastructure & DevOps, and ongoing maintenance & support. We build scalable, high-performance applications using modern technologies including Next.js, React, Node.js, TypeScript, Python, Flutter, and AWS.',
   },
   {
-    question: 'How long does it take to build a website?',
+    question: 'How much does it cost to build a custom website in 2025?',
     answer:
-      'Project timelines vary based on complexity. A simple business website typically takes 4-6 weeks, while complex web applications can take 12-16 weeks or more. We provide detailed project timelines after understanding your requirements during our initial consultation.',
+      'The cost of building a custom website depends on project scope, features, and complexity. At Web On Dev, basic business websites start from $5,000, mid-range websites with custom functionality range from $10,000 to $25,000, and enterprise-grade web applications with advanced features can exceed $50,000. Every project includes responsive design, SEO optimization, security best practices, and post-launch support. We provide detailed, transparent quotes after a free discovery call.',
   },
   {
-    question: 'What is your development process?',
+    question: 'How long does it take to develop a website or web application?',
     answer:
-      'We follow an agile development methodology with four main phases: Discovery & Planning (understanding your needs), Design & Prototyping (creating wireframes and mockups), Development & Testing (building and quality assurance), and Launch & Support (deployment and ongoing maintenance).',
+      'Development timelines vary based on project complexity. A simple business or portfolio website typically takes 4 to 6 weeks. A custom web application with user authentication, dashboards, and integrations takes 8 to 12 weeks. Large-scale enterprise platforms and SaaS products can take 12 to 20 weeks or more. We follow agile methodology with weekly progress updates so you always know where your project stands.',
   },
   {
-    question: 'Do you provide ongoing support after launch?',
+    question: 'What is your software development process?',
     answer:
-      'Yes, we offer comprehensive post-launch support including bug fixes, security updates, performance monitoring, content updates, and feature enhancements. Our support packages range from basic maintenance to full-service management depending on your needs.',
+      'We follow a proven 4-phase agile development process. Phase 1: Discovery & Strategy — we analyze your requirements, target audience, and business goals. Phase 2: Design & Prototyping — we create wireframes, UI/UX mockups, and interactive prototypes for your approval. Phase 3: Development & QA — our engineers build your solution with clean, scalable code and thorough quality assurance testing. Phase 4: Launch & Growth — we deploy your project, provide training, and offer ongoing support with performance monitoring and iterative improvements.',
   },
   {
-    question: 'How much does a custom website cost?',
+    question: 'Do you provide ongoing website maintenance and support after launch?',
     answer:
-      'Pricing depends on project scope, features, and complexity. Basic websites start from $5,000, business websites range from $10,000-$25,000, and enterprise solutions can exceed $50,000. We provide detailed quotes after our discovery call to ensure accurate pricing for your specific requirements.',
+      'Yes, we provide comprehensive post-launch support and maintenance for all projects. Our support includes bug fixes, security patches and updates, performance monitoring and optimization, content updates, feature enhancements, server and hosting management, and 24/7 emergency support for critical issues. We offer flexible monthly maintenance plans ranging from basic upkeep to full-service management tailored to your business needs.',
+  },
+  {
+    question: 'What technologies and frameworks do you use for web development?',
+    answer:
+      'We use industry-leading technologies chosen for performance, scalability, and maintainability. For frontend development: React, Next.js, Vue.js, TypeScript, and Tailwind CSS. For backend development: Node.js, Python, Laravel, and PostgreSQL. For mobile apps: React Native and Flutter for cross-platform development. For cloud & DevOps: AWS, Google Cloud, Docker, Kubernetes, and CI/CD pipelines. We select the optimal tech stack based on your specific project requirements and business goals.',
+  },
+  {
+    question: 'Can you help improve my website SEO and search engine rankings?',
+    answer:
+      'Absolutely. SEO is built into every project we deliver. Our SEO services include technical SEO audits and fixes, on-page optimization with structured data markup (Schema.org), page speed and Core Web Vitals optimization, keyword research and content strategy, local SEO for businesses targeting specific regions, and ongoing performance tracking with monthly reports. Our clients typically see 200% to 400% improvement in organic search traffic within 6 months of optimization.',
+  },
+  {
+    question: 'Do you build mobile apps for iOS and Android?',
+    answer:
+      'Yes, we develop high-quality mobile applications for both iOS and Android platforms. We specialize in cross-platform development using React Native and Flutter, which allows us to build a single codebase that runs natively on both platforms — reducing development cost and time while maintaining native performance. We handle the entire mobile app lifecycle from UI/UX design and development to app store submission, launch, and post-launch updates.',
   },
 ];
 
 // =============================================================================
-// FAQ ITEM COMPONENT
+// FAQ ITEM COMPONENT - WITH MICRODATA FOR DOUBLE SEO SIGNALS
 // =============================================================================
 
 interface FAQItemProps {
@@ -52,59 +68,80 @@ interface FAQItemProps {
 }
 
 const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
+  const num = String(index + 1).padStart(2, '0');
+
   return (
     <motion.div
       className="group relative"
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
+      transition={{ delay: index * 0.05, duration: 0.4 }}
+      itemScope
+      itemProp="mainEntity"
+      itemType="https://schema.org/Question"
     >
-      {/* Glow Effect */}
-      <div className={`absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-2xl blur opacity-0 ${isOpen ? 'opacity-20' : 'group-hover:opacity-10'} transition-opacity duration-500`} />
-
-      <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:border-brand-500/30 transition-all duration-500 overflow-hidden">
+      <div className={`relative rounded-2xl border ${isOpen ? 'border-brand-500/20 bg-white/[0.03]' : 'border-white/[0.06] bg-white/[0.01] hover:border-white/[0.1]'} transition-all duration-300 overflow-hidden`}>
         <button
           type="button"
           onClick={onToggle}
-          className="w-full px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left hover:bg-brand-500/5 transition-colors duration-300"
-          aria-expanded={isOpen ? "true" : "false"}
+          className="w-full px-4 py-3.5 sm:px-5 sm:py-4 lg:px-6 lg:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left"
+          aria-expanded={isOpen ? 'true' : 'false'}
         >
-          <div className="flex items-center gap-4">
-            <motion.div
-              className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isOpen ? 'bg-gradient-to-br from-brand-500 to-teal-500' : 'bg-brand-500/10'} transition-all duration-300`}
-            >
-              <HelpCircle className={`w-5 h-5 ${isOpen ? 'text-white' : 'text-brand-400'}`} />
-            </motion.div>
-            <span className={`text-base sm:text-lg font-semibold ${isOpen ? 'text-brand-400' : 'text-white'} transition-colors duration-300`}>
-              {faq.question}
+          <div className="flex items-center gap-2.5 sm:gap-3 lg:gap-4">
+            <span className={`text-xs sm:text-sm font-mono font-bold shrink-0 ${isOpen ? 'text-brand-400' : 'text-slate-600'} transition-colors duration-200`}>
+              {num}
             </span>
+            <h3
+              className={`text-sm sm:text-base lg:text-lg font-semibold ${isOpen ? 'text-white' : 'text-slate-200'} transition-colors duration-200`}
+              itemProp="name"
+            >
+              {faq.question}
+            </h3>
           </div>
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-            className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${isOpen ? 'bg-brand-500/20' : 'bg-white/5'} transition-colors duration-300`}
+            transition={{ duration: 0.2 }}
+            className="shrink-0"
           >
-            <ChevronDown className={`w-5 h-5 ${isOpen ? 'text-brand-400' : 'text-slate-400'}`} />
+            <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 ${isOpen ? 'text-brand-400' : 'text-slate-500'}`} />
           </motion.div>
         </button>
 
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-            >
-              <div className="px-4 pb-4 sm:px-6 sm:pb-6 pt-0">
-                <div className="border-t border-white/10 pt-4 ml-0 sm:ml-14">
-                  <p className="text-slate-300 leading-relaxed">{faq.answer}</p>
+        <div
+          itemScope
+          itemProp="acceptedAnswer"
+          itemType="https://schema.org/Answer"
+        >
+          <AnimatePresence initial={false}>
+            {isOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              >
+                <div className="px-4 pb-4 sm:px-5 sm:pb-5 lg:px-6 lg:pb-6 pt-0">
+                  <div className="border-t border-white/[0.06] pt-3 sm:pt-4 ml-0 sm:ml-9">
+                    <p
+                      className="text-slate-400 leading-relaxed text-[13px] sm:text-sm lg:text-[15px]"
+                      itemProp="text"
+                    >
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Hidden answer text for crawlers (since AnimatePresence hides it visually) */}
+          {!isOpen && (
+            <div className="sr-only" itemProp="text">
+              {faq.answer}
+            </div>
           )}
-        </AnimatePresence>
+        </div>
       </div>
     </motion.div>
   );
@@ -125,7 +162,7 @@ interface FAQSectionProps {
 const FAQSection = ({
   faqs = homeFAQs,
   title = 'Frequently Asked Questions',
-  subtitle = 'Find answers to common questions about our services, process, and pricing',
+  subtitle = 'Find answers to common questions about our services, process, and pricing.',
   showSchema = true,
   showCTA = true,
 }: FAQSectionProps) => {
@@ -137,74 +174,57 @@ const FAQSection = ({
 
   return (
     <>
-      {/* FAQ Schema for SEO */}
+      {/* FAQ Schema JSON-LD for Google Rich Results */}
       {showSchema && <FAQSchema faqs={faqs} />}
 
-      <section className="relative py-16 sm:py-20 lg:py-32 bg-slate-950 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Animated Gradient Orbs */}
-          <motion.div
-            className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-500/15 rounded-full blur-[120px]"
-            animate={{
-              x: [0, 30, 0],
-              y: [0, 20, 0],
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-teal-500/15 rounded-full blur-[120px]"
-            animate={{
-              x: [0, -30, 0],
-              y: [0, -20, 0],
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
+      <section
+        className="relative py-12 sm:py-14 lg:py-20 bg-[#030712] overflow-hidden"
+        itemScope
+        itemType="https://schema.org/FAQPage"
+      >
+        {/* Background */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 40% 30% at 30% 50%, rgba(6,182,212,0.04), transparent 70%)',
+          }}
+        />
+        <div className="grain absolute inset-0" />
 
-          {/* Dot Pattern */}
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `radial-gradient(rgba(16, 185, 129, 0.2) 1px, transparent 1px)`,
-              backgroundSize: '40px 40px',
-            }}
-          />
-        </div>
+        {/* Divider */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-6 sm:mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-            >
-              <MessageCircleQuestion className="w-4 h-4" />
-              <span>Got Questions?</span>
-            </motion.div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full gradient-border-subtle text-brand-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+              FAQ
+            </div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-white">Frequently Asked</span>
-              <br />
-              <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-                Questions
-              </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-2 sm:mb-3 leading-[1.1]">
+              {title.includes('Frequently') ? (
+                <>
+                  Questions?{' '}
+                  <span className="gradient-text">We have answers</span>
+                </>
+              ) : (
+                <span className="gradient-text">{title}</span>
+              )}
             </h2>
-            <p className="text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
               {subtitle}
             </p>
           </motion.div>
 
           {/* FAQ Items */}
-          <div className="space-y-4 mb-16">
+          <div className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
             {faqs.map((faq, index) => (
               <FAQItemComponent
                 key={index}
@@ -216,45 +236,40 @@ const FAQSection = ({
             ))}
           </div>
 
-          {/* CTA Section */}
+          {/* CTA */}
           {showCTA && (
             <motion.div
-              className="relative"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              transition={{ delay: 0.2, duration: 0.4 }}
+              className="text-center"
             >
-              {/* Glass Container */}
-              <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-8 border border-white/10 text-center">
-                <motion.div
-                  className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-500 to-teal-500 mb-6 shadow-lg shadow-brand-500/25"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
-                  <Sparkles className="w-8 h-8 text-white" />
-                </motion.div>
+              <div className="relative rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 border border-white/[0.06] rounded-2xl" />
+                <div className="absolute inset-0" style={{
+                  background: 'linear-gradient(135deg, rgba(16,185,129,0.06) 0%, rgba(6,182,212,0.03) 100%)',
+                }} />
 
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  Still Have Questions?
-                </h3>
-                <p className="text-slate-300 mb-8 max-w-md mx-auto">
-                  Can&apos;t find what you&apos;re looking for? We&apos;re here to help!
-                </p>
+                <div className="relative p-5 sm:p-6 lg:p-8">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-1.5 sm:mb-2">
+                    Still have questions?
+                  </h3>
+                  <p className="text-slate-400 mb-3 sm:mb-4 max-w-md mx-auto text-xs sm:text-sm">
+                    Can&apos;t find what you&apos;re looking for? We&apos;re here to help.
+                  </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button asChild variant="glow" size="lg" className="rounded-full group">
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <Button asChild size="lg" className="rounded-full px-8 shadow-[0_0_30px_rgba(16,185,129,0.15)]">
                       <Link href="/contact" className="flex items-center gap-2">
                         Contact Us
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-4 h-4" />
                       </Link>
                     </Button>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button asChild variant="outline" size="lg" className="rounded-full border-white/20 text-white hover:bg-white/10">
+                    <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-white/10 hover:border-white/20 hover:bg-white/[0.03]">
                       <Link href="/services">Explore Services</Link>
                     </Button>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -1,234 +1,13 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Play, CheckCircle, Star, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle, Star, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
-import { gsap } from 'gsap';
 
 // =============================================================================
-// ANIMATED MESH GRADIENT BACKGROUND
-// =============================================================================
-
-const MeshGradientBackground = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      {/* Primary mesh gradient */}
-      <div className="absolute inset-0 bg-slate-950" />
-
-      {/* Animated gradient orbs */}
-      <motion.div
-        className="absolute w-[800px] h-[800px] rounded-full blur-[120px] opacity-30"
-        style={{
-          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%)',
-          top: '-20%',
-          left: '-10%',
-        }}
-        animate={{
-          x: [0, 100, 0],
-          y: [0, 50, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
-
-      <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full blur-[100px] opacity-20"
-        style={{
-          background: 'radial-gradient(circle, rgba(20, 184, 166, 0.5) 0%, transparent 70%)',
-          bottom: '-10%',
-          right: '-5%',
-        }}
-        animate={{
-          x: [0, -80, 0],
-          y: [0, -60, 0],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
-
-      <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full blur-[80px] opacity-15"
-        style={{
-          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)',
-          top: '40%',
-          right: '20%',
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.15, 0.25, 0.15],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-
-      {/* Grid pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(16, 185, 129, 0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px',
-        }}
-      />
-    </div>
-  );
-};
-
-// =============================================================================
-// PARTICLE SYSTEM
-// =============================================================================
-
-const ParticleField = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
-      opacity: number;
-    }> = [];
-
-    // Create particles
-    for (let i = 0; i < 50; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
-      });
-    }
-
-    let animationId: number;
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((particle) => {
-        // Update position
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-        // Wrap around screen
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(16, 185, 129, ${particle.opacity})`;
-        ctx.fill();
-      });
-
-      // Draw connections
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach((p2) => {
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 150) {
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(16, 185, 129, ${0.1 * (1 - distance / 150)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-      });
-
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-    />
-  );
-};
-
-// =============================================================================
-// FLOATING STATS BADGES
-// =============================================================================
-
-const FloatingStatBadge = ({
-  value,
-  label,
-  icon,
-  delay,
-  position,
-}: {
-  value: string;
-  label: string;
-  icon: React.ReactNode;
-  delay: number;
-  position: string;
-}) => {
-  return (
-    <motion.div
-      className={`absolute ${position} hidden lg:flex items-center gap-3 glass-card p-4 rounded-2xl shadow-glass`}
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ delay, duration: 0.6, ease: 'easeOut' }}
-    >
-      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-500/25">
-        {icon}
-      </div>
-      <div>
-        <div className="text-xl font-bold text-foreground">{value}</div>
-        <div className="text-sm text-muted-foreground">{label}</div>
-      </div>
-    </motion.div>
-  );
-};
-
-// =============================================================================
-// ROTATING TEXT COMPONENT
+// ROTATING TEXT
 // =============================================================================
 
 const RotatingText = () => {
@@ -243,15 +22,15 @@ const RotatingText = () => {
   }, []);
 
   return (
-    <span className="relative inline-block min-w-[160px] sm:min-w-[250px] md:min-w-[300px]">
+    <span className="relative inline-block min-w-[160px] sm:min-w-[220px] md:min-w-[300px] lg:min-w-[420px]">
       <AnimatePresence mode="wait">
         <motion.span
           key={currentIndex}
           className="gradient-text"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          exit={{ opacity: 0, y: -30, filter: 'blur(8px)' }}
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         >
           {words[currentIndex]}
         </motion.span>
@@ -261,208 +40,173 @@ const RotatingText = () => {
 };
 
 // =============================================================================
-// MAIN HERO COMPONENT
+// HERO SECTION
 // =============================================================================
 
 const HeroSectionBeams = () => {
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const badgesRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
-      tl.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }
-      )
-        .fromTo(
-          subtitleRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1, ease: 'power2.out' },
-          '-=0.6'
-        )
-        .fromTo(
-          ctaRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-          '-=0.4'
-        )
-        .fromTo(
-          badgesRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.6, ease: 'power2.out' },
-          '-=0.3'
-        );
-    });
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-24 pb-12 md:pt-16 md:pb-0">
-      {/* Background Layers */}
-      <MeshGradientBackground />
-      <ParticleField />
+    <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#030712] pt-16 pb-12 md:pt-20 md:pb-20">
+      {/* === LAYERED BACKGROUND === */}
 
-      {/* Floating Stat Badges */}
-      <FloatingStatBadge
-        value="500+"
-        label="Projects"
-        icon={<CheckCircle className="w-6 h-6" />}
-        delay={1.5}
-        position="top-[25%] left-[8%]"
-      />
-      <FloatingStatBadge
-        value="4.9/5"
-        label="Rating"
-        icon={<Star className="w-6 h-6" />}
-        delay={1.8}
-        position="top-[35%] right-[8%]"
-      />
-      <FloatingStatBadge
-        value="200+"
-        label="Clients"
-        icon={<Sparkles className="w-6 h-6" />}
-        delay={2.1}
-        position="bottom-[30%] left-[12%]"
+      {/* Base radial gradient - ambient light */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16,185,129,0.15), transparent 70%)',
+        }}
       />
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto">
-          {/* Premium Badge */}
+      {/* Secondary glow - lower */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 50% 30% at 50% 60%, rgba(6,182,212,0.06), transparent 70%)',
+        }}
+      />
+
+      {/* Grid lines */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px',
+        }}
+      />
+
+      {/* Grain texture */}
+      <div className="grain absolute inset-0" />
+
+      {/* Central glow behind heading */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] md:w-[900px] md:h-[500px] rounded-full opacity-30 blur-[120px]"
+        style={{
+          background: 'linear-gradient(135deg, rgba(16,185,129,0.4) 0%, rgba(6,182,212,0.2) 50%, rgba(16,185,129,0.1) 100%)',
+        }}
+      />
+
+      {/* === CONTENT === */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          {/* Announcement Badge */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-8"
+            transition={{ duration: 0.6 }}
           >
-            <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
-            <span className="text-sm font-medium text-brand-400">
-              Trusted by 200+ Companies Worldwide
-            </span>
+            <Link
+              href="/portfolio"
+              className="group inline-flex items-center gap-2.5 px-5 py-2 rounded-full gradient-border-subtle hover:opacity-90 transition-opacity mb-6 sm:mb-8"
+            >
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-500/20">
+                <Sparkles className="w-3 h-3 text-brand-400" />
+              </span>
+              <span className="text-sm text-slate-300">
+                See our latest work — <span className="text-brand-400 font-semibold group-hover:text-brand-300 transition-colors">View Portfolio</span>
+              </span>
+              <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-brand-400 group-hover:translate-x-0.5 transition-all" />
+            </Link>
           </motion.div>
 
-          {/* Hero Title */}
-          <h1
-            ref={titleRef}
-            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight tracking-tight"
+          {/* Main Heading */}
+          <motion.h1
+            className="text-[2rem] sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-5 sm:mb-6 lg:mb-8 leading-[1.05] tracking-tight"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            Transform Your
+            We Build Software
+            <br />
+            <span className="text-slate-400">That Moves Your</span>
             <br />
             <RotatingText />
-            <br />
-            Into Reality
-          </h1>
+          </motion.h1>
 
-          {/* Hero Subtitle */}
-          <p
-            ref={subtitleRef}
-            className="text-lg md:text-xl lg:text-2xl text-slate-300 mb-10 leading-relaxed max-w-3xl mx-auto"
+          {/* Subtitle */}
+          <motion.p
+            className="hero-description text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            We deliver cutting-edge web development, mobile apps, and digital solutions
-            that drive business growth. Your success is our mission.
-          </p>
+            Enterprise-grade web development, mobile apps, and digital solutions.
+            <span className="text-slate-300"> Built for scale. Designed for impact.</span>
+          </motion.p>
 
           {/* CTA Buttons */}
-          <div
-            ref={ctaRef}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          <motion.div
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-10 sm:mb-14 lg:mb-16"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <Button
-              asChild
-              size="xl"
-              variant="glow"
-              className="rounded-full group"
-            >
-              <Link href="/contact" className="flex items-center gap-2">
+            <Button asChild size="xl" className="w-full sm:w-auto rounded-full px-8 sm:px-10 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+              <Link href="/contact" className="flex items-center justify-center gap-2.5">
                 Start Your Project
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
-            <Button
-              asChild
-              size="xl"
-              variant="glass"
-              className="rounded-full group"
-            >
-              <Link href="/portfolio" className="flex items-center gap-2">
-                <Play className="w-5 h-5" />
+            <Button asChild size="xl" variant="outline" className="w-full sm:w-auto rounded-full px-8 sm:px-10 border-white/10 hover:border-white/20 hover:bg-white/[0.03]">
+              <Link href="/portfolio" className="flex items-center justify-center gap-2.5">
                 View Our Work
               </Link>
             </Button>
-          </div>
+          </motion.div>
 
-          {/* Trust Badges Row */}
-          <div
-            ref={badgesRef}
-            className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8 border-t border-slate-800/50"
+          {/* Trust Metrics - Redesigned as cards */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <div className="flex items-center gap-2">
+            {/* Client Count */}
+            <div className="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/[0.06]">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4, 5].map((i) => (
+                {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full border-2 border-slate-950 bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-xs font-bold text-white"
+                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-[#030712] bg-gradient-to-br from-brand-500/30 to-teal-500/30 flex items-center justify-center text-[8px] sm:text-[10px] font-bold text-brand-300"
                   >
                     {String.fromCharCode(64 + i)}
                   </div>
                 ))}
               </div>
-              <span className="text-slate-400 text-sm ml-2">
-                Join 200+ happy clients
-              </span>
+              <div className="text-left">
+                <div className="text-white font-semibold text-xs sm:text-sm">200+ Clients</div>
+                <div className="text-slate-500 text-[10px] sm:text-xs">Worldwide</div>
+              </div>
             </div>
 
-            <div className="hidden sm:block w-px h-8 bg-slate-700" />
-
-            <div className="flex items-center gap-1">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star
-                  key={i}
-                  className="w-5 h-5 text-yellow-500 fill-yellow-500"
-                />
-              ))}
-              <span className="text-slate-400 text-sm ml-2">4.9/5 on Clutch</span>
+            {/* Rating */}
+            <div className="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+              <div className="flex gap-0.5">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400 fill-amber-400" />
+                ))}
+              </div>
+              <div className="text-left">
+                <div className="text-white font-semibold text-xs sm:text-sm">4.9/5 Rating</div>
+                <div className="text-slate-500 text-[10px] sm:text-xs">on Clutch</div>
+              </div>
             </div>
 
-            <div className="hidden sm:block w-px h-8 bg-slate-700" />
-
-            <div className="flex items-center gap-2 text-slate-400 text-sm">
-              <CheckCircle className="w-5 h-5 text-brand-500" />
-              <span>10+ Years Experience</span>
+            {/* Experience */}
+            <div className="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+              <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-brand-400" />
+              <div className="text-left">
+                <div className="text-white font-semibold text-xs sm:text-sm">10+ Years</div>
+                <div className="text-slate-500 text-[10px] sm:text-xs">Experience</div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 sm:w-40 sm:h-40 border border-brand-500/10 rounded-full blur-xl" />
-      <div className="absolute bottom-40 right-10 sm:right-20 w-32 h-32 sm:w-60 sm:h-60 border border-brand-500/5 rounded-full blur-2xl" />
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.6 }}
-      >
-        <motion.div
-          className="w-6 h-10 rounded-full border-2 border-brand-500/30 flex justify-center"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <motion.div
-            className="w-1.5 h-3 bg-brand-500 rounded-full mt-2"
-            animate={{ opacity: [1, 0, 1], y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        </motion.div>
-      </motion.div>
+      {/* Bottom fade-out */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
     </section>
   );
 };

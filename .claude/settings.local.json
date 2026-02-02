@@ -29,7 +29,9 @@
       "Bash(for file in wordpress-development.ts ecommerce-development.ts progressive-web-apps.ts api-development.ts frontend-development.ts backend-development.ts fullstack-development.ts)",
       "Bash(do sed -i 's/features: \\\\[/highlights: [/g' \"$file\")",
       "Bash(done)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:tryholo.ai)",
+      "Bash(npx next build)"
     ]
   }
 }

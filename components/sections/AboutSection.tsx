@@ -4,18 +4,11 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  CheckCircle,
   ArrowRight,
   Target,
   Users,
   Award,
   Lightbulb,
-  Sparkles,
-  Zap,
-  Shield,
-  Clock,
-  Code2,
-  Rocket,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -23,46 +16,36 @@ import { Button } from '@/components/ui/button';
 // DATA
 // =============================================================================
 
-const features = [
-  { icon: Code2, text: 'Expert Development Team' },
-  { icon: Zap, text: 'Agile Development Process' },
-  { icon: Shield, text: 'Quality Assurance & Testing' },
-  { icon: Clock, text: '24/7 Support & Maintenance' },
-  { icon: Rocket, text: 'Scalable & Secure Solutions' },
-  { icon: CheckCircle, text: 'On-Time Project Delivery' },
-];
-
 const values = [
   {
     icon: Target,
     title: 'Mission-Driven',
-    description: 'Delivering exceptional software solutions that transform businesses and drive growth.',
-    gradient: 'from-brand-500 to-teal-500',
+    description: 'Delivering exceptional software solutions that transform businesses and drive measurable growth.',
   },
   {
     icon: Users,
     title: 'Client-Focused',
-    description: 'Your success is our priority. We build long-term partnerships with our clients.',
-    gradient: 'from-teal-500 to-cyan-500',
+    description: 'Your success is our priority. We build long-term partnerships, not just products.',
   },
   {
     icon: Award,
     title: 'Quality Excellence',
     description: 'We maintain the highest standards in code quality, design, and project delivery.',
-    gradient: 'from-cyan-500 to-blue-500',
   },
   {
     icon: Lightbulb,
     title: 'Innovation First',
-    description: 'Leveraging cutting-edge technologies to create innovative digital solutions.',
-    gradient: 'from-purple-500 to-brand-500',
+    description: 'Leveraging cutting-edge technologies to create solutions that stay ahead of the curve.',
   },
 ];
 
-const stats = [
-  { value: '150+', label: 'Projects Completed', gradient: 'from-brand-400 to-teal-400' },
-  { value: '50+', label: 'Team Members', gradient: 'from-teal-400 to-cyan-400' },
-  { value: '5+', label: 'Years Experience', gradient: 'from-cyan-400 to-brand-400' },
+const capabilities = [
+  'Custom Web Applications',
+  'Mobile App Development',
+  'Cloud Infrastructure & DevOps',
+  'UI/UX Design & Branding',
+  'SEO & Growth Marketing',
+  'Ongoing Support & Maintenance',
 ];
 
 // =============================================================================
@@ -71,227 +54,170 @@ const stats = [
 
 const AboutSection = () => {
   return (
-    <section className="relative py-16 sm:py-20 lg:py-32 bg-gradient-to-b from-background via-slate-50/50 to-background dark:from-slate-950 dark:via-slate-900/30 dark:to-slate-950 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 right-20 w-[400px] h-[400px] bg-brand-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.15, 0.1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-20 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.15, 0.1, 0.15],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
+    <section className="relative py-12 sm:py-14 lg:py-20 bg-[#030712] overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 60% 40% at 80% 50%, rgba(6,182,212,0.04), transparent 70%)',
+        }}
+      />
+      <div className="grain absolute inset-0" />
 
-        {/* Grid Pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(16, 185, 129, 0.5) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(16, 185, 129, 0.5) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-      </div>
+      {/* Divider top */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main About Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center mb-16 sm:mb-24">
-          {/* Content */}
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start mb-8 sm:mb-10 lg:mb-14">
+          {/* Left content */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5 }}
           >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-sm font-semibold mb-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>About Us</span>
-            </motion.div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full gradient-border-subtle text-brand-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+              About Us
+            </div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Building Digital Excellence
-              <span className="block bg-gradient-to-r from-brand-500 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
-                Since 2019
-              </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-[1.1]">
+              Building digital
+              <br />
+              excellence{' '}
+              <span className="gradient-text">since 2019</span>
             </h2>
 
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              We are a full-service software development agency specializing in creating powerful digital solutions
-              that help businesses thrive in the modern digital landscape. Our team of expert developers, designers,
+            <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-4 sm:mb-6 max-w-lg">
+              We are a full-service software development company specializing in creating powerful
+              digital solutions that help businesses thrive. Our team of expert developers, designers,
               and strategists work together to deliver exceptional results.
             </p>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-white/20 dark:border-white/5 hover:border-brand-500/30 transition-all duration-300 group"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500/20 to-teal-500/20 flex items-center justify-center group-hover:from-brand-500/30 group-hover:to-teal-500/30 transition-colors">
-                    <feature.icon className="w-4 h-4 text-brand-600 dark:text-brand-400" />
-                  </div>
-                  <span className="text-foreground font-medium text-sm">{feature.text}</span>
-                </motion.div>
+            {/* Capabilities as a clean list */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-2 sm:gap-y-2.5 mb-4 sm:mb-6">
+              {capabilities.map((cap, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-1 h-1 rounded-full bg-brand-400 shrink-0" />
+                  <span className="text-sm text-slate-300 font-medium">{cap}</span>
+                </div>
               ))}
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mb-10">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-                >
-                  <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-1`}>
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-
-            <Button asChild variant="glow" size="lg" className="rounded-full group">
+            <Button asChild size="lg" className="rounded-full px-8 shadow-[0_0_30px_rgba(16,185,129,0.15)]">
               <Link href="/about" className="flex items-center gap-2">
                 Learn More About Us
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
           </motion.div>
 
-          {/* Image Section */}
+          {/* Right - Abstract visual / Stats card */}
           <motion.div
             className="relative"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5, delay: 0.15 }}
           >
-            {/* Decorative Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-500/20 via-teal-500/20 to-cyan-500/20 rounded-3xl transform rotate-3 blur-sm" />
+            <div className="relative gradient-border rounded-2xl">
+              <div className="relative rounded-2xl bg-[#060B18] p-5 sm:p-6 lg:p-10 overflow-hidden">
+                {/* Background decorative number */}
+                <span className="absolute -right-6 -top-8 text-[120px] sm:text-[150px] lg:text-[180px] font-black text-white/[0.015] leading-none select-none pointer-events-none">
+                  5+
+                </span>
 
-            {/* Main Card */}
-            <motion.div
-              className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-6 lg:p-8 shadow-2xl border border-white/20 dark:border-white/10"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <img
-                src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Our Development Team"
-                className="w-full h-52 sm:h-64 lg:h-80 object-cover rounded-2xl"
-              />
+                {/* Ambient glow */}
+                <div
+                  className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full opacity-20 blur-[80px]"
+                  style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.3), transparent 70%)' }}
+                />
 
-              {/* Floating Badge */}
-              <motion.div
-                className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-white dark:bg-slate-900 rounded-2xl p-3 sm:p-5 shadow-xl border border-white/20 dark:border-white/10"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/25">
-                    <Award className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground text-sm sm:text-lg">Award Winning</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground">Development Team</div>
-                  </div>
+                {/* Years badge */}
+                <div className="relative mb-4 sm:mb-6">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2">5+</div>
+                  <div className="text-brand-400 font-semibold text-sm sm:text-base lg:text-lg">Years of Experience</div>
+                  <div className="text-slate-500 text-sm mt-1">Delivering world-class software solutions</div>
                 </div>
-              </motion.div>
 
-              {/* Floating Stats */}
-              <motion.div
-                className="absolute -top-4 -left-4 bg-white dark:bg-slate-900 rounded-xl p-4 shadow-xl border border-white/20 dark:border-white/10"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.4 }}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-brand-500 animate-pulse" />
-                  <span className="text-sm font-semibold text-foreground">Available 24/7</span>
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r from-white/[0.06] via-white/[0.1] to-transparent mb-4 sm:mb-6" />
+
+                {/* Mini stats */}
+                <div className="grid grid-cols-3 gap-4 sm:gap-6">
+                  {[
+                    { value: '150+', label: 'Projects' },
+                    { value: '50+', label: 'Team Members' },
+                    { value: '200+', label: 'Clients' },
+                  ].map((stat) => (
+                    <div key={stat.label}>
+                      <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">{stat.value}</div>
+                      <div className="text-xs text-slate-500 mt-1">{stat.label}</div>
+                    </div>
+                  ))}
                 </div>
-              </motion.div>
-            </motion.div>
+
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r from-white/[0.06] via-white/[0.1] to-transparent my-4 sm:my-6" />
+
+                {/* Quote */}
+                <blockquote className="text-slate-400 text-sm leading-relaxed italic">
+                  &ldquo;We don&apos;t just build software — we engineer digital experiences that
+                  drive real business outcomes.&rdquo;
+                </blockquote>
+              </div>
+            </div>
           </motion.div>
         </div>
 
         {/* Values Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              Our Core <span className="bg-gradient-to-r from-brand-500 to-teal-500 bg-clip-text text-transparent">Values</span>
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              The principles that guide everything we do and help us deliver exceptional results for our clients.
-            </p>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4 mb-5 sm:mb-6 lg:mb-8">
+            <div>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">
+                Our core <span className="gradient-text">values</span>
+              </h3>
+              <p className="text-slate-400 max-w-lg text-sm sm:text-base">
+                The principles that guide everything we do.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 dark:border-white/5 hover:border-brand-500/30 transition-all duration-500"
-                initial={{ opacity: 0, y: 30 }}
+                className="group relative p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ delay: index * 0.08, duration: 0.4 }}
               >
-                {/* Glow Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
+                {/* Number */}
+                <span className="absolute top-4 right-5 text-[64px] font-black text-white/[0.02] leading-none select-none pointer-events-none">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
 
-                <div className={`
-                  w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-gradient-to-br ${value.gradient}
-                  flex items-center justify-center shadow-lg shadow-brand-500/20 mb-4 sm:mb-6
-                  group-hover:scale-110 group-hover:rotate-3 transition-all duration-300
-                `}>
-                  <value.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
+                <div className="relative">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4"
+                    style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.05))' }}
+                  >
+                    <value.icon className="w-5 h-5 text-brand-400" />
+                  </div>
+
+                  <h4 className="text-sm sm:text-base lg:text-lg font-bold text-white mb-1.5 sm:mb-2">
+                    {value.title}
+                  </h4>
+                  <p className="text-slate-500 leading-relaxed text-sm">
+                    {value.description}
+                  </p>
                 </div>
-
-                <h4 className="text-xl font-bold text-foreground mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                  {value.title}
-                </h4>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  {value.description}
-                </p>
-
-                {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-brand-500/5 to-transparent rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>

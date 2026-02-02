@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote, MessageSquare, Sparkles } from 'lucide-react';
-import Script from 'next/script';
+import { Star, Quote } from 'lucide-react';
 
 // =============================================================================
 // TESTIMONIALS DATA
@@ -18,9 +17,9 @@ const testimonials = [
     rating: 5,
     text: 'Web On Dev transformed our business with their exceptional web development services. Their team delivered a scalable, modern platform that exceeded our expectations.',
     avatar: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-    gradient: 'from-brand-500 to-teal-500',
     date: '2024-11-15',
     service: 'Web Development',
+    featured: true,
   },
   {
     id: 2,
@@ -30,7 +29,6 @@ const testimonials = [
     rating: 5,
     text: 'Outstanding mobile app development! They created a beautiful, user-friendly app that our customers love. The project was completed on time and within budget.',
     avatar: 'https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-    gradient: 'from-teal-500 to-cyan-500',
     date: '2024-10-28',
     service: 'Mobile App Development',
   },
@@ -42,7 +40,6 @@ const testimonials = [
     rating: 5,
     text: 'Their digital marketing expertise helped us increase our online presence by 300%. The team is professional, creative, and results-driven.',
     avatar: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-    gradient: 'from-cyan-500 to-blue-500',
     date: '2024-12-01',
     service: 'Digital Marketing',
   },
@@ -54,7 +51,6 @@ const testimonials = [
     rating: 5,
     text: 'Excellent cloud infrastructure setup and DevOps implementation. Our deployment process is now 10x faster and more reliable. Highly recommended!',
     avatar: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-    gradient: 'from-purple-500 to-brand-500',
     date: '2024-09-20',
     service: 'Cloud & DevOps',
   },
@@ -66,21 +62,8 @@ const testimonials = [
     rating: 5,
     text: 'The UI/UX design they created for our fintech platform is simply amazing. User engagement increased by 250% after the redesign. Fantastic work!',
     avatar: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-    gradient: 'from-pink-500 to-brand-500',
     date: '2024-08-15',
     service: 'UI/UX Design',
-  },
-  {
-    id: 6,
-    name: 'Robert Wilson',
-    position: 'Operations Head, LogiFlow',
-    company: 'LogiFlow',
-    rating: 5,
-    text: 'Their custom software solution streamlined our operations perfectly. The team understood our needs and delivered exactly what we needed.',
-    avatar: 'https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-    gradient: 'from-amber-500 to-brand-500',
-    date: '2024-10-10',
-    service: 'Custom Software',
   },
 ];
 
@@ -115,87 +98,63 @@ const reviewSchema = {
   })),
 };
 
-const stats = [
-  { emoji: '😊', value: '99%', label: 'Client Satisfaction', gradient: 'from-brand-400 to-teal-400' },
-  { emoji: '⭐', value: '4.9/5', label: 'Average Rating', gradient: 'from-teal-400 to-cyan-400' },
-  { emoji: '🎯', value: '150+', label: 'Happy Clients', gradient: 'from-cyan-400 to-brand-400' },
-];
-
 // =============================================================================
-// TESTIMONIAL CARD COMPONENT
+// TESTIMONIAL CARD
 // =============================================================================
 
-interface TestimonialCardProps {
-  testimonial: (typeof testimonials)[0];
-  index: number;
-}
+const TestimonialCard = ({ testimonial, index }: { testimonial: (typeof testimonials)[0]; index: number }) => {
+  const isFeatured = 'featured' in testimonial && testimonial.featured;
 
-const TestimonialCard = ({ testimonial, index }: TestimonialCardProps) => {
   return (
     <motion.div
-      className="group relative"
+      className={`group ${isFeatured ? 'md:col-span-2' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      viewport={{ once: true, margin: '-50px' }}
     >
-      {/* Glow Effect */}
-      <div className={`absolute -inset-0.5 bg-gradient-to-r ${testimonial.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+      <div className={`relative h-full rounded-xl sm:rounded-2xl ${isFeatured ? 'gradient-border' : ''} overflow-hidden`}>
+        <div className={`relative h-full ${isFeatured ? 'bg-[#060B18]' : 'bg-white/[0.02] border border-white/[0.06]'} rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 ${isFeatured ? 'sm:p-6 lg:p-8' : ''} hover:border-brand-500/20 transition-colors duration-300`}>
+          {/* Background quote mark for featured */}
+          {isFeatured && (
+            <span className="absolute right-6 top-4 text-[120px] font-serif text-white/[0.02] leading-none select-none pointer-events-none">
+              &ldquo;
+            </span>
+          )}
 
-      <motion.div
-        whileHover={{ y: -5 }}
-        className="relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500"
-      >
-        {/* Quote Icon & Stars */}
-        <div className="flex items-center justify-between mb-6">
-          <motion.div
-            whileHover={{ scale: 1.1, rotate: 10 }}
-            className={`w-12 h-12 rounded-xl bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center shadow-lg shadow-brand-500/20`}
-          >
-            <Quote className="w-6 h-6 text-white" />
-          </motion.div>
-          <div className="flex gap-1">
-            {[...Array(testimonial.rating)].map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ scale: 0, rotate: -180 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                transition={{ delay: i * 0.1 + 0.3, type: "spring" }}
-                viewport={{ once: true }}
-              >
-                <Star className="w-5 h-5 fill-amber-400 text-amber-400" />
-              </motion.div>
-            ))}
+          {/* Top row - stars + service */}
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
+            <div className="flex gap-0.5">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <span className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">
+              {testimonial.service}
+            </span>
           </div>
-        </div>
 
-        {/* Testimonial Text */}
-        <p className="text-slate-300 leading-relaxed mb-6 text-base">
-          &ldquo;{testimonial.text}&rdquo;
-        </p>
+          {/* Quote */}
+          <p className={`text-slate-300 leading-relaxed mb-4 sm:mb-5 ${isFeatured ? 'text-sm sm:text-base lg:text-lg' : 'text-xs sm:text-sm'}`}>
+            &ldquo;{testimonial.text}&rdquo;
+          </p>
 
-        {/* Client Info */}
-        <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-          <motion.div
-            className="relative"
-            whileHover={{ scale: 1.1 }}
-          >
-            <div className={`absolute inset-0 bg-gradient-to-r ${testimonial.gradient} rounded-full blur-sm`} />
+          {/* Author */}
+          <div className="flex items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-white/[0.06]">
             <img
               src={testimonial.avatar}
               alt={testimonial.name}
-              className="relative w-11 h-11 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-white/20"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
             />
-          </motion.div>
-          <div>
-            <div className="font-bold text-white group-hover:text-brand-400 transition-colors text-lg">
-              {testimonial.name}
+            <div>
+              <div className="font-semibold text-white text-xs sm:text-sm">
+                {testimonial.name}
+              </div>
+              <div className="text-slate-500 text-xs">{testimonial.position}</div>
             </div>
-            <div className="text-slate-400 text-sm">{testimonial.position}</div>
-            <div className="text-brand-400 text-sm font-medium">{testimonial.company}</div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
@@ -205,12 +164,9 @@ const TestimonialCard = ({ testimonial, index }: TestimonialCardProps) => {
 // =============================================================================
 
 const TestimonialsSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   return (
     <section
-      ref={sectionRef}
-      className="relative py-16 sm:py-20 lg:py-32 overflow-hidden bg-slate-950"
+      className="relative py-12 sm:py-14 lg:py-20 overflow-hidden bg-[#030712]"
       itemScope
       itemType="https://schema.org/Organization"
     >
@@ -219,70 +175,44 @@ const TestimonialsSection = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-500/15 rounded-full blur-[120px]"
-          animate={{
-            x: [0, 30, 0],
-            y: [0, 20, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-teal-500/15 rounded-full blur-[120px]"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
 
-        {/* Dot Pattern */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `radial-gradient(rgba(16, 185, 129, 0.2) 1px, transparent 1px)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
-      </div>
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 50% 40% at 80% 20%, rgba(6,182,212,0.04), transparent 70%)',
+        }}
+      />
+      <div className="grain absolute inset-0" />
+
+      {/* Divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-6 sm:mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-          >
-            <MessageSquare className="w-4 h-4" />
-            <span>Testimonials</span>
-          </motion.div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full gradient-border-subtle text-brand-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+            <Quote className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            Testimonials
+          </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-white">What Our Clients</span>
-            <br />
-            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-              Say About Us
-            </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-[1.1]">
+            Hear it straight from{' '}
+            <span className="gradient-text">our clients</span>
           </h2>
-          <p className="text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients have to say
-            about our services and results.
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+            Don&apos;t just take our word for it — here&apos;s what our satisfied clients have to say.
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        {/* Testimonials Grid - Featured takes 2 cols */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 mb-6 sm:mb-8">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={testimonial.id}
@@ -292,43 +222,26 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        {/* Bottom Stats */}
+        {/* Bottom aggregate stats */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-3 max-w-xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
         >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              className="group relative"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true }}
+          {[
+            { value: '99%', label: 'Satisfaction' },
+            { value: '4.9/5', label: 'Avg. Rating' },
+            { value: '200+', label: 'Reviews' },
+          ].map((stat, i) => (
+            <div
+              key={stat.label}
+              className={`text-center py-4 sm:py-5 ${i < 2 ? 'border-r border-white/[0.06]' : ''}`}
             >
-              {/* Glow */}
-              <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
-
-              <motion.div
-                className="relative text-center bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500"
-                whileHover={{ y: -5, scale: 1.02 }}
-              >
-                <motion.div
-                  className="text-4xl mb-3"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  transition={{ type: "spring" }}
-                >
-                  {stat.emoji}
-                </motion.div>
-                <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
-                  {stat.value}
-                </div>
-                <div className="text-slate-300 font-medium">{stat.label}</div>
-              </motion.div>
-            </motion.div>
+              <div className="text-xl sm:text-2xl font-bold text-white mb-1">{stat.value}</div>
+              <div className="text-xs text-slate-500 font-medium">{stat.label}</div>
+            </div>
           ))}
         </motion.div>
       </div>

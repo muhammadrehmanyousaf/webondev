@@ -1,119 +1,245 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { Code, Smartphone, Palette, TrendingUp, Cloud, Users, Building, Settings, Globe, ShoppingCart } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Layers, Rocket, CheckCircle, Headphones } from 'lucide-react';
+
+// =============================================================================
+// TRUST METRIC CARDS
+// =============================================================================
+
+const trustMetrics = [
+  {
+    icon: Layers,
+    value: '10+',
+    label: 'Service Categories',
+    sub: 'Full Spectrum',
+  },
+  {
+    icon: Rocket,
+    value: '150+',
+    label: 'Projects Delivered',
+    sub: 'On Time',
+  },
+  {
+    icon: CheckCircle,
+    value: '100+',
+    label: 'Specialized Services',
+    sub: 'End-to-End',
+  },
+  {
+    icon: Headphones,
+    value: '24/7',
+    label: 'Support Available',
+    sub: 'Always On',
+  },
+];
+
+// =============================================================================
+// SERVICES HERO SECTION
+// =============================================================================
 
 const ServicesHeroSection = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const iconsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-      
-      tl.fromTo(titleRef.current, 
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
-      )
-      .fromTo(subtitleRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-        "-=0.6"
-      )
-      .fromTo(iconsRef.current,
-        { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 1, ease: "back.out(1.7)" },
-        "-=0.4"
-      );
-
-      // Floating animation for service icons
-      gsap.to('.service-icon', {
-        y: -10,
-        duration: 2,
-        ease: "power1.inOut",
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.2
-      });
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const serviceIcons = [
-    { icon: Globe, color: 'from-orange-500 to-orange-600' },
-    { icon: Smartphone, color: 'from-orange-500 to-orange-600' },
-    { icon: Code, color: 'from-orange-600 to-orange-700' },
-    { icon: Palette, color: 'from-orange-500 to-orange-600' },
-    { icon: TrendingUp, color: 'from-orange-500 to-orange-600' },
-    { icon: ShoppingCart, color: 'from-orange-500 to-orange-600' },
-    { icon: Cloud, color: 'from-orange-500 to-orange-600' },
-    { icon: Users, color: 'from-orange-600 to-orange-700' },
-    { icon: Building, color: 'from-orange-500 to-orange-600' },
-    { icon: Settings, color: 'from-orange-500 to-orange-600' }
-  ];
-
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 pt-20">
-      {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-orange-100 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-orange-200 rounded-full opacity-50 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-orange-50 rounded-full opacity-40 animate-pulse delay-2000"></div>
-      </div>
+    <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#030712] pt-16 pb-12 md:pt-20 md:pb-20">
+      {/* === LAYERED BACKGROUND === */}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto mb-16">
-          {/* Hero Title */}
-          <h1 ref={titleRef} className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+      {/* Base radial gradient - ambient light */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16,185,129,0.15), transparent 70%)',
+        }}
+      />
+
+      {/* Secondary glow - lower */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 50% 30% at 50% 60%, rgba(6,182,212,0.06), transparent 70%)',
+        }}
+      />
+
+      {/* Grid lines */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px',
+        }}
+      />
+
+      {/* Grain texture */}
+      <div className="grain absolute inset-0" />
+
+      {/* Central glow behind heading */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] md:w-[900px] md:h-[500px] rounded-full opacity-30 blur-[120px]"
+        style={{
+          background:
+            'linear-gradient(135deg, rgba(16,185,129,0.4) 0%, rgba(6,182,212,0.2) 50%, rgba(16,185,129,0.1) 100%)',
+        }}
+      />
+
+      {/* === CONTENT === */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full gradient-border-subtle text-brand-400 text-xs sm:text-sm font-medium mb-5 sm:mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+              Our Services
+            </div>
+          </motion.div>
+
+          {/* Main Heading */}
+          <motion.h1
+            className="text-[2rem] sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-5 sm:mb-6 lg:mb-8 leading-[1.05] tracking-tight"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.1,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          >
             Complete Software
-            <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent"> Solutions </span>
-            for Your Business
-          </h1>
+            <br />
+            <span className="gradient-text">Solutions</span>
+            <br />
+            <span className="text-slate-400">for Your Business</span>
+          </motion.h1>
 
-          {/* Hero Subtitle */}
-          <p ref={subtitleRef} className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
-            From web development to mobile apps, from design to marketing - we provide end-to-end digital solutions that drive growth and innovation for businesses of all sizes.
-          </p>
-        </div>
+          {/* Subtitle */}
+          <motion.p
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.2,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          >
+            From web development to mobile apps, from design to marketing
+            &mdash; we provide end-to-end digital solutions that drive growth
+            <span className="text-slate-300">
+              {' '}
+              and innovation for businesses of all sizes.
+            </span>
+          </motion.p>
 
-        {/* Service Icons Grid */}
-        <div ref={iconsRef} className="grid grid-cols-5 md:grid-cols-10 gap-6 max-w-5xl mx-auto">
-          {serviceIcons.map((service, index) => (
-            <div
-              key={index}
-              className="service-icon group flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-100"
-            >
-              <div className={`flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r ${service.color} rounded-xl group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          {/* Trust Metric Cards */}
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-3xl lg:max-w-4xl mx-auto mb-10 sm:mb-14 lg:mb-16"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.35,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          >
+            {trustMetrics.map((metric, index) => (
+              <motion.div
+                key={metric.label}
+                className="flex items-center gap-3 sm:gap-4 px-4 py-3 sm:px-5 sm:py-4 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.1] transition-colors duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.4 + index * 0.08,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+              >
+                <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-brand-500/10 shrink-0">
+                  <metric.icon className="w-4 h-4 sm:w-5 sm:h-5 text-brand-400" />
+                </div>
+                <div className="text-left min-w-0">
+                  <div className="text-white font-semibold text-xs sm:text-sm">
+                    {metric.value}
+                  </div>
+                  <div className="text-slate-500 text-[10px] sm:text-xs truncate">
+                    {metric.label}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Bottom Stats Row */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.6,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          >
+            {/* Clients */}
+            <div className="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-[#030712] bg-gradient-to-br from-brand-500/30 to-teal-500/30 flex items-center justify-center text-[8px] sm:text-[10px] font-bold text-brand-300"
+                  >
+                    {String.fromCharCode(64 + i)}
+                  </div>
+                ))}
+              </div>
+              <div className="text-left">
+                <div className="text-white font-semibold text-xs sm:text-sm">
+                  200+ Clients
+                </div>
+                <div className="text-slate-500 text-[10px] sm:text-xs">
+                  Worldwide
+                </div>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-1">10+</div>
-            <div className="text-gray-600 text-sm md:text-base">Service Categories</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-1">100+</div>
-            <div className="text-gray-600 text-sm md:text-base">Specialized Services</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-1">150+</div>
-            <div className="text-gray-600 text-sm md:text-base">Projects Delivered</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-orange-600 mb-1">24/7</div>
-            <div className="text-gray-600 text-sm md:text-base">Support Available</div>
-          </div>
+            {/* Satisfaction */}
+            <div className="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+              <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-brand-400" />
+              <div className="text-left">
+                <div className="text-white font-semibold text-xs sm:text-sm">
+                  99% Satisfaction
+                </div>
+                <div className="text-slate-500 text-[10px] sm:text-xs">
+                  Client Retention
+                </div>
+              </div>
+            </div>
+
+            {/* Experience */}
+            <div className="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+              <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-brand-400" />
+              <div className="text-left">
+                <div className="text-white font-semibold text-xs sm:text-sm">
+                  10+ Years
+                </div>
+                <div className="text-slate-500 text-[10px] sm:text-xs">
+                  Industry Experience
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
+
+      {/* Bottom fade-out */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#030712] to-transparent" />
     </section>
   );
 };

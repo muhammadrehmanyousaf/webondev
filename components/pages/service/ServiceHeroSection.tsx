@@ -180,7 +180,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
               transition={{ delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 mb-10"
             >
-              <Button asChild variant="glow" size="lg" className="rounded-full px-8">
+              <Button asChild variant="default" size="lg" className="rounded-full px-8">
                 <Link href="/contact" className="flex items-center gap-2">
                   Get Started Today
                   <ArrowRight className="w-5 h-5" />

@@ -290,7 +290,7 @@ const ContactFormSection = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      variant="glow"
+                      variant="default"
                       size="lg"
                       className="w-full rounded-xl h-12 sm:h-14 text-base font-semibold"
                     >

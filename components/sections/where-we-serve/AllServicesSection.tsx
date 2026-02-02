@@ -215,7 +215,7 @@ const AllServicesSection = ({ cityName, countryName, stateName }: AllServicesSec
               Let&apos;s discuss your project requirements and how we can help your business succeed in {cityName}.
             </p>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button asChild variant="glow" size="lg" className="rounded-full px-10 group">
+              <Button asChild variant="default" size="lg" className="rounded-full px-10 group">
                 <Link href="#contact-form" className="flex items-center gap-2">
                   Get Free Consultation
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

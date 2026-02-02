@@ -2,17 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import {
-  TrendingUp,
-  Users,
-  Award,
-  Clock,
-  Globe,
-  Code,
-  Smartphone,
-  Zap,
-  Sparkles,
-} from 'lucide-react';
 
 // =============================================================================
 // STATS DATA
@@ -20,73 +9,37 @@ import {
 
 const stats = [
   {
-    icon: Award,
     number: 150,
     suffix: '+',
-    label: 'Projects Completed',
-    gradient: 'from-brand-500 to-teal-500',
-    description: 'Successful deliveries',
+    label: 'Projects Delivered',
+    description: 'Successfully shipped across web, mobile, and cloud',
+    accent: 'text-brand-400',
   },
   {
-    icon: Users,
-    number: 150,
+    number: 200,
     suffix: '+',
     label: 'Happy Clients',
-    gradient: 'from-teal-500 to-cyan-500',
-    description: 'Worldwide satisfaction',
+    description: 'Businesses trusting us with their digital products',
+    accent: 'text-teal-400',
   },
   {
-    icon: Clock,
-    number: 5,
-    suffix: '+',
-    label: 'Years Experience',
-    gradient: 'from-cyan-500 to-blue-500',
-    description: 'Industry expertise',
-  },
-  {
-    icon: TrendingUp,
     number: 99,
     suffix: '%',
     label: 'Client Satisfaction',
-    gradient: 'from-brand-500 to-lime-500',
-    description: 'Positive feedback',
+    description: 'Consistent positive feedback and referrals',
+    accent: 'text-cyan-400',
   },
   {
-    icon: Globe,
-    number: 5,
-    suffix: '+',
-    label: 'Countries Served',
-    gradient: 'from-purple-500 to-brand-500',
-    description: 'Global presence',
-  },
-  {
-    icon: Code,
     number: 50,
     suffix: '+',
-    label: 'Technologies',
-    gradient: 'from-blue-500 to-purple-500',
-    description: 'Tech stack mastery',
-  },
-  {
-    icon: Smartphone,
-    number: 50,
-    suffix: '+',
-    label: 'Mobile Apps',
-    gradient: 'from-pink-500 to-brand-500',
-    description: 'iOS & Android apps',
-  },
-  {
-    icon: Zap,
-    number: 24,
-    suffix: '/7',
-    label: 'Support Available',
-    gradient: 'from-amber-500 to-brand-500',
-    description: 'Always available',
+    label: 'Technologies Mastered',
+    description: 'From React to AWS, we speak every stack',
+    accent: 'text-brand-400',
   },
 ];
 
 // =============================================================================
-// ANIMATED COUNTER COMPONENT
+// ANIMATED COUNTER
 // =============================================================================
 
 interface AnimatedCounterProps {
@@ -137,177 +90,86 @@ const AnimatedCounter = ({ target, suffix, duration = 2 }: AnimatedCounterProps)
 // =============================================================================
 
 const StatsSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-16 sm:py-20 lg:py-32 bg-slate-950 overflow-hidden"
-    >
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated Gradient Orbs */}
-        <motion.div
-          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-500/20 rounded-full blur-[120px]"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-teal-500/20 rounded-full blur-[120px]"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, -30, 0],
-            scale: [1.1, 1, 1.1],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px]"
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        />
+    <section className="relative py-12 sm:py-16 lg:py-24 bg-[#030712] overflow-hidden">
+      {/* Layered background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(16,185,129,0.04), transparent 70%)',
+        }}
+      />
+      <div className="grain absolute inset-0" />
 
-        {/* Dot Pattern */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `radial-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px)`,
-            backgroundSize: '30px 30px',
-          }}
-        />
-
-        {/* Diagonal Lines */}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 100px,
-              rgba(16, 185, 129, 0.5) 100px,
-              rgba(16, 185, 129, 0.5) 101px
-            )`,
-          }}
-        />
-      </div>
+      {/* Dividers */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-          >
-            <Sparkles className="w-4 h-4" />
-            <span>Our Impact</span>
-          </motion.div>
-
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6">
-            Trusted by{' '}
-            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-              Industry Leaders
-            </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-[1.1]">
+            The numbers behind{' '}
+            <span className="gradient-text">our work</span>
           </h2>
-          <p className="text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Our track record speaks for itself. We&apos;ve helped businesses across the globe
-            achieve their digital transformation goals.
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+            Our track record speaks for itself — consistent delivery, satisfied clients, and measurable impact.
           </p>
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="group relative"
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              className={`relative text-center py-6 px-4 sm:py-8 sm:px-5 lg:py-12 lg:px-6 ${
+                index < stats.length - 1 ? 'lg:border-r lg:border-white/[0.06]' : ''
+              } ${index < 2 ? 'sm:border-b lg:border-b-0 border-white/[0.06]' : ''} ${
+                index === 0 ? 'sm:border-r border-white/[0.06] lg:border-r' : ''
+              } ${index === 2 ? 'sm:border-r border-white/[0.06] lg:border-r' : ''}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              {/* Glow Effect */}
-              <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+              {/* Large number */}
+              <div className={`text-3xl sm:text-4xl lg:text-5xl font-bold ${stat.accent} mb-1 sm:mb-2`}>
+                <AnimatedCounter target={stat.number} suffix={stat.suffix} />
+              </div>
 
-              {/* Card */}
-              <motion.div
-                className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500 h-full"
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Icon */}
-                <motion.div
-                  className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-lg shadow-brand-500/20 mb-4 sm:mb-6`}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
-                </motion.div>
+              <div className="text-white font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2">
+                {stat.label}
+              </div>
 
-                {/* Number */}
-                <div className={`text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
-                  <AnimatedCounter target={stat.number} suffix={stat.suffix} />
-                </div>
-
-                {/* Label */}
-                <div className="text-white font-semibold text-lg mb-1">
-                  {stat.label}
-                </div>
-
-                {/* Description */}
-                <div className="text-slate-400 text-sm">
-                  {stat.description}
-                </div>
-
-                {/* Hover Gradient Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
-              </motion.div>
+              <p className="text-slate-500 text-sm max-w-[200px] mx-auto">
+                {stat.description}
+              </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom Text */}
+        {/* Bottom badges */}
         <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-8 sm:mt-12 lg:mt-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <p className="text-lg text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            Join hundreds of satisfied clients who have transformed their businesses with our
-            comprehensive software solutions. From startups to enterprise companies, we deliver
-            results that matter.
-          </p>
-
-          {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-6 mt-10">
-            {['ISO Certified', 'GDPR Compliant', 'SOC 2 Type II', 'AWS Partner'].map((badge, index) => (
-              <motion.div
-                key={badge}
-                className="px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs sm:text-sm font-medium hover:border-brand-500/30 hover:text-brand-400 transition-all duration-300"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                {badge}
-              </motion.div>
-            ))}
-          </div>
+          {['ISO Certified', 'GDPR Compliant', 'SOC 2 Type II', 'AWS Partner'].map((badge) => (
+            <div
+              key={badge}
+              className="px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.06] text-xs font-medium text-slate-400"
+            >
+              {badge}
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

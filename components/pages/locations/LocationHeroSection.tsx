@@ -172,7 +172,7 @@ const LocationHeroSection = ({
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button asChild variant="glow" size="xl" className="rounded-full px-10 group">
+              <Button asChild variant="default" size="xl" className="rounded-full px-10 group">
                 <Link href="#book-meeting" className="flex items-center gap-3">
                   <Calendar className="w-5 h-5" />
                   Book Meeting

@@ -188,7 +188,7 @@ const StatesOverviewSection = ({ states, countryName }: StatesOverviewSectionPro
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 onClick={() => setShowAll(!showAll)}
-                variant="glow"
+                variant="default"
                 size="lg"
                 className="rounded-full px-10"
               >

@@ -245,7 +245,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                   <Button
                     type="button"
                     onClick={() => setSubmitStatus('idle')}
-                    variant="glow"
+                    variant="default"
                     className="rounded-full text-sm"
                   >
                     Send Another Message
@@ -334,7 +334,7 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    variant="glow"
+                    variant="default"
                     size="lg"
                     className="w-full rounded-full text-sm sm:text-base"
                   >

@@ -2,138 +2,108 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Award, Globe, Zap, Sparkles } from 'lucide-react';
+import { Users, Award, Globe, Zap } from 'lucide-react';
+
+const stats = [
+  { icon: Users, number: '200+', label: 'Happy Clients' },
+  { icon: Award, number: '150+', label: 'Projects Completed' },
+  { icon: Globe, number: '50+', label: 'Countries Served' },
+  { icon: Zap, number: '10+', label: 'Years Experience' },
+];
 
 const AboutHeroSection = () => {
-  const stats = [
-    { icon: Users, number: '150+', label: 'Happy Clients', gradient: 'from-brand-400 to-teal-400' },
-    { icon: Award, number: '150+', label: 'Projects Completed', gradient: 'from-teal-400 to-cyan-400' },
-    { icon: Globe, number: '5+', label: 'Countries Served', gradient: 'from-cyan-400 to-brand-400' },
-    { icon: Zap, number: '5+', label: 'Years Experience', gradient: 'from-brand-400 to-emerald-400' }
-  ];
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-24 pb-16">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient Orbs */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-500/20 rounded-full blur-[150px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-500/20 rounded-full blur-[150px]"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 right-1/3 w-[300px] h-[300px] bg-cyan-500/15 rounded-full blur-[120px]"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4,
-          }}
-        />
-
-        {/* Grid Pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.3) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}
-        />
-      </div>
+    <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#030712] pt-16 pb-12 md:pt-20 md:pb-20">
+      {/* Layered background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16,185,129,0.12), transparent 70%)',
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 50% 30% at 50% 60%, rgba(6,182,212,0.05), transparent 70%)',
+        }}
+      />
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px',
+        }}
+      />
+      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 mb-8"
           >
-            <Sparkles className="w-4 h-4 text-brand-400" />
-            <span className="text-brand-400 text-sm font-medium">About Web On Dev</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full gradient-border-subtle text-brand-400 text-xs sm:text-sm font-medium mb-5 sm:mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+              About Web On Dev
+            </div>
           </motion.div>
 
           {/* Hero Title */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-[2rem] sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-5 sm:mb-6 lg:mb-8 leading-[1.05] tracking-tight"
           >
-            Building the
-            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent"> Future </span>
-            of Software
+            Building the{' '}
+            <span className="gradient-text">Future</span>
+            <br />
+            <span className="text-slate-400">of Software</span>
           </motion.h1>
 
-          {/* Hero Subtitle */}
+          {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-400 mb-16 leading-relaxed max-w-3xl mx-auto"
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            We are a passionate team of developers, designers, and strategists dedicated to transforming businesses through innovative software solutions. Our journey began with a simple mission: to make technology accessible and impactful for every business.
+            We are a passionate team of developers, designers, and strategists dedicated to transforming businesses through innovative software solutions.
           </motion.p>
 
           {/* Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+            transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto"
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.05 }}
-                className="group relative"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.08 }}
+                className="relative p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-brand-500/20 transition-colors duration-300"
               >
-                {/* Glow Effect */}
-                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
-
-                <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-brand-500/30 transition-all duration-500">
-                  <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r ${stat.gradient} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <stat.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent mb-1">
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-400 font-medium text-sm">{stat.label}</div>
+                <div
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-3"
+                  style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.05))' }}
+                >
+                  <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-400" />
                 </div>
+                <div className="text-xl sm:text-2xl font-bold text-white mb-0.5">{stat.number}</div>
+                <div className="text-slate-500 text-xs sm:text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#030712] to-transparent" />
     </section>
   );
 };

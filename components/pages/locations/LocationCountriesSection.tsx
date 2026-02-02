@@ -194,7 +194,7 @@ const LocationCountriesSection = ({ countries }: LocationCountriesSectionProps) 
 
                   {/* CTA */}
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button asChild variant="glow" className="w-full rounded-xl group">
+                    <Button asChild variant="default" className="w-full rounded-xl group">
                       <Link href={`/where-we-serve/${toSlug(country.name)}`} className="flex items-center justify-center gap-2">
                         Explore Services
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

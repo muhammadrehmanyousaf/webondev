@@ -167,7 +167,7 @@ const LocationStatesSection = ({ country }: LocationStatesSectionProps) => {
 
                 {/* CTA Button */}
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Button asChild variant="glow" className="w-full rounded-xl group">
+                  <Button asChild variant="default" className="w-full rounded-xl group">
                     <Link href={`/where-we-serve/${country.slug}/${state.slug}`} className="flex items-center justify-center gap-2">
                       Explore {state.name}
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -206,7 +206,7 @@ const LocationStatesSection = ({ country }: LocationStatesSectionProps) => {
               tailored to your state&apos;s unique business environment and requirements.
             </p>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button asChild variant="glow" size="lg" className="rounded-full px-10 group">
+              <Button asChild variant="default" size="lg" className="rounded-full px-10 group">
                 <Link href="/contact" className="flex items-center gap-2">
                   Get State-Specific Quote
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -221,7 +221,7 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 asChild
-                variant="glow"
+                variant="default"
                 size="lg"
                 className="rounded-full px-8"
               >

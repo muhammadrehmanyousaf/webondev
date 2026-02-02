@@ -1,8 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSectionBeams from '@/components/sections/HeroSectionBeams';
@@ -17,8 +15,6 @@ import BlogSection from '@/components/sections/BlogSection';
 import FAQSection from '@/components/sections/FAQSection';
 import { SchemaScript } from '@/components/seo/SchemaScript';
 import type { FAQItem } from '@/lib/schema';
-
-gsap.registerPlugin(ScrollTrigger);
 
 // =============================================================================
 // HOME PAGE FAQS FOR SCHEMA
@@ -57,52 +53,6 @@ const homeFAQs: FAQItem[] = [
 // =============================================================================
 
 export default function HomePageClient() {
-  const mainRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Initialize GSAP animations
-    const ctx = gsap.context(() => {
-      // Smooth scroll animations for sections
-      gsap.utils.toArray<HTMLElement>('.animate-on-scroll').forEach((element) => {
-        gsap.fromTo(
-          element,
-          {
-            opacity: 0,
-            y: 50,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: element,
-              start: 'top 80%',
-              end: 'bottom 20%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
-      });
-
-      // Parallax effect for background elements
-      gsap.utils.toArray<HTMLElement>('.parallax').forEach((element) => {
-        gsap.to(element, {
-          yPercent: -20,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: element,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
-        });
-      });
-    }, mainRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <>
       {/* Home Page Schema */}
@@ -117,41 +67,19 @@ export default function HomePageClient() {
         }}
       />
 
-      <div
-        ref={mainRef}
-        className="min-h-screen bg-background text-foreground transition-colors duration-300"
-      >
+      <div className="min-h-screen bg-background text-foreground">
         <Header />
 
         <main>
-          {/* Section 1: Hero with particle effects & mesh gradient */}
           <HeroSectionBeams />
-
-          {/* Section 2: Trust Signals Bar - Client logos & certifications */}
           <TrustSignalsBar />
-
-          {/* Section 3: Services Bento Grid */}
           <ServicesBento />
-
-          {/* Section 4: About Preview with stats */}
           <AboutSection />
-
-          {/* Section 5: Stats Section */}
           <StatsSection />
-
-          {/* Section 6: Portfolio Showcase */}
           <PortfolioSection />
-
-          {/* Section 7: Testimonials */}
           <TestimonialsSection />
-
-          {/* Section 8: Blog Preview */}
           <BlogSection />
-
-          {/* Section 9: FAQ Section with schema */}
           <FAQSection faqs={homeFAQs} showSchema={false} />
-
-          {/* Section 10: CTA Section */}
           <CTASection />
         </main>
 
