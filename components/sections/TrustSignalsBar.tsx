@@ -51,7 +51,7 @@ const LogoCarousel = () => {
 
       {/* Scrolling logos */}
       <motion.div
-        className="flex gap-12 items-center"
+        className="flex gap-6 sm:gap-12 items-center"
         animate={{ x: [0, -1440] }}
         transition={{
           x: {
@@ -104,11 +104,11 @@ const TrustMetric = ({
       viewport={{ once: true }}
       transition={{ delay, duration: 0.5 }}
     >
-      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-500/25">
-        <Icon className="w-6 h-6" />
+      <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-500/25">
+        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
       </div>
       <div>
-        <div className="text-2xl font-bold gradient-text">{value}</div>
+        <div className="text-xl sm:text-2xl font-bold gradient-text">{value}</div>
         <div className="text-sm text-muted-foreground">{label}</div>
       </div>
     </motion.div>

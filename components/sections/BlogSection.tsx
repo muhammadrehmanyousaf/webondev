@@ -47,7 +47,7 @@ const FeaturedArticleCard = ({ post }: { post: any }) => {
     >
       <Link href={`/blog/${post.slug}`} className="block h-full">
         <motion.div
-          className="relative h-full min-h-[450px] lg:min-h-[550px] rounded-3xl overflow-hidden cursor-pointer"
+          className="relative h-full min-h-[350px] sm:min-h-[400px] lg:min-h-[550px] rounded-3xl overflow-hidden cursor-pointer"
           onMouseMove={handleMouseMove}
           whileHover={{ scale: 1.01 }}
           transition={{ duration: 0.3 }}
@@ -95,7 +95,7 @@ const FeaturedArticleCard = ({ post }: { post: any }) => {
           </div>
 
           {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10">
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-10">
             {/* Category */}
             <motion.span
               className={`inline-block px-4 py-1.5 bg-gradient-to-r ${gradient} rounded-lg text-white text-sm font-semibold mb-4 shadow-lg`}
@@ -107,17 +107,17 @@ const FeaturedArticleCard = ({ post }: { post: any }) => {
             </motion.span>
 
             {/* Title */}
-            <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-4 group-hover:text-brand-400 transition-colors leading-tight">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-3 sm:mb-4 group-hover:text-brand-400 transition-colors leading-tight">
               {post.title}
             </h3>
 
             {/* Excerpt */}
-            <p className="text-slate-300 text-lg leading-relaxed mb-6 max-w-xl line-clamp-2">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 max-w-xl line-clamp-2">
               {post.excerpt}
             </p>
 
             {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-6 mb-6">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-6 mb-4 sm:mb-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-400 to-teal-400 flex items-center justify-center text-white font-bold">
                   {post.author?.charAt(0) || 'A'}
@@ -297,7 +297,7 @@ const NewsletterSection = () => {
         transition={{ duration: 0.5 }}
       />
 
-      <div className="relative z-10 p-8 md:p-12 lg:p-16">
+      <div className="relative z-10 p-5 sm:p-8 md:p-12 lg:p-16">
         <div className="max-w-3xl mx-auto text-center">
           {/* Badge */}
           <motion.div
@@ -370,7 +370,7 @@ const BlogSection = () => {
   const otherPosts = featuredPosts.slice(1);
 
   return (
-    <section className="relative py-24 lg:py-36 overflow-hidden bg-slate-950">
+    <section className="relative py-16 sm:py-24 lg:py-36 overflow-hidden bg-slate-950">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Animated Gradient Orbs */}
@@ -429,7 +429,7 @@ const BlogSection = () => {
             <span>Latest Insights</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
             <span className="text-white">Expert Insights &</span>
             <br />
             <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
@@ -473,7 +473,7 @@ const BlogSection = () => {
             {/* Glow */}
             <div className="absolute -inset-4 bg-gradient-to-r from-brand-500 to-teal-500 rounded-full blur-xl opacity-20" />
 
-            <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+            <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-8 border border-white/10">
               <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
                 Ready to Explore More?
               </h3>

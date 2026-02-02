@@ -46,7 +46,7 @@ const FeaturedProjectCard = ({ project }: { project: typeof projects[0] }) => {
     >
       <Link href={`/portfolio/${project.slug}`} className="block h-full">
         <motion.div
-          className="relative h-full min-h-[450px] lg:min-h-[550px] rounded-3xl overflow-hidden cursor-pointer"
+          className="relative h-full min-h-[350px] sm:min-h-[400px] lg:min-h-[550px] rounded-3xl overflow-hidden cursor-pointer"
           onMouseMove={handleMouseMove}
           whileHover={{ scale: 1.01 }}
           transition={{ duration: 0.3 }}
@@ -126,7 +126,7 @@ const FeaturedProjectCard = ({ project }: { project: typeof projects[0] }) => {
           </motion.div>
 
           {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10">
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-10">
             {/* Category */}
             <motion.span
               className="inline-block px-3 py-1 bg-white/10 backdrop-blur-xl rounded-lg text-brand-400 text-sm font-semibold mb-4 border border-white/10"
@@ -138,12 +138,12 @@ const FeaturedProjectCard = ({ project }: { project: typeof projects[0] }) => {
             </motion.span>
 
             {/* Title */}
-            <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-4 group-hover:text-brand-400 transition-colors leading-tight">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-3 sm:mb-4 group-hover:text-brand-400 transition-colors leading-tight">
               {project.title}
             </h3>
 
             {/* Description */}
-            <p className="text-slate-300 text-lg leading-relaxed mb-6 max-w-xl line-clamp-2">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 max-w-xl line-clamp-2">
               {project.description}
             </p>
 
@@ -342,7 +342,7 @@ const PortfolioSection = () => {
   const otherProjects = filteredProjects.slice(1, 7);
 
   return (
-    <section className="relative py-24 lg:py-36 overflow-hidden bg-slate-950">
+    <section className="relative py-16 sm:py-24 lg:py-36 overflow-hidden bg-slate-950">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Animated Gradient Orbs */}
@@ -400,7 +400,7 @@ const PortfolioSection = () => {
             <span>Our Work</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
             <span className="text-white">Projects that</span>
             <br />
             <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
@@ -479,7 +479,7 @@ const PortfolioSection = () => {
             {/* Glow */}
             <div className="absolute -inset-4 bg-gradient-to-r from-brand-500 to-teal-500 rounded-full blur-xl opacity-20" />
 
-            <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 lg:p-10 border border-white/10">
+            <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-8 lg:p-10 border border-white/10">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="flex -space-x-3">
                   {[...Array(4)].map((_, i) => (

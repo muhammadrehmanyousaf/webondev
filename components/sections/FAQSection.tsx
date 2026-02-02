@@ -67,7 +67,7 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
         <button
           type="button"
           onClick={onToggle}
-          className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left hover:bg-brand-500/5 transition-colors duration-300"
+          className="w-full px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left hover:bg-brand-500/5 transition-colors duration-300"
           aria-expanded={isOpen ? "true" : "false"}
         >
           <div className="flex items-center gap-4">
@@ -76,7 +76,7 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
             >
               <HelpCircle className={`w-5 h-5 ${isOpen ? 'text-white' : 'text-brand-400'}`} />
             </motion.div>
-            <span className={`text-lg font-semibold ${isOpen ? 'text-brand-400' : 'text-white'} transition-colors duration-300`}>
+            <span className={`text-base sm:text-lg font-semibold ${isOpen ? 'text-brand-400' : 'text-white'} transition-colors duration-300`}>
               {faq.question}
             </span>
           </div>
@@ -97,8 +97,8 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
-              <div className="px-6 pb-6 pt-0">
-                <div className="border-t border-white/10 pt-4 ml-14">
+              <div className="px-4 pb-4 sm:px-6 sm:pb-6 pt-0">
+                <div className="border-t border-white/10 pt-4 ml-0 sm:ml-14">
                   <p className="text-slate-300 leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
@@ -140,7 +140,7 @@ const FAQSection = ({
       {/* FAQ Schema for SEO */}
       {showSchema && <FAQSchema faqs={faqs} />}
 
-      <section className="relative py-20 lg:py-32 bg-slate-950 overflow-hidden">
+      <section className="relative py-16 sm:py-20 lg:py-32 bg-slate-950 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Animated Gradient Orbs */}
@@ -226,7 +226,7 @@ const FAQSection = ({
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               {/* Glass Container */}
-              <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 text-center">
+              <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-8 border border-white/10 text-center">
                 <motion.div
                   className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-500 to-teal-500 mb-6 shadow-lg shadow-brand-500/25"
                   whileHover={{ scale: 1.1, rotate: 5 }}

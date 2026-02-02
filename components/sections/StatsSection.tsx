@@ -142,7 +142,7 @@ const StatsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-32 bg-slate-950 overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-32 bg-slate-950 overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -243,21 +243,21 @@ const StatsSection = () => {
 
               {/* Card */}
               <motion.div
-                className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500 h-full"
+                className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500 h-full"
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 {/* Icon */}
                 <motion.div
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-lg shadow-brand-500/20 mb-6`}
+                  className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-lg shadow-brand-500/20 mb-4 sm:mb-6`}
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <stat.icon className="w-8 h-8 text-white" />
+                  <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
                 </motion.div>
 
                 {/* Number */}
-                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
+                <div className={`text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
                   <AnimatedCounter target={stat.number} suffix={stat.suffix} />
                 </div>
 
@@ -297,7 +297,7 @@ const StatsSection = () => {
             {['ISO Certified', 'GDPR Compliant', 'SOC 2 Type II', 'AWS Partner'].map((badge, index) => (
               <motion.div
                 key={badge}
-                className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium hover:border-brand-500/30 hover:text-brand-400 transition-all duration-300"
+                className="px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs sm:text-sm font-medium hover:border-brand-500/30 hover:text-brand-400 transition-all duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

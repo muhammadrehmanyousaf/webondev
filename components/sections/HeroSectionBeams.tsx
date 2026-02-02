@@ -243,7 +243,7 @@ const RotatingText = () => {
   }, []);
 
   return (
-    <span className="relative inline-block min-w-[200px] sm:min-w-[300px]">
+    <span className="relative inline-block min-w-[160px] sm:min-w-[250px] md:min-w-[300px]">
       <AnimatePresence mode="wait">
         <motion.span
           key={currentIndex}
@@ -303,7 +303,7 @@ const HeroSectionBeams = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-20 md:pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-24 pb-12 md:pt-16 md:pb-0">
       {/* Background Layers */}
       <MeshGradientBackground />
       <ParticleField />
@@ -441,8 +441,8 @@ const HeroSectionBeams = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-40 h-40 border border-brand-500/10 rounded-full blur-xl" />
-      <div className="absolute bottom-40 right-20 w-60 h-60 border border-brand-500/5 rounded-full blur-2xl" />
+      <div className="absolute top-20 left-10 w-20 h-20 sm:w-40 sm:h-40 border border-brand-500/10 rounded-full blur-xl" />
+      <div className="absolute bottom-40 right-10 sm:right-20 w-32 h-32 sm:w-60 sm:h-60 border border-brand-500/5 rounded-full blur-2xl" />
 
       {/* Scroll Indicator */}
       <motion.div

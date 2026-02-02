@@ -144,7 +144,7 @@ const TestimonialCard = ({ testimonial, index }: TestimonialCardProps) => {
 
       <motion.div
         whileHover={{ y: -5 }}
-        className="relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500"
+        className="relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500"
       >
         {/* Quote Icon & Stars */}
         <div className="flex items-center justify-between mb-6">
@@ -184,7 +184,7 @@ const TestimonialCard = ({ testimonial, index }: TestimonialCardProps) => {
             <img
               src={testimonial.avatar}
               alt={testimonial.name}
-              className="relative w-14 h-14 rounded-full object-cover border-2 border-white/20"
+              className="relative w-11 h-11 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-white/20"
             />
           </motion.div>
           <div>
@@ -210,7 +210,7 @@ const TestimonialsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-32 overflow-hidden bg-slate-950"
+      className="relative py-16 sm:py-20 lg:py-32 overflow-hidden bg-slate-950"
       itemScope
       itemType="https://schema.org/Organization"
     >
@@ -313,7 +313,7 @@ const TestimonialsSection = () => {
               <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
 
               <motion.div
-                className="relative text-center bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500"
+                className="relative text-center bg-white/5 backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500"
                 whileHover={{ y: -5, scale: 1.02 }}
               >
                 <motion.div
@@ -323,7 +323,7 @@ const TestimonialsSection = () => {
                 >
                   {stat.emoji}
                 </motion.div>
-                <div className={`text-3xl lg:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
+                <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
                   {stat.value}
                 </div>
                 <div className="text-slate-300 font-medium">{stat.label}</div>

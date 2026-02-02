@@ -71,7 +71,7 @@ const stats = [
 
 const AboutSection = () => {
   return (
-    <section className="relative py-20 lg:py-32 bg-gradient-to-b from-background via-slate-50/50 to-background dark:from-slate-950 dark:via-slate-900/30 dark:to-slate-950 overflow-hidden">
+    <section className="relative py-16 sm:py-20 lg:py-32 bg-gradient-to-b from-background via-slate-50/50 to-background dark:from-slate-950 dark:via-slate-900/30 dark:to-slate-950 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -106,7 +106,7 @@ const AboutSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main About Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center mb-16 sm:mb-24">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -169,7 +169,7 @@ const AboutSection = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
                 >
-                  <div className={`text-3xl lg:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-1`}>
+                  <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-1`}>
                     {stat.value}
                   </div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
@@ -205,25 +205,25 @@ const AboutSection = () => {
               <img
                 src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="Our Development Team"
-                className="w-full h-72 lg:h-80 object-cover rounded-2xl"
+                className="w-full h-52 sm:h-64 lg:h-80 object-cover rounded-2xl"
               />
 
               {/* Floating Badge */}
               <motion.div
-                className="absolute -bottom-6 -right-6 bg-white dark:bg-slate-900 rounded-2xl p-5 shadow-xl border border-white/20 dark:border-white/10"
+                className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-white dark:bg-slate-900 rounded-2xl p-3 sm:p-5 shadow-xl border border-white/20 dark:border-white/10"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.4 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/25">
-                    <Award className="w-7 h-7 text-white" />
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/25">
+                    <Award className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-foreground text-lg">Award Winning</div>
-                    <div className="text-sm text-muted-foreground">Development Team</div>
+                    <div className="font-bold text-foreground text-sm sm:text-lg">Award Winning</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Development Team</div>
                   </div>
                 </div>
               </motion.div>
@@ -265,7 +265,7 @@ const AboutSection = () => {
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 lg:p-8 border border-white/20 dark:border-white/5 hover:border-brand-500/30 transition-all duration-500"
+                className="group relative bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 dark:border-white/5 hover:border-brand-500/30 transition-all duration-500"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -276,11 +276,11 @@ const AboutSection = () => {
                 <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
 
                 <div className={`
-                  w-16 h-16 rounded-2xl bg-gradient-to-br ${value.gradient}
-                  flex items-center justify-center shadow-lg shadow-brand-500/20 mb-6
+                  w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-gradient-to-br ${value.gradient}
+                  flex items-center justify-center shadow-lg shadow-brand-500/20 mb-4 sm:mb-6
                   group-hover:scale-110 group-hover:rotate-3 transition-all duration-300
                 `}>
-                  <value.icon className="w-8 h-8 text-white" />
+                  <value.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
                 </div>
 
                 <h4 className="text-xl font-bold text-foreground mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
