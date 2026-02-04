@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Globe, Users, Award, Clock, MapPin, Star, TrendingUp, Sparkles } from 'lucide-react';
 
 // =============================================================================
-// LOCATION STATS SECTION - Premium Emerald Green Design
+// LOCATION STATS SECTION - Premium Dark Design
 // =============================================================================
 
 interface LocationStatsSectionProps {
@@ -20,42 +20,36 @@ const LocationStatsSection = ({ country, locationName }: LocationStatsSectionPro
       number: '5+',
       label: 'Countries Served',
       description: 'Global presence across continents',
-      gradient: 'from-brand-500 to-teal-500'
     },
     {
       icon: MapPin,
       number: '20+',
       label: 'Cities Covered',
       description: 'Local expertise worldwide',
-      gradient: 'from-teal-500 to-cyan-500'
     },
     {
       icon: Users,
       number: '150+',
       label: 'Happy Clients',
       description: 'Satisfied customers globally',
-      gradient: 'from-cyan-500 to-blue-500'
     },
     {
       icon: Award,
       number: '99%',
       label: 'Satisfaction Rate',
       description: 'Consistent quality delivery',
-      gradient: 'from-brand-500 to-lime-500'
     },
     {
       icon: Clock,
       number: '< 2h',
       label: 'Response Time',
       description: 'Quick support worldwide',
-      gradient: 'from-purple-500 to-brand-500'
     },
     {
       icon: Star,
       number: '4.9/5',
       label: 'Client Rating',
       description: 'Excellent service quality',
-      gradient: 'from-amber-500 to-brand-500'
     }
   ];
 
@@ -66,114 +60,82 @@ const LocationStatsSection = ({ country, locationName }: LocationStatsSectionPro
   ];
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-950 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-brand-500/15 rounded-full blur-[120px]"
-          animate={{
-            x: [0, 30, 0],
-            y: [0, 20, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-teal-500/15 rounded-full blur-[120px]"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-[#030712] overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 50% 30% at 50% 100%, rgba(6,182,212,0.06), transparent 70%)',
+        }}
+      />
+      <div className="grain absolute inset-0" />
 
-        {/* Dot Pattern */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `radial-gradient(rgba(16, 185, 129, 0.2) 1px, transparent 1px)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
-      </div>
+      {/* Top divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-          >
-            <TrendingUp className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-brand-400 text-sm font-medium mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
             <span>Our Impact</span>
-          </motion.div>
+          </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-white">Global</span>
-            <br />
-            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-              Impact
-            </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+            <span className="text-white">Global </span>
+            <span className="gradient-text">Impact</span>
           </h2>
-          <p className="text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Our commitment to excellence has created a global impact, serving clients across multiple countries
             with consistent quality and local expertise.
           </p>
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-12 sm:mb-16">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="group relative"
+              className="relative bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:border-brand-500/20 transition-colors duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
             >
-              {/* Glow Effect */}
-              <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+              {/* Icon */}
+              <div
+                className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl mb-4"
+                style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.05))' }}
+              >
+                <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 text-brand-400" />
+              </div>
 
-              <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-brand-500/50 transition-all duration-500 h-full">
-                {/* Icon */}
+              {/* Stats */}
+              <div className="text-2xl sm:text-3xl font-bold gradient-text mb-1">
+                {stat.number}
+              </div>
+              <div className="text-base sm:text-lg font-semibold text-white mb-1">
+                {stat.label}
+              </div>
+              <div className="text-slate-500 text-xs sm:text-sm">
+                {stat.description}
+              </div>
+
+              {/* Progress Bar */}
+              <div className="mt-5 w-full bg-white/[0.05] rounded-full h-1 overflow-hidden">
                 <motion.div
-                  className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.gradient} rounded-2xl mb-6 shadow-lg shadow-brand-500/20`}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <stat.icon className="w-8 h-8 text-white" />
-                </motion.div>
-
-                {/* Stats */}
-                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
-                  {stat.number}
-                </div>
-                <div className="text-lg font-semibold text-white mb-2">
-                  {stat.label}
-                </div>
-                <div className="text-slate-400 text-sm">
-                  {stat.description}
-                </div>
-
-                {/* Progress Bar */}
-                <div className="mt-6 w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
-                  <motion.div
-                    className={`h-1.5 bg-gradient-to-r ${stat.gradient} rounded-full`}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: '100%' }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + index * 0.1, duration: 1, ease: "easeOut" }}
-                  />
-                </div>
+                  className="h-1 bg-gradient-to-r from-brand-500 to-teal-500 rounded-full"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '100%' }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.05, duration: 0.8, ease: "easeOut" }}
+                />
               </div>
             </motion.div>
           ))}
@@ -185,34 +147,35 @@ const LocationStatsSection = ({ country, locationName }: LocationStatsSectionPro
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
         >
-          {/* Glow */}
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-2xl blur opacity-10" />
-
-          <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 lg:p-12 border border-white/10">
-            <div className="flex items-center justify-center gap-2 mb-8">
-              <Sparkles className="w-5 h-5 text-brand-400" />
-              <span className="text-brand-400 font-semibold">Why Choose Us</span>
+          <div
+            className="relative bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10"
+            style={{
+              background: 'linear-gradient(135deg, rgba(16,185,129,0.04) 0%, rgba(6,182,212,0.02) 100%)',
+            }}
+          >
+            <div className="flex items-center justify-center gap-2 mb-6 sm:mb-8">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-brand-400" />
+              <span className="text-brand-400 font-semibold text-sm sm:text-base">Why Choose Us</span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
               {additionalStats.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="group"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
                 >
-                  <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-brand-400 to-teal-400 bg-clip-text text-transparent mb-3 group-hover:from-brand-300 group-hover:to-teal-300 transition-all">
+                  <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">
                     {item.value}
                   </div>
-                  <div className="text-white font-semibold text-lg mb-2">
+                  <div className="text-white font-semibold text-base sm:text-lg mb-1">
                     {item.label}
                   </div>
-                  <div className="text-slate-400 text-sm">
+                  <div className="text-slate-500 text-xs sm:text-sm">
                     {item.description}
                   </div>
                 </motion.div>

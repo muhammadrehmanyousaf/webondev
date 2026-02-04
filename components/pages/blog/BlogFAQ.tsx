@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface FAQItem {
   question: string;
@@ -62,124 +63,131 @@ const BlogFAQ: React.FC<BlogFAQProps> = ({
     }
   ]
 }) => {
-  const [openItems, setOpenItems] = useState<number[]>([]);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleItem = (index: number) => {
-    setOpenItems(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
-    );
+    setOpenIndex(openIndex === index ? null : index);
   };
 
-  const categories = Array.from(new Set(faqs.map(faq => faq.category).filter(Boolean)));
-
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <HelpCircle className="w-8 h-8 text-orange-600" />
-              <Badge className="bg-blue-100 text-blue-700 px-4 py-2 text-sm font-medium">
-                FAQ
-              </Badge>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              {title}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {description}
-            </p>
+    <section className="relative py-12 sm:py-16 lg:py-20 bg-[#030712] overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 50% 30% at 50% 0%, rgba(16,185,129,0.04), transparent 70%)',
+        }}
+      />
+      <div className="grain absolute inset-0" />
+
+      {/* Top divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-8 sm:mb-12">
+          <div
+            className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-5"
+            style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+          >
+            <HelpCircle className="w-6 h-6 sm:w-7 sm:h-7 text-brand-400" />
           </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
+            {title}
+          </h2>
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+            {description}
+          </p>
+        </div>
 
-          {/* Category Filters */}
-          {categories.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              <Badge 
-                className="bg-blue-600 text-white px-4 py-2 cursor-pointer hover:bg-blue-700 transition-colors"
-              >
-                All Questions
-              </Badge>
-              {categories.map((category, index) => (
-                <Badge 
-                  key={index}
-                  variant="outline" 
-                  className="border-gray-300 text-gray-700 px-4 py-2 cursor-pointer hover:bg-gray-100 transition-colors"
-                >
-                  {category}
-                </Badge>
-              ))}
-            </div>
-          )}
-
-          {/* FAQ Items */}
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-              >
+        {/* FAQ Items */}
+        <div className="space-y-3 sm:space-y-4">
+          {faqs.map((faq, index) => (
+            <div key={index} className="group">
+              <div className={`relative rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300 ${
+                openIndex === index
+                  ? 'bg-white/[0.04] border-brand-500/20'
+                  : 'bg-white/[0.02] hover:bg-white/[0.03] border-white/[0.06]'
+              } border`}>
                 <button
+                  type="button"
                   onClick={() => toggleItem(index)}
-                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  className="relative w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-center justify-between"
                 >
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <div className="flex-1 pr-4">
+                    <h3 className={`text-sm sm:text-base font-semibold transition-colors ${
+                      openIndex === index ? 'text-brand-400' : 'text-white'
+                    }`}>
                       {faq.question}
                     </h3>
                     {faq.category && (
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="mt-2 text-xs border-white/[0.1] text-slate-500">
                         {faq.category}
                       </Badge>
                     )}
                   </div>
-                  <div className="ml-4">
-                    {openItems.includes(index) ? (
-                      <ChevronUp className="w-6 h-6 text-orange-600" />
-                    ) : (
-                      <ChevronDown className="w-6 h-6 text-gray-400" />
-                    )}
+                  <div className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                    openIndex === index
+                      ? 'bg-brand-500/20 rotate-180'
+                      : 'bg-white/[0.04] group-hover:bg-white/[0.08]'
+                  }`}>
+                    <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors ${
+                      openIndex === index ? 'text-brand-400' : 'text-slate-400'
+                    }`} />
                   </div>
                 </button>
-                
-                {openItems.includes(index) && (
-                  <div className="px-8 pb-6">
-                    <div className="border-t border-gray-100 pt-4">
-                      <p className="text-gray-600 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
 
-          {/* Contact CTA */}
-          <div className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">
-                Still Have Questions?
-              </h3>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Can't find the answer you're looking for? Our team is here to help with any questions about web development, our services, or your project.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="/contact" 
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-orange-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                >
-                  Contact Us
-                </a>
-                <a 
-                  href="tel:+15551234567" 
-                  className="inline-flex items-center justify-center px-6 py-3 border border-white text-white rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors"
-                >
-                  Call Now
-                </a>
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="relative px-4 sm:px-6 pb-4 sm:pb-5">
+                        <div className="border-t border-white/[0.06] pt-3 sm:pt-4">
+                          <p className="text-slate-400 leading-relaxed text-xs sm:text-sm">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Contact CTA */}
+        <div className="mt-10 sm:mt-14">
+          <div
+            className="bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl p-5 sm:p-8 text-center"
+            style={{
+              background: 'linear-gradient(135deg, rgba(16,185,129,0.04) 0%, rgba(6,182,212,0.02) 100%)',
+            }}
+          >
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">
+              Still Have Questions?
+            </h3>
+            <p className="text-slate-400 mb-5 sm:mb-6 max-w-xl mx-auto text-sm">
+              Can't find the answer you're looking for? Our team is here to help with any questions about web development, our services, or your project.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-brand-500 to-teal-500 text-white rounded-xl font-semibold hover:from-brand-600 hover:to-teal-600 transition-all text-sm"
+              >
+                Contact Us
+              </a>
+              <a
+                href="tel:+923106803687"
+                className="inline-flex items-center justify-center px-5 py-2.5 border border-white/[0.1] text-white rounded-xl font-semibold hover:bg-white/[0.05] hover:border-brand-500/30 transition-all text-sm"
+              >
+                Call Now
+              </a>
             </div>
           </div>
         </div>
@@ -189,4 +197,3 @@ const BlogFAQ: React.FC<BlogFAQProps> = ({
 };
 
 export default BlogFAQ;
-

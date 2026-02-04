@@ -24,6 +24,7 @@ interface LeadNotificationEmailProps {
   date?: string;
   time?: string;
   country?: string;
+  emailVerified?: boolean;
 }
 
 const getLeadConfig = (type: string) => {
@@ -50,6 +51,7 @@ export const LeadNotificationEmail = ({
   date = 'December 28, 2024',
   time = '3:45 PM',
   country = 'United States',
+  emailVerified = false,
 }: LeadNotificationEmailProps) => {
   const config = getLeadConfig(leadType);
 
@@ -124,6 +126,12 @@ export const LeadNotificationEmail = ({
                       <Text style={contactIcon}>📧</Text>
                       <Text style={contactLabel}>EMAIL</Text>
                       <Link href={`mailto:${email}`} style={contactValue}>{email}</Link>
+                      {emailVerified && (
+                        <div style={verifiedBadge}>
+                          <span style={verifiedIcon}>✓</span>
+                          <span style={verifiedText}>VERIFIED</span>
+                        </div>
+                      )}
                     </div>
                   </td>
                   {phone && (
@@ -442,6 +450,30 @@ const contactValue = {
   fontWeight: '600',
   textDecoration: 'none',
   wordBreak: 'break-all' as const,
+};
+
+const verifiedBadge = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '4px',
+  backgroundColor: '#064e3b',
+  borderRadius: '12px',
+  padding: '4px 10px',
+  marginTop: '8px',
+};
+
+const verifiedIcon = {
+  color: '#34d399',
+  fontSize: '10px',
+  fontWeight: '700',
+};
+
+const verifiedText = {
+  color: '#34d399',
+  fontSize: '9px',
+  fontWeight: '700',
+  letterSpacing: '1px',
 };
 
 const projectSection = {

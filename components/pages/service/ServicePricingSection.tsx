@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   CheckCircle2,
@@ -42,9 +41,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'App Store Submission',
             'Basic Analytics'
           ],
-          popular: false,
-          gradient: 'from-slate-600 to-slate-700',
-          borderGradient: 'from-slate-500 to-slate-600'
+          popular: false
         },
         {
           name: 'Professional App',
@@ -60,9 +57,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Analytics Dashboard',
             'API Integration'
           ],
-          popular: true,
-          gradient: 'from-brand-500 to-teal-500',
-          borderGradient: 'from-brand-500 to-teal-500'
+          popular: true
         },
         {
           name: 'Enterprise App',
@@ -80,9 +75,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Dedicated Team',
             'Compliance Features'
           ],
-          popular: false,
-          gradient: 'from-purple-500 to-pink-500',
-          borderGradient: 'from-purple-500 to-pink-500'
+          popular: false
         }
       ];
     }
@@ -101,9 +94,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Basic SEO Setup',
             'SSL Certificate'
           ],
-          popular: false,
-          gradient: 'from-slate-600 to-slate-700',
-          borderGradient: 'from-slate-500 to-slate-600'
+          popular: false
         },
         {
           name: 'Professional Store',
@@ -119,9 +110,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Analytics Integration',
             'Email Marketing Setup'
           ],
-          popular: true,
-          gradient: 'from-brand-500 to-teal-500',
-          borderGradient: 'from-brand-500 to-teal-500'
+          popular: true
         },
         {
           name: 'Enterprise Store',
@@ -139,9 +128,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             'Dedicated Manager',
             'Performance Optimization'
           ],
-          popular: false,
-          gradient: 'from-purple-500 to-pink-500',
-          borderGradient: 'from-purple-500 to-pink-500'
+          popular: false
         }
       ];
     }
@@ -160,9 +147,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
           'Documentation',
           'Basic Training'
         ],
-        popular: false,
-        gradient: 'from-slate-600 to-slate-700',
-        borderGradient: 'from-slate-500 to-slate-600'
+        popular: false
       },
       {
         name: 'Professional',
@@ -178,9 +163,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
           'Performance Optimization',
           'Security Hardening'
         ],
-        popular: true,
-        gradient: 'from-brand-500 to-teal-500',
-        borderGradient: 'from-brand-500 to-teal-500'
+        popular: true
       },
       {
         name: 'Enterprise',
@@ -198,9 +181,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
           'Custom Integrations',
           'Dedicated Account Manager'
         ],
-        popular: false,
-        gradient: 'from-purple-500 to-pink-500',
-        borderGradient: 'from-purple-500 to-pink-500'
+        popular: false
       }
     ];
   };
@@ -208,18 +189,22 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
   const pricingTiers = getPricingTiers();
 
   return (
-    <section className="relative py-24 lg:py-32 bg-slate-900 overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg-[#030712] overflow-hidden">
+      {/* Grain Texture */}
+      <div className="grain absolute inset-0" />
+
+      {/* Top Divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-1/4 -left-40 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[150px]"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.08, 0.12, 0.08] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        <div
+          className="absolute top-1/4 left-0 w-full h-1/2"
+          style={{ background: 'radial-gradient(ellipse 40% 50% at 10% 30%, rgba(16,185,129,0.08), transparent 70%)' }}
         />
-        <motion.div
-          className="absolute bottom-1/4 -right-40 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[150px]"
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.12, 0.08, 0.12] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        <div
+          className="absolute bottom-1/4 right-0 w-full h-1/2"
+          style={{ background: 'radial-gradient(ellipse 40% 50% at 90% 70%, rgba(6,182,212,0.06), transparent 70%)' }}
         />
 
         {/* Grid Pattern */}
@@ -244,7 +229,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full gradient-border-subtle text-brand-400 text-sm font-semibold mb-6"
           >
             <Sparkles className="w-4 h-4" />
             Transparent Pricing
@@ -252,7 +237,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-white">{currentService.title} </span>
-            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="gradient-text">
               Pricing
             </span>
           </h2>
@@ -270,17 +255,16 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              whileHover={{ y: tier.popular ? 0 : -8 }}
               className={`relative group ${tier.popular ? 'md:-mt-8 md:mb-8' : ''}`}
             >
-              {/* Glow Effect */}
-              <div className={`absolute -inset-0.5 bg-gradient-to-r ${tier.borderGradient} rounded-3xl blur ${tier.popular ? 'opacity-40' : 'opacity-0 group-hover:opacity-20'} transition-all duration-500`} />
-
-              <div className={`relative h-full bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border ${tier.popular ? 'border-brand-500/50' : 'border-white/10'} transition-all duration-500`}>
+              <div className={`relative h-full bg-white/[0.02] rounded-xl sm:rounded-2xl p-8 border ${tier.popular ? 'border-brand-500/30' : 'border-white/[0.06]'} hover:border-brand-500/20 transition-all duration-300`}>
                 {/* Popular Badge */}
                 {tier.popular && (
                   <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-brand-500 to-teal-500 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg shadow-brand-500/25">
+                    <div
+                      className="text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg"
+                      style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.9), rgba(6,182,212,0.9))' }}
+                    >
                       <Star className="w-4 h-4 fill-current" />
                       Most Popular
                     </div>
@@ -290,7 +274,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
                 {/* Header */}
                 <div className="text-center mb-8 pt-4">
                   <h3 className="text-2xl font-bold text-white mb-3">{tier.name}</h3>
-                  <div className={`text-4xl lg:text-5xl font-bold bg-gradient-to-r ${tier.gradient} bg-clip-text text-transparent mb-4`}>
+                  <div className="text-4xl lg:text-5xl font-bold gradient-text mb-4">
                     {tier.price}
                   </div>
                   <p className="text-slate-400 leading-relaxed">{tier.description}</p>
@@ -300,8 +284,11 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
                 <div className="space-y-4 mb-8">
                   {tier.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-3">
-                      <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${tier.gradient} flex items-center justify-center flex-shrink-0`}>
-                        <CheckCircle2 className="w-3 h-3 text-white" />
+                      <div
+                        className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                        style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+                      >
+                        <CheckCircle2 className="w-3 h-3 text-brand-400" />
                       </div>
                       <span className="text-slate-300">{feature}</span>
                     </div>
@@ -310,17 +297,16 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
 
                 {/* CTA Button */}
                 <Button
-                  asChild
+                  type="button"
                   className={`w-full ${
                     tier.popular
-                      ? 'bg-gradient-to-r from-brand-500 to-teal-500 hover:from-brand-600 hover:to-teal-600 text-white shadow-lg shadow-brand-500/25'
-                      : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                      ? 'bg-gradient-to-r from-brand-500 to-teal-500 hover:from-brand-600 hover:to-teal-600 text-white'
+                      : 'bg-white/[0.02] hover:bg-white/[0.05] text-white border border-white/[0.06] hover:border-brand-500/20'
                   } font-bold py-6 rounded-xl transition-all duration-300`}
+                  onClick={() => window.dispatchEvent(new CustomEvent('openBookingModal'))}
                 >
-                  <Link href="/contact" className="flex items-center justify-center gap-2">
-                    Get Started
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
+                  Get Started
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>
             </motion.div>
@@ -335,9 +321,9 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20"
         >
           {[
-            { icon: Clock, title: 'Fast Delivery', desc: 'Quick turnaround times without compromising quality', gradient: 'from-brand-500 to-teal-500' },
-            { icon: Shield, title: 'Quality Assured', desc: '100% satisfaction guarantee with rigorous testing', gradient: 'from-teal-500 to-cyan-500' },
-            { icon: Zap, title: 'Ongoing Support', desc: 'Continuous support and maintenance included', gradient: 'from-cyan-500 to-blue-500' }
+            { icon: Clock, title: 'Fast Delivery', desc: 'Quick turnaround times without compromising quality' },
+            { icon: Shield, title: 'Quality Assured', desc: '100% satisfaction guarantee with rigorous testing' },
+            { icon: Zap, title: 'Ongoing Support', desc: 'Continuous support and maintenance included' }
           ].map((item, idx) => (
             <motion.div
               key={idx}
@@ -345,11 +331,13 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 + idx * 0.1 }}
-              whileHover={{ y: -4 }}
-              className="text-center p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:border-brand-500/30 transition-all duration-300"
+              className="text-center p-6 bg-white/[0.02] rounded-xl sm:rounded-2xl border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300"
             >
-              <div className={`w-14 h-14 bg-gradient-to-br ${item.gradient} rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg`}>
-                <item.icon className="w-7 h-7 text-white" />
+              <div
+                className="w-14 h-14 rounded-xl mx-auto mb-4 flex items-center justify-center"
+                style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+              >
+                <item.icon className="w-7 h-7 text-brand-400" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
               <p className="text-slate-400 text-sm">{item.desc}</p>
@@ -362,15 +350,21 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden"
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.05) 100%)' }}
         >
-          {/* Background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-600/90 via-teal-600/90 to-cyan-600/90" />
-          <div className="absolute inset-0 bg-slate-900/30" />
+          {/* Top Divider */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
           {/* Decorative */}
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div
+            className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.15), transparent 70%)' }}
+          />
+          <div
+            className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.1), transparent 70%)' }}
+          />
 
           <div className="relative z-10 p-8 lg:p-12">
             <div className="text-center mb-10">
@@ -378,7 +372,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white text-sm font-semibold mb-4"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full gradient-border-subtle text-brand-400 text-sm font-semibold mb-4"
               >
                 <MessageSquare className="w-4 h-4" />
                 Custom Solutions
@@ -386,7 +380,7 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
               <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
                 Need a Custom Solution?
               </h3>
-              <p className="text-white/80 max-w-2xl mx-auto">
+              <p className="text-slate-300 max-w-2xl mx-auto">
                 Every business is unique. If our standard packages don't fit your needs, we'll create a custom solution tailored specifically for your requirements.
               </p>
             </div>
@@ -405,19 +399,22 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
                   transition={{ delay: 0.3 + idx * 0.1 }}
                   className="text-center"
                 >
-                  <div className="text-3xl lg:text-4xl font-bold text-white mb-2">{stat.value}</div>
+                  <div className="text-3xl lg:text-4xl font-bold gradient-text mb-2">{stat.value}</div>
                   <div className="text-white font-semibold mb-1">{stat.label}</div>
-                  <div className="text-white/60 text-sm">{stat.desc}</div>
+                  <div className="text-slate-400 text-sm">{stat.desc}</div>
                 </motion.div>
               ))}
             </div>
 
             <div className="text-center">
-              <Button asChild size="lg" className="bg-white text-brand-600 hover:bg-white/90 rounded-full px-8 font-bold shadow-xl">
-                <Link href="/contact" className="flex items-center gap-2">
-                  Request Custom Quote
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
+              <Button
+                type="button"
+                size="lg"
+                className="bg-white text-brand-600 hover:bg-white/90 rounded-full px-8 font-bold shadow-xl"
+                onClick={() => window.dispatchEvent(new CustomEvent('openBookingModal'))}
+              >
+                Request Custom Quote
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
           </div>

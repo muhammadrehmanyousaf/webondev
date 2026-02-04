@@ -32,7 +32,7 @@ export default function ContactPage() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com';
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-[#030712]">
       <Header />
       <main>
         <ContactHeroSection />

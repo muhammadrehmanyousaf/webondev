@@ -26,6 +26,7 @@ export interface ContactFormData {
   timeline?: string;
   message: string;
   source?: string;
+  emailVerified?: boolean;
 }
 
 export interface BookingFormData {
@@ -66,6 +67,8 @@ export async function sendContactConfirmation(data: ContactFormData): Promise<Em
         service: data.service,
         message: data.message,
         company: data.company,
+        budget: data.budget,
+        timeline: data.timeline,
       }),
     });
 
@@ -147,6 +150,7 @@ export async function sendLeadNotification(
         source: 'source' in data ? data.source : (leadType === 'booking' ? 'Booking Page' : 'Website'),
         date: dateStr,
         time: timeStr,
+        emailVerified: 'emailVerified' in data ? data.emailVerified : false,
       }),
     });
 

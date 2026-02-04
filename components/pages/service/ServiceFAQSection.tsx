@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, HelpCircle, MessageCircle, Phone, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -56,18 +55,22 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
   };
 
   return (
-    <section className="relative py-24 lg:py-32 bg-slate-950 overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg-[#030712] overflow-hidden">
+      {/* Grain Texture */}
+      <div className="grain absolute inset-0" />
+
+      {/* Top Divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[150px]"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        <div
+          className="absolute top-1/3 right-0 w-full h-1/2"
+          style={{ background: 'radial-gradient(ellipse 40% 50% at 80% 30%, rgba(16,185,129,0.08), transparent 70%)' }}
         />
-        <motion.div
-          className="absolute bottom-1/3 -left-40 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[150px]"
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.15, 0.1, 0.15] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        <div
+          className="absolute bottom-1/3 left-0 w-full h-1/2"
+          style={{ background: 'radial-gradient(ellipse 40% 50% at 20% 70%, rgba(6,182,212,0.06), transparent 70%)' }}
         />
 
         {/* Grid Pattern */}
@@ -92,16 +95,17 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brand-500 to-teal-500 rounded-2xl mb-6 shadow-lg shadow-brand-500/25"
+            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
+            style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
           >
-            <HelpCircle className="w-8 h-8 text-white" />
+            <HelpCircle className="w-8 h-8 text-brand-400" />
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full gradient-border-subtle text-brand-400 text-sm font-semibold mb-6"
           >
             <Sparkles className="w-4 h-4" />
             Got Questions?
@@ -109,7 +113,7 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-white">Frequently Asked </span>
-            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="gradient-text">
               Questions
             </span>
           </h2>
@@ -129,19 +133,17 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
               transition={{ delay: index * 0.05 }}
               className="group"
             >
-              <div className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${
+              <div className={`relative rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300 ${
                 openFAQ === index
-                  ? 'bg-white/10 border-brand-500/50'
-                  : 'bg-white/5 border-white/10 hover:bg-white/[0.07]'
-              } border backdrop-blur-xl`}>
-                {/* Glow on open */}
-                {openFAQ === index && (
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-2xl blur opacity-20" />
-                )}
-
+                  ? 'bg-white/[0.04] border-brand-500/20'
+                  : 'bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.03]'
+              } border`}>
                 <button
+                  type="button"
                   onClick={() => toggleFAQ(index)}
                   className="relative w-full px-6 py-5 text-left flex items-center justify-between transition-colors duration-200"
+                  aria-label={`Toggle answer for: ${faq.question}`}
+                  title={openFAQ === index ? 'Collapse answer' : 'Expand answer'}
                 >
                   <h3 className={`text-lg font-semibold pr-4 transition-colors ${
                     openFAQ === index ? 'text-brand-400' : 'text-white'
@@ -153,8 +155,8 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
                     transition={{ duration: 0.3 }}
                     className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
                       openFAQ === index
-                        ? 'bg-brand-500/20 text-brand-400'
-                        : 'bg-white/10 text-slate-400'
+                        ? 'bg-brand-500/10 text-brand-400'
+                        : 'bg-white/[0.05] text-slate-400'
                     }`}
                   >
                     <ChevronDown className="w-5 h-5" />
@@ -171,7 +173,7 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
                       className="overflow-hidden"
                     >
                       <div className="relative px-6 pb-5">
-                        <div className="border-t border-white/10 pt-4">
+                        <div className="border-t border-white/[0.06] pt-4">
                           <p className="text-slate-300 leading-relaxed">
                             {faq.answer}
                           </p>
@@ -190,24 +192,31 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden"
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.05) 100%)' }}
         >
-          {/* Background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/90 via-slate-800/90 to-slate-800/90" />
-          <div className="absolute inset-0 bg-white/5 backdrop-blur-xl" />
+          {/* Top Divider */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
           {/* Decorative */}
-          <div className="absolute -top-20 -right-20 w-48 h-48 bg-brand-500/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-teal-500/20 rounded-full blur-3xl" />
+          <div
+            className="absolute -top-20 -right-20 w-48 h-48 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.15), transparent 70%)' }}
+          />
+          <div
+            className="absolute -bottom-20 -left-20 w-48 h-48 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.1), transparent 70%)' }}
+          />
 
           <div className="relative z-10 p-8 lg:p-10 text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl mb-6 shadow-lg shadow-brand-500/25"
+              className="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-6"
+              style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
             >
-              <MessageCircle className="w-7 h-7 text-white" />
+              <MessageCircle className="w-7 h-7 text-brand-400" />
             </motion.div>
 
             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
@@ -220,21 +229,21 @@ const ServiceFAQSection = ({ pillar, cluster }: ServiceFAQSectionProps) => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                asChild
+                type="button"
                 variant="default"
                 size="lg"
                 className="rounded-full px-8"
+                onClick={() => window.dispatchEvent(new CustomEvent('openBookingModal'))}
               >
-                <Link href="/contact" className="flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5" />
-                  Contact Our Experts
-                </Link>
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Contact Our Experts
               </Button>
               <Button
                 asChild
+                type="button"
                 variant="outline"
                 size="lg"
-                className="rounded-full px-8 border-white/20 text-white hover:bg-white/10"
+                className="rounded-full px-8 border-white/[0.06] text-white hover:bg-white/[0.05] hover:border-brand-500/20"
               >
                 <a href="tel:+15551234567" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />

@@ -39,44 +39,46 @@ const BlogSearchSection = ({ onSearchResults, onCategoryFilter }: BlogSearchSect
   };
 
   return (
-    <section className="bg-slate-950 py-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+    <section className="relative py-6 sm:py-8 bg-[#030712]">
+      <div className="grain absolute inset-0" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-8">
+        <div className="max-w-xl mx-auto mb-6">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-500" />
             <input
               type="text"
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-12 py-3.5 bg-slate-900 border border-slate-800 rounded-full text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-500 transition-colors"
+              className="w-full pl-11 sm:pl-12 pr-11 sm:pr-12 py-3 bg-white/[0.03] border border-white/[0.08] rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-500/50 focus:border-brand-500/30 transition-all duration-300 text-sm"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors"
                 aria-label="Clear search"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             )}
           </div>
         </div>
 
         {/* Category Tabs */}
-        <div className="flex justify-center">
-          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 bg-slate-900/80 rounded-full border border-slate-800">
+        <div className="flex justify-center overflow-x-auto scrollbar-hide">
+          <div className="inline-flex flex-nowrap gap-2 p-1 bg-white/[0.02] rounded-xl border border-white/[0.06]">
             {categories.map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => handleCategoryChange(category)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/30'
-                    : 'text-gray-400 hover:text-white hover:bg-slate-800'
+                    ? 'bg-gradient-to-r from-brand-500 to-teal-500 text-white'
+                    : 'text-slate-400 hover:text-white hover:bg-white/[0.05]'
                 }`}
               >
                 {category}
@@ -86,8 +88,8 @@ const BlogSearchSection = ({ onSearchResults, onCategoryFilter }: BlogSearchSect
         </div>
 
         {/* Results Count */}
-        <div className="text-center mt-6">
-          <span className="text-sm text-gray-500">
+        <div className="text-center mt-5">
+          <span className="text-xs sm:text-sm text-slate-500">
             Showing <span className="text-white font-medium">{filteredPosts.length}</span> of {blogData.length} articles
           </span>
         </div>

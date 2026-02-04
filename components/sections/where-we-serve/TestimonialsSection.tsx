@@ -3,9 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote, MessageSquare, Globe, Users, Award } from 'lucide-react';
+import InlineCTA from '@/components/ui/inline-cta';
 
 // =============================================================================
-// TESTIMONIALS SECTION (Location Pages)
+// TESTIMONIALS SECTION - Updated Design Language
 // =============================================================================
 
 const TestimonialsSection = () => {
@@ -80,7 +81,19 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-950 overflow-hidden">
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-[#030712] overflow-hidden">
+      {/* Section Divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 50% 30% at 50% 0%, rgba(6,182,212,0.06), transparent 70%)',
+        }}
+      />
+      <div className="grain absolute inset-0" />
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         {/* Section Header */}
         <motion.div
@@ -90,10 +103,15 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-sm font-semibold mb-6">
-            <MessageSquare className="w-4 h-4" />
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-brand-400 text-sm font-medium mb-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
             <span>Global Testimonials</span>
-          </div>
+          </motion.div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
             <span className="text-white">What Our Global Clients </span>
@@ -113,10 +131,13 @@ const TestimonialsSection = () => {
               key={`${testimonial.id}-${index}`}
               className="flex-shrink-0 w-[400px] mx-3 group"
             >
-              <div className="relative bg-slate-900/50 rounded-2xl p-8 border border-white/5 hover:border-brand-500/20 transition-colors duration-200 h-full">
+              <div className="relative bg-white/[0.02] rounded-2xl p-8 border border-white/[0.06] hover:border-brand-500/20 transition-colors duration-200 h-full">
                 {/* Quote Icon & Stars */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.05))' }}
+                  >
                     <Quote className="w-5 h-5 text-brand-400" />
                   </div>
                   <div className="flex gap-1">
@@ -132,11 +153,11 @@ const TestimonialsSection = () => {
                 </p>
 
                 {/* Client Info */}
-                <div className="flex items-center gap-4 pt-4 border-t border-white/5">
+                <div className="flex items-center gap-4 pt-4 border-t border-white/[0.06]">
                   <img
                     src={testimonial.avatar}
                     alt={testimonial.name}
-                    className="w-11 h-11 rounded-full object-cover border-2 border-white/10"
+                    className="w-11 h-11 rounded-full object-cover border-2 border-white/[0.06]"
                   />
                   <div>
                     <div className="font-bold text-white text-sm">{testimonial.name}</div>
@@ -162,9 +183,12 @@ const TestimonialsSection = () => {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="text-center bg-slate-900/50 rounded-2xl p-6 border border-white/5 hover:border-brand-500/20 transition-colors duration-200"
+              className="text-center bg-white/[0.02] rounded-2xl p-6 border border-white/[0.06] hover:border-brand-500/20 transition-colors duration-200"
             >
-              <div className="w-10 h-10 mx-auto bg-brand-500/10 rounded-xl flex items-center justify-center mb-4">
+              <div
+                className="w-10 h-10 mx-auto rounded-xl flex items-center justify-center mb-4"
+                style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.05))' }}
+              >
                 <stat.icon className="w-5 h-5 text-brand-400" />
               </div>
               <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
@@ -172,6 +196,12 @@ const TestimonialsSection = () => {
             </div>
           ))}
         </motion.div>
+
+        <InlineCTA
+          title="Join 200+ Happy Clients"
+          description="Start your success story with us today."
+          buttonText="Get Started"
+        />
       </div>
     </section>
   );

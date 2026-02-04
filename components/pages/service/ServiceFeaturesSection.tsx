@@ -13,13 +13,12 @@ import {
   Globe,
   HeartHandshake,
   ArrowRight,
-  Star,
   Sparkles,
   Code2,
-  Layers,
   TrendingUp
 } from 'lucide-react';
 import { PillarPage, ClusterPage } from '@/lib/site-structure';
+import InlineCTA from '@/components/ui/inline-cta';
 
 interface ServiceFeaturesSectionProps {
   pillar: PillarPage;
@@ -33,58 +32,42 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
     {
       icon: Zap,
       title: 'Fast Development',
-      description: 'Rapid development cycles with agile methodology for quick time-to-market.',
-      gradient: 'from-brand-500 to-teal-500',
-      glow: 'shadow-brand-500/25'
+      description: 'Rapid development cycles with agile methodology for quick time-to-market.'
     },
     {
       icon: Shield,
       title: 'Secure & Reliable',
-      description: 'Enterprise-grade security and reliability built into every solution.',
-      gradient: 'from-teal-500 to-cyan-500',
-      glow: 'shadow-teal-500/25'
+      description: 'Enterprise-grade security and reliability built into every solution.'
     },
     {
       icon: Clock,
       title: 'On-Time Delivery',
-      description: 'Consistent project delivery within agreed timelines and budgets.',
-      gradient: 'from-cyan-500 to-blue-500',
-      glow: 'shadow-cyan-500/25'
+      description: 'Consistent project delivery within agreed timelines and budgets.'
     },
     {
       icon: Users,
       title: 'Expert Team',
-      description: 'Experienced professionals with deep expertise in modern technologies.',
-      gradient: 'from-blue-500 to-indigo-500',
-      glow: 'shadow-blue-500/25'
+      description: 'Experienced professionals with deep expertise in modern technologies.'
     },
     {
       icon: Award,
       title: 'Quality Assurance',
-      description: 'Rigorous testing and quality control processes ensure excellence.',
-      gradient: 'from-indigo-500 to-purple-500',
-      glow: 'shadow-indigo-500/25'
+      description: 'Rigorous testing and quality control processes ensure excellence.'
     },
     {
       icon: Globe,
       title: 'Scalable Solutions',
-      description: 'Built to grow with your business and handle increasing demands.',
-      gradient: 'from-purple-500 to-pink-500',
-      glow: 'shadow-purple-500/25'
+      description: 'Built to grow with your business and handle increasing demands.'
     },
     {
       icon: HeartHandshake,
       title: 'Ongoing Support',
-      description: '24/7 support and maintenance to keep your solutions running smoothly.',
-      gradient: 'from-pink-500 to-rose-500',
-      glow: 'shadow-pink-500/25'
+      description: '24/7 support and maintenance to keep your solutions running smoothly.'
     },
     {
       icon: CheckCircle2,
       title: 'Best Practices',
-      description: 'Following industry standards and best practices for optimal results.',
-      gradient: 'from-rose-500 to-brand-500',
-      glow: 'shadow-rose-500/25'
+      description: 'Following industry standards and best practices for optimal results.'
     }
   ];
 
@@ -105,18 +88,22 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
   };
 
   return (
-    <section className="relative py-24 lg:py-32 bg-slate-950 overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg-[#030712] overflow-hidden">
+      {/* Grain Texture */}
+      <div className="grain absolute inset-0" />
+
+      {/* Top Divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-1/4 -right-40 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[150px]"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        <div
+          className="absolute top-1/4 right-0 w-full h-1/2"
+          style={{ background: 'radial-gradient(ellipse 40% 50% at 90% 30%, rgba(16,185,129,0.08), transparent 70%)' }}
         />
-        <motion.div
-          className="absolute bottom-1/4 -left-40 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[150px]"
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.15, 0.1, 0.15] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        <div
+          className="absolute bottom-1/4 left-0 w-full h-1/2"
+          style={{ background: 'radial-gradient(ellipse 40% 50% at 10% 70%, rgba(6,182,212,0.06), transparent 70%)' }}
         />
 
         {/* Grid Pattern */}
@@ -141,7 +128,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full gradient-border-subtle text-brand-400 text-sm font-semibold mb-6"
           >
             <Sparkles className="w-4 h-4" />
             Why Choose Us
@@ -149,7 +136,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-white">Why Choose Our </span>
-            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="gradient-text">
               {currentService.title}
             </span>
           </h2>
@@ -167,7 +154,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
             className="mb-20"
           >
             <h3 className="text-2xl lg:text-3xl font-bold text-white text-center mb-10">
-              <span className="bg-gradient-to-r from-brand-400 to-teal-400 bg-clip-text text-transparent">{cluster.title}</span> Capabilities
+              <span className="gradient-text">{cluster.title}</span> Capabilities
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {cluster.features.map((feature, index) => (
@@ -177,15 +164,14 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
                   className="group relative"
                 >
-                  {/* Glow */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-all duration-500" />
-
-                  <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-brand-500/50 text-center transition-all duration-500">
-                    <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/25 group-hover:scale-110 transition-transform duration-300">
-                      <CheckCircle2 className="w-7 h-7 text-white" />
+                  <div className="relative bg-white/[0.02] rounded-xl sm:rounded-2xl p-6 border border-white/[0.06] hover:border-brand-500/20 text-center transition-all duration-300">
+                    <div
+                      className="w-14 h-14 mx-auto mb-4 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                      style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+                    >
+                      <CheckCircle2 className="w-7 h-7 text-brand-400" />
                     </div>
                     <h4 className="font-bold text-white text-lg mb-2 group-hover:text-brand-400 transition-colors">
                       {feature}
@@ -207,7 +193,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
           viewport={{ once: true }}
         >
           <h3 className="text-2xl lg:text-3xl font-bold text-white text-center mb-12">
-            Our Service <span className="bg-gradient-to-r from-brand-400 to-teal-400 bg-clip-text text-transparent">Advantages</span>
+            Our Service <span className="gradient-text">Advantages</span>
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {defaultFeatures.map((feature, index) => (
@@ -217,15 +203,14 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
                 className="group relative"
               >
-                {/* Glow */}
-                <div className={`absolute -inset-0.5 bg-gradient-to-r ${feature.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition-all duration-500`} />
-
-                <div className="relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-500">
-                  <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl mb-5 shadow-lg ${feature.glow} group-hover:scale-110 transition-transform duration-300`}>
-                    <feature.icon className="w-7 h-7 text-white" />
+                <div className="relative h-full bg-white/[0.02] rounded-xl sm:rounded-2xl p-6 border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300">
+                  <div
+                    className="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300"
+                    style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+                  >
+                    <feature.icon className="w-7 h-7 text-brand-400" />
                   </div>
 
                   <h4 className="text-lg font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">
@@ -251,7 +236,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
           >
             <div className="text-center mb-12">
               <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-                Specialized <span className="bg-gradient-to-r from-brand-400 to-teal-400 bg-clip-text text-transparent">{pillar.title}</span>
+                Specialized <span className="gradient-text">{pillar.title}</span>
               </h3>
               <p className="text-slate-300 max-w-2xl mx-auto">
                 Explore our comprehensive range of specialized services within {pillar.title.toLowerCase()}
@@ -266,20 +251,19 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
                 >
                   <Link
                     href={`/${pillar.slug}/${service.slug}`}
                     className="group block h-full"
                   >
-                    <div className="relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-brand-500/50 transition-all duration-500">
-                      {/* Glow */}
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-all duration-500" />
-
+                    <div className="relative h-full bg-white/[0.02] rounded-xl sm:rounded-2xl p-6 border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300">
                       <div className="relative">
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/25 group-hover:scale-110 transition-transform duration-300">
-                            <TrendingUp className="w-6 h-6 text-white" />
+                          <div
+                            className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                            style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+                          >
+                            <TrendingUp className="w-6 h-6 text-brand-400" />
                           </div>
                           <h4 className="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">
                             {service.title}
@@ -295,13 +279,13 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                           {service.features.slice(0, 2).map((feature, idx) => (
                             <span
                               key={idx}
-                              className="px-3 py-1 bg-brand-500/10 text-brand-400 text-xs rounded-full border border-brand-500/20"
+                              className="px-3 py-1 gradient-border-subtle text-brand-400 text-xs rounded-full"
                             >
                               {feature}
                             </span>
                           ))}
                           {service.features.length > 2 && (
-                            <span className="px-3 py-1 bg-white/5 text-slate-400 text-xs rounded-full border border-white/10">
+                            <span className="px-3 py-1 bg-white/[0.02] text-slate-400 text-xs rounded-full border border-white/[0.06]">
                               +{service.features.length - 2} more
                             </span>
                           )}
@@ -328,10 +312,12 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
             viewport={{ once: true }}
             className="mt-24"
           >
-            <div className="relative rounded-3xl overflow-hidden">
-              {/* Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-600/20 via-teal-600/20 to-cyan-600/20" />
-              <div className="absolute inset-0 bg-white/5 backdrop-blur-xl" />
+            <div
+              className="relative rounded-2xl sm:rounded-3xl overflow-hidden"
+              style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.05) 100%)' }}
+            >
+              {/* Top Divider */}
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
               <div className="relative p-8 lg:p-12">
                 <div className="text-center mb-10">
@@ -339,7 +325,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold mb-4"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full gradient-border-subtle text-brand-400 text-sm font-semibold mb-4"
                   >
                     <Code2 className="w-4 h-4" />
                     Tech Stack
@@ -360,8 +346,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.1 }}
-                      whileHover={{ scale: 1.05, y: -4 }}
-                      className="bg-white/10 backdrop-blur-xl rounded-xl p-4 text-center border border-white/10 hover:border-brand-500/50 transition-all duration-300"
+                      className="bg-white/[0.02] rounded-xl p-4 text-center border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300"
                     >
                       <span className="text-sm font-semibold text-white">{tech}</span>
                     </motion.div>
@@ -371,6 +356,12 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
             </div>
           </motion.div>
         )}
+
+        <InlineCTA
+          title="Ready to Get Started?"
+          description="Let's discuss your project requirements and build something great."
+          buttonText="Book a Free Consultation"
+        />
       </div>
     </section>
   );

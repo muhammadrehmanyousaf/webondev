@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, User, ArrowRight, Sparkles } from 'lucide-react';
+import { Calendar, Clock, User, ArrowRight, Sparkles, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { blogData, BlogPost } from '../../lib/blog-data';
@@ -30,80 +30,67 @@ const BlogPageClient = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 w-full">
+    <div className="min-h-screen bg-[#030712] w-full">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-500/20 rounded-full blur-[150px]"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-500/20 rounded-full blur-[150px]"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-          />
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `linear-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.3) 1px, transparent 1px)`,
-              backgroundSize: '50px 50px'
-            }}
-          />
-        </div>
+      <section className="relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
+        {/* Background */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16,185,129,0.12), transparent 70%)',
+          }}
+        />
+        <div className="grain absolute inset-0" />
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 mb-8">
-              <Sparkles className="w-4 h-4 text-brand-400" />
+            <div className="gradient-border-subtle inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6">
+              <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse" />
               <span className="text-brand-400 text-sm font-medium">Latest Insights</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">
-              Our <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">Blog</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-5 leading-[1.1]">
+              Our <span className="gradient-text">Blog</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
               Expert insights on web development, digital marketing, and technology trends.
               Stay ahead with our comprehensive guides and industry analysis.
             </p>
+
+            {/* Quick Stats */}
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+              {[
+                { value: '100+', label: 'Articles' },
+                { value: '50K+', label: 'Readers' },
+                { value: '15+', label: 'Topics' },
+              ].map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-slate-500">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="bg-slate-900/50 backdrop-blur-xl w-full border-b border-white/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-4">
-          <ol className="flex items-center gap-2 text-sm text-gray-400">
+      <nav aria-label="Breadcrumb" className="relative bg-white/[0.02] border-y border-white/[0.06]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <ol className="flex items-center gap-2 text-sm text-slate-400">
             <li>
               <Link href="/" className="hover:text-brand-400 transition-colors">
                 Home
               </Link>
             </li>
-            <li aria-hidden className="text-gray-600"> / </li>
+            <li aria-hidden className="text-slate-600"> / </li>
             <li aria-current="page" className="text-white font-medium">Blog</li>
           </ol>
         </div>
@@ -117,84 +104,97 @@ const BlogPageClient = () => {
 
       {/* Featured Posts */}
       {featuredPosts.length > 0 && (
-        <section className="py-20 lg:py-24 bg-slate-900 w-full relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-brand-500/10 rounded-full blur-[120px]" />
+        <section className="relative py-16 sm:py-20 overflow-hidden">
+          {/* Background */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(ellipse 50% 30% at 50% 100%, rgba(16,185,129,0.06), transparent 70%)',
+            }}
+          />
+          <div className="grain absolute inset-0" />
 
-          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          {/* Top divider */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
+              transition={{ duration: 0.5 }}
+              className="text-center mb-10 sm:mb-14"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Featured <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">Articles</span>
+              <div
+                className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-5"
+                style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+              >
+                <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-brand-400" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
+                Featured <span className="gradient-text">Articles</span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
                 Our most popular and insightful articles that provide valuable insights for your business growth.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {featuredPosts.map((post, index) => (
                 <motion.article
                   key={post.slug}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="group relative"
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="group"
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-400 to-teal-400 rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-
-                  <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/30 transition-all duration-500">
+                  <div className="relative bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl overflow-hidden hover:border-brand-500/20 transition-all duration-300">
                     <div className="relative">
-                      <BlogImage src={post.featuredImage || post.image || '/images/blog/placeholder.svg'} alt={post.title} className="w-full h-48 object-cover" />
-                      <div className="absolute top-4 left-4">
-                        <Badge className="bg-gradient-to-r from-brand-500 to-teal-500 text-white border-0">
+                      <BlogImage src={post.featuredImage || post.image || '/images/blog/placeholder.svg'} alt={post.title} className="w-full h-44 sm:h-48 object-cover" />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-gradient-to-r from-brand-500 to-teal-500 text-white border-0 text-xs">
                           Featured
                         </Badge>
                       </div>
                     </div>
-                    <div className="p-6">
-                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                    <div className="p-4 sm:p-5">
+                      <div className="flex items-center gap-3 text-xs text-slate-500 mb-2.5">
                         <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4 text-brand-400" />
-                          <span className="text-gray-400">{post.date}</span>
+                          <Calendar className="w-3.5 h-3.5 text-brand-400" />
+                          <span className="text-slate-400">{post.date}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4 text-teal-400" />
-                          <span className="text-gray-400">{post.readTime}</span>
+                          <Clock className="w-3.5 h-3.5 text-teal-400" />
+                          <span className="text-slate-400">{post.readTime}</span>
                         </div>
                       </div>
 
-                      <Badge variant="outline" className="mb-3 border-white/20 text-gray-300">
+                      <Badge variant="outline" className="mb-2.5 border-white/[0.1] text-slate-400 text-xs">
                         {post.category}
                       </Badge>
 
-                      <h3 className="text-xl font-bold text-white mb-4 line-clamp-2 group-hover:text-brand-400 transition-colors">
+                      <h3 className="text-base sm:text-lg font-bold text-white mb-2.5 line-clamp-2 group-hover:text-brand-400 transition-colors">
                         <Link href={`/blog/${post.slug}`}>
                           {post.title}
                         </Link>
                       </h3>
 
-                      <p className="text-gray-400 mb-6 line-clamp-3">
+                      <p className="text-slate-400 mb-4 line-clamp-2 text-sm">
                         {post.excerpt}
                       </p>
 
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-sm text-gray-500">
-                          <User className="w-4 h-4 text-cyan-400" />
-                          <span className="text-gray-400">{post.author}</span>
+                      <div className="flex items-center justify-between pt-3 border-t border-white/[0.06]">
+                        <div className="flex items-center gap-2 text-xs text-slate-500">
+                          <User className="w-3.5 h-3.5 text-cyan-400" />
+                          <span className="text-slate-400">{post.author}</span>
                         </div>
                         <Link
                           href={`/blog/${post.slug}`}
-                          className="text-brand-400 hover:text-brand-300 font-medium text-sm flex items-center gap-1 transition-colors"
+                          className="text-brand-400 hover:text-brand-300 font-medium text-xs flex items-center gap-1 transition-colors"
                         >
                           Read More
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                       </div>
                     </div>
@@ -207,21 +207,37 @@ const BlogPageClient = () => {
       )}
 
       {/* Recent Posts */}
-      <section className="py-20 lg:py-24 bg-slate-950 w-full relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-teal-500/10 rounded-full blur-[120px]" />
+      <section className="relative py-16 sm:py-20 overflow-hidden">
+        {/* Background */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 50% 30% at 50% 0%, rgba(6,182,212,0.04), transparent 70%)',
+          }}
+        />
+        <div className="grain absolute inset-0" />
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        {/* Top divider */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.5 }}
+            className="text-center mb-10 sm:mb-14"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Latest <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">Articles</span>
+            <div
+              className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-5"
+              style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+            >
+              <BookOpen className="w-6 h-6 sm:w-7 sm:h-7 text-brand-400" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
+              Latest <span className="gradient-text">Articles</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
               Fresh insights and updates from our team of experts.
             </p>
           </motion.div>
@@ -230,72 +246,68 @@ const BlogPageClient = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="relative max-w-2xl mx-auto"
+              className="max-w-md mx-auto"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-brand-500/20 via-teal-500/20 to-cyan-500/20 rounded-3xl blur-xl opacity-50" />
-              <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-16 text-center border border-white/10">
-                <h3 className="text-2xl font-semibold text-white mb-4">No articles found</h3>
-                <p className="text-gray-400 mb-6">Try a different search or category filter.</p>
+              <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl p-8 sm:p-10 text-center">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">No articles found</h3>
+                <p className="text-slate-400 mb-5 text-sm">Try a different search or category filter.</p>
                 <Button asChild className="bg-gradient-to-r from-brand-500 to-teal-500 hover:from-brand-600 hover:to-teal-600 text-white">
                   <Link href="/blog">Clear filters</Link>
                 </Button>
               </div>
             </motion.div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {visiblePosts.map((post, index) => (
                 <motion.article
                   key={post.slug}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  whileHover={{ y: -8 }}
-                  className="group relative"
+                  transition={{ duration: 0.4, delay: index * 0.03 }}
+                  className="group"
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-400 to-teal-400 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-
-                  <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/30 transition-all duration-500">
+                  <div className="relative bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl overflow-hidden hover:border-brand-500/20 transition-all duration-300">
                     <div className="relative">
-                      <BlogImage src={post.featuredImage || post.image || '/images/blog/placeholder.svg'} alt={post.title} className="w-full h-48 object-cover" />
+                      <BlogImage src={post.featuredImage || post.image || '/images/blog/placeholder.svg'} alt={post.title} className="w-full h-44 sm:h-48 object-cover" />
                     </div>
-                    <div className="p-6">
-                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                    <div className="p-4 sm:p-5">
+                      <div className="flex items-center gap-3 text-xs text-slate-500 mb-2.5">
                         <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4 text-brand-400" />
-                          <span className="text-gray-400">{post.date}</span>
+                          <Calendar className="w-3.5 h-3.5 text-brand-400" />
+                          <span className="text-slate-400">{post.date}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4 text-teal-400" />
-                          <span className="text-gray-400">{post.readTime}</span>
+                          <Clock className="w-3.5 h-3.5 text-teal-400" />
+                          <span className="text-slate-400">{post.readTime}</span>
                         </div>
                       </div>
 
-                      <Badge variant="outline" className="mb-3 border-white/20 text-gray-300">
+                      <Badge variant="outline" className="mb-2.5 border-white/[0.1] text-slate-400 text-xs">
                         {post.category}
                       </Badge>
 
-                      <h3 className="text-xl font-bold text-white mb-4 line-clamp-2 group-hover:text-brand-400 transition-colors">
+                      <h3 className="text-base sm:text-lg font-bold text-white mb-2.5 line-clamp-2 group-hover:text-brand-400 transition-colors">
                         <Link href={`/blog/${post.slug}`}>
                           {post.title}
                         </Link>
                       </h3>
 
-                      <p className="text-gray-400 mb-6 line-clamp-3">
+                      <p className="text-slate-400 mb-4 line-clamp-2 text-sm">
                         {post.excerpt}
                       </p>
 
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-sm text-gray-500">
-                          <User className="w-4 h-4 text-cyan-400" />
-                          <span className="text-gray-400">{post.author}</span>
+                      <div className="flex items-center justify-between pt-3 border-t border-white/[0.06]">
+                        <div className="flex items-center gap-2 text-xs text-slate-500">
+                          <User className="w-3.5 h-3.5 text-cyan-400" />
+                          <span className="text-slate-400">{post.author}</span>
                         </div>
                         <Link
                           href={`/blog/${post.slug}`}
-                          className="text-brand-400 hover:text-brand-300 font-medium text-sm flex items-center gap-1 transition-colors"
+                          className="text-brand-400 hover:text-brand-300 font-medium text-xs flex items-center gap-1 transition-colors"
                         >
                           Read More
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                       </div>
                     </div>
@@ -310,12 +322,12 @@ const BlogPageClient = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mt-16"
+              className="text-center mt-10 sm:mt-14"
             >
               <Button
                 size="lg"
                 onClick={() => setVisibleCount(v => v + 6)}
-                className="bg-gradient-to-r from-brand-500 to-teal-500 hover:from-brand-600 hover:to-teal-600 text-white px-8 py-4 rounded-xl shadow-lg shadow-brand-500/25"
+                className="bg-gradient-to-r from-brand-500 to-teal-500 hover:from-brand-600 hover:to-teal-600 text-white px-6 py-3 rounded-xl"
               >
                 Load More Articles
               </Button>
@@ -325,38 +337,50 @@ const BlogPageClient = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 lg:py-24 bg-slate-900 w-full relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[150px]" />
-        </div>
+      <section className="relative py-16 sm:py-20 overflow-hidden">
+        {/* Background */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(16,185,129,0.08), transparent 70%)',
+          }}
+        />
+        <div className="grain absolute inset-0" />
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        {/* Top divider */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative max-w-4xl mx-auto"
+            transition={{ duration: 0.5 }}
+            className="max-w-2xl mx-auto"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-brand-500/20 via-teal-500/20 to-cyan-500/20 rounded-3xl blur-xl opacity-50" />
-            <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-12 border border-white/10 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <div
+              className="bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl p-6 sm:p-10 text-center"
+              style={{
+                background: 'linear-gradient(135deg, rgba(16,185,129,0.04) 0%, rgba(6,182,212,0.02) 100%)',
+              }}
+            >
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
                 Stay Updated with Our Latest Insights
               </h2>
-              <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-400 mb-6 sm:mb-8 max-w-lg mx-auto">
                 Get weekly updates on web development, digital marketing, and technology trends delivered to your inbox.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-md mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all duration-300"
+                  className="flex-1 w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-500/50 focus:border-brand-500/30 transition-all duration-300 text-sm"
                 />
-                <Button size="lg" className="bg-gradient-to-r from-brand-500 to-teal-500 hover:from-brand-600 hover:to-teal-600 text-white px-8 py-4 rounded-xl shadow-lg shadow-brand-500/25 whitespace-nowrap">
+                <Button className="w-full sm:w-auto bg-gradient-to-r from-brand-500 to-teal-500 hover:from-brand-600 hover:to-teal-600 text-white px-6 py-3 rounded-xl text-sm font-semibold">
                   Subscribe
                 </Button>
               </div>
-              <p className="text-sm text-gray-500 mt-6">
+              <p className="text-xs text-slate-500 mt-4">
                 No spam, unsubscribe at any time. We respect your privacy.
               </p>
             </div>

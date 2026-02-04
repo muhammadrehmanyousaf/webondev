@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Home } from 'lucide-react';
 
 // =============================================================================
-// LOCATION BREADCRUMB - Premium Emerald Green Design
+// LOCATION BREADCRUMB - Premium Dark Design
 // =============================================================================
 
 interface BreadcrumbItem {
@@ -21,13 +21,13 @@ interface LocationBreadcrumbProps {
 
 const LocationBreadcrumb = ({ items }: LocationBreadcrumbProps) => {
   return (
-    <nav className="bg-slate-900/80 backdrop-blur-xl border-b border-white/10 py-4 sticky top-20 z-30 hidden sm:block">
+    <nav className="bg-[#030712]/90 border-b border-white/[0.06] py-3 sm:py-4 sticky top-16 z-30 hidden sm:block">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.ol
-          className="flex items-center flex-wrap gap-2 text-sm"
+          className="flex items-center flex-wrap gap-1.5 sm:gap-2 text-sm"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.3 }}
         >
           {items.map((item, index) => (
             <motion.li
@@ -35,16 +35,16 @@ const LocationBreadcrumb = ({ items }: LocationBreadcrumbProps) => {
               className="flex items-center"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
             >
               {index > 0 && (
-                <ChevronRight className="w-4 h-4 text-slate-600 mx-2 flex-shrink-0" />
+                <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600 mx-1.5 sm:mx-2 flex-shrink-0" />
               )}
 
               {item.current ? (
-                <span className="font-semibold bg-gradient-to-r from-brand-400 to-teal-400 bg-clip-text text-transparent flex items-center gap-1.5">
+                <span className="font-semibold gradient-text flex items-center gap-1.5 text-xs sm:text-sm">
                   {item.name === 'Home' ? (
-                    <Home className="w-4 h-4 text-brand-400" />
+                    <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-400" />
                   ) : (
                     item.name
                   )}
@@ -52,11 +52,11 @@ const LocationBreadcrumb = ({ items }: LocationBreadcrumbProps) => {
               ) : (
                 <Link
                   href={item.href}
-                  className="text-slate-400 hover:text-brand-400 transition-colors duration-200 flex items-center gap-1.5 font-medium group"
+                  className="text-slate-500 hover:text-brand-400 transition-colors duration-200 flex items-center gap-1.5 font-medium group text-xs sm:text-sm"
                 >
                   {item.name === 'Home' ? (
                     <>
-                      <Home className="w-4 h-4 group-hover:text-brand-400 transition-colors" />
+                      <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:text-brand-400 transition-colors" />
                       <span className="sr-only">Home</span>
                     </>
                   ) : (

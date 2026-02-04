@@ -32,113 +32,125 @@ const BlogConclusion: React.FC<BlogConclusionProps> = ({
   ]
 }) => {
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <Badge className="bg-purple-100 text-purple-700 px-4 py-2 text-sm font-medium mb-4">
-              Conclusion
-            </Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              {title}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {summary}
-            </p>
-          </div>
+    <section className="relative py-12 sm:py-16 lg:py-20 bg-[#030712] overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 50% 30% at 50% 100%, rgba(16,185,129,0.06), transparent 70%)',
+        }}
+      />
+      <div className="grain absolute inset-0" />
 
-          {/* Key Takeaways */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <Star className="w-8 h-8 text-yellow-500" />
-              <h3 className="text-2xl font-bold text-gray-900">Key Takeaways</h3>
+      {/* Top divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="gradient-border-subtle inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4">
+            <span className="w-2 h-2 rounded-full bg-brand-400" />
+            <span className="text-brand-400 text-xs sm:text-sm font-medium">Conclusion</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+            {title}
+          </h2>
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+            {summary}
+          </p>
+        </div>
+
+        {/* Key Takeaways */}
+        <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl p-5 sm:p-8 mb-6 sm:mb-8">
+          <div className="flex items-center gap-3 mb-5 sm:mb-6">
+            <div
+              className="w-10 h-10 rounded-xl flex items-center justify-center"
+              style={{ background: 'linear-gradient(135deg, rgba(234,179,8,0.2), rgba(234,179,8,0.1))' }}
+            >
+              <Star className="w-5 h-5 text-yellow-400" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {keyTakeaways.map((takeaway, index) => (
-                <div key={index} className="flex items-start gap-3">
-                   <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
-                  <p className="text-gray-700 leading-relaxed">{takeaway}</p>
+            <h3 className="text-lg sm:text-xl font-bold text-white">Key Takeaways</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            {keyTakeaways.map((takeaway, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-brand-400 mt-0.5 flex-shrink-0" />
+                <p className="text-slate-300 text-sm leading-relaxed">{takeaway}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Next Steps */}
+        <div
+          className="rounded-xl sm:rounded-2xl p-5 sm:p-8 mb-6 sm:mb-8"
+          style={{
+            background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.05) 100%)',
+          }}
+        >
+          <div className="flex items-center gap-3 mb-5 sm:mb-6">
+            <div className="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center">
+              <ArrowRight className="w-5 h-5 text-brand-400" />
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold text-white">Next Steps</h3>
+          </div>
+          <div className="space-y-3 sm:space-y-4">
+            {nextSteps.map((step, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-white/10 rounded-full flex items-center justify-center text-xs font-bold text-brand-400 mt-0.5 flex-shrink-0">
+                  {index + 1}
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Next Steps */}
-          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <ArrowRight className="w-8 h-8 text-white" />
-              <h3 className="text-2xl font-bold">Next Steps</h3>
-            </div>
-            <div className="space-y-4">
-              {nextSteps.map((step, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0">
-                    {index + 1}
-                  </div>
-                  <p className="text-blue-100 leading-relaxed">{step}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Success Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="w-6 h-6 text-orange-600" />
+                <p className="text-slate-300 text-sm leading-relaxed">{step}</p>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">User Experience</h4>
-              <p className="text-gray-600 text-sm">
-                Focus on creating intuitive, accessible, and engaging user experiences
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Award className="w-6 h-6 text-orange-600" />
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-2">Performance</h4>
-              <p className="text-gray-600 text-sm">
-                Optimize for speed, Core Web Vitals, and search engine rankings
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Star className="w-6 h-6 text-orange-600" />
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-2">Quality</h4>
-              <p className="text-gray-600 text-sm">
-                Maintain high standards in code quality, security, and maintainability
-              </p>
-            </div>
+            ))}
           </div>
+        </div>
 
-          {/* Final CTA */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Ready to Start Your Web Development Journey?
-            </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Whether you're a beginner looking to learn or a business seeking professional web development services, we're here to help you succeed in the digital world.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-blue-700 hover:to-purple-700 px-8 py-4 text-lg font-semibold">
-                <Link href="/contact">
-                  Get Free Consultation
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
-                <Link href="/services">
-                  Explore Our Services
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
+        {/* Success Metrics */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mb-8 sm:mb-10">
+          {[
+            { icon: Users, title: 'User Experience', desc: 'Focus on creating intuitive, accessible, and engaging user experiences' },
+            { icon: Award, title: 'Performance', desc: 'Optimize for speed, Core Web Vitals, and search engine rankings' },
+            { icon: Star, title: 'Quality', desc: 'Maintain high standards in code quality, security, and maintainability' },
+          ].map((item, index) => (
+            <div key={index} className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-5 text-center hover:border-brand-500/20 transition-colors">
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center mx-auto mb-3"
+                style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.05))' }}
+              >
+                <item.icon className="w-5 h-5 text-brand-400" />
+              </div>
+              <h4 className="font-semibold text-white mb-1.5 text-sm">{item.title}</h4>
+              <p className="text-slate-400 text-xs">{item.desc}</p>
             </div>
-            <div className="mt-6 text-sm text-gray-500">
-              Join hundreds of satisfied clients who have transformed their digital presence with our expertise
-            </div>
+          ))}
+        </div>
+
+        {/* Final CTA */}
+        <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl p-5 sm:p-8 text-center">
+          <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
+            Ready to Start Your Web Development Journey?
+          </h3>
+          <p className="text-slate-400 mb-6 max-w-xl mx-auto text-sm">
+            Whether you're a beginner looking to learn or a business seeking professional web development services, we're here to help you succeed in the digital world.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button asChild className="bg-gradient-to-r from-brand-500 to-teal-500 hover:from-brand-600 hover:to-teal-600 text-white px-6 py-3 text-sm font-semibold">
+              <Link href="/contact">
+                Get Free Consultation
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="border-white/[0.1] text-white hover:bg-white/[0.05] hover:border-brand-500/30 px-6 py-3 text-sm font-semibold">
+              <Link href="/services">
+                Explore Our Services
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
           </div>
+          <p className="mt-5 text-xs text-slate-500">
+            Join hundreds of satisfied clients who have transformed their digital presence with our expertise
+          </p>
         </div>
       </div>
     </section>
@@ -146,5 +158,3 @@ const BlogConclusion: React.FC<BlogConclusionProps> = ({
 };
 
 export default BlogConclusion;
-
-

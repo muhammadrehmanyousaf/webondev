@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, ArrowRight, Globe, FileText, Users, Briefcase } from 'lucide-react';
+import { ArrowRight, Globe, FileText, Users, Briefcase, LinkIcon } from 'lucide-react';
 import Link from 'next/link';
 
 interface BlogImportantLinksProps {
@@ -17,7 +17,7 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
   const linkCategories = [
     {
       title: "Our Services",
-      icon: <Briefcase className="w-6 h-6" />,
+      icon: <Briefcase className="w-5 h-5" />,
       links: [
         { name: "Web Development", href: "/services", description: "Custom websites and web applications" },
         { name: "Mobile App Development", href: "/services", description: "iOS and Android applications" },
@@ -29,7 +29,7 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
     },
     {
       title: "Company Information",
-      icon: <Users className="w-6 h-6" />,
+      icon: <Users className="w-5 h-5" />,
       links: [
         { name: "About Us", href: "/about", description: "Learn about our team and mission" },
         { name: "Our Portfolio", href: "/portfolio", description: "View our latest projects" },
@@ -41,7 +41,7 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
     },
     {
       title: "Resources & Insights",
-      icon: <FileText className="w-6 h-6" />,
+      icon: <FileText className="w-5 h-5" />,
       links: [
         { name: "Blog Archive", href: "/blog/archive", description: "Browse all our articles" },
         { name: "Web Development Guide", href: "/blog/complete-guide-web-development-2024", description: "Comprehensive development guide" },
@@ -53,7 +53,7 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
     },
     {
       title: "Location-Based Services",
-      icon: <Globe className="w-6 h-6" />,
+      icon: <Globe className="w-5 h-5" />,
       links: [
         { name: "Web Development in New York", href: "/where-we-serve/new-york", description: "NY web development services" },
         { name: "Web Development in California", href: "/where-we-serve/california", description: "CA web development services" },
@@ -66,124 +66,122 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <Badge className="bg-orange-100 text-orange-700 px-4 py-2 text-sm font-medium mb-4">
-              Resources
-            </Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              {title}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {description}
-            </p>
-          </div>
+    <section className="relative py-12 sm:py-16 lg:py-20 bg-[#030712] overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 50% 30% at 50% 0%, rgba(6,182,212,0.04), transparent 70%)',
+        }}
+      />
+      <div className="grain absolute inset-0" />
 
-          {/* Link Categories */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {linkCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white">
-                    {category.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {category.title}
-                  </h3>
+      {/* Top divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-10 sm:mb-14">
+          <div
+            className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-5"
+            style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+          >
+            <LinkIcon className="w-6 h-6 sm:w-7 sm:h-7 text-brand-400" />
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
+            {title}
+          </h2>
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+            {description}
+          </p>
+        </div>
+
+        {/* Link Categories */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+          {linkCategories.map((category, categoryIndex) => (
+            <div key={categoryIndex} className="bg-white/[0.02] border border-white/[0.06] rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:border-brand-500/20 transition-colors">
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+                >
+                  <span className="text-brand-400">{category.icon}</span>
                 </div>
-                
-                <div className="space-y-4">
-                  {category.links.map((link, linkIndex) => (
-                    <Link 
-                      key={linkIndex}
-                      href={link.href}
-                      className="block group"
-                    >
-                      <div className="bg-white rounded-xl p-4 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 group-hover:bg-blue-50">
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors mb-1">
-                              {link.name}
-                            </h4>
-                            <p className="text-sm text-gray-600">
-                              {link.description}
-                            </p>
-                          </div>
-                          <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-orange-600 group-hover:translate-x-1 transition-all" />
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                <h3 className="text-base sm:text-lg font-bold text-white">
+                  {category.title}
+                </h3>
               </div>
-            ))}
-          </div>
 
-          {/* Additional Resources */}
-          <div className="mt-16 bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-4">
+              <div className="space-y-2.5">
+                {category.links.map((link, linkIndex) => (
+                  <Link
+                    key={linkIndex}
+                    href={link.href}
+                    className="block group"
+                  >
+                    <div className="bg-white/[0.02] rounded-lg p-3 border border-white/[0.04] hover:border-brand-500/20 hover:bg-white/[0.04] transition-all duration-300">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-medium text-white group-hover:text-brand-400 transition-colors text-sm mb-0.5">
+                            {link.name}
+                          </h4>
+                          <p className="text-xs text-slate-500">
+                            {link.description}
+                          </p>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-brand-400 group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-0.5" />
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Additional Resources */}
+        <div className="mt-10 sm:mt-14">
+          <div
+            className="rounded-xl sm:rounded-2xl p-6 sm:p-8"
+            style={{
+              background: 'linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(6,182,212,0.04) 100%)',
+            }}
+          >
+            <div className="text-center mb-6 sm:mb-8">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
                 Ready to Get Started?
               </h3>
-              <p className="text-blue-100 max-w-2xl mx-auto">
+              <p className="text-slate-400 max-w-xl mx-auto text-sm">
                 Explore our comprehensive services and resources to find the perfect solution for your digital needs.
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="w-8 h-8 text-white" />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+              {[
+                { icon: Briefcase, title: 'Our Services', desc: 'Comprehensive web development and digital marketing solutions', href: '/services', label: 'Explore Services' },
+                { icon: Users, title: 'About Our Team', desc: 'Meet our experienced developers and digital experts', href: '/about', label: 'Learn More' },
+                { icon: FileText, title: 'Latest Insights', desc: 'Stay updated with industry trends and best practices', href: '/blog', label: 'Read Blog' },
+              ].map((item, index) => (
+                <div key={index} className="text-center">
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3"
+                    style={{ background: 'rgba(255,255,255,0.05)' }}
+                  >
+                    <item.icon className="w-6 h-6 text-brand-400" />
+                  </div>
+                  <h4 className="font-semibold text-white mb-1.5 text-sm">{item.title}</h4>
+                  <p className="text-slate-400 text-xs mb-3">
+                    {item.desc}
+                  </p>
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-brand-400 hover:text-brand-300 transition-colors"
+                  >
+                    {item.label}
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
-                <h4 className="font-semibold mb-2">Our Services</h4>
-                <p className="text-blue-100 text-sm mb-4">
-                  Comprehensive web development and digital marketing solutions
-                </p>
-                <Link 
-                  href="/services"
-                  className="inline-flex items-center gap-2 text-sm font-medium hover:text-blue-200 transition-colors"
-                >
-                  Explore Services
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="font-semibold mb-2">About Our Team</h4>
-                <p className="text-blue-100 text-sm mb-4">
-                  Meet our experienced developers and digital experts
-                </p>
-                <Link 
-                  href="/about"
-                  className="inline-flex items-center gap-2 text-sm font-medium hover:text-blue-200 transition-colors"
-                >
-                  Learn More
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FileText className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="font-semibold mb-2">Latest Insights</h4>
-                <p className="text-blue-100 text-sm mb-4">
-                  Stay updated with industry trends and best practices
-                </p>
-                <Link 
-                  href="/blog"
-                  className="inline-flex items-center gap-2 text-sm font-medium hover:text-blue-200 transition-colors"
-                >
-                  Read Blog
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -193,5 +191,3 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
 };
 
 export default BlogImportantLinks;
-
-

@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Users, Briefcase, Sparkles } from 'lucide-react';
+import { ArrowRight, Clock, Users, Briefcase } from 'lucide-react';
 import CaseStudyModal from '@/components/ui/CaseStudyModal';
+import InlineCTA from '@/components/ui/inline-cta';
 
 // =============================================================================
-// CASE STUDIES SECTION - Premium Emerald Green Design
+// CASE STUDIES SECTION - Updated Design Language
 // =============================================================================
 
 interface CaseStudy {
@@ -134,12 +135,6 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
     }
   ];
 
-  const gradients = [
-    'from-brand-500 to-teal-500',
-    'from-teal-500 to-cyan-500',
-    'from-cyan-500 to-blue-500'
-  ];
-
   const handleCaseStudyClick = (caseStudy: CaseStudy) => {
     setSelectedCaseStudy(caseStudy);
     setIsModalOpen(true);
@@ -152,12 +147,18 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
 
   return (
     <>
-      <section className="relative py-12 sm:py-16 lg:py-24 bg-slate-900 overflow-hidden">
-        {/* Background Effects - Simplified for mobile */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-brand-500/10 rounded-full blur-[80px] sm:blur-[120px]" />
-          <div className="absolute bottom-0 left-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-teal-500/10 rounded-full blur-[80px] sm:blur-[120px]" />
-        </div>
+      <section className="relative py-16 sm:py-20 lg:py-24 bg-[#030712] overflow-hidden">
+        {/* Section Divider */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+        {/* Background */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 50% 30% at 50% 50%, rgba(6,182,212,0.06), transparent 70%)',
+          }}
+        />
+        <div className="grain absolute inset-0" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -169,18 +170,18 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs sm:text-sm font-semibold mb-4 sm:mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-brand-400 text-sm font-medium mb-4 sm:mb-6"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <Briefcase className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
               <span>Case Studies</span>
             </motion.div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-6 leading-tight">
               <span className="text-white">Case Studies in </span>
-              <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="gradient-text">
                 {countryName}
               </span>
             </h2>
@@ -201,11 +202,8 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 onClick={() => handleCaseStudyClick(caseStudy)}
               >
-                {/* Glow Effect */}
-                <div className={`absolute -inset-0.5 bg-gradient-to-r ${gradients[index]} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
-
                 <motion.div
-                  className="relative bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all duration-500"
+                  className="relative bg-white/[0.02] rounded-2xl overflow-hidden border border-white/[0.06] hover:border-brand-500/20 transition-all duration-500"
                   whileHover={{ y: -5 }}
                 >
                   {/* Image */}
@@ -214,14 +212,14 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
                       src={caseStudy.image}
                       alt={caseStudy.title}
                       className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.1 }}
+                      whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.5 }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
                     {/* Category Badge */}
                     <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                      <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-gradient-to-r ${gradients[index]} text-white text-[10px] sm:text-xs font-semibold shadow-lg`}>
+                      <span className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-brand-400 text-[10px] sm:text-xs font-medium">
                         {caseStudy.category}
                       </span>
                     </div>
@@ -256,6 +254,12 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
               </motion.div>
             ))}
           </div>
+
+          <InlineCTA
+            title="Want Similar Results?"
+            description="Let's discuss how we can transform your business."
+            buttonText="Start Your Project"
+          />
         </div>
       </section>
 

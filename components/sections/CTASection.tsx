@@ -1,14 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ArrowRight, MessageCircle, Calendar, Phone, Clock, User, Mail,
-  Zap, CheckCircle2, Check, X, Send, Loader2, AlertCircle
+  ArrowRight, MessageCircle, Calendar, Phone, Clock, User, Mail, Building2, DollarSign, Timer,
+  Zap, CheckCircle2, Check, X, Send, Loader2, AlertCircle, CheckCircle, Lightbulb
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import { useEmailVerification } from '@/hooks/use-email-verification';
+import { SOFTWARE_SERVICES, BUDGET_RANGES, PROJECT_TIMELINES } from '@/lib/constants';
 
 // =============================================================================
 // CTA SECTION
@@ -18,29 +20,51 @@ const CTASection = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [emailTouched, setEmailTouched] = useState(false);
   const { toast } = useToast();
+
+  // Email verification
+  const {
+    isVerifying: isVerifyingEmail,
+    verificationResult: emailVerification,
+    verifyEmail,
+    clearVerification,
+    applySuggestion,
+  } = useEmailVerification();
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    company: '',
     service: '',
+    budget: '',
+    timeline: '',
     message: ''
   });
-
-  const services = [
-    'Web Development',
-    'Mobile App Development',
-    'UI/UX Design',
-    'Digital Marketing',
-    'E-commerce Solutions',
-    'Other'
-  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    if (name === 'email' && emailVerification) {
+      clearVerification();
+    }
   };
+
+  const handleEmailBlur = useCallback(() => {
+    setEmailTouched(true);
+    if (formData.email && formData.email.length >= 5) {
+      verifyEmail(formData.email);
+    }
+  }, [formData.email, verifyEmail]);
+
+  const handleApplySuggestion = useCallback(() => {
+    const suggestion = applySuggestion();
+    if (suggestion) {
+      setFormData(prev => ({ ...prev, email: suggestion }));
+      setTimeout(() => verifyEmail(suggestion), 100);
+    }
+  }, [applySuggestion, verifyEmail]);
 
   const handleEmailClick = () => {
     window.open('mailto:webondev786@gmail.com?subject=Project Inquiry');
@@ -52,6 +76,21 @@ const CTASection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Verify email before submission if not already verified
+    if (!emailVerification?.isValid) {
+      const result = await verifyEmail(formData.email);
+      if (!result.isValid) {
+        setEmailTouched(true);
+        toast({
+          title: "Invalid Email",
+          description: result.message,
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -63,7 +102,9 @@ const CTASection = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', company: '', service: '', budget: '', timeline: '', message: '' });
+        setEmailTouched(false);
+        clearVerification();
         toast({
           title: "Message Sent!",
           description: "We'll get back to you within 24 hours.",
@@ -369,16 +410,66 @@ const CTASection = () => {
                               <Mail className="w-3.5 h-3.5 inline mr-1 text-brand-400" />
                               Email *
                             </label>
-                            <input
-                              type="email"
-                              id="modal-email"
-                              name="email"
-                              value={formData.email}
-                              onChange={handleInputChange}
-                              required
-                              className={inputClasses}
-                              placeholder="your@email.com"
-                            />
+                            <div className="relative">
+                              <input
+                                type="email"
+                                id="modal-email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                onBlur={handleEmailBlur}
+                                required
+                                className={`${inputClasses} pr-10 ${
+                                  emailTouched && emailVerification?.isValid
+                                    ? 'border-green-500/50'
+                                    : emailTouched && emailVerification && !emailVerification.isValid
+                                      ? 'border-red-500/50'
+                                      : ''
+                                }`}
+                                placeholder="your@email.com"
+                              />
+                              <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                                <AnimatePresence mode="wait">
+                                  {isVerifyingEmail && (
+                                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                                      <Loader2 className="w-4 h-4 text-brand-400 animate-spin" />
+                                    </motion.div>
+                                  )}
+                                  {!isVerifyingEmail && emailTouched && emailVerification?.isValid && (
+                                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                                      <CheckCircle className="w-4 h-4 text-green-400" />
+                                    </motion.div>
+                                  )}
+                                  {!isVerifyingEmail && emailTouched && emailVerification && !emailVerification.isValid && (
+                                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                                      <AlertCircle className="w-4 h-4 text-red-400" />
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </div>
+                            </div>
+                            <AnimatePresence>
+                              {emailTouched && emailVerification && !emailVerification.isValid && (
+                                <motion.div initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }} className="mt-2">
+                                  {emailVerification.suggestion ? (
+                                    <div className="flex items-start gap-2 p-2 rounded-lg bg-amber-500/10 border border-amber-500/20">
+                                      <Lightbulb className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                                      <div className="flex-1">
+                                        <p className="text-xs text-amber-200">{emailVerification.message}</p>
+                                        <button type="button" onClick={handleApplySuggestion} className="mt-1 text-xs font-medium text-amber-400 hover:text-amber-300 underline">
+                                          Use {emailVerification.suggestion}
+                                        </button>
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <p className="text-xs text-red-400 flex items-center gap-1.5">
+                                      <AlertCircle className="w-3.5 h-3.5" />
+                                      {emailVerification.message}
+                                    </p>
+                                  )}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
                           </div>
                         </div>
 
@@ -399,21 +490,76 @@ const CTASection = () => {
                             />
                           </div>
                           <div>
-                            <label htmlFor="modal-service" className={labelClasses}>
-                              <Zap className="w-3.5 h-3.5 inline mr-1 text-brand-400" />
-                              Service *
+                            <label htmlFor="modal-company" className={labelClasses}>
+                              <Building2 className="w-3.5 h-3.5 inline mr-1 text-brand-400" />
+                              Company
+                            </label>
+                            <input
+                              type="text"
+                              id="modal-company"
+                              name="company"
+                              value={formData.company}
+                              onChange={handleInputChange}
+                              className={inputClasses}
+                              placeholder="Your company"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label htmlFor="modal-service" className={labelClasses}>
+                            <Zap className="w-3.5 h-3.5 inline mr-1 text-brand-400" />
+                            Service *
+                          </label>
+                          <select
+                            id="modal-service"
+                            name="service"
+                            value={formData.service}
+                            onChange={handleInputChange}
+                            required
+                            className={inputClasses}
+                          >
+                            <option value="" className="bg-[#0A0F1E]">Select service</option>
+                            {SOFTWARE_SERVICES.map((service) => (
+                              <option key={service} value={service} className="bg-[#0A0F1E]">{service}</option>
+                            ))}
+                          </select>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <div>
+                            <label htmlFor="modal-budget" className={labelClasses}>
+                              <DollarSign className="w-3.5 h-3.5 inline mr-1 text-brand-400" />
+                              Budget Range
                             </label>
                             <select
-                              id="modal-service"
-                              name="service"
-                              value={formData.service}
+                              id="modal-budget"
+                              name="budget"
+                              value={formData.budget}
                               onChange={handleInputChange}
-                              required
                               className={inputClasses}
                             >
-                              <option value="" className="bg-[#0A0F1E]">Select service</option>
-                              {services.map((service) => (
-                                <option key={service} value={service} className="bg-[#0A0F1E]">{service}</option>
+                              <option value="" className="bg-[#0A0F1E]">Select budget</option>
+                              {BUDGET_RANGES.map((b) => (
+                                <option key={b} value={b} className="bg-[#0A0F1E]">{b}</option>
+                              ))}
+                            </select>
+                          </div>
+                          <div>
+                            <label htmlFor="modal-timeline" className={labelClasses}>
+                              <Timer className="w-3.5 h-3.5 inline mr-1 text-brand-400" />
+                              Timeline
+                            </label>
+                            <select
+                              id="modal-timeline"
+                              name="timeline"
+                              value={formData.timeline}
+                              onChange={handleInputChange}
+                              className={inputClasses}
+                            >
+                              <option value="" className="bg-[#0A0F1E]">Select timeline</option>
+                              {PROJECT_TIMELINES.map((t) => (
+                                <option key={t} value={t} className="bg-[#0A0F1E]">{t}</option>
                               ))}
                             </select>
                           </div>
@@ -452,7 +598,7 @@ const CTASection = () => {
 
                         <Button
                           type="submit"
-                          disabled={isSubmitting}
+                          disabled={isSubmitting || isVerifyingEmail}
                           size="lg"
                           className="w-full rounded-full"
                         >

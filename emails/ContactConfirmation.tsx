@@ -19,6 +19,8 @@ interface ContactConfirmationEmailProps {
   service?: string;
   message?: string;
   company?: string;
+  budget?: string;
+  timeline?: string;
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com';
@@ -29,6 +31,8 @@ export const ContactConfirmationEmail = ({
   service = 'Web Development',
   message = 'I would like to discuss a project for my business...',
   company = 'Tech Startup Inc.',
+  budget,
+  timeline,
 }: ContactConfirmationEmailProps) => (
   <Html>
     <Head />
@@ -108,6 +112,28 @@ export const ContactConfirmationEmail = ({
                     <td style={valueCell}>
                       <span style={serviceTag}>{service}</span>
                     </td>
+                  </tr>
+                </>
+              )}
+              {budget && (
+                <>
+                  <tr>
+                    <td colSpan={2} style={dividerCell}><div style={divider}></div></td>
+                  </tr>
+                  <tr>
+                    <td style={labelCell}>Budget</td>
+                    <td style={valueCell}>{budget}</td>
+                  </tr>
+                </>
+              )}
+              {timeline && (
+                <>
+                  <tr>
+                    <td colSpan={2} style={dividerCell}><div style={divider}></div></td>
+                  </tr>
+                  <tr>
+                    <td style={labelCell}>Timeline</td>
+                    <td style={valueCell}>{timeline}</td>
                   </tr>
                 </>
               )}

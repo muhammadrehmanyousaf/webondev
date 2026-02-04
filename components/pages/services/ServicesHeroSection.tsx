@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Rocket, CheckCircle, Headphones } from 'lucide-react';
+import { Layers, Rocket, CheckCircle, Headphones, ArrowRight, MessageCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 // =============================================================================
 // TRUST METRIC CARDS
@@ -137,6 +138,40 @@ const ServicesHeroSection = () => {
               and innovation for businesses of all sizes.
             </span>
           </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.3,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          >
+            <Button
+              size="lg"
+              className="rounded-full px-8 shadow-[0_0_30px_rgba(16,185,129,0.15)] group"
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent('openBookingModal'))
+              }
+            >
+              Get Started Today
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full px-8 border-white/[0.1] text-white hover:bg-white/[0.05] hover:border-brand-500/30 group"
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent('openBookingModal'))
+              }
+            >
+              <MessageCircle className="w-4 h-4 mr-2" />
+              Talk to an Expert
+            </Button>
+          </motion.div>
 
           {/* Trust Metric Cards */}
           <motion.div

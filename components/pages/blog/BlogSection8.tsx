@@ -6,18 +6,22 @@ import { Shield, Lock, AlertTriangle, Eye, Key, CheckCircle } from 'lucide-react
 
 const BlogSection8: React.FC = () => {
   return (
-    <section id="web-security" className="py-16 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+    <section id="web-security" className="relative py-12 sm:py-16 lg:py-20 bg-[#030712] overflow-hidden">
+      <div className="grain absolute inset-0" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 30% at 50% 0%, rgba(16,185,129,0.04), transparent 70%)' }} />
+
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <Badge className="bg-red-100 text-red-700 px-4 py-2 text-sm font-medium mb-4">
+            <Badge className="gradient-border-subtle text-brand-400 px-4 py-2 text-sm font-medium mb-4">
               Security
             </Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Security and Best Practices
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
               Web security is more important than ever, with cyber threats becoming increasingly sophisticated. Understanding and implementing robust security measures is crucial for protecting users and maintaining trust.
             </p>
           </div>
@@ -26,41 +30,41 @@ const BlogSection8: React.FC = () => {
           <div className="mb-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <h3 className="text-2xl font-bold text-white mb-6">
                   Authentication & Authorization: The First Line of Defense
                 </h3>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                <p className="text-lg text-slate-400 mb-6 leading-relaxed">
                   Proper authentication and authorization mechanisms are fundamental to web security. They ensure that only authorized users can access specific resources and perform certain actions within your application.
                 </p>
-                
+
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-brand-400 mt-1 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Multi-Factor Authentication (MFA)</h4>
-                      <p className="text-gray-600">Implement multiple verification methods to enhance account security.</p>
+                      <h4 className="font-semibold text-white mb-1">Multi-Factor Authentication (MFA)</h4>
+                      <p className="text-slate-400">Implement multiple verification methods to enhance account security.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-brand-400 mt-1 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">OAuth 2.0 & OpenID Connect</h4>
-                      <p className="text-gray-600">Standard protocols for secure authorization and identity management.</p>
+                      <h4 className="font-semibold text-white mb-1">OAuth 2.0 & OpenID Connect</h4>
+                      <p className="text-slate-400">Standard protocols for secure authorization and identity management.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-brand-400 mt-1 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Role-Based Access Control (RBAC)</h4>
-                      <p className="text-gray-600">Granular permission systems based on user roles and responsibilities.</p>
+                      <h4 className="font-semibold text-white mb-1">Role-Based Access Control (RBAC)</h4>
+                      <p className="text-slate-400">Granular permission systems based on user roles and responsibilities.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gray-900 rounded-2xl p-6 shadow-lg">
+              <div className="bg-[#0a0f1a] rounded-2xl p-6 shadow-lg border border-white/[0.06]">
                 <h4 className="text-lg font-semibold text-white mb-4">Secure Authentication Implementation</h4>
-                <div className="bg-gray-800 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
+                <div className="bg-[#030712] rounded-lg p-4 text-sm text-brand-400 font-mono overflow-x-auto">
                   <pre>{`// Next.js with NextAuth.js implementation
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -88,7 +92,7 @@ export default NextAuth({
         }
 
         const isValid = await compare(credentials.password, user.password);
-        
+
         if (!isValid) {
           throw new Error('Invalid password');
         }
@@ -139,7 +143,7 @@ export function middleware(request: NextRequest) {
 // API route with role-based authorization
 export default async function handler(req, res) {
   const session = await getServerSession(req, res, authOptions);
-  
+
   if (!session) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
@@ -158,26 +162,26 @@ export default async function handler(req, res) {
           </div>
 
           {/* Data Protection & Encryption */}
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white mb-16">
+          <div className="rounded-2xl p-8 text-white mb-16 border border-white/[0.06]" style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.05) 100%)' }}>
             <div className="flex items-center gap-3 mb-6">
-              <Lock className="w-8 h-8 text-white" />
+              <Lock className="w-8 h-8 text-brand-400" />
               <h3 className="text-2xl font-bold">Data Protection & Encryption</h3>
             </div>
-            <p className="text-blue-100 mb-6 leading-relaxed">
+            <p className="text-slate-400 mb-6 leading-relaxed">
               Protecting sensitive data through encryption and secure storage practices is essential for maintaining user privacy and complying with data protection regulations like GDPR and CCPA.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/10 rounded-lg p-4">
-                <h4 className="font-semibold mb-2">Data Encryption</h4>
-                <p className="text-blue-100 text-sm">AES-256 encryption for data at rest and TLS 1.3 for data in transit</p>
+              <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-4">
+                <h4 className="font-semibold mb-2 text-white">Data Encryption</h4>
+                <p className="text-slate-400 text-sm">AES-256 encryption for data at rest and TLS 1.3 for data in transit</p>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
-                <h4 className="font-semibold mb-2">Secure Storage</h4>
-                <p className="text-blue-100 text-sm">Environment variables, secure databases, and encrypted backups</p>
+              <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-4">
+                <h4 className="font-semibold mb-2 text-white">Secure Storage</h4>
+                <p className="text-slate-400 text-sm">Environment variables, secure databases, and encrypted backups</p>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
-                <h4 className="font-semibold mb-2">Privacy Compliance</h4>
-                <p className="text-blue-100 text-sm">GDPR, CCPA, and other data protection regulation compliance</p>
+              <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-4">
+                <h4 className="font-semibold mb-2 text-white">Privacy Compliance</h4>
+                <p className="text-slate-400 text-sm">GDPR, CCPA, and other data protection regulation compliance</p>
               </div>
             </div>
           </div>
@@ -185,41 +189,41 @@ export default async function handler(req, res) {
           {/* Common Vulnerabilities */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold text-white mb-6">
                 Common Web Vulnerabilities & Prevention
               </h3>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-slate-400 mb-6 leading-relaxed">
                 Understanding common web vulnerabilities and implementing proper prevention measures is crucial for building secure applications. The OWASP Top 10 provides a comprehensive guide to the most critical security risks.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <AlertTriangle className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
+                  <AlertTriangle className="w-6 h-6 text-teal-400 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">SQL Injection Prevention</h4>
-                    <p className="text-gray-600">Use parameterized queries, ORM libraries, and input validation to prevent database attacks.</p>
+                    <h4 className="font-semibold text-white mb-1">SQL Injection Prevention</h4>
+                    <p className="text-slate-400">Use parameterized queries, ORM libraries, and input validation to prevent database attacks.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <AlertTriangle className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
+                  <AlertTriangle className="w-6 h-6 text-teal-400 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Cross-Site Scripting (XSS)</h4>
-                    <p className="text-gray-600">Implement Content Security Policy, input sanitization, and output encoding.</p>
+                    <h4 className="font-semibold text-white mb-1">Cross-Site Scripting (XSS)</h4>
+                    <p className="text-slate-400">Implement Content Security Policy, input sanitization, and output encoding.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <AlertTriangle className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
+                  <AlertTriangle className="w-6 h-6 text-teal-400 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Cross-Site Request Forgery (CSRF)</h4>
-                    <p className="text-gray-600">Use CSRF tokens, SameSite cookies, and proper request validation.</p>
+                    <h4 className="font-semibold text-white mb-1">Cross-Site Request Forgery (CSRF)</h4>
+                    <p className="text-slate-400">Use CSRF tokens, SameSite cookies, and proper request validation.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h4 className="text-lg font-semibold text-gray-900 mb-6">Security Headers & Configuration</h4>
-              <div className="bg-gray-900 rounded-lg p-4 text-sm text-orange-400 font-mono overflow-x-auto">
+            <div className="bg-white/[0.02] rounded-2xl p-8 shadow-lg border border-white/[0.06]">
+              <h4 className="text-lg font-semibold text-white mb-6">Security Headers & Configuration</h4>
+              <div className="bg-[#0a0f1a] rounded-lg p-4 text-sm text-brand-400 font-mono overflow-x-auto">
                 <pre>{`// Next.js security configuration
 // next.config.js
 const securityHeaders = [
@@ -277,7 +281,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     const validatedData = userSchema.parse(body);
-    
+
     // Process validated data
     const user = await createUser(validatedData);
     return Response.json({ user });
@@ -306,18 +310,18 @@ const limiter = rateLimit({
           </div>
 
           {/* Security Testing & Monitoring */}
-          <div className="bg-gradient-to-r from-orange-600 to-orange-600 rounded-2xl p-8 text-white mb-16">
+          <div className="rounded-2xl p-8 text-white mb-16 border border-white/[0.06]" style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.05) 100%)' }}>
             <div className="flex items-center gap-3 mb-6">
-              <Shield className="w-8 h-8 text-white" />
+              <Shield className="w-8 h-8 text-brand-400" />
               <h3 className="text-2xl font-bold">Security Testing & Continuous Monitoring</h3>
             </div>
-            <p className="text-orange-100 mb-6 leading-relaxed">
+            <p className="text-slate-400 mb-6 leading-relaxed">
               Regular security testing and continuous monitoring help identify vulnerabilities before they can be exploited. Implementing automated security checks and monitoring systems is essential for maintaining a secure application.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold mb-3">Security Testing Methods</h4>
-                <ul className="space-y-2 text-orange-100">
+                <h4 className="font-semibold mb-3 text-white">Security Testing Methods</h4>
+                <ul className="space-y-2 text-slate-400">
                   <li>• Automated vulnerability scanning and penetration testing</li>
                   <li>• Static application security testing (SAST)</li>
                   <li>• Dynamic application security testing (DAST)</li>
@@ -326,8 +330,8 @@ const limiter = rateLimit({
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold mb-3">Monitoring & Incident Response</h4>
-                <ul className="space-y-2 text-orange-100">
+                <h4 className="font-semibold mb-3 text-white">Monitoring & Incident Response</h4>
+                <ul className="space-y-2 text-slate-400">
                   <li>• Real-time security event monitoring</li>
                   <li>• Intrusion detection and prevention systems</li>
                   <li>• Log analysis and anomaly detection</li>
@@ -340,59 +344,59 @@ const limiter = rateLimit({
 
           {/* Security Best Practices */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white/[0.02] rounded-xl sm:rounded-2xl p-6 border border-white/[0.06]">
               <div className="flex items-center gap-3 mb-4">
-                <Key className="w-6 h-6 text-orange-600" />
-                <h4 className="font-semibold text-gray-900">Security Best Practices</h4>
+                <Key className="w-6 h-6 text-brand-400" />
+                <h4 className="font-semibold text-white">Security Best Practices</h4>
               </div>
-              <ul className="space-y-2 text-gray-600">
+              <ul className="space-y-2 text-slate-400">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   Regular security updates and patch management
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   Principle of least privilege access control
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   Secure development lifecycle (SDL) implementation
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   Regular security training for development teams
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   Secure configuration management and secrets handling
                 </li>
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white/[0.02] rounded-xl sm:rounded-2xl p-6 border border-white/[0.06]">
               <div className="flex items-center gap-3 mb-4">
-                <Eye className="w-6 h-6 text-orange-600" />
-                <h4 className="font-semibold text-gray-900">Privacy & Compliance</h4>
+                <Eye className="w-6 h-6 text-brand-400" />
+                <h4 className="font-semibold text-white">Privacy & Compliance</h4>
               </div>
-              <ul className="space-y-2 text-gray-600">
+              <ul className="space-y-2 text-slate-400">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   GDPR compliance and data protection by design
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   Cookie consent and privacy policy implementation
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   Data minimization and purpose limitation
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   User rights management and data portability
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-brand-400 mt-1 flex-shrink-0" />
                   Regular privacy impact assessments and audits
                 </li>
               </ul>
@@ -400,15 +404,15 @@ const limiter = rateLimit({
           </div>
 
           {/* Advanced Security Features */}
-          <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 text-white">
+          <div className="rounded-2xl p-8 text-white border border-white/[0.06]" style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.05) 100%)' }}>
             <div className="flex items-center gap-3 mb-6">
-              <Shield className="w-8 h-8 text-white" />
+              <Shield className="w-8 h-8 text-brand-400" />
               <h3 className="text-2xl font-bold">Advanced Security Features & Emerging Threats</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold mb-3">Advanced Security Technologies</h4>
-                <ul className="space-y-2 text-purple-100">
+                <h4 className="font-semibold mb-3 text-white">Advanced Security Technologies</h4>
+                <ul className="space-y-2 text-slate-400">
                   <li>• Web Application Firewalls (WAF) and DDoS protection</li>
                   <li>• API security and rate limiting strategies</li>
                   <li>• Zero-trust architecture implementation</li>
@@ -417,8 +421,8 @@ const limiter = rateLimit({
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold mb-3">Emerging Security Challenges</h4>
-                <ul className="space-y-2 text-purple-100">
+                <h4 className="font-semibold mb-3 text-white">Emerging Security Challenges</h4>
+                <ul className="space-y-2 text-slate-400">
                   <li>• Supply chain attacks and dependency vulnerabilities</li>
                   <li>• Quantum computing threats to encryption</li>
                   <li>• IoT security and edge computing risks</li>
@@ -435,4 +439,3 @@ const limiter = rateLimit({
 };
 
 export default BlogSection8;
-

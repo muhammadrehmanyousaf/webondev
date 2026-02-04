@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { enrichedSiteStructure as siteStructure } from '@/lib/site-structure';
-import { ArrowRight, ChevronLeft, ChevronRight, Layers, Sparkles, Search, Grid3X3 } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Layers, Search, Grid3X3 } from 'lucide-react';
 
 // =============================================================================
-// SERVICES DIRECTORY SECTION - Premium Emerald Green Design
+// SERVICES DIRECTORY SECTION - Updated Design Language
 // =============================================================================
 
 interface ServicesDirectorySectionProps {
@@ -78,27 +78,18 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
   };
 
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-950 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[120px]"
-          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[120px]"
-          animate={{ x: [0, -30, 0], y: [0, -20, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <div
-          className="absolute inset-0 opacity-15"
-          style={{
-            backgroundImage: `radial-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 1px)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
-      </div>
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-[#030712] overflow-hidden">
+      {/* Section Divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 50% 30% at 50% 100%, rgba(6,182,212,0.06), transparent 70%)',
+        }}
+      />
+      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -110,18 +101,18 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-brand-400 text-sm font-medium mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <Grid3X3 className="w-4 h-4" />
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
             <span>Services Directory</span>
           </motion.div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
             <span className="text-white">{title.split(' ').slice(0, -2).join(' ')} </span>
-            <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="gradient-text">
               {title.split(' ').slice(-2).join(' ')}
             </span>
           </h2>
@@ -138,7 +129,6 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
             transition={{ delay: 0.2 }}
           >
             <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
               <div className="relative flex items-center">
                 <Search className="absolute left-4 w-5 h-5 text-slate-400" />
                 <input
@@ -146,7 +136,7 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
                   placeholder="Search services..."
                   value={searchQuery}
                   onChange={handleSearchChange}
-                  className="w-full pl-12 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-white placeholder:text-slate-400 transition-all duration-300"
+                  className="w-full pl-12 pr-4 py-3 bg-white/[0.02] border border-white/[0.06] rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-white placeholder:text-slate-400 transition-all duration-300"
                 />
               </div>
             </div>
@@ -186,35 +176,28 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
                 transition={{ delay: index * 0.02, duration: 0.3 }}
               >
                 <Link href={item.href} className="group relative block h-full">
-                  {/* Glow Effect */}
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.isPillar ? 'from-brand-500 to-teal-500' : 'from-teal-500 to-cyan-500'} rounded-xl blur opacity-0 group-hover:opacity-25 transition-opacity duration-500`} />
-
                   <motion.div
-                    className="relative h-full p-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl hover:border-brand-500/50 transition-all duration-300"
-                    whileHover={{ y: -3, scale: 1.02 }}
+                    className="relative h-full p-4 bg-white/[0.02] border border-white/[0.06] rounded-xl hover:border-brand-500/20 transition-all duration-300"
+                    whileHover={{ y: -3 }}
                     transition={{ duration: 0.2 }}
                   >
                     <div className="flex items-start justify-between gap-3 mb-2">
                       <div className="flex items-start gap-2">
                         {item.isPillar && (
-                          <motion.div
-                            className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-brand-500 to-teal-500 rounded-lg flex items-center justify-center"
-                            whileHover={{ scale: 1.1, rotate: 5 }}
+                          <div
+                            className="flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center"
+                            style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.05))' }}
                           >
-                            <Layers className="w-3.5 h-3.5 text-white" />
-                          </motion.div>
+                            <Layers className="w-3.5 h-3.5 text-brand-400" />
+                          </div>
                         )}
                         <span className={`font-medium leading-snug transition-colors ${item.isPillar ? 'text-white group-hover:text-brand-400' : 'text-slate-300 group-hover:text-brand-400'}`}>
                           {item.label}
                         </span>
                       </div>
-                      <motion.div
-                        className="flex-shrink-0 text-brand-400"
-                        initial={{ x: 0 }}
-                        whileHover={{ x: 3 }}
-                      >
+                      <div className="flex-shrink-0 text-brand-400">
                         <ArrowRight className="w-4 h-4" />
-                      </motion.div>
+                      </div>
                     </div>
                     <span className="text-xs text-slate-500 break-all block">{item.href}</span>
                   </motion.div>
@@ -231,7 +214,10 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <div className="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500/20 to-teal-500/20 rounded-2xl flex items-center justify-center mb-4">
+            <div
+              className="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4"
+              style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.05))' }}
+            >
               <Search className="w-8 h-8 text-slate-400" />
             </div>
             <p className="text-slate-400 text-lg">No services found matching your search.</p>
@@ -262,7 +248,7 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
               whileTap={{ scale: currentPage === 1 ? 1 : 0.95 }}
               aria-label="Previous page"
             >
-              <div className="absolute inset-0 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl group-hover:border-brand-500/50 transition-all" />
+              <div className="absolute inset-0 bg-white/[0.02] border border-white/[0.06] rounded-xl group-hover:border-brand-500/20 transition-all" />
               <span className="relative flex items-center gap-2 text-slate-300 group-hover:text-white transition-colors">
                 <ChevronLeft className="w-4 h-4" />
                 Previous
@@ -280,7 +266,7 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
                       className={`relative px-4 py-2 rounded-xl transition-all ${
                         currentPage === page
                           ? ''
-                          : 'hover:bg-white/5'
+                          : 'hover:bg-white/[0.02]'
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -313,7 +299,7 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
               whileTap={{ scale: currentPage === totalPages ? 1 : 0.95 }}
               aria-label="Next page"
             >
-              <div className="absolute inset-0 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl group-hover:border-brand-500/50 transition-all" />
+              <div className="absolute inset-0 bg-white/[0.02] border border-white/[0.06] rounded-xl group-hover:border-brand-500/20 transition-all" />
               <span className="relative flex items-center gap-2 text-slate-300 group-hover:text-white transition-colors">
                 Next
                 <ChevronRight className="w-4 h-4" />
@@ -344,12 +330,11 @@ const ServicesDirectorySection: React.FC<ServicesDirectorySectionProps> = ({
               viewport={{ once: true }}
               transition={{ delay: 0.6 + index * 0.1 }}
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
               <motion.div
-                className="relative text-center bg-white/5 backdrop-blur-xl rounded-xl p-4 border border-white/10 hover:border-brand-500/50 transition-all duration-300"
+                className="relative text-center bg-white/[0.02] rounded-xl p-4 border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300"
                 whileHover={{ y: -3 }}
               >
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-brand-400 to-teal-400 bg-clip-text text-transparent mb-1">
+                <div className="text-2xl lg:text-3xl font-bold gradient-text mb-1">
                   {stat.value}
                 </div>
                 <div className="text-slate-400 text-sm font-medium">{stat.label}</div>

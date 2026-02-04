@@ -1,12 +1,21 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type HTMLMotionProps } from 'framer-motion';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { FAQSchema } from '@/components/seo/SchemaScript';
 import type { FAQItem } from '@/lib/schema';
+
+// Custom motion.div component that supports schema.org microdata attributes
+const MotionDiv = motion.div as React.FC<
+  HTMLMotionProps<'div'> & {
+    itemScope?: boolean;
+    itemProp?: string;
+    itemType?: string;
+  }
+>;
 
 // =============================================================================
 // FAQ DATA - SEO-OPTIMIZED FOR GOOGLE FEATURED SNIPPETS
@@ -69,9 +78,10 @@ interface FAQItemProps {
 
 const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
   const num = String(index + 1).padStart(2, '0');
+  const expandedState: 'true' | 'false' = isOpen ? 'true' : 'false';
 
   return (
-    <motion.div
+    <MotionDiv
       className="group relative"
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +96,7 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
           type="button"
           onClick={onToggle}
           className="w-full px-4 py-3.5 sm:px-5 sm:py-4 lg:px-6 lg:py-5 flex items-center justify-between gap-3 sm:gap-4 text-left"
-          aria-expanded={isOpen ? 'true' : 'false'}
+          aria-expanded={expandedState}
         >
           <div className="flex items-center gap-2.5 sm:gap-3 lg:gap-4">
             <span className={`text-xs sm:text-sm font-mono font-bold shrink-0 ${isOpen ? 'text-brand-400' : 'text-slate-600'} transition-colors duration-200`}>
@@ -143,7 +153,7 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
           )}
         </div>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 };
 

@@ -3,14 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   CheckCircle2,
   Star,
   Users,
   Award,
-  Clock,
   Shield,
   ChevronRight,
   Sparkles,
@@ -41,46 +40,25 @@ const serviceImages: Record<string, string> = {
 };
 
 const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  };
-
   const currentService = cluster || pillar;
   const features = cluster?.features || ['Expert Development', 'Quality Assurance', 'Timely Delivery', 'Ongoing Support'];
   const serviceImage = serviceImages[pillar.slug] || serviceImages.default;
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-950 pt-24 pb-16">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#030712] pt-24 pb-16">
+      {/* Grain Texture */}
+      <div className="grain absolute inset-0" />
+
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated Gradient Orbs */}
-        <motion.div
-          className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-brand-500/20 rounded-full blur-[150px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
-            x: [0, 50, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        {/* Static Radial Gradients */}
+        <div
+          className="absolute top-0 right-0 w-full h-full"
+          style={{ background: 'radial-gradient(ellipse 60% 40% at 80% 20%, rgba(16,185,129,0.12), transparent 70%)' }}
         />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-[800px] h-[800px] bg-teal-500/20 rounded-full blur-[150px]"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.15, 0.2],
-            y: [0, -50, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[200px]"
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        <div
+          className="absolute bottom-0 left-0 w-full h-full"
+          style={{ background: 'radial-gradient(ellipse 50% 40% at 20% 80%, rgba(6,182,212,0.08), transparent 70%)' }}
         />
 
         {/* Grid Pattern */}
@@ -121,7 +99,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-6"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full gradient-border-subtle text-brand-400 text-sm font-semibold mb-6"
             >
               <Sparkles className="w-4 h-4" />
               {cluster ? 'Specialized Service' : 'Service Category'}
@@ -135,7 +113,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
             >
               <span className="text-white">Professional </span>
-              <span className="bg-gradient-to-r from-brand-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="gradient-text">
                 {currentService.title}
               </span>
             </motion.h1>
@@ -165,7 +143,10 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
                   transition={{ delay: 0.5 + index * 0.1 }}
                   className="flex items-center gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-brand-500/20 flex items-center justify-center">
+                  <div
+                    className="w-6 h-6 rounded-full flex items-center justify-center"
+                    style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+                  >
                     <CheckCircle2 className="w-4 h-4 text-brand-400" />
                   </div>
                   <span className="text-slate-200 font-medium">{feature}</span>
@@ -180,11 +161,16 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
               transition={{ delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 mb-10"
             >
-              <Button asChild variant="default" size="lg" className="rounded-full px-8">
-                <Link href="/contact" className="flex items-center gap-2">
+              <Button
+                onClick={() => window.dispatchEvent(new CustomEvent('openBookingModal'))}
+                variant="default"
+                size="lg"
+                className="rounded-full px-8"
+              >
+                <span className="flex items-center gap-2">
                   Get Started Today
                   <ArrowRight className="w-5 h-5" />
-                </Link>
+                </span>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-white/20 text-white hover:bg-white/10">
                 <Link href="/portfolio">
@@ -220,21 +206,15 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
-            onMouseMove={handleMouseMove}
           >
             {/* Glow Effect */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-brand-500 via-teal-500 to-cyan-500 rounded-3xl blur-2xl opacity-20" />
+            <div
+              className="absolute -inset-4 rounded-3xl opacity-20"
+              style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.3), rgba(6,182,212,0.2))' }}
+            />
 
             {/* Main Card */}
-            <div className="relative bg-slate-900/80 backdrop-blur-xl rounded-3xl p-3 border border-white/10 overflow-hidden">
-              {/* Spotlight */}
-              <motion.div
-                className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
-                style={{
-                  background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(16,185,129,0.1), transparent 70%)`,
-                }}
-              />
-
+            <div className="relative bg-white/[0.02] rounded-3xl p-3 border border-white/[0.06] overflow-hidden">
               {/* Image */}
               <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden">
                 <Image
@@ -244,7 +224,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/80 via-transparent to-transparent" />
               </div>
 
               {/* Floating Stats Cards */}
@@ -254,10 +234,13 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
                 transition={{ delay: 0.8 }}
                 className="absolute top-8 -left-4 lg:-left-8"
               >
-                <div className="bg-slate-800/90 backdrop-blur-xl rounded-2xl p-4 border border-white/10 shadow-2xl">
+                <div className="bg-[#0a0f1a] rounded-2xl p-4 border border-white/[0.06] shadow-2xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/25">
-                      <CheckCircle2 className="w-6 h-6 text-white" />
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+                    >
+                      <CheckCircle2 className="w-6 h-6 text-brand-400" />
                     </div>
                     <div>
                       <div className="font-bold text-white">Quality Guaranteed</div>
@@ -273,10 +256,13 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
                 transition={{ delay: 0.9 }}
                 className="absolute bottom-8 -right-4 lg:-right-8"
               >
-                <div className="bg-slate-800/90 backdrop-blur-xl rounded-2xl p-4 border border-white/10 shadow-2xl">
+                <div className="bg-[#0a0f1a] rounded-2xl p-4 border border-white/[0.06] shadow-2xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-teal-500/25">
-                      <Zap className="w-6 h-6 text-white" />
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ background: 'linear-gradient(135deg, rgba(6,182,212,0.15), rgba(16,185,129,0.08))' }}
+                    >
+                      <Zap className="w-6 h-6 text-teal-400" />
                     </div>
                     <div>
                       <div className="font-bold text-white">Fast Delivery</div>
@@ -299,7 +285,7 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
           >
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                Our <span className="bg-gradient-to-r from-brand-400 to-teal-400 bg-clip-text text-transparent">{pillar.title}</span> Specializations
+                Our <span className="gradient-text">{pillar.title}</span> Specializations
               </h2>
               <p className="text-slate-300 text-lg">
                 Explore our specialized services in {pillar.title.toLowerCase()}
@@ -313,20 +299,19 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.1 + index * 0.1 }}
-                  whileHover={{ y: -8 }}
                 >
                   <Link
                     href={`/${pillar.slug}/${service.slug}`}
                     className="group block h-full"
                   >
-                    <div className="relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-brand-500/50 transition-all duration-500">
-                      {/* Glow */}
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-teal-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-all duration-500" />
-
+                    <div className="relative h-full bg-white/[0.02] rounded-xl sm:rounded-2xl p-6 border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300">
                       <div className="relative">
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-br from-brand-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/25">
-                            <TrendingUp className="w-6 h-6 text-white" />
+                          <div
+                            className="w-12 h-12 rounded-xl flex items-center justify-center"
+                            style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.08))' }}
+                          >
+                            <TrendingUp className="w-6 h-6 text-brand-400" />
                           </div>
                           <h3 className="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">
                             {service.title}

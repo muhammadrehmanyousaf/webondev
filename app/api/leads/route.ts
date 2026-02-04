@@ -50,7 +50,8 @@ export async function POST(request: NextRequest) {
       preferredDate,
       preferredTime,
       timezone,
-      meetingType
+      meetingType,
+      emailVerified = true, // Default to true since we verify before submission
     } = body;
 
     // First check if the leads table exists
@@ -144,6 +145,7 @@ export async function POST(request: NextRequest) {
           timeline,
           message,
           source: formType === 'quote' ? 'Quote Request' : 'Contact Form',
+          emailVerified,
         });
       }
 
