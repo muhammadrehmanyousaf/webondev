@@ -1,21 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence, type HTMLMotionProps } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { FAQSchema } from '@/components/seo/SchemaScript';
 import type { FAQItem } from '@/lib/schema';
 
-// Custom motion.div component that supports schema.org microdata attributes
-const MotionDiv = motion.div as React.FC<
-  HTMLMotionProps<'div'> & {
-    itemScope?: boolean;
-    itemProp?: string;
-    itemType?: string;
-  }
->;
 
 // =============================================================================
 // FAQ DATA - SEO-OPTIMIZED FOR GOOGLE FEATURED SNIPPETS
@@ -81,15 +73,12 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
   const expandedState: 'true' | 'false' = isOpen ? 'true' : 'false';
 
   return (
-    <MotionDiv
+    <motion.div
       className="group relative"
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.05, duration: 0.4 }}
-      itemScope
-      itemProp="mainEntity"
-      itemType="https://schema.org/Question"
     >
       <div className={`relative rounded-2xl border ${isOpen ? 'border-brand-500/20 bg-white/[0.03]' : 'border-white/[0.06] bg-white/[0.01] hover:border-white/[0.1]'} transition-all duration-300 overflow-hidden`}>
         <button
@@ -104,7 +93,6 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
             </span>
             <h3
               className={`text-sm sm:text-base lg:text-lg font-semibold ${isOpen ? 'text-white' : 'text-slate-200'} transition-colors duration-200`}
-              itemProp="name"
             >
               {faq.question}
             </h3>
@@ -118,11 +106,7 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
           </motion.div>
         </button>
 
-        <div
-          itemScope
-          itemProp="acceptedAnswer"
-          itemType="https://schema.org/Answer"
-        >
+        <div>
           <AnimatePresence initial={false}>
             {isOpen && (
               <motion.div
@@ -135,7 +119,6 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
                   <div className="border-t border-white/[0.06] pt-3 sm:pt-4 ml-0 sm:ml-9">
                     <p
                       className="text-slate-400 leading-relaxed text-[13px] sm:text-sm lg:text-[15px]"
-                      itemProp="text"
                     >
                       {faq.answer}
                     </p>
@@ -147,13 +130,13 @@ const FAQItemComponent = ({ faq, index, isOpen, onToggle }: FAQItemProps) => {
 
           {/* Hidden answer text for crawlers (since AnimatePresence hides it visually) */}
           {!isOpen && (
-            <div className="sr-only" itemProp="text">
+            <div className="sr-only">
               {faq.answer}
             </div>
           )}
         </div>
       </div>
-    </MotionDiv>
+    </motion.div>
   );
 };
 
@@ -189,8 +172,6 @@ const FAQSection = ({
 
       <section
         className="relative py-12 sm:py-14 lg:py-20 bg-[#030712] overflow-hidden"
-        itemScope
-        itemType="https://schema.org/FAQPage"
       >
         {/* Background */}
         <div

@@ -67,36 +67,6 @@ const testimonials = [
   },
 ];
 
-// Review Schema for SEO
-const reviewSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://www.webondev.com/#organization',
-  name: 'Web On Dev',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    bestRating: '5',
-    worstRating: '1',
-    ratingCount: '250',
-    reviewCount: '250',
-  },
-  review: testimonials.map((t) => ({
-    '@type': 'Review',
-    author: {
-      '@type': 'Person',
-      name: t.name,
-      jobTitle: t.position.split(',')[0],
-    },
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: t.rating,
-      bestRating: 5,
-    },
-    reviewBody: t.text,
-    datePublished: t.date,
-  })),
-};
 
 // =============================================================================
 // TESTIMONIAL CARD
@@ -167,14 +137,7 @@ const TestimonialsSection = () => {
   return (
     <section
       className="relative py-12 sm:py-14 lg:py-20 overflow-hidden bg-[#030712]"
-      itemScope
-      itemType="https://schema.org/Organization"
     >
-      {/* Review Schema for Rich Snippets */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-      />
 
       {/* Background */}
       <div
