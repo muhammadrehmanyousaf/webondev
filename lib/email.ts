@@ -10,7 +10,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Email configuration
 const EMAIL_CONFIG = {
-  from: 'Web On Dev <onboarding@resend.dev>',
+  from: 'Web On Dev <contact@webondev.com>',
   replyTo: 'webondev786@gmail.com',
   teamEmail: 'webondev786@gmail.com',
 };
