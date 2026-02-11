@@ -185,7 +185,7 @@ const websiteSchema = {
   '@id': 'https://www.webondev.com/#website',
   url: 'https://www.webondev.com',
   name: 'Web On Dev',
-  alternateName: ['WebOnDev', 'Web on Dev', 'webondev'],
+  alternateName: ['Web On Dev', 'Web on Dev', 'webondev'],
   description: 'Premium Web Development & Digital Solutions',
   inLanguage: 'en-US',
   publisher: { '@id': 'https://www.webondev.com/#organization' },

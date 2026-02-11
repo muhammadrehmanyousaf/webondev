@@ -5,7 +5,7 @@
       "@type": "Organization",
       "@id": "https://www.webondev.com/#organization",
       "name": "Web On Dev",
-      "alternateName": ["WebOnDev", "Web-On-Dev", "WOD"],
+      "alternateName": ["Web On Dev", "Web-On-Dev", "WOD"],
       "legalName": "Web On Dev",
       "url": "https://www.webondev.com",
       "logo": "https://www.webondev.com/images/branding/logo.png",

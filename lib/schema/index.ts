@@ -13,7 +13,7 @@ export const siteConfig = {
   url: 'https://www.webondev.com',
   name: 'Web On Dev',
   legalName: 'Web On Dev',
-  alternateName: 'WebOnDev',
+  alternateName: 'Web On Dev - Software Development Company',
   description: 'Leading software development company providing web development, mobile apps, UI/UX design, digital marketing, cloud solutions, and comprehensive software services worldwide.',
   foundingDate: '1999-05-18',
   founders: [

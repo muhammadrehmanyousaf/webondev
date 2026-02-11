@@ -10,7 +10,7 @@
 export const companyEntity = {
   // Primary identifiers
   name: 'Web On Dev',
-  alternateName: ['WebOnDev', 'Web-On-Dev', 'WOD'],
+  alternateName: ['Web On Dev', 'Web-On-Dev', 'WOD'],
   legalName: 'Web On Dev',
 
   // Classification

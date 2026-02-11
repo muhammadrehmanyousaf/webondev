@@ -254,7 +254,7 @@ const Header = () => {
               <div className="px-2.5 py-2 bg-brand-500/10 rounded-lg border border-brand-500/20 transition-colors duration-150 group-hover:bg-brand-500/15">
                 <Code2 className="w-5 h-5 text-brand-400" />
               </div>
-              <span className="text-lg font-bold text-white">WebOnDev</span>
+              <span className="text-lg font-bold text-white">Web On Dev</span>
             </Link>
 
             {/* Desktop Nav */}
