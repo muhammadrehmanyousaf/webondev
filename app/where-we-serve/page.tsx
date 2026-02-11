@@ -23,21 +23,21 @@ import DynamicFAQ from '@/components/ui/DynamicFAQ';
 const siteUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: 'Where We Serve - Global Software Development Services | Web On Dev',
-  description: 'Explore our global presence with software development services across multiple countries. Local expertise with global standards in web development, mobile apps, and digital solutions.',
+  title: 'We Serve 50+ Countries - Local Dev Teams, Global Quality',
+  description: 'Web On Dev delivers software development in 50+ countries including USA, UK, Canada, Australia, UAE & more. Local teams, 24/7 support, 500+ projects. Find services near you.',
   keywords: 'global software development, international IT services, software development worldwide, web development services, mobile app development, digital solutions',
   alternates: { canonical: `${siteUrl}/where-we-serve/` },
   openGraph: {
-    title: 'Where We Serve - Global Software Development Services',
-    description: 'Explore our global presence with software development services across multiple countries.',
+    title: 'We Serve 50+ Countries - Local Dev Teams, Global Quality',
+    description: 'Software development in 50+ countries including USA, UK, Canada, Australia, UAE & more. Local teams, 24/7 support, 500+ projects.',
     url: `${siteUrl}/where-we-serve/`,
     type: 'website',
     images: [
       {
-        url: `${siteUrl}/api/images/og?title=Where%20We%20Serve&subtitle=Solutions%20Indicator`,
+        url: `${siteUrl}/api/images/og?title=Where%20We%20Serve&subtitle=Web%20On%20Dev`,
         width: 1200,
         height: 630,
-        alt: 'Where We Serve – Web On Dev'
+        alt: 'Web On Dev - Serving 50+ Countries'
       }
     ]
   },

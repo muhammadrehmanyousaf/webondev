@@ -40,6 +40,9 @@ interface ServicePricingProps {
   plans?: PricingPlan[];
   showComparison?: boolean;
   customNote?: string;
+  city?: string;
+  state?: string;
+  country?: string;
 }
 
 const iconComponents = {
@@ -51,27 +54,32 @@ const iconComponents = {
 const ServicePricing: React.FC<ServicePricingProps> = (props) => {
   const {
     data,
-    sectionTitle: propTitle = 'Transparent Pricing',
-    sectionSubtitle: propSubtitle = 'Choose the plan that fits your needs. No hidden fees, no surprises.',
+    sectionTitle: propTitle,
+    sectionSubtitle: propSubtitle,
     plans: propPlans,
     showComparison = false,
-    customNote: propCustomNote = 'All plans include free consultation, project management, and 30-day support after delivery.',
+    customNote: propCustomNote,
+    city,
+    state,
+    country,
   } = props;
 
+  const locationLabel = city || state || country || '';
+
   // Use data from ServiceData object if provided
-  const sectionTitle = propTitle;
-  const sectionSubtitle = propSubtitle;
+  const sectionTitle = propTitle || (locationLabel ? `Transparent Pricing for ${locationLabel}` : 'Transparent Pricing');
+  const sectionSubtitle = propSubtitle || (locationLabel ? `Choose the plan that fits your ${locationLabel} project. No hidden fees, no surprises.` : 'Choose the plan that fits your needs. No hidden fees, no surprises.');
   const plans = data?.pricing?.plans || propPlans || [];
-  const customNote = data?.pricing?.customNote || propCustomNote;
+  const customNote = data?.pricing?.customNote || propCustomNote || (locationLabel ? `All plans for ${locationLabel} businesses include free consultation, project management, and 30-day support after delivery.` : 'All plans include free consultation, project management, and 30-day support after delivery.');
 
   const [hoveredTooltip, setHoveredTooltip] = useState<string | null>(null);
 
   return (
-    <section className="py-20 md:py-28 bg-slate-900 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#030712] relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl" />
-      </div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 40% at 50% 30%, rgba(16,185,129,0.05), transparent 70%)' }} />
+      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -82,16 +90,16 @@ const ServicePricing: React.FC<ServicePricingProps> = (props) => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
-            Pricing Plans
-          </span>
+          <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-brand-400 text-sm font-medium mb-6" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+            <span>Pricing Plans</span>
+          </motion.div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            {sectionTitle}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-white">{sectionTitle} </span>
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-400">
+          <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
             {sectionSubtitle}
           </p>
         </motion.div>
@@ -120,7 +128,7 @@ const ServicePricing: React.FC<ServicePricingProps> = (props) => {
                 <div className={`relative h-full flex flex-col p-6 md:p-8 rounded-2xl border transition-all duration-300 ${
                   plan.highlighted
                     ? 'bg-slate-900 border-emerald-500/50 shadow-xl shadow-emerald-500/10'
-                    : 'bg-slate-900/50 border-slate-700/50 hover:border-emerald-500/30'
+                    : 'bg-white/[0.02] border-white/[0.06] hover:border-brand-500/20'
                 }`}>
                   {/* Badge */}
                   {plan.badge && (
@@ -148,13 +156,13 @@ const ServicePricing: React.FC<ServicePricingProps> = (props) => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-slate-400">
                       {plan.description}
                     </p>
                   </div>
 
                   {/* Price */}
-                  <div className="text-center mb-6 pb-6 border-b border-slate-700/50">
+                  <div className="text-center mb-6 pb-6 border-b border-white/[0.06]">
                     <div className="flex items-baseline justify-center gap-1">
                       <span className="text-4xl md:text-5xl font-bold text-white">
                         {plan.price}
@@ -185,7 +193,7 @@ const ServicePricing: React.FC<ServicePricingProps> = (props) => {
                           ) : (
                             <X className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
                           )}
-                          <span className={`text-sm ${feature.included ? 'text-gray-300' : 'text-gray-600'}`}>
+                          <span className={`text-sm ${feature.included ? 'text-slate-300' : 'text-gray-600'}`}>
                             {feature.name}
                           </span>
                           {feature.tooltip && (
@@ -196,12 +204,12 @@ const ServicePricing: React.FC<ServicePricingProps> = (props) => {
                                 aria-label="More information about this feature"
                                 onMouseEnter={() => setHoveredTooltip(`${index}-${fIndex}`)}
                                 onMouseLeave={() => setHoveredTooltip(null)}
-                                className="text-gray-500 hover:text-gray-400"
+                                className="text-gray-500 hover:text-slate-400"
                               >
                                 <HelpCircle className="w-4 h-4" />
                               </button>
                               {hoveredTooltip === `${index}-${fIndex}` && (
-                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-slate-800 rounded-lg text-xs text-gray-300 w-48 shadow-xl z-10">
+                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-slate-800 rounded-lg text-xs text-slate-300 w-48 shadow-xl z-10">
                                   {feature.tooltip}
                                 </div>
                               )}
@@ -213,8 +221,9 @@ const ServicePricing: React.FC<ServicePricingProps> = (props) => {
                   </div>
 
                   {/* CTA Button */}
-                  <a
-                    href={(plan as any).ctaLink || '#contact'}
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new CustomEvent('openBookingModal'))}
                     className={`w-full py-3 px-6 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${
                       plan.highlighted
                         ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/30'
@@ -223,7 +232,7 @@ const ServicePricing: React.FC<ServicePricingProps> = (props) => {
                   >
                     {plan.ctaText || 'Get Started'}
                     <ArrowRight className="w-5 h-5" />
-                  </a>
+                  </button>
                 </div>
               </motion.div>
             );
@@ -251,21 +260,22 @@ const ServicePricing: React.FC<ServicePricingProps> = (props) => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
             <div className="text-left">
               <h4 className="text-lg font-semibold text-white">
-                Need a custom solution?
+                {locationLabel ? `Need a custom solution for ${locationLabel}?` : 'Need a custom solution?'}
               </h4>
-              <p className="text-sm text-gray-400">
-                Let's discuss your specific requirements
+              <p className="text-sm text-slate-400">
+                {locationLabel ? `Let's discuss your ${locationLabel} project requirements` : "Let's discuss your specific requirements"}
               </p>
             </div>
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent('openBookingModal'))}
               className="btn-secondary whitespace-nowrap"
             >
               Contact Sales
-            </a>
+            </button>
           </div>
         </motion.div>
       </div>

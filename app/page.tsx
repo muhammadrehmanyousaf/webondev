@@ -6,8 +6,8 @@ import { getBaseUrl } from '@/lib/site-config';
 const siteUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: 'Web On Dev - Professional Software Development & Digital Solutions',
-  description: 'Transform your digital vision into reality with Web On Dev. Award-winning software development company offering web development, mobile apps, UI/UX design, digital marketing, and custom software solutions. 500+ projects delivered worldwide.',
+  title: 'Web On Dev - Custom Software Development Company (500+ Projects)',
+  description: 'Rated 4.9★ by 250+ clients. We build websites, mobile apps & custom software starting from $3,000. Next.js, React, Flutter experts. 50+ countries served. Book your free consultation now.',
   keywords: [
     'software development company',
     'web development agency',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/`,
   },
   openGraph: {
-    title: 'Web On Dev - Professional Software Development & Digital Solutions',
-    description: 'Transform your digital vision into reality. Award-winning software development company offering web development, mobile apps, UI/UX design, and custom software solutions.',
+    title: 'Web On Dev - Custom Software Development Company (500+ Projects)',
+    description: 'Rated 4.9★ by 250+ clients. We build websites, mobile apps & custom software starting from $3,000. Book your free consultation now.',
     url: `${siteUrl}/`,
     type: 'website',
     siteName: 'Web On Dev',
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Web On Dev - Professional Software Development & Digital Solutions',
-    description: 'Transform your digital vision into reality. Award-winning software development company with 500+ projects delivered worldwide.',
+    title: 'Web On Dev - Custom Software Development Company (500+ Projects)',
+    description: 'Rated 4.9★ by 250+ clients. Custom websites, mobile apps & software starting from $3,000. Free consultation available.',
     creator: '@webondev',
     site: '@webondev',
     images: [`${siteUrl}/images/og-image.png`],

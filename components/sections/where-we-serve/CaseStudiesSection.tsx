@@ -29,10 +29,13 @@ interface CaseStudy {
 }
 
 interface CaseStudiesSectionProps {
+  cityName?: string;
+  stateName?: string;
   countryName: string;
 }
 
-const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
+const CaseStudiesSection = ({ cityName, stateName, countryName }: CaseStudiesSectionProps) => {
+  const locationLabel = cityName ? `${cityName}` : stateName ? `${stateName}` : countryName ? `${countryName}` : '';
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -180,13 +183,13 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
             </motion.div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-6 leading-tight">
-              <span className="text-white">Case Studies in </span>
+              <span className="text-white">{locationLabel} success </span>
               <span className="gradient-text">
-                {countryName}
+                stories
               </span>
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-              Explore successful projects that demonstrate our expertise in delivering measurable outcomes for businesses across {countryName}.
+              Real results from real projects. See how we help businesses{locationLabel ? ` like yours in ${locationLabel}` : ''} achieve measurable growth through expert software development.
             </p>
           </motion.div>
 
@@ -256,8 +259,8 @@ const CaseStudiesSection = ({ countryName }: CaseStudiesSectionProps) => {
           </div>
 
           <InlineCTA
-            title="Want Similar Results?"
-            description="Let's discuss how we can transform your business."
+            title={locationLabel ? `Want Similar Results in ${locationLabel}?` : 'Want Similar Results?'}
+            description={locationLabel ? `Let's discuss how we can deliver the same outcomes for your ${locationLabel} business.` : "Let's discuss how we can transform your business."}
             buttonText="Start Your Project"
           />
         </div>

@@ -61,6 +61,9 @@ interface ServiceSolutionsProps {
   sectionSubtitle?: string;
   features?: Feature[];
   layout?: 'grid' | 'alternating' | 'bento';
+  city?: string;
+  state?: string;
+  country?: string;
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -119,15 +122,20 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
   const {
     data,
-    sectionTitle: propTitle = 'Powerful Solutions for Your Business',
-    sectionSubtitle: propSubtitle = "Everything you need to succeed, delivered by experts who've done it hundreds of times",
+    sectionTitle: propTitle,
+    sectionSubtitle: propSubtitle,
     features: propFeatures,
     layout = 'grid',
+    city,
+    state,
+    country,
   } = props;
 
+  const locationLabel = city || state || country || '';
+
   // Use data from ServiceData object if provided
-  const sectionTitle = propTitle;
-  const sectionSubtitle = propSubtitle;
+  const sectionTitle = propTitle || (locationLabel ? `Powerful Solutions for ${locationLabel} Businesses` : 'Powerful Solutions for Your Business');
+  const sectionSubtitle = propSubtitle || (locationLabel ? `Everything ${locationLabel} businesses need to succeed, delivered by experts who've done it 500+ times` : "Everything you need to succeed, delivered by experts who've done it hundreds of times");
   const features = data?.solutions || propFeatures || [];
   const getIcon = (iconName: string) => {
     const IconComponent = iconMap[iconName] || Sparkles;
@@ -135,21 +143,11 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
   };
 
   return (
-    <section id="solutions" className="py-20 md:py-28 bg-slate-950 relative overflow-hidden">
+    <section id="solutions" className="py-16 sm:py-20 lg:py-24 bg-[#030712] relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
-
-        {/* Subtle grid */}
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div className="h-full w-full" style={{
-            backgroundImage: 'linear-gradient(rgba(16,185,129,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.5) 1px, transparent 1px)',
-            backgroundSize: '60px 60px'
-          }} />
-        </div>
-      </div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 40% at 50% 50%, rgba(16,185,129,0.05), transparent 70%)' }} />
+      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -160,16 +158,16 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
-            Our Solutions
-          </span>
+          <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-brand-400 text-sm font-medium mb-6" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+            <span>Our Solutions</span>
+          </motion.div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            {sectionTitle}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-white">{sectionTitle} </span>
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-400">
+          <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
             {sectionSubtitle}
           </p>
         </motion.div>
@@ -203,7 +201,7 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
                   <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
                   {/* Card */}
-                  <div className="relative h-full p-8 rounded-2xl bg-slate-900/80 border border-slate-700/50 hover:border-emerald-500/30 transition-all duration-300">
+                  <div className="relative h-full p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300">
                     {/* Icon with gradient background */}
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/25 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                       <IconComponent className="w-8 h-8 text-white" />
@@ -215,7 +213,7 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-400 leading-relaxed mb-6">
+                    <p className="text-slate-400 leading-relaxed mb-6">
                       {feature.description}
                     </p>
 
@@ -223,7 +221,7 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
                     {feature.highlights && feature.highlights.length > 0 && (
                       <ul className="space-y-2">
                         {feature.highlights.map((highlight, hIndex) => (
-                          <li key={hIndex} className="flex items-center gap-2 text-sm text-gray-300">
+                          <li key={hIndex} className="flex items-center gap-2 text-sm text-slate-300">
                             <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                             <span>{highlight}</span>
                           </li>
@@ -257,7 +255,7 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`bento-item ${isLarge ? 'bento-item-lg' : isMedium ? 'bento-item-md' : ''}`}
                 >
-                  <div className="h-full p-8 rounded-2xl bg-slate-900/80 border border-slate-700/50 hover:border-emerald-500/30 transition-all duration-300">
+                  <div className="h-full p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300">
                     {/* Icon */}
                     <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/25">
                       <IconComponent className="w-7 h-7 text-white" />
@@ -269,7 +267,7 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-slate-400 leading-relaxed">
                       {feature.description}
                     </p>
 
@@ -277,7 +275,7 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
                     {isLarge && feature.highlights && (
                       <ul className="mt-6 space-y-2">
                         {feature.highlights.map((highlight, hIndex) => (
-                          <li key={hIndex} className="flex items-center gap-2 text-sm text-gray-300">
+                          <li key={hIndex} className="flex items-center gap-2 text-sm text-slate-300">
                             <CheckCircle className="w-4 h-4 text-emerald-500" />
                             <span>{highlight}</span>
                           </li>
@@ -317,14 +315,14 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
                       {feature.title}
                     </h3>
 
-                    <p className="text-lg text-gray-400 leading-relaxed">
+                    <p className="text-lg text-slate-400 leading-relaxed">
                       {feature.description}
                     </p>
 
                     {feature.highlights && (
                       <ul className="grid sm:grid-cols-2 gap-3">
                         {feature.highlights.map((highlight, hIndex) => (
-                          <li key={hIndex} className="flex items-center gap-2 text-gray-300">
+                          <li key={hIndex} className="flex items-center gap-2 text-slate-300">
                             <CheckCircle className="w-5 h-5 text-emerald-500" />
                             <span>{highlight}</span>
                           </li>
@@ -335,7 +333,7 @@ const ServiceSolutions: React.FC<ServiceSolutionsProps> = (props) => {
 
                   {/* Visual placeholder */}
                   <div className="flex-1 w-full">
-                    <div className="aspect-video rounded-2xl bg-slate-800/50 border border-slate-700/50 flex items-center justify-center">
+                    <div className="aspect-video rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center">
                       <div className="text-center p-8">
                         <IconComponent className="w-16 h-16 text-emerald-500/50 mx-auto mb-4" />
                         <p className="text-gray-500">Visual representation</p>

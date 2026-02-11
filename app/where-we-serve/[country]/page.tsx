@@ -20,6 +20,10 @@ import { getAllCountriesAPI, getStatesByCountryAPI } from '@/lib/location-api';
 import { fromCountrySlugMatch, toSlug } from '@/lib/slug';
 import { getBaseUrl } from '@/lib/site-config';
 import DynamicFAQ from '@/components/ui/DynamicFAQ';
+import NearbyLocationsSection from '@/components/sections/where-we-serve/NearbyLocationsSection';
+import ProcessSection from '@/components/sections/where-we-serve/ProcessSection';
+import TechStackSection from '@/components/sections/where-we-serve/TechStackSection';
+import PricingOverviewSection from '@/components/sections/where-we-serve/PricingOverviewSection';
 
 
 interface CountryPageProps {
@@ -48,16 +52,26 @@ export async function generateMetadata({ params }: CountryPageProps): Promise<Me
   const path = `/where-we-serve/${toSlug(country.name)}`;
   const canonicalUrl = `${siteUrl}${path}`;
 
+  const title = `Software Development in ${country.name} - 500+ Projects (From $3K)`;
+  const description = `Top-rated software development across ${country.name}. Web apps, mobile apps & custom software from $3,000. 4.9★ by 250+ clients. Next.js, React, Flutter experts. Free consultation for ${country.name} businesses.`;
+
   return {
-    title: `Software Development Services in ${country.name} - Web On Dev`,
-    description: `Professional software development and IT services across ${country.name}. Local expertise with global standards.`,
-    keywords: `${country.name}, software development, web development, IT services`,
+    title,
+    description,
+    keywords: `${country.name} software development, ${country.name} web development, ${country.name} app development, hire developers ${country.name}, custom software ${country.name}`,
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `Software Development Services in ${country.name}`,
-      description: `Professional software development and IT services across ${country.name}.`,
+      title,
+      description,
       type: 'website',
       url: canonicalUrl,
+      siteName: 'Web On Dev',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@webondev',
     },
   };
 }
@@ -92,50 +106,57 @@ export default async function CountryPage({ params }: CountryPageProps) {
 
         {/* 2) Hero Section */}
         <LocationHeroSection
-          title={`Software Development Services in ${country.name}`}
-          subtitle={`Local expertise and global standards in ${country.name}.`}
+          title={`Software Development in ${country.name}`}
+          subtitle={`Top-rated software development across ${country.name}. Web apps, mobile apps, and custom software from $3,000. 500+ projects delivered. 4.9★ by 250+ clients. React, Next.js, Flutter experts.`}
           flag={country.flag}
           currency={country.currencies.join(', ')}
           timezone={country.timezones[0] || ''}
+          locationName={country.name}
         />
 
-        {/* 3) States Overview */}
-        <StatesOverviewSection
-          states={states}
-          countryName={country.name}
-        />
+        {/* 3) Trust Stats */}
+        <LocationStatsSection countryName={country.name} />
 
-        {/* 4) Outcomes Section */}
-        <OutcomesSection />
+        {/* 4) States Overview */}
+        <StatesOverviewSection states={states} countryName={country.name} />
 
-        {/* 5) Web Development Section */}
-        <WebDevelopmentSection />
+        {/* 5) How We Work */}
+        <ProcessSection countryName={country.name} />
 
-        {/* 6) Mobile Apps Section */}
-        <MobileAppsSection />
+        {/* 6) Outcomes */}
+        <OutcomesSection countryName={country.name} />
 
-        {/* 7) Industry Fit Section */}
-        <IndustryFitSection />
+        {/* 7) Web Development */}
+        <WebDevelopmentSection countryName={country.name} />
 
-        {/* 8) Local Teams Section */}
-        <LocalTeamsSection />
+        {/* 8) Mobile Apps */}
+        <MobileAppsSection countryName={country.name} />
 
-        {/* 9) Services Directory */}
+        {/* 9) Tech Stack */}
+        <TechStackSection countryName={country.name} />
+
+        {/* 10) Industry Fit */}
+        <IndustryFitSection countryName={country.name} />
+
+        {/* 11) Local Teams */}
+        <LocalTeamsSection countryName={country.name} />
+
+        {/* 12) Case Studies */}
+        <CaseStudiesSection countryName={country.name} />
+
+        {/* 13) Testimonials */}
+        <TestimonialsSection countryName={country.name} />
+
+        {/* 14) Pricing */}
+        <PricingOverviewSection countryName={country.name} />
+
+        {/* 15) Services Directory */}
         <ServicesDirectorySection
           title={`Explore services available in ${country.name}`}
           subtitle="Web, mobile, AI, design, outsourcing, cloud, DevOps, analytics, and more"
         />
 
-        {/* 10) Stats */}
-        <LocationStatsSection />
-
-        {/* 11) Case Studies */}
-        <CaseStudiesSection countryName={country.name} />
-
-        {/* 12) Testimonials */}
-        <TestimonialsSection />
-
-        {/* 13) Dynamic FAQ */}
+        {/* 16) FAQ */}
         <DynamicFAQ
           location={`in ${country.name}`}
           service="software development"
@@ -144,7 +165,16 @@ export default async function CountryPage({ params }: CountryPageProps) {
           country={country.name}
         />
 
-        {/* 14) Primary CTA */}
+        {/* 17) Cross-Links */}
+        <NearbyLocationsSection
+          currentName=""
+          type="state"
+          siblings={states.map((s: any) => s.name)}
+          parentPath={`/where-we-serve/${toSlug(country.name)}`}
+          parentName={country.name}
+        />
+
+        {/* 18) Final CTA */}
         <CTASection />
 
         {/* JSON-LD: Breadcrumbs and ItemList for states */}

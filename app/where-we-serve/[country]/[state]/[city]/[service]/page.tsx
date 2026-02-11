@@ -10,8 +10,10 @@ import { enrichedSiteStructure } from '@/lib/site-structure';
 import { getBaseUrl } from '@/lib/site-config';
 import {
   ServiceHeroWithForm,
+  ServiceTrustBar,
   ServicePainPoints,
   ServiceSolutions,
+  ServiceWhyChooseUs,
   ServiceProcess,
   ServiceBenefits,
   ServiceTechStack,
@@ -20,6 +22,7 @@ import {
   ServiceTestimonials,
   ServiceFAQ,
   ServiceRelated,
+  ServiceCityLinks,
   ServiceCTA,
 } from '@/components/services/sections';
 import { getPillarServiceData } from '@/data/services/pillars';
@@ -88,16 +91,26 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const siteUrl = getBaseUrl();
   const canonicalUrl = `${siteUrl}/where-we-serve/${toSlug(countryName)}/${toSlug(stateName)}/${toSlug(cityName)}/${toSlug(serviceTitle)}`;
 
+  const title = `${serviceTitle} in ${cityName}, ${stateName} (4.9★ From $3K)`;
+  const description = `Expert ${serviceTitle.toLowerCase()} in ${cityName}, ${stateName}, ${countryName}. 500+ projects delivered. React, Next.js, Flutter specialists. Rated 4.9/5 by 250+ clients. Get your free ${serviceTitle.toLowerCase()} quote today.`;
+
   return {
-    title: `${serviceTitle} in ${cityName}, ${stateName} - Web On Dev`,
-    description: `Hire expert ${serviceTitle.toLowerCase()} services in ${cityName}, ${stateName}, ${countryName}. Local expertise with global standards.`,
-    keywords: `${serviceTitle}, ${cityName}, ${stateName}, ${countryName}, ${lsi.join(', ')}`,
+    title,
+    description,
+    keywords: `${serviceTitle} ${cityName}, ${serviceTitle} ${stateName}, ${cityName} ${serviceTitle.toLowerCase()} company, ${countryName} ${serviceTitle.toLowerCase()}, ${lsi.join(', ')}`,
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `${serviceTitle} in ${cityName}, ${stateName}`,
-      description: `Hire expert ${serviceTitle.toLowerCase()} services in ${cityName}, ${stateName}, ${countryName}.`,
+      title,
+      description,
       url: canonicalUrl,
       type: 'website',
+      siteName: 'Web On Dev',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@webondev',
     },
   };
 }
@@ -164,51 +177,107 @@ export default async function ServiceInCityPage({ params }: ServicePageProps) {
     notFound();
   }
 
+  // Sibling cities for cross-linking (same service in nearby cities)
+  const siblingCityNames = cities.map((c) => c.name);
+
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-[#030712]">
       <Header />
       <main>
-        {/* 1) Breadcrumb */}
+        {/* === HOOK: Capture Attention === */}
         <LocationBreadcrumb items={breadcrumbItems} />
+        <ServiceHeroWithForm
+          data={pageServiceData}
+          city={city.name}
+          state={state.name}
+          country={country.name}
+        />
 
-        <>
-          {/* Service Sections */}
-          <ServiceHeroWithForm
-            data={pageServiceData}
+        {/* === TRUST: Immediate Social Proof === */}
+        <ServiceTrustBar
+          serviceName={serviceName}
+          city={city.name}
+          state={state.name}
+          country={country.name}
+        />
+
+        {/* === AGITATE: Show the Problem === */}
+        <ServicePainPoints data={pageServiceData} city={city.name} state={state.name} country={country.name} />
+
+        {/* === SOLVE: Present Solutions === */}
+        <ServiceSolutions data={pageServiceData} city={city.name} state={state.name} country={country.name} />
+
+        {/* === DIFFERENTIATE: Why Choose Us === */}
+        <ServiceWhyChooseUs
+          serviceName={serviceName}
+          city={city.name}
+          state={state.name}
+          country={country.name}
+        />
+
+        {/* === EDUCATE: Our Process === */}
+        <ServiceProcess data={pageServiceData} city={city.name} state={state.name} country={country.name} />
+
+        {/* === PROVE: Results & Benefits === */}
+        <ServiceBenefits data={pageServiceData} city={city.name} state={state.name} country={country.name} />
+
+        {/* === CREDENTIAL: Tech Stack === */}
+        <ServiceTechStack data={pageServiceData} city={city.name} state={state.name} country={country.name} />
+
+        {/* === SOCIAL PROOF: Portfolio === */}
+        <ServicePortfolio data={pageServiceData} city={city.name} state={state.name} country={country.name} />
+
+        {/* === CONVERT: Pricing === */}
+        <ServicePricing data={pageServiceData} city={city.name} state={state.name} country={country.name} />
+
+        {/* === VALIDATE: Testimonials === */}
+        <ServiceTestimonials data={pageServiceData} city={city.name} state={state.name} country={country.name} />
+
+        {/* === OVERCOME OBJECTIONS: FAQ === */}
+        <ServiceFAQ
+          data={pageServiceData}
+          city={city.name}
+          state={state.name}
+          country={country.name}
+          serviceName={serviceName}
+        />
+
+        {/* === CROSS-SELL: Related Services === */}
+        {relatedServices.length > 0 && (
+          <ServiceRelated
+            services={relatedServices}
+            baseUrl={relatedBaseUrl}
+            currentService={resolvedServiceSlug}
             city={city.name}
             state={state.name}
             country={country.name}
           />
-          <ServicePainPoints data={pageServiceData} />
-          <ServiceSolutions data={pageServiceData} />
-          <ServiceProcess data={pageServiceData} />
-          <ServiceBenefits data={pageServiceData} />
-          <ServiceTechStack data={pageServiceData} />
-          <ServicePortfolio data={pageServiceData} />
-          <ServicePricing data={pageServiceData} />
-          <ServiceTestimonials data={pageServiceData} />
-          <ServiceFAQ
-            data={pageServiceData}
-            city={city.name}
-            state={state.name}
-            country={country.name}
-            serviceName={serviceName}
-          />
-          {relatedServices.length > 0 && (
-            <ServiceRelated
-              services={relatedServices}
-              baseUrl={relatedBaseUrl}
-              currentService={resolvedServiceSlug}
-            />
-          )}
-          <ServiceCTA
-            data={pageServiceData}
-            city={city.name}
-            serviceName={serviceName}
-          />
-        </>
+        )}
 
-        {/* JSON-LD Structured Data */}
+        {/* === SEO: Same Service in Sibling Cities === */}
+        <ServiceCityLinks
+          currentCity={city.name}
+          siblingCities={siblingCityNames}
+          countrySlug={toSlug(country.name)}
+          stateSlug={toSlug(state.name)}
+          serviceSlug={service}
+          stateName={state.name}
+        />
+
+        {/* === FINAL CONVERT: CTA === */}
+        <ServiceCTA
+          data={pageServiceData}
+          city={city.name}
+          state={state.name}
+          country={country.name}
+          serviceName={serviceName}
+        />
+
+        {/* ============================================================ */}
+        {/* JSON-LD Structured Data (Enhanced for SERP Rich Results)     */}
+        {/* ============================================================ */}
+
+        {/* BreadcrumbList */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -226,30 +295,107 @@ export default async function ServiceInCityPage({ params }: ServicePageProps) {
             }),
           }}
         />
+
+        {/* Service (enhanced with offers, rating, FAQ) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Service',
-              name: serviceName,
+              '@id': `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}/${toSlug(city.name)}/${toSlug(serviceTitle)}#service`,
+              name: `${serviceName} in ${city.name}`,
+              description: `Professional ${serviceName.toLowerCase()} services in ${city.name}, ${state.name}. Expert development team delivering world-class solutions.`,
+              serviceType: serviceName,
               areaServed: {
                 '@type': 'City',
-                name: `${city.name}`,
-                containedInPlace: { '@type': 'AdministrativeArea', name: `${state.name}, ${country.name}` },
+                name: city.name,
+                containedInPlace: {
+                  '@type': 'AdministrativeArea',
+                  name: state.name,
+                  containedInPlace: { '@type': 'Country', name: country.name },
+                },
               },
-              provider: { '@type': 'Organization', '@id': 'https://www.webondev.com/#organization' },
+              provider: {
+                '@type': 'Organization',
+                '@id': 'https://www.webondev.com/#organization',
+                name: 'Web On Dev',
+                url: 'https://www.webondev.com',
+                logo: `${siteUrl}/logo.png`,
+                sameAs: [
+                  'https://www.linkedin.com/company/webondev',
+                  'https://twitter.com/webondev',
+                  'https://github.com/webondev',
+                ],
+              },
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.9',
+                bestRating: '5',
+                worstRating: '1',
+                ratingCount: '250',
+                reviewCount: '250',
+              },
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: `${serviceName} Plans`,
+                itemListElement: (pageServiceData?.pricing?.plans || []).map((plan, i) => ({
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: `${plan.name} - ${serviceName}`,
+                    description: plan.description,
+                  },
+                  price: plan.price.replace(/[^0-9.]/g, '') || '0',
+                  priceCurrency: 'USD',
+                  priceSpecification: {
+                    '@type': 'PriceSpecification',
+                    price: plan.price.replace(/[^0-9.]/g, '') || '0',
+                    priceCurrency: 'USD',
+                    ...(plan.billingPeriod ? { unitText: plan.billingPeriod } : {}),
+                  },
+                })),
+              },
+              ...(pageServiceData?.faqs && pageServiceData.faqs.length > 0
+                ? {}
+                : {}),
             }),
           }}
         />
+
+        {/* FAQPage schema for rich results */}
+        {pageServiceData?.faqs && pageServiceData.faqs.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: pageServiceData.faqs.slice(0, 10).map((faq) => ({
+                  '@type': 'Question',
+                  name: faq.question,
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.answer,
+                  },
+                })),
+              }),
+            }}
+          />
+        )}
+
+        {/* SpeakableSpecification */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'SpeakableSpecification',
-              cssSelector: ['h1', '.prose p:first-of-type']
-            })
+              '@type': 'WebPage',
+              speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['h1', '.prose p:first-of-type'],
+              },
+            }),
           }}
         />
       </main>

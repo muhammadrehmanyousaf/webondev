@@ -9,30 +9,30 @@ import ServiceBenefitsSection from '@/components/pages/services/ServiceBenefitsS
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Our Services - Web On Dev | Complete Software Development Solutions',
-  description: 'Explore our comprehensive range of software development services including web development, mobile apps, UI/UX design, digital marketing, cloud services, and more.',
+  title: 'Services & Pricing - Web Development From $3K (Free Quote)',
+  description: 'Web development ($3K-$100K), mobile apps ($10K-$150K), UI/UX design ($2K-$25K), SEO & marketing ($500/mo). 500+ projects delivered. Get a free custom quote in 24 hours.',
   keywords: 'software development services, web development, mobile app development, UI/UX design, digital marketing, cloud services, consulting',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/services/`,
   },
   openGraph: {
-    title: 'Our Services - Web On Dev | Complete Software Development Solutions',
-    description: 'Explore our comprehensive range of software development services including web development, mobile apps, UI/UX design, digital marketing, cloud services, and more.',
+    title: 'Services & Pricing - Web Development From $3K (Free Quote)',
+    description: 'Web development, mobile apps, UI/UX design, SEO & marketing. 500+ projects delivered. Get a free custom quote in 24 hours.',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/services/`,
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/images/og?title=Our%20Services&subtitle=Solutions%20Indicator`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/images/og?title=Our%20Services&subtitle=Web%20On%20Dev`,
         width: 1200,
         height: 630,
-        alt: 'Our Services – Web On Dev'
+        alt: 'Web On Dev Services & Pricing'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Our Services - Web On Dev | Complete Software Development Solutions',
-    description: 'Explore our comprehensive range of software development services including web development, mobile apps, UI/UX design, digital marketing, cloud services, and more.',
+    title: 'Services & Pricing - Web Development From $3K (Free Quote)',
+    description: 'Web development, mobile apps, UI/UX design, SEO & marketing. 500+ projects delivered. Get a free custom quote in 24 hours.',
   },
 };
 
@@ -231,7 +231,6 @@ export default function ServicesPage() {
                       '@type': 'Offer',
                       priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '3000', maxPrice: '100000' }
                     },
-                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '120' }
                   }
                 },
                 {
@@ -246,8 +245,7 @@ export default function ServicesPage() {
                     offers: {
                       '@type': 'Offer',
                       priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '10000', maxPrice: '150000' }
-                    },
-                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '85' }
+                    }
                   }
                 },
                 {
@@ -262,8 +260,7 @@ export default function ServicesPage() {
                     offers: {
                       '@type': 'Offer',
                       priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '2000', maxPrice: '25000' }
-                    },
-                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '65' }
+                    }
                   }
                 },
                 {
@@ -278,8 +275,7 @@ export default function ServicesPage() {
                     offers: {
                       '@type': 'Offer',
                       priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '500', maxPrice: '10000', unitText: 'MONTH' }
-                    },
-                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.7', reviewCount: '92' }
+                    }
                   }
                 },
                 {
@@ -294,8 +290,7 @@ export default function ServicesPage() {
                     offers: {
                       '@type': 'Offer',
                       priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '5000', maxPrice: '75000' }
-                    },
-                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '78' }
+                    }
                   }
                 },
                 {
@@ -306,8 +301,7 @@ export default function ServicesPage() {
                     name: 'Cloud & DevOps',
                     description: 'AWS, Azure, GCP cloud services, CI/CD, Docker, Kubernetes, and infrastructure automation',
                     url: 'https://www.webondev.com/cloud-devops/',
-                    provider: { '@id': 'https://www.webondev.com/#organization' },
-                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '45' }
+                    provider: { '@id': 'https://www.webondev.com/#organization' }
                   }
                 },
                 {
@@ -322,8 +316,7 @@ export default function ServicesPage() {
                     offers: {
                       '@type': 'Offer',
                       priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', minPrice: '20000', maxPrice: '500000' }
-                    },
-                    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '55' }
+                    }
                   }
                 }
               ]

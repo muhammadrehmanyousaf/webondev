@@ -20,6 +20,10 @@ import { getAllCountriesAPI, getStatesByCountryAPI, getCitiesByStateAPI } from '
 import { fromSlugMatch, fromCountrySlugMatch, toSlug } from '@/lib/slug';
 import { getBaseUrl } from '@/lib/site-config';
 import DynamicFAQ from '@/components/ui/DynamicFAQ';
+import NearbyLocationsSection from '@/components/sections/where-we-serve/NearbyLocationsSection';
+import ProcessSection from '@/components/sections/where-we-serve/ProcessSection';
+import TechStackSection from '@/components/sections/where-we-serve/TechStackSection';
+import PricingOverviewSection from '@/components/sections/where-we-serve/PricingOverviewSection';
 
 interface StatePageProps {
   params: Promise<{
@@ -43,16 +47,26 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
   if (!state) return { title: 'State Not Found - Web On Dev' };
   const siteUrl = getBaseUrl();
   const canonicalUrl = `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}`;
+  const title = `Software Development in ${state.name}, ${country.name} (4.9★ Agency)`;
+  const description = `Hire expert developers in ${state.name}, ${country.name}. Web development, mobile apps & custom software from $3,000. 500+ projects delivered. Free consultation for ${state.name} businesses.`;
+
   return {
-    title: `Software Development in ${state.name}, ${country.name} - Web On Dev`,
-    description: `Professional software development services in ${state.name}, ${country.name}.`,
-    keywords: `${state.name}, ${country.name}, software development, web development`,
+    title,
+    description,
+    keywords: `${state.name} software development, ${state.name} web development, ${state.name} ${country.name} developers, hire developers ${state.name}, custom software ${state.name}`,
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `Software Development in ${state.name}, ${country.name}`,
-      description: `Professional software development services in ${state.name}, ${country.name}.`,
+      title,
+      description,
       url: canonicalUrl,
       type: 'website',
+      siteName: 'Web On Dev',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@webondev',
     },
   };
 }
@@ -88,51 +102,64 @@ export default async function StatePage({ params }: StatePageProps) {
 
         {/* 2) Hero Section */}
         <LocationHeroSection
-          title={`Software Development in ${state.name}`}
-          subtitle={`Local expertise in ${state.name}, ${country.name}.`}
+          title={(() => {
+            const h1s = [
+              `Software Development in ${state.name}`,
+              `Top Software Agency in ${state.name}`,
+              `${state.name} Development Services`,
+            ];
+            return h1s[(state.name.length + country.name.length) % h1s.length];
+          })()}
+          subtitle={`Delivering high-performance websites, mobile apps, and custom software across ${state.name}, ${country.name}. 500+ projects delivered. 4.9★ rated by 250+ clients. Free consultation available.`}
           flag={country.flag}
           currency={country.currencies.join(', ')}
           timezone={country.timezones[0] || ''}
+          locationName={state.name}
         />
 
-        {/* 3) Cities Overview */}
-        <CitiesOverviewSection
-          cities={cities}
-          countryName={country.name}
-          stateName={state.name}
-        />
+        {/* 3) Trust Stats — immediate social proof */}
+        <LocationStatsSection stateName={state.name} countryName={country.name} />
 
-        {/* 4) Outcomes Section */}
-        <OutcomesSection />
+        {/* 4) Cities Overview — answers "what cities do you serve" */}
+        <CitiesOverviewSection cities={cities} countryName={country.name} stateName={state.name} />
 
-        {/* 5) Web Development Section */}
-        <WebDevelopmentSection />
+        {/* 5) How We Work */}
+        <ProcessSection stateName={state.name} countryName={country.name} />
 
-        {/* 6) Mobile Apps Section */}
-        <MobileAppsSection />
+        {/* 6) Outcomes */}
+        <OutcomesSection stateName={state.name} countryName={country.name} />
 
-        {/* 7) Industry Fit Section */}
-        <IndustryFitSection />
+        {/* 7) Web Development */}
+        <WebDevelopmentSection stateName={state.name} countryName={country.name} />
 
-        {/* 8) Local Teams Section */}
-        <LocalTeamsSection />
+        {/* 8) Mobile Apps */}
+        <MobileAppsSection stateName={state.name} countryName={country.name} />
 
-        {/* 9) Services Directory */}
+        {/* 9) Tech Stack */}
+        <TechStackSection stateName={state.name} countryName={country.name} />
+
+        {/* 10) Industry Fit */}
+        <IndustryFitSection stateName={state.name} countryName={country.name} />
+
+        {/* 11) Local Teams */}
+        <LocalTeamsSection stateName={state.name} countryName={country.name} />
+
+        {/* 12) Case Studies */}
+        <CaseStudiesSection stateName={state.name} countryName={country.name} />
+
+        {/* 13) Testimonials */}
+        <TestimonialsSection stateName={state.name} countryName={country.name} />
+
+        {/* 14) Pricing */}
+        <PricingOverviewSection stateName={state.name} countryName={country.name} />
+
+        {/* 15) Services Directory */}
         <ServicesDirectorySection
           title={`Explore services for ${state.name}, ${country.name}`}
           subtitle="Web, mobile, AI, design, outsourcing, cloud, DevOps, analytics, and more"
         />
 
-        {/* 10) Stats */}
-        <LocationStatsSection />
-
-        {/* 11) Case Studies */}
-        <CaseStudiesSection countryName={state.name} />
-
-        {/* 12) Testimonials */}
-        <TestimonialsSection />
-
-        {/* 13) Dynamic FAQ */}
+        {/* 16) FAQ */}
         <DynamicFAQ
           location={`in ${state.name}, ${country.name}`}
           service="software development"
@@ -141,7 +168,16 @@ export default async function StatePage({ params }: StatePageProps) {
           country={country.name}
         />
 
-        {/* 14) Primary CTA */}
+        {/* 17) Cross-Links */}
+        <NearbyLocationsSection
+          currentName={state.name}
+          type="state"
+          siblings={states.map((s: any) => s.name)}
+          parentPath={`/where-we-serve/${toSlug(country.name)}`}
+          parentName={country.name}
+        />
+
+        {/* 18) Final CTA */}
         <CTASection />
 
         {/* JSON-LD: Breadcrumbs and ItemList for cities */}

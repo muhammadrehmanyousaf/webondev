@@ -6,36 +6,97 @@ import { TrendingUp, Target, BarChart3, CheckCircle2, Award } from 'lucide-react
 import InlineCTA from '@/components/ui/inline-cta';
 
 // =============================================================================
-// OUTCOMES SECTION - Updated Design Language
+// OUTCOMES SECTION - Content Variation Engine
 // =============================================================================
 
-const OutcomesSection = () => {
-  const features = [
-    {
-      icon: TrendingUp,
-      title: 'Performance-Driven Development',
-      description: 'We don\'t just build features—we engineer for measurable business outcomes. Every line of code, every design decision, and every optimization is aligned with your growth objectives.',
-    },
-    {
-      icon: BarChart3,
-      title: 'Data-Informed Decisions',
-      description: 'We leverage advanced analytics, A/B testing, and user behavior data to make informed decisions about your digital product. Our iterative approach ensures continuous improvement based on real user feedback.',
-    },
-    {
-      icon: Target,
-      title: 'ROI-Focused Delivery',
-      description: 'Every project is structured to deliver measurable return on investment. We track key performance indicators, conversion rates, and business metrics to ensure your digital solution contributes directly to your bottom line.',
-    }
+// Deterministic hash for content variation
+const strHash = (str: string, seed: number): number => {
+  let hash = seed;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+};
+
+interface OutcomesSectionProps {
+  cityName?: string;
+  stateName?: string;
+  countryName?: string;
+}
+
+const OutcomesSection = ({ cityName, stateName, countryName }: OutcomesSectionProps = {}) => {
+  const locationLabel = cityName ? `${cityName}` : stateName ? `${stateName}` : countryName ? `${countryName}` : '';
+  const fullLocation = [cityName, stateName, countryName].filter(Boolean).join(', ');
+  const v = locationLabel ? strHash(fullLocation, 31) % 3 : 0;
+
+  // --- VARIANT FEATURE DESCRIPTIONS ---
+  const featureDescriptions = [
+    [
+      'We don\'t just build features—we engineer for measurable business outcomes. Every line of code, every design decision, and every optimization is aligned with your growth objectives.',
+      'We leverage advanced analytics, A/B testing, and user behavior data to make informed decisions about your digital product. Our iterative approach ensures continuous improvement based on real user feedback.',
+      'Every project is structured to deliver measurable return on investment. We track key performance indicators, conversion rates, and business metrics to ensure your digital solution contributes directly to your bottom line.',
+    ],
+    [
+      'Our development methodology ties every sprint directly to quantifiable growth metrics. We set clear OKRs at kickoff, instrument telemetry from day one, and review real-time dashboards weekly so nothing ships without a business case.',
+      'Real-time dashboards, cohort analysis, and funnel tracking replace gut feelings. We embed analytics at every touchpoint—from first visit to checkout—and run experiments continuously to compound small gains into significant revenue lifts.',
+      'We align budgets to measurable impact. Before writing a single line of code, we model expected ROI, define success thresholds, and build dashboards so you can see exactly how your investment translates into pipeline, revenue, and retention.',
+    ],
+    [
+      'From architecture choices to deployment pipelines, we optimize for speed-to-value. Lean sprints, continuous delivery, and automated testing mean features reach your users faster—and start generating results sooner.',
+      'We embed measurement into every layer of your stack—event tracking in the UI, structured logs in the backend, and automated anomaly detection in production. Data flows in real time so decisions are never stale.',
+      'Revenue impact is the north star of every engagement. We structure contracts around outcome milestones, share transparent dashboards, and iterate until KPIs are met—not just until features are shipped.',
+    ],
   ];
 
-  const outcomeFeatures = [
-    'Conversion Rate Optimization',
-    'User Experience Design',
-    'Technical SEO Implementation',
-    'Analytics & Measurement',
-    'Performance Optimization',
-    'Continuous Improvement'
+  // --- VARIANT NARRATIVE CARDS ---
+  const narrativeCards = [
+    {
+      p1: 'We don\'t just deliver projects—we deliver business outcomes. Our team measures success by your growth metrics, conversion rates, and ROI.',
+      p2: 'From initial strategy to post-launch optimization, every decision is data-driven and aligned with your business objectives.',
+    },
+    {
+      p1: 'Our track record speaks in numbers: faster load times, higher conversion rates, and lower bounce rates across every project we deliver.',
+      p2: 'We set measurable targets before writing a single line of code, then iterate relentlessly until those targets are exceeded.',
+    },
+    {
+      p1: 'Growth isn\'t luck—it\'s engineered. We combine technical excellence with analytics discipline to turn your digital product into a revenue engine.',
+      p2: 'Every engagement includes weekly performance reviews, A/B test results, and actionable insights that keep your product improving month over month.',
+    },
   ];
+
+  // --- VARIANT INTRO PARAGRAPHS ---
+  const introParagraphs = [
+    {
+      p1: `${locationLabel ? `For businesses in ${locationLabel}, we` : 'We'} design and build fast, accessible, and search-optimized products. From information architecture and Core Web Vitals to localized content and analytics, our delivery is engineered to win traffic and convert it into revenue${locationLabel ? ` for ${locationLabel} companies` : ''}.`,
+      p2: `Every engagement includes technical SEO, schema markup, and measurement. We validate performance with field data and iterate based on what your ${locationLabel ? `${locationLabel} ` : ''}users actually do.`,
+    },
+    {
+      p1: `${locationLabel ? `${locationLabel} businesses trust us to` : 'We'} architect digital products that rank, load fast, and convert. Our full-stack approach covers server-side rendering, edge caching, structured data, and conversion funnels—all wired together from the start${locationLabel ? ` for the ${locationLabel} market` : ''}.`,
+      p2: `We don't hand off and disappear. Post-launch, we monitor Core Web Vitals, crawl health, and conversion data${locationLabel ? ` for your ${locationLabel} audience` : ''}, then ship improvements every sprint.`,
+    },
+    {
+      p1: `${locationLabel ? `Serving ${locationLabel}, we` : 'We'} build products where performance, SEO, and UX aren't afterthoughts—they're the foundation. Semantic markup, lazy loading, responsive images, and schema.org integration come standard in every project${locationLabel ? ` we deliver in ${locationLabel}` : ''}.`,
+      p2: `Our teams run weekly analytics reviews and share transparent dashboards so you see exactly how ${locationLabel ? `your ${locationLabel} ` : ''}traffic, engagement, and revenue are trending.`,
+    },
+  ];
+
+  // --- VARIANT TECH FEATURES ---
+  const techFeatureSets = [
+    ['Conversion Rate Optimization', 'User Experience Design', 'Technical SEO Implementation', 'Analytics & Measurement', 'Performance Optimization', 'Continuous Improvement'],
+    ['Revenue Funnel Analysis', 'Heatmap & Session Recording', 'Schema Markup & Rich Results', 'Real-Time Dashboards', 'Core Web Vitals Tuning', 'Sprint-Based Iteration'],
+    ['Landing Page Optimization', 'Accessibility Auditing (WCAG)', 'Programmatic SEO', 'Event-Driven Analytics', 'CDN & Edge Caching', 'Post-Launch Monitoring'],
+  ];
+
+  const features = [
+    { icon: TrendingUp, title: 'Performance-Driven Development', description: featureDescriptions[v][0] },
+    { icon: BarChart3, title: 'Data-Informed Decisions', description: featureDescriptions[v][1] },
+    { icon: Target, title: 'ROI-Focused Delivery', description: featureDescriptions[v][2] },
+  ];
+
+  const narrative = narrativeCards[v];
+  const intro = introParagraphs[v];
+  const outcomeFeatures = techFeatureSets[v];
 
   return (
     <section className="relative py-16 sm:py-20 lg:py-24 bg-[#030712] overflow-hidden">
@@ -72,17 +133,17 @@ const OutcomesSection = () => {
             </motion.div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              <span className="text-white">A software house built for </span>
+              <span className="text-white">{locationLabel ? `${locationLabel}'s` : 'A'} software partner built for </span>
               <span className="gradient-text">
                 outcomes
               </span>
             </h2>
 
             <p className="text-lg text-slate-300 leading-relaxed mb-4">
-              We design and build fast, accessible, and search-optimized products. From information architecture and Core Web Vitals to localized content and analytics, our delivery is engineered to win traffic and convert it into revenue.
+              {intro.p1}
             </p>
             <p className="text-slate-400 leading-relaxed mb-8">
-              Every engagement includes technical SEO, schema markup, and measurement. We validate performance with field data and iterate based on what your users actually do.
+              {intro.p2}
             </p>
 
             {/* Feature Cards */}
@@ -164,10 +225,10 @@ const OutcomesSection = () => {
             >
               <div className="relative bg-white/[0.02] rounded-2xl p-6 border border-white/[0.06]">
                 <p className="text-lg text-slate-300 leading-relaxed mb-4">
-                  We don&apos;t just deliver projects—we deliver business outcomes. Our team measures success by your growth metrics, conversion rates, and ROI.
+                  {narrative.p1}
                 </p>
                 <p className="text-slate-400 leading-relaxed">
-                  From initial strategy to post-launch optimization, every decision is data-driven and aligned with your business objectives.
+                  {narrative.p2}
                 </p>
               </div>
             </motion.div>
@@ -177,8 +238,9 @@ const OutcomesSection = () => {
               <div className="relative bg-white/[0.02] rounded-2xl p-6 border border-white/[0.06]">
                 <img
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop"
-                  alt="Global software development team"
+                  alt={locationLabel ? `Outcome-driven software development team serving ${locationLabel}` : 'Outcome-driven software development team'}
                   className="w-full h-72 object-cover rounded-xl"
+                  loading="lazy"
                 />
               </div>
 
@@ -197,8 +259,8 @@ const OutcomesSection = () => {
         </div>
 
         <InlineCTA
-          title="Ready to Drive Results?"
-          description="Let's build a solution that delivers measurable outcomes for your business."
+          title={locationLabel ? `Ready to Drive Results in ${locationLabel}?` : 'Ready to Drive Results?'}
+          description={locationLabel ? `Let's build a solution that delivers measurable outcomes for your ${locationLabel} business.` : "Let's build a solution that delivers measurable outcomes for your business."}
           buttonText="Get Started"
           variant="compact"
         />

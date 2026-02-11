@@ -71,6 +71,9 @@ interface ServicePainPointsProps {
   conclusionText?: string;
   ctaText?: string;
   ctaLink?: string;
+  city?: string;
+  state?: string;
+  country?: string;
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -128,18 +131,26 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 const ServicePainPoints: React.FC<ServicePainPointsProps> = (props) => {
   const {
     data,
-    sectionTitle: propTitle = 'Are You Facing These Challenges?',
-    sectionSubtitle: propSubtitle = 'Common problems businesses encounter without professional help',
+    sectionTitle: propTitle,
+    sectionSubtitle: propSubtitle,
     painPoints: propPainPoints,
-    conclusionTitle = "You're Not Alone",
-    conclusionText = 'These challenges affect thousands of businesses. The good news? We have proven solutions for each one.',
+    conclusionTitle: propConclusionTitle,
+    conclusionText: propConclusionText,
     ctaText = 'See How We Solve These',
     ctaLink = '#solutions',
+    city,
+    state,
+    country,
   } = props;
 
+  const locationLabel = city || state || country || '';
+  const fullLocation = [city, state, country].filter(Boolean).join(', ');
+
   // Use data from ServiceData object if provided
-  const sectionTitle = propTitle;
-  const sectionSubtitle = propSubtitle;
+  const sectionTitle = propTitle || (locationLabel ? `Are Businesses in ${locationLabel} Facing These Challenges?` : 'Are You Facing These Challenges?');
+  const sectionSubtitle = propSubtitle || (locationLabel ? `Common problems ${locationLabel} businesses encounter without professional help` : 'Common problems businesses encounter without professional help');
+  const conclusionTitle = propConclusionTitle || (locationLabel ? `${locationLabel} Businesses Deserve Better` : "You're Not Alone");
+  const conclusionText = propConclusionText || (locationLabel ? `These challenges affect businesses across ${fullLocation || locationLabel}. The good news? We have proven solutions for each one—backed by 500+ delivered projects.` : 'These challenges affect thousands of businesses. The good news? We have proven solutions for each one.');
   const painPoints = data?.painPoints || propPainPoints || [];
   const getIcon = (iconName: string) => {
     const IconComponent = iconMap[iconName] || AlertCircle;
@@ -147,20 +158,11 @@ const ServicePainPoints: React.FC<ServicePainPointsProps> = (props) => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-slate-900 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#030712] relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        {/* Warning gradient pattern */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/5 via-transparent to-orange-500/5" />
-
-        {/* Grid overlay */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="h-full w-full" style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }} />
-        </div>
-      </div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 40% at 50% 30%, rgba(239,68,68,0.04), transparent 70%)' }} />
+      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -171,16 +173,16 @@ const ServicePainPoints: React.FC<ServicePainPointsProps> = (props) => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium mb-6">
-            <AlertCircle className="w-4 h-4" />
-            Common Challenges
-          </span>
+          <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-red-400 text-sm font-medium mb-6" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
+            <span>Common Challenges</span>
+          </motion.div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            {sectionTitle}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-white">{sectionTitle} </span>
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-400">
+          <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
             {sectionSubtitle}
           </p>
         </motion.div>
@@ -210,7 +212,7 @@ const ServicePainPoints: React.FC<ServicePainPointsProps> = (props) => {
                 className="group relative"
               >
                 {/* Card */}
-                <div className="h-full p-6 md:p-8 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-red-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/5">
+                <div className="h-full p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-red-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/5">
                   {/* Icon */}
                   <div className="w-14 h-14 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="w-7 h-7 text-red-400" />
@@ -221,13 +223,13 @@ const ServicePainPoints: React.FC<ServicePainPointsProps> = (props) => {
                     {point.title}
                   </h3>
 
-                  <p className="text-gray-400 leading-relaxed mb-4">
+                  <p className="text-slate-400 leading-relaxed mb-4">
                     {point.description}
                   </p>
 
                   {/* Stat if available */}
                   {point.stat && (
-                    <div className="pt-4 border-t border-slate-700/50">
+                    <div className="pt-4 border-t border-white/[0.06]">
                       <div className="flex items-baseline gap-2">
                         <span className="text-2xl font-bold text-red-400">
                           {point.stat}
@@ -266,19 +268,23 @@ const ServicePainPoints: React.FC<ServicePainPointsProps> = (props) => {
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   {conclusionTitle}
                 </h3>
-                <p className="text-lg text-gray-300 max-w-2xl">
+                <p className="text-lg text-slate-300 max-w-2xl">
                   {conclusionText}
                 </p>
               </div>
 
               {/* CTA */}
-              <a
-                href={ctaLink}
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('solutions');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="flex-shrink-0 btn-primary flex items-center gap-2 whitespace-nowrap"
               >
                 {ctaText}
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </button>
             </div>
           </div>
         </motion.div>

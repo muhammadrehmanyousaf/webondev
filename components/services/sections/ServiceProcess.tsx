@@ -44,6 +44,9 @@ interface ServiceProcessProps {
   steps?: ProcessStep[];
   totalDuration?: string;
   layout?: 'timeline' | 'cards' | 'horizontal';
+  city?: string;
+  state?: string;
+  country?: string;
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -74,16 +77,21 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 const ServiceProcess: React.FC<ServiceProcessProps> = (props) => {
   const {
     data,
-    sectionTitle: propTitle = 'Our Proven Process',
-    sectionSubtitle: propSubtitle = 'A transparent, battle-tested workflow that delivers results every time',
+    sectionTitle: propTitle,
+    sectionSubtitle: propSubtitle,
     steps: propSteps,
     totalDuration: propDuration = '4-8 weeks',
     layout = 'timeline',
+    city,
+    state,
+    country,
   } = props;
 
+  const locationLabel = city || state || country || '';
+
   // Use data from ServiceData object if provided
-  const sectionTitle = propTitle;
-  const sectionSubtitle = propSubtitle;
+  const sectionTitle = propTitle || (locationLabel ? `Our Proven Process for ${locationLabel} Projects` : 'Our Proven Process');
+  const sectionSubtitle = propSubtitle || (locationLabel ? `A transparent, battle-tested workflow that delivers results for ${locationLabel} businesses every time` : 'A transparent, battle-tested workflow that delivers results every time');
   const steps = data?.process?.steps || propSteps || [];
   const totalDuration = data?.process?.totalDuration || propDuration;
   const getIcon = (iconName: string) => {
@@ -92,11 +100,11 @@ const ServiceProcess: React.FC<ServiceProcessProps> = (props) => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-slate-900 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#030712] relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-slate-950/50 to-transparent" />
-      </div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 30% 50%, rgba(16,185,129,0.04), transparent 70%)' }} />
+      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -107,20 +115,20 @@ const ServiceProcess: React.FC<ServiceProcessProps> = (props) => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-6">
-            <Rocket className="w-4 h-4" />
-            How We Work
-          </span>
+          <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-brand-400 text-sm font-medium mb-6" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+            <span>How We Work</span>
+          </motion.div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            {sectionTitle}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-white">{sectionTitle} </span>
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-400 mb-4">
+          <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed mb-4">
             {sectionSubtitle}
           </p>
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-gray-300">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-slate-300">
             <span className="text-sm">Average project timeline:</span>
             <span className="font-semibold text-emerald-400">{totalDuration}</span>
           </div>
@@ -148,7 +156,7 @@ const ServiceProcess: React.FC<ServiceProcessProps> = (props) => {
                   >
                     {/* Content */}
                     <div className={`lg:w-1/2 ${isEven ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'}`}>
-                      <div className={`p-6 md:p-8 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-emerald-500/30 transition-all duration-300 ${isEven ? 'lg:ml-auto' : ''} max-w-xl`}>
+                      <div className={`p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300 ${isEven ? 'lg:ml-auto' : ''} max-w-xl`}>
                         {/* Step number badge */}
                         <div className={`inline-flex items-center gap-2 mb-4 ${isEven ? 'lg:flex-row-reverse' : ''}`}>
                           <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-medium">
@@ -167,17 +175,17 @@ const ServiceProcess: React.FC<ServiceProcessProps> = (props) => {
                         </h3>
 
                         {/* Description */}
-                        <p className="text-gray-400 leading-relaxed mb-4">
+                        <p className="text-slate-400 leading-relaxed mb-4">
                           {step.description}
                         </p>
 
                         {/* Deliverables */}
                         {step.deliverables && step.deliverables.length > 0 && (
-                          <div className={`pt-4 border-t border-slate-700/50 ${isEven ? 'lg:text-left' : ''}`}>
+                          <div className={`pt-4 border-t border-white/[0.06] ${isEven ? 'lg:text-left' : ''}`}>
                             <p className="text-sm text-gray-500 mb-2">Deliverables:</p>
                             <ul className={`flex flex-wrap gap-2 ${isEven ? 'lg:justify-end' : ''}`}>
                               {step.deliverables.map((item, dIndex) => (
-                                <li key={dIndex} className="px-3 py-1 rounded-full bg-slate-700/50 text-xs text-gray-300">
+                                <li key={dIndex} className="px-3 py-1 rounded-full bg-slate-700/50 text-xs text-slate-300">
                                   {item}
                                 </li>
                               ))}
@@ -231,7 +239,7 @@ const ServiceProcess: React.FC<ServiceProcessProps> = (props) => {
                     </div>
                   )}
 
-                  <div className="h-full p-6 md:p-8 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-emerald-500/30 transition-all duration-300">
+                  <div className="h-full p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300">
                     {/* Step number */}
                     <div className="flex items-center justify-between mb-6">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/25">
@@ -246,12 +254,12 @@ const ServiceProcess: React.FC<ServiceProcessProps> = (props) => {
                     <h3 className="text-xl font-bold text-white mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-slate-400 leading-relaxed">
                       {step.description}
                     </p>
 
                     {step.duration && (
-                      <div className="mt-4 pt-4 border-t border-slate-700/50">
+                      <div className="mt-4 pt-4 border-t border-white/[0.06]">
                         <span className="text-sm text-emerald-400">{step.duration}</span>
                       </div>
                     )}

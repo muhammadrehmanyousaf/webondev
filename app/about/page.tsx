@@ -11,22 +11,22 @@ import CultureSection from '@/components/pages/about/CultureSection';
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata: Metadata = {
-  title: 'About Us - Web On Dev | Leading Software Development Company',
-  description: 'Learn about Web On Dev - a leading software development company with 5+ years of experience, 150+ satisfied clients, and a team of expert developers delivering innovative digital solutions.',
+  title: 'About Web On Dev - 500+ Projects, 250+ Clients, 50+ Countries',
+  description: 'Meet the team behind Web On Dev. 4.9★ rated software company with 500+ delivered projects, 250+ happy clients & experts in Next.js, React, Flutter. See why businesses worldwide trust us.',
   keywords: 'about software agency, software development company, web development team, mobile app developers, digital transformation experts',
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/about/`,
   },
   openGraph: {
-    title: 'About Us - Web On Dev | Leading Software Development Company',
-    description: 'Learn about Web On Dev - a leading software development company with 5+ years of experience, 150+ satisfied clients, and a team of expert developers delivering innovative digital solutions.',
+    title: 'About Web On Dev - 500+ Projects, 250+ Clients, 50+ Countries',
+    description: 'Meet the team behind Web On Dev. 4.9★ rated software company with 500+ delivered projects & experts in Next.js, React, Flutter.',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/about`,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Us - Web On Dev | Leading Software Development Company',
-    description: 'Learn about Web On Dev - a leading software development company with 5+ years of experience, 150+ satisfied clients, and a team of expert developers delivering innovative digital solutions.',
+    title: 'About Web On Dev - 500+ Projects, 250+ Clients, 50+ Countries',
+    description: 'Meet the team behind Web On Dev. 4.9★ rated software company with 500+ delivered projects & experts in Next.js, React, Flutter.',
   },
 };
 
@@ -118,14 +118,7 @@ export default function AboutPage() {
               knowsAbout: [
                 'Web Development', 'Mobile Development', 'UI/UX Design', 'Digital Marketing',
                 'SEO', 'Cloud Computing', 'DevOps', 'E-commerce', 'SaaS Development'
-              ],
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.9',
-                reviewCount: '250',
-                bestRating: '5',
-                worstRating: '1'
-              }
+              ]
             })
           }}
         />
@@ -150,47 +143,6 @@ export default function AboutPage() {
           }}
         />
 
-        {/* JSON-LD: Review Schema for Client Testimonials */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'Web On Dev',
-              review: [
-                {
-                  '@type': 'Review',
-                  author: { '@type': 'Person', name: 'John Smith' },
-                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-                  reviewBody: 'Web On Dev transformed our digital presence completely. Their team delivered an exceptional e-commerce platform that increased our sales by 150%.',
-                  datePublished: '2024-06-15'
-                },
-                {
-                  '@type': 'Review',
-                  author: { '@type': 'Person', name: 'Sarah Johnson' },
-                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-                  reviewBody: 'Outstanding mobile app development. The React Native app they built exceeded our expectations in both functionality and design.',
-                  datePublished: '2024-05-20'
-                },
-                {
-                  '@type': 'Review',
-                  author: { '@type': 'Person', name: 'David Miller' },
-                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-                  reviewBody: 'Their SEO expertise helped us rank #1 for competitive keywords. Traffic increased by 300% in just 6 months.',
-                  datePublished: '2024-04-10'
-                },
-                {
-                  '@type': 'Review',
-                  author: { '@type': 'Person', name: 'Emma Williams' },
-                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-                  reviewBody: 'Professional, responsive, and technically excellent. They delivered our enterprise software on time and within budget.',
-                  datePublished: '2024-03-25'
-                }
-              ]
-            })
-          }}
-        />
       </main>
       <Footer />
     </div>

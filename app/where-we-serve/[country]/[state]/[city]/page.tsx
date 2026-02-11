@@ -21,6 +21,10 @@ import { getAllCountriesAPI, getStatesByCountryAPI, getCitiesByStateAPI } from '
 import { fromSlugMatch, fromCountrySlugMatch, toSlug } from '@/lib/slug';
 import { getBaseUrl } from '@/lib/site-config';
 import DynamicFAQ from '@/components/ui/DynamicFAQ';
+import NearbyLocationsSection from '@/components/sections/where-we-serve/NearbyLocationsSection';
+import ProcessSection from '@/components/sections/where-we-serve/ProcessSection';
+import TechStackSection from '@/components/sections/where-we-serve/TechStackSection';
+import PricingOverviewSection from '@/components/sections/where-we-serve/PricingOverviewSection';
 
 interface CityPageProps {
   params: Promise<{
@@ -53,15 +57,32 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
 
   const imageUrl = `${siteUrl}/api/images/og?title=${encodeURIComponent(`Software Development in ${city.name}`)}&subtitle=${encodeURIComponent(state.name)}`;
 
+  // Varied title/description templates based on location hash for uniqueness
+  const locationHash = (city.name.length + state.name.length + country.name.length) % 5;
+  const titles = [
+    `#1 Software Development in ${city.name}, ${state.name} (From $3K)`,
+    `${city.name} Software Development - 500+ Projects Delivered`,
+    `Web & App Development in ${city.name} - 4.9★ Rated Agency`,
+    `Hire ${city.name} Developers - Web, Mobile & Custom Software`,
+    `Software Development Company in ${city.name} (Free Quote)`,
+  ];
+  const descriptions = [
+    `Top-rated software development in ${city.name}, ${state.name}. We build websites, mobile apps & custom software from $3,000. 500+ projects across ${country.name}. React, Next.js, Flutter experts. Free consultation.`,
+    `Looking for developers in ${city.name}? Web On Dev delivers websites, apps & custom software rated 4.9★ by 250+ clients. Serving ${city.name}, ${state.name} with ${country.name}-wide support. Get your free quote.`,
+    `${city.name}'s trusted software agency. Web development, mobile apps, UI/UX & digital marketing starting $3K. 500+ projects in 50+ countries incl. ${country.name}. Book free 30-min consultation today.`,
+    `Expert web & mobile app development for ${city.name} businesses. Next.js, React, Flutter specialists. 4.9★ rated, 250+ happy clients. Local ${state.name} team, global quality. Free project estimate.`,
+    `Custom software solutions in ${city.name}, ${state.name}. From startup MVPs to enterprise platforms. Rated 4.9/5 by 250+ clients in ${country.name} & 50+ countries. Schedule your free strategy call.`,
+  ];
+
   return {
-    title: `Software Development in ${city.name}, ${state.name} | Web On Dev`,
-    description: `Professional software development, web development, and mobile app services in ${city.name}, ${state.name}, ${country.name}. Local expertise with global standards. Free consultation available.`,
-    keywords: `${city.name} software development, ${city.name} web development, ${state.name} IT services, ${country.name} tech company, mobile app development ${city.name}, custom software ${city.name}`,
+    title: titles[locationHash],
+    description: descriptions[locationHash],
+    keywords: `${city.name} software development, ${city.name} web development, ${city.name} app development, web developer ${city.name}, mobile app developer ${city.name} ${state.name}, custom software ${city.name} ${country.name}`,
     authors: [{ name: 'Web On Dev', url: siteUrl }],
     alternates: { canonical: `${canonicalUrl}/` },
     openGraph: {
-      title: `Software Development Services in ${city.name}, ${state.name}`,
-      description: `Professional software development, web development, and mobile app services in ${city.name}, ${state.name}, ${country.name}.`,
+      title: titles[locationHash],
+      description: descriptions[locationHash],
       url: `${canonicalUrl}/`,
       type: 'website',
       siteName: 'Web On Dev',
@@ -77,8 +98,8 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
     },
     twitter: {
       card: 'summary_large_image',
-      title: `Software Development in ${city.name}, ${state.name}`,
-      description: `Professional software development services in ${city.name}, ${state.name}, ${country.name}.`,
+      title: titles[locationHash],
+      description: descriptions[locationHash],
       creator: '@webondev',
       site: '@webondev',
       images: [imageUrl],
@@ -131,51 +152,75 @@ export default async function CityPage({ params }: CityPageProps) {
 
         {/* 2) Hero Section */}
         <LocationHeroSection
-          title={`Software Development in ${city.name}`}
-          subtitle={`Get expert software development services in ${city.name}, ${state.name}.`}
+          title={(() => {
+            const h1s = [
+              `Software Development in ${city.name}`,
+              `Top Developers in ${city.name}`,
+              `${city.name} Software Agency`,
+              `Web & App Development in ${city.name}`,
+              `Hire Developers in ${city.name}`,
+            ];
+            return h1s[(city.name.length + state.name.length + country.name.length) % h1s.length];
+          })()}
+          subtitle={(() => {
+            const subs = [
+              `Delivering high-performance websites, mobile apps, and custom software for ${city.name}, ${state.name} businesses. 500+ projects. 4.9★ rated. From $3,000.`,
+              `Your trusted ${city.name} software partner. We build scalable web apps, native mobile apps, and enterprise platforms that drive revenue across ${state.name}.`,
+              `Expert developers serving ${city.name}, ${state.name}. From startup MVPs to enterprise systems—on time, on budget, built to scale.`,
+              `Full-stack development for ${city.name} companies. React, Next.js, Flutter, Node.js specialists with 250+ happy clients across ${country.name}.`,
+              `Looking for developers in ${city.name}? We deliver SEO-optimized websites, cross-platform apps, and custom software rated 4.9/5 by clients worldwide.`,
+            ];
+            return subs[(city.name.length + state.name.length + country.name.length) % subs.length];
+          })()}
           flag={country.flag}
           currency={country.currencies.join(', ')}
           timezone={country.timezones[0] || ''}
+          locationName={city.name}
         />
 
-        {/* 3) All Services Overview */}
-        <AllServicesSection
-          cityName={city.name}
-          countryName={country.name}
-          stateName={state.name}
-        />
+        {/* 3) Trust Stats — immediate social proof after hero */}
+        <LocationStatsSection cityName={city.name} stateName={state.name} countryName={country.name} />
 
-        {/* 4) Outcomes Section */}
-        <OutcomesSection />
+        {/* 4) Services Overview — answers search intent */}
+        <AllServicesSection cityName={city.name} countryName={country.name} stateName={state.name} />
 
-        {/* 5) Web Development Section */}
-        <WebDevelopmentSection />
+        {/* 5) How We Work — reduces uncertainty, builds confidence */}
+        <ProcessSection cityName={city.name} stateName={state.name} countryName={country.name} />
 
-        {/* 6) Mobile Apps Section */}
-        <MobileAppsSection />
+        {/* 6) Outcomes — why choose us, measurable results */}
+        <OutcomesSection cityName={city.name} stateName={state.name} countryName={country.name} />
 
-        {/* 7) Industry Fit Section */}
-        <IndustryFitSection />
+        {/* 7) Web Development — service deep-dive */}
+        <WebDevelopmentSection cityName={city.name} stateName={state.name} countryName={country.name} />
 
-        {/* 8) Local Teams Section */}
-        <LocalTeamsSection />
+        {/* 8) Mobile Apps — service deep-dive */}
+        <MobileAppsSection cityName={city.name} stateName={state.name} countryName={country.name} />
 
-        {/* 9) Services Directory */}
+        {/* 9) Tech Stack — credibility with technical buyers */}
+        <TechStackSection cityName={city.name} stateName={state.name} countryName={country.name} />
+
+        {/* 10) Industry Fit — vertical expertise */}
+        <IndustryFitSection cityName={city.name} stateName={state.name} countryName={country.name} />
+
+        {/* 11) Local Teams — local relevance */}
+        <LocalTeamsSection cityName={city.name} stateName={state.name} countryName={country.name} />
+
+        {/* 12) Case Studies — proof of delivery */}
+        <CaseStudiesSection cityName={city.name} stateName={state.name} countryName={country.name} />
+
+        {/* 13) Testimonials — voice of the customer */}
+        <TestimonialsSection cityName={city.name} stateName={state.name} countryName={country.name} />
+
+        {/* 14) Pricing — transparency drives leads */}
+        <PricingOverviewSection cityName={city.name} stateName={state.name} countryName={country.name} />
+
+        {/* 15) Services Directory — deep navigation */}
         <ServicesDirectorySection
           title={`Explore services available in ${city.name}`}
           subtitle="Web, mobile, AI, design, outsourcing, cloud, DevOps, analytics, and more"
         />
 
-        {/* 10) Stats */}
-        <LocationStatsSection />
-
-        {/* 11) Case Studies */}
-        <CaseStudiesSection countryName={city.name} />
-
-        {/* 12) Testimonials */}
-        <TestimonialsSection />
-
-        {/* 13) Dynamic FAQ */}
+        {/* 16) FAQ — long-tail SEO + objection handling */}
         <DynamicFAQ
           location={`in ${city.name}, ${state.name}`}
           service="software development"
@@ -184,14 +229,19 @@ export default async function CityPage({ params }: CityPageProps) {
           country={country.name}
         />
 
-        {/* 14) Contact Form */}
-        <CityContactFormSection
-          cityName={city.name}
-          stateName={state.name}
-          countryName={country.name}
+        {/* 17) Cross-Links — internal linking for SEO */}
+        <NearbyLocationsSection
+          currentName={city.name}
+          type="city"
+          siblings={cities.map((c: any) => c.name)}
+          parentPath={`/where-we-serve/${toSlug(country.name)}/${toSlug(state.name)}`}
+          parentName={state.name}
         />
 
-        {/* 15) Primary CTA */}
+        {/* 18) Contact Form — lead capture */}
+        <CityContactFormSection cityName={city.name} stateName={state.name} countryName={country.name} />
+
+        {/* 19) Final CTA */}
         <CTASection />
 
         {/* JSON-LD Structured Data - Comprehensive SEO */}

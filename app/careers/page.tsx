@@ -13,12 +13,12 @@ import { jobPostings, generateJobSchema, generateAllJobsSchema } from '@/lib/sch
 const siteUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: 'Careers at Web On Dev - Join Our Team',
-  description: 'Join Web On Dev and work on exciting projects with a talented team. We offer remote positions in web development, mobile development, UI/UX design, and digital marketing.',
+  title: 'Careers at Web On Dev - Remote Jobs (Dev, Design & Marketing)',
+  description: 'Join a 4.9★ rated software company. Remote positions in React, Next.js, Flutter, UI/UX & marketing. Competitive salary, flexible hours & work on global projects.',
   keywords: ['careers', 'jobs', 'web developer jobs', 'remote work', 'software jobs', 'Web On Dev careers'],
   openGraph: {
-    title: 'Careers at Web On Dev - Join Our Team',
-    description: 'Join Web On Dev and work on exciting projects with a talented team. Remote positions available.',
+    title: 'Careers at Web On Dev - Remote Jobs (Dev, Design & Marketing)',
+    description: 'Join a 4.9★ rated software company. Remote positions in React, Next.js, Flutter, UI/UX & marketing. Competitive salary & flexible hours.',
     url: `${siteUrl}/careers/`,
     siteName: 'Web On Dev',
     type: 'website',

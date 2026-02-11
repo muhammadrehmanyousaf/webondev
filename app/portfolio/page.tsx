@@ -122,14 +122,16 @@ export default function PortfolioPage() {
                 {
                   '@type': 'Review',
                   author: { '@type': 'Person', name: 'John Smith' },
-                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-                  reviewBody: 'Exceptional work on our e-commerce platform. Sales increased by 150% within 6 months.'
+                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
+                  reviewBody: 'Exceptional work on our e-commerce platform. Sales increased by 150% within 6 months.',
+                  datePublished: '2024-06-15'
                 },
                 {
                   '@type': 'Review',
                   author: { '@type': 'Person', name: 'Sarah Johnson' },
-                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-                  reviewBody: 'The mobile app they built exceeded our expectations. Highly professional team.'
+                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
+                  reviewBody: 'The mobile app they built exceeded our expectations. Highly professional team.',
+                  datePublished: '2024-05-20'
                 }
               ]
             })

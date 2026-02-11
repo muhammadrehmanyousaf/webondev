@@ -28,11 +28,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} - Premium Web Development & Digital Solutions`,
+    default: `${siteName} - Custom Software Development Company (4.9★ Rated)`,
     template: `%s | ${siteName}`,
   },
   description:
-    'Transform your digital vision into reality with Web On Dev. We deliver cutting-edge web development, mobile apps, UI/UX design, digital marketing, and comprehensive software solutions for businesses worldwide.',
+    'Rated 4.9★ by 250+ clients. Web On Dev builds websites, mobile apps & custom software with Next.js, React & Flutter. 500+ projects delivered across 50+ countries. Get your free consultation today.',
   keywords: [
     'web development',
     'mobile app development',
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: siteUrl,
     siteName,
-    title: `${siteName} - Premium Web Development & Digital Solutions`,
+    title: `${siteName} - Custom Software Development Company (4.9★ Rated)`,
     description:
-      'Transform your digital vision into reality. Cutting-edge web development, mobile apps, and digital solutions that drive business growth.',
+      'Rated 4.9★ by 250+ clients. Web On Dev builds websites, mobile apps & custom software. 500+ projects across 50+ countries. Free consultation available.',
     locale: 'en_US',
     images: [
       {
@@ -74,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteName} - Premium Web Development & Digital Solutions`,
+    title: `${siteName} - Custom Software Development Company (4.9★ Rated)`,
     description:
-      'Transform your digital vision into reality. Cutting-edge web development, mobile apps, and digital solutions.',
+      'Rated 4.9★ by 250+ clients. Web On Dev builds websites, mobile apps & custom software. 500+ projects across 50+ countries.',
     creator: '@webondev',
     site: '@webondev',
     images: [`${siteUrl}/images/og-image.png`],

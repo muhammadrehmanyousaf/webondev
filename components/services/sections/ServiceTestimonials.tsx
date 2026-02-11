@@ -34,22 +34,30 @@ interface ServiceTestimonialsProps {
   layout?: 'slider' | 'grid' | 'featured';
   autoPlay?: boolean;
   autoPlayInterval?: number;
+  city?: string;
+  state?: string;
+  country?: string;
 }
 
 const ServiceTestimonials: React.FC<ServiceTestimonialsProps> = (props) => {
   const {
     data,
-    sectionTitle: propTitle = 'What Our Clients Say',
-    sectionSubtitle: propSubtitle = 'Real feedback from real businesses we have helped succeed',
+    sectionTitle: propTitle,
+    sectionSubtitle: propSubtitle,
     testimonials: propTestimonials,
     layout = 'slider',
     autoPlay = true,
     autoPlayInterval = 5000,
+    city,
+    state,
+    country,
   } = props;
 
+  const locationLabel = city || state || country || '';
+
   // Use data from ServiceData object if provided
-  const sectionTitle = propTitle;
-  const sectionSubtitle = propSubtitle;
+  const sectionTitle = propTitle || (locationLabel ? `What ${locationLabel} Clients Say` : 'What Our Clients Say');
+  const sectionSubtitle = propSubtitle || (locationLabel ? `Real feedback from businesses in ${locationLabel} we have helped succeed` : 'Real feedback from real businesses we have helped succeed');
   const testimonials = data?.testimonials || propTestimonials || [];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -88,11 +96,11 @@ const ServiceTestimonials: React.FC<ServiceTestimonialsProps> = (props) => {
   );
 
   return (
-    <section className="py-20 md:py-28 bg-slate-950 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#030712] relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-3xl" />
-      </div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 40% at 50% 50%, rgba(16,185,129,0.03), transparent 70%)' }} />
+      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

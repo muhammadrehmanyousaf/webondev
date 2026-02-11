@@ -1,9 +1,11 @@
 // Service Page Sections - World Class Components
-// Export all 12 world-class sections for service pages
+// Export all service page sections
 
 export { default as ServiceHeroWithForm } from './ServiceHeroWithForm';
+export { default as ServiceTrustBar } from './ServiceTrustBar';
 export { default as ServicePainPoints } from './ServicePainPoints';
 export { default as ServiceSolutions } from './ServiceSolutions';
+export { default as ServiceWhyChooseUs } from './ServiceWhyChooseUs';
 export { default as ServiceProcess } from './ServiceProcess';
 export { default as ServiceBenefits } from './ServiceBenefits';
 export { default as ServiceTechStack } from './ServiceTechStack';
@@ -13,6 +15,7 @@ export { default as ServiceTestimonials } from './ServiceTestimonials';
 export { default as ServiceFAQ } from './ServiceFAQ';
 export { default as ServiceRelated } from './ServiceRelated';
 export { default as ServiceCTA } from './ServiceCTA';
+export { default as ServiceCityLinks } from './ServiceCityLinks';
 
 // Types for service data
 export interface ServiceData {

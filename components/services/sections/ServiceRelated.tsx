@@ -48,6 +48,9 @@ interface ServiceRelatedProps {
   currentService?: string;
   baseUrl?: string;
   layout?: 'grid' | 'list' | 'compact';
+  city?: string;
+  state?: string;
+  country?: string;
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -85,17 +88,22 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 const ServiceRelated: React.FC<ServiceRelatedProps> = (props) => {
   const {
     data,
-    sectionTitle: propTitle = 'Related Services',
-    sectionSubtitle: propSubtitle = 'Explore more ways we can help your business grow',
+    sectionTitle: propTitle,
+    sectionSubtitle: propSubtitle,
     services: propServices,
     currentService,
     baseUrl = '/services',
     layout = 'grid',
+    city,
+    state,
+    country,
   } = props;
 
+  const locationLabel = city || state || country || '';
+
   // Use data from ServiceData object if provided
-  const sectionTitle = propTitle;
-  const sectionSubtitle = propSubtitle;
+  const sectionTitle = propTitle || (locationLabel ? `More Services in ${locationLabel}` : 'Related Services');
+  const sectionSubtitle = propSubtitle || (locationLabel ? `Explore more ways we help ${locationLabel} businesses grow and succeed` : 'Explore more ways we can help your business grow');
   const services = data?.relatedServices || propServices || [];
   const getIcon = (iconName?: string) => {
     const IconComponent = iconName ? iconMap[iconName] : Grid3X3;
@@ -108,11 +116,10 @@ const ServiceRelated: React.FC<ServiceRelatedProps> = (props) => {
     : services;
 
   return (
-    <section className="py-20 md:py-28 bg-slate-950 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#030712] relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-slate-900 to-transparent" />
-      </div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

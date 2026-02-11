@@ -9,54 +9,56 @@ import { Globe, Users, Award, Clock, MapPin, Star, TrendingUp, Sparkles } from '
 // =============================================================================
 
 interface LocationStatsSectionProps {
-  country?: any;
-  locationName?: string;
+  cityName?: string;
+  stateName?: string;
+  countryName?: string;
 }
 
-const LocationStatsSection = ({ country, locationName }: LocationStatsSectionProps) => {
+const LocationStatsSection = ({ cityName, stateName, countryName }: LocationStatsSectionProps = {}) => {
+  const locationLabel = cityName ? `${cityName}` : stateName ? `${stateName}` : countryName ? `${countryName}` : '';
   const stats = [
     {
       icon: Globe,
-      number: '5+',
+      number: '50+',
       label: 'Countries Served',
-      description: 'Global presence across continents',
+      description: locationLabel ? `Including businesses across ${locationLabel}` : 'Global presence across continents',
     },
     {
       icon: MapPin,
-      number: '20+',
-      label: 'Cities Covered',
-      description: 'Local expertise worldwide',
+      number: '500+',
+      label: 'Projects Delivered',
+      description: locationLabel ? `Proven track record for ${locationLabel} clients` : 'Successful projects worldwide',
     },
     {
       icon: Users,
-      number: '150+',
+      number: '250+',
       label: 'Happy Clients',
-      description: 'Satisfied customers globally',
+      description: locationLabel ? `Trusted by ${locationLabel} businesses` : 'Satisfied customers globally',
     },
     {
       icon: Award,
       number: '99%',
-      label: 'Satisfaction Rate',
-      description: 'Consistent quality delivery',
+      label: 'Client Retention',
+      description: locationLabel ? `Consistent quality for ${locationLabel} projects` : 'Consistent quality delivery',
     },
     {
       icon: Clock,
       number: '< 2h',
       label: 'Response Time',
-      description: 'Quick support worldwide',
+      description: locationLabel ? `Fast support for ${locationLabel} teams` : 'Quick support worldwide',
     },
     {
       icon: Star,
       number: '4.9/5',
       label: 'Client Rating',
-      description: 'Excellent service quality',
+      description: locationLabel ? `Top-rated by ${locationLabel} businesses` : 'Excellent service quality',
     }
   ];
 
   const additionalStats = [
-    { value: '24/7', label: 'Global Support', description: 'Round-the-clock assistance across all time zones' },
-    { value: '100%', label: 'Local Expertise', description: 'Cultural understanding and local market knowledge' },
-    { value: 'Fast', label: 'Deployment', description: 'Quick project delivery with quality assurance' },
+    { value: '24/7', label: 'Global Support', description: locationLabel ? `Round-the-clock assistance for ${locationLabel} teams` : 'Round-the-clock assistance across all time zones' },
+    { value: '100%', label: 'Local Expertise', description: locationLabel ? `Deep understanding of the ${locationLabel} market` : 'Cultural understanding and local market knowledge' },
+    { value: 'Fast', label: 'Deployment', description: locationLabel ? `Rapid delivery for ${locationLabel} projects` : 'Quick project delivery with quality assurance' },
   ];
 
   return (
@@ -88,12 +90,13 @@ const LocationStatsSection = ({ country, locationName }: LocationStatsSectionPro
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-            <span className="text-white">Global </span>
-            <span className="gradient-text">Impact</span>
+            <span className="text-white">{locationLabel ? `${locationLabel} results,` : 'Global'} </span>
+            <span className="gradient-text">{locationLabel ? 'proven globally' : 'Impact'}</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Our commitment to excellence has created a global impact, serving clients across multiple countries
-            with consistent quality and local expertise.
+            {locationLabel
+              ? `Our commitment to excellence drives measurable results for ${locationLabel} businesses. We combine local market expertise with global delivery standards.`
+              : 'Our commitment to excellence has created a global impact, serving clients across multiple countries with consistent quality and local expertise.'}
           </p>
         </motion.div>
 
@@ -157,7 +160,7 @@ const LocationStatsSection = ({ country, locationName }: LocationStatsSectionPro
           >
             <div className="flex items-center justify-center gap-2 mb-6 sm:mb-8">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-brand-400" />
-              <span className="text-brand-400 font-semibold text-sm sm:text-base">Why Choose Us</span>
+              <span className="text-brand-400 font-semibold text-sm sm:text-base">{locationLabel ? `Why ${locationLabel} Businesses Choose Us` : 'Why Choose Us'}</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">

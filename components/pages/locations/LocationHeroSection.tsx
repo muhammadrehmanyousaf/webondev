@@ -30,23 +30,23 @@ const LocationHeroSection = ({
   const stats = [
     {
       icon: Globe,
-      number: '5+',
+      number: '50+',
       label: 'Countries Served',
     },
     {
       icon: MapPin,
-      number: '20+',
-      label: 'Cities Covered',
+      number: '500+',
+      label: 'Projects Delivered',
     },
     {
       icon: Users,
-      number: '150+',
+      number: '250+',
       label: 'Happy Clients',
     },
     {
       icon: Award,
-      number: '99%',
-      label: 'Satisfaction Rate',
+      number: '4.9/5',
+      label: 'Client Rating',
     }
   ];
 

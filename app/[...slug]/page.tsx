@@ -171,13 +171,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
         priceCurrency: 'USD',
       },
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '150',
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 
   // Breadcrumb Schema

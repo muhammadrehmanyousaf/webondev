@@ -39,21 +39,29 @@ interface ServicePortfolioProps {
   caseStudies?: CaseStudy[];
   layout?: 'grid' | 'featured' | 'slider';
   showFilters?: boolean;
+  city?: string;
+  state?: string;
+  country?: string;
 }
 
 const ServicePortfolio: React.FC<ServicePortfolioProps> = (props) => {
   const {
     data,
-    sectionTitle: propTitle = 'Success Stories',
-    sectionSubtitle: propSubtitle = 'Real projects, real results. See how we help businesses like yours succeed.',
+    sectionTitle: propTitle,
+    sectionSubtitle: propSubtitle,
     caseStudies: propCaseStudies,
     layout = 'featured',
     showFilters = true,
+    city,
+    state,
+    country,
   } = props;
 
+  const locationLabel = city || state || country || '';
+
   // Use data from ServiceData object if provided
-  const sectionTitle = propTitle;
-  const sectionSubtitle = propSubtitle;
+  const sectionTitle = propTitle || (locationLabel ? `Success Stories from ${locationLabel}` : 'Success Stories');
+  const sectionSubtitle = propSubtitle || (locationLabel ? `Real projects, real results. See how we help ${locationLabel} businesses succeed.` : 'Real projects, real results. See how we help businesses like yours succeed.');
   const caseStudies = data?.portfolio || propCaseStudies || [];
 
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
@@ -67,12 +75,11 @@ const ServicePortfolio: React.FC<ServicePortfolioProps> = (props) => {
     : caseStudies.filter(c => c.industry === activeFilter);
 
   return (
-    <section className="py-20 md:py-28 bg-slate-950 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#030712] relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
-      </div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 40% 30% at 60% 50%, rgba(16,185,129,0.04), transparent 70%)' }} />
+      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
