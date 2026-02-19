@@ -21,6 +21,18 @@ const COUNTRY_SLUGS = new Set([
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const host = req.headers.get('host') || '';
+
+  // ── WWW Redirect ──
+  // Force all traffic to www.webondev.com (prevents duplicate content in Google)
+  // This was previously handled by vercel.json but Railway ignores that file
+  if (
+    host === 'webondev.com' ||
+    host === 'webondev.com:3000'
+  ) {
+    const url = new URL(`https://www.webondev.com${pathname}${req.nextUrl.search}`);
+    return NextResponse.redirect(url, 301);
+  }
 
   // Admin routes protection
   if (pathname.startsWith('/admin')) {

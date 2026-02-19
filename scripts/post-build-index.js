@@ -3,10 +3,10 @@
 /**
  * Post-Build Auto-Indexing Script
  *
- * This script runs automatically after every `npm run build` or Vercel deployment.
- * It submits all sitemap URLs to IndexNow (Bing, Yandex) for fast indexing.
- *
- * This is the "secret sauce" that makes pages get indexed automatically!
+ * Runs automatically after every `npm run build` (Railway/Vercel deployment).
+ * Submits all sitemap URLs to:
+ *   1. IndexNow (Bing, Yandex) - all URLs, no limit
+ *   2. Google Sitemap Ping - tells Google sitemap changed
  */
 
 const SITE_URL = 'https://www.webondev.com';
@@ -18,14 +18,18 @@ async function postBuildIndex() {
   console.log('========================================\n');
 
   // Skip in development
-  if (process.env.NODE_ENV === 'development' || process.env.VERCEL_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development') {
     console.log('Skipping indexing in development mode');
     return;
   }
 
-  // Only run on production builds
+  // Skip for non-production Vercel/Railway environments
   if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production') {
     console.log(`Skipping indexing for ${process.env.VERCEL_ENV} environment`);
+    return;
+  }
+  if (process.env.RAILWAY_ENVIRONMENT && process.env.RAILWAY_ENVIRONMENT !== 'production') {
+    console.log(`Skipping indexing for ${process.env.RAILWAY_ENVIRONMENT} environment`);
     return;
   }
 
@@ -54,7 +58,8 @@ async function postBuildIndex() {
       return;
     }
 
-    // Submit to IndexNow in batches
+    // ── Step 1: IndexNow (Bing + Yandex) ──
+    console.log('\n--- IndexNow (Bing + Yandex) ---');
     const batchSize = 10000;
     let totalSuccess = 0;
 
@@ -62,19 +67,19 @@ async function postBuildIndex() {
       const batch = allUrls.slice(i, i + batchSize);
       const batchNum = Math.floor(i / batchSize) + 1;
 
-      console.log(`\nSubmitting batch ${batchNum}: ${batch.length} URLs`);
+      console.log(`Submitting batch ${batchNum}: ${batch.length} URLs`);
 
       const payload = {
         host: 'www.webondev.com',
         key: INDEXNOW_KEY,
         keyLocation: `${SITE_URL}/${INDEXNOW_KEY}.txt`,
-        urlList: batch
+        urlList: batch,
       };
 
-      // Submit to IndexNow endpoints
       const endpoints = [
         'https://api.indexnow.org/indexnow',
-        'https://www.bing.com/indexnow'
+        'https://www.bing.com/indexnow',
+        'https://yandex.com/indexnow',
       ];
 
       for (const endpoint of endpoints) {
@@ -82,7 +87,7 @@ async function postBuildIndex() {
           const res = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
           });
 
           if (res.ok) {
@@ -97,12 +102,22 @@ async function postBuildIndex() {
       }
     }
 
+    // ── Step 2: Google Sitemap Ping ──
+    console.log('\n--- Google Sitemap Ping ---');
+    try {
+      const pingUrl = `https://www.google.com/ping?sitemap=${encodeURIComponent(`${SITE_URL}/sitemap.xml`)}`;
+      const pingRes = await fetch(pingUrl);
+      console.log(`  Google Ping: ${pingRes.status} ${pingRes.ok ? 'OK' : 'FAILED'}`);
+    } catch (error) {
+      console.log('  Google Ping: Network error');
+    }
+
     console.log('\n========================================');
     console.log('   AUTO-INDEXING COMPLETE');
-    console.log(`   ${allUrls.length} URLs submitted`);
-    console.log(`   ${totalSuccess} successful requests`);
+    console.log(`   ${allUrls.length} URLs submitted to IndexNow`);
+    console.log(`   ${totalSuccess} successful IndexNow requests`);
+    console.log('   Google sitemap ping sent');
     console.log('========================================\n');
-
   } catch (error) {
     console.log('Auto-indexing failed:', error.message);
     console.log('This is non-fatal - URLs will be indexed on next cron run');
