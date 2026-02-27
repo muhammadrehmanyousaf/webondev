@@ -363,20 +363,6 @@ export default async function ServiceInCityPage({ params }: ServicePageProps) {
           }}
         />
 
-        {/* SpeakableSpecification */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebPage',
-              speakable: {
-                '@type': 'SpeakableSpecification',
-                cssSelector: ['h1', '.prose p:first-of-type'],
-              },
-            }),
-          }}
-        />
       </main>
       <Footer />
     </div>

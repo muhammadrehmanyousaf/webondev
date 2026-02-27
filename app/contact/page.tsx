@@ -121,13 +121,6 @@ export default function ContactPage() {
                   closes: '16:00'
                 }
               ],
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.9',
-                reviewCount: '250',
-                bestRating: '5',
-                worstRating: '1'
-              },
               contactPoint: [
                 {
                   '@type': 'ContactPoint',

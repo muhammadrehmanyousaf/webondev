@@ -248,29 +248,6 @@ const localBusinessSchema = {
     { '@type': 'Country', name: 'Germany' },
     { '@type': 'Country', name: 'India' },
   ],
-  review: [
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Sarah Johnson' },
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
-      reviewBody: 'Web On Dev transformed our business with their exceptional web development services. Their team delivered a scalable, modern platform that exceeded our expectations.',
-      datePublished: '2024-11-15',
-    },
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Michael Chen' },
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
-      reviewBody: 'Outstanding mobile app development! They created a beautiful, user-friendly app that our customers love. The project was completed on time and within budget.',
-      datePublished: '2024-10-28',
-    },
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Emily Rodriguez' },
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
-      reviewBody: 'Their digital marketing expertise helped us increase our online presence by 300%. The team is professional, creative, and results-driven.',
-      datePublished: '2024-12-01',
-    },
-  ],
   sameAs: [
     'https://www.youtube.com/@webondev',
     'https://x.com/webon_dev',
