@@ -363,27 +363,6 @@ export default async function ServiceInCityPage({ params }: ServicePageProps) {
           }}
         />
 
-        {/* FAQPage schema for rich results */}
-        {pageServiceData?.faqs && pageServiceData.faqs.length > 0 && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'FAQPage',
-                mainEntity: pageServiceData.faqs.slice(0, 10).map((faq) => ({
-                  '@type': 'Question',
-                  name: faq.question,
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: faq.answer,
-                  },
-                })),
-              }),
-            }}
-          />
-        )}
-
         {/* SpeakableSpecification */}
         <script
           type="application/ld+json"
