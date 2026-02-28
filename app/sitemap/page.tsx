@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Map, Globe, ArrowRight, Home, User, Briefcase, Phone, FileText, Shield, Cookie, Flag } from 'lucide-react';
+
+export const revalidate = 86400;
 import { siteStructure } from '@/lib/site-structure';
 import { getAllCountriesAPI } from '@/lib/location-api';
 import LocationsSitemap from '@/components/pages/sitemap/LocationsSitemap';

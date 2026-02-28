@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getProjectBySlug, getAllProjectSlugs } from '@/lib/portfolio-data';
+
+export const revalidate = 86400;
 import { ExternalLink, Github, ArrowLeft, Star, Calendar, Users, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';

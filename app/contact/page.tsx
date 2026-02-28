@@ -8,6 +8,8 @@ import ContactInfoSection from '@/components/pages/contact/ContactInfoSection';
 import LocationSection from '@/components/pages/contact/LocationSection';
 import FAQSection from '@/components/pages/contact/FAQSection';
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: 'Contact Web On Dev - Free 30-Min Consultation (Reply in 24hrs)',
   description: 'Get a free project consultation & quote from Web On Dev. We reply within 24 hours. Call +92-310-6803687 or fill out our form. No commitment required.',

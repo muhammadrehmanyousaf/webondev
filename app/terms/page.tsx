@@ -5,6 +5,8 @@ import Footer from '@/components/layout/Footer';
 import { FileText, Scale, Shield, AlertTriangle, Users, Globe, Mail, Phone, Smartphone, Trash2, Link2 } from 'lucide-react';
 import Link from 'next/link';
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: 'Terms of Service - Web On Dev | Legal Terms & Conditions',
   description: 'Read our Terms of Service to understand the legal terms and conditions for using Web On Dev services.',

@@ -30,7 +30,7 @@ const LocationDropdown = () => {
     (async () => {
       try {
         const apiBase = window.location.origin;
-        const res = await fetch(`${apiBase}/api/locations/countries`, { cache: 'no-store' });
+        const res = await fetch(`${apiBase}/api/locations/countries`, { cache: 'default' });
         if (!mounted) return;
         if (!res.ok) {
           setCountries(DEFAULT_COUNTRIES);
@@ -110,7 +110,7 @@ const LocationDropdown = () => {
     setLoadingStates((s) => ({ ...s, [countryName]: true }));
     try {
       const apiBase = typeof window !== 'undefined' ? window.location.origin : '';
-      const res = await fetch(`${apiBase}/api/locations/states?country=${encodeURIComponent(countryName)}`, { cache: 'no-store' });
+      const res = await fetch(`${apiBase}/api/locations/states?country=${encodeURIComponent(countryName)}`, { cache: 'default' });
       if (!res.ok) {
         setStatesByCountry((m) => ({ ...m, [countryName]: [] }));
         if (process.env.NODE_ENV !== 'production') {

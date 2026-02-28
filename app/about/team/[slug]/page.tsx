@@ -6,6 +6,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+
+export const revalidate = 86400;
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { authors, getAuthorBySlug, generateAuthorSchema } from '@/lib/seo/author-data';

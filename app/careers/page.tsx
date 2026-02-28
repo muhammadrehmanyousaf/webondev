@@ -6,6 +6,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
+
+export const revalidate = 86400;
 import Footer from '@/components/layout/Footer';
 import { getBaseUrl } from '@/lib/site-config';
 import { jobPostings, generateJobSchema, generateAllJobsSchema } from '@/lib/schema/job-schema';

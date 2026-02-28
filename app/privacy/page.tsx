@@ -5,6 +5,8 @@ import Footer from '@/components/layout/Footer';
 import { Shield, Eye, Lock, Database, Users, Globe, Mail, Phone, Smartphone, Share2 } from 'lucide-react';
 import Link from 'next/link';
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: 'Privacy Policy - Web On Dev | Data Protection & Privacy',
   description: 'Learn how Web On Dev protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',

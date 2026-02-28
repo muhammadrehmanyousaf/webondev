@@ -4,6 +4,8 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Cookie, Settings, Shield, Globe, Mail, Phone } from 'lucide-react';
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: 'Cookie Policy - Web On Dev | Cookie Usage & Management',
   description: 'Learn about how Web On Dev uses cookies and similar technologies to improve your browsing experience.',

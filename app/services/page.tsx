@@ -8,6 +8,8 @@ import ServiceProcessSection from '@/components/pages/services/ServiceProcessSec
 import ServiceBenefitsSection from '@/components/pages/services/ServiceBenefitsSection';
 import CTASection from '@/components/sections/CTASection';
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: 'Services & Pricing - Web Development From $3K (Free Quote)',
   description: 'Web development ($3K-$100K), mobile apps ($10K-$150K), UI/UX design ($2K-$25K), SEO & marketing ($500/mo). 500+ projects delivered. Get a free custom quote in 24 hours.',

@@ -8,6 +8,8 @@ import TeamSection from '@/components/pages/about/TeamSection';
 import ValuesSection from '@/components/pages/about/ValuesSection';
 import TimelineSection from '@/components/pages/about/TimelineSection';
 import CultureSection from '@/components/pages/about/CultureSection';
+
+export const revalidate = 86400;
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata: Metadata = {

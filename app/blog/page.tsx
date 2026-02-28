@@ -2,6 +2,8 @@ import React from 'react';
 import { Metadata } from 'next';
 import BlogPageClient from '@/components/pages/BlogPageClient';
 
+export const revalidate = 86400;
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 export const metadata: Metadata = {

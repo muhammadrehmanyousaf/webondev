@@ -7,6 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import BlogImage from '@/components/ui/BlogImage';
 import { blogData } from '@/lib/blog-data';
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: 'Blog Archive - All Articles by Date | Web On Dev',
   description: 'Browse our complete collection of articles, tutorials, and expert insights organized by date. Find valuable content on web development, digital marketing, and technology.',

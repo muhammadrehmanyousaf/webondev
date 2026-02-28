@@ -8,6 +8,8 @@ import ServiceHeroSection from '@/components/pages/service/ServiceHeroSection';
 import ServiceFeaturesSection from '@/components/pages/service/ServiceFeaturesSection';
 import ServiceProcessSection from '@/components/pages/service/ServiceProcessSection';
 import ServicePricingSection from '@/components/pages/service/ServicePricingSection';
+
+export const revalidate = 86400;
 import ServiceFAQSection from '@/components/pages/service/ServiceFAQSection';
 import CTASection from '@/components/sections/CTASection';
 // New World-Class Sections

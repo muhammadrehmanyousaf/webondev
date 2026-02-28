@@ -5,6 +5,8 @@ import Footer from '@/components/layout/Footer';
 import { Trash2, Mail, Clock, CheckCircle, AlertCircle, Shield, Phone, Globe, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: 'Data Deletion Instructions - Web On Dev | Delete Your Data',
   description: 'Learn how to request deletion of your personal data from Web On Dev. Complete instructions for deleting your account and social media data.',

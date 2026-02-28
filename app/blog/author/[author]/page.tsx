@@ -6,6 +6,8 @@ import { Calendar, Clock, User, ArrowRight, Mail, Linkedin, Twitter, Github } fr
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import BlogImage from '@/components/ui/BlogImage';
+
+export const revalidate = 86400;
 import { blogData } from '@/lib/blog-data';
 
 interface AuthorPageProps {

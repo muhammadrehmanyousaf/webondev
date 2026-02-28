@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import HomePageClient from '@/components/pages/HomePageClient';
 import { getBaseUrl } from '@/lib/site-config';
 
+export const revalidate = 86400;
+
 const siteUrl = getBaseUrl();
 
 export const metadata: Metadata = {

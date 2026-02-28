@@ -6,6 +6,8 @@ import { Calendar, Clock, User, ArrowRight, BookOpen, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { blogData, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-data';
+
+export const revalidate = 86400;
 import BlogImage from '@/components/ui/BlogImage';
 import ReadingProgress from '@/components/ui/ReadingProgress';
 import ShareButtons from '@/components/ui/ShareButtons';
