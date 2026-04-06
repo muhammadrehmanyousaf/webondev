@@ -71,7 +71,7 @@ const AuthorPage = async ({ params }: AuthorPageProps) => {
     avatar: '/images/team/muhammad-rehman.jpg',
     email: 'muhammadrehmanyousaf786@gmail.com',
     linkedin: 'https://linkedin.com/in/muhammadrehmanyousaf',
-    twitter: 'https://twitter.com/muhammadrehman',
+    twitter: 'https://x.com/muhammadrehman',
     github: 'https://github.com/muhammadrehman',
     totalPosts: posts.length,
     totalReadTime: posts.reduce((total, post) => {

@@ -45,22 +45,22 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
       links: [
         { name: "Blog Archive", href: "/blog/archive", description: "Browse all our articles" },
         { name: "Web Development Guide", href: "/blog/complete-guide-web-development-2024", description: "Comprehensive development guide" },
-        { name: "SEO Best Practices", href: "/blog/seo-best-practices-2024", description: "SEO optimization tips" },
-        { name: "Digital Marketing Strategies", href: "/blog/digital-marketing-strategies-2024", description: "Marketing insights" },
-        { name: "Mobile App Trends", href: "/blog/mobile-app-development-trends-2024", description: "Latest mobile trends" },
-        { name: "UI/UX Design Principles", href: "/blog/ui-ux-design-principles-2024", description: "Design best practices" }
+        { name: "React Performance Guide", href: "/blog/react-performance-optimization-guide", description: "React optimization tips" },
+        { name: "Next.js 14 Features", href: "/blog/nextjs-14-features-complete-guide", description: "Next.js deep dive" },
+        { name: "TypeScript Best Practices", href: "/blog/typescript-best-practices-2024", description: "TypeScript patterns" },
+        { name: "Web Security Guide", href: "/blog/web-security-best-practices-2024", description: "Security best practices" }
       ]
     },
     {
       title: "Location-Based Services",
       icon: <Globe className="w-5 h-5" />,
       links: [
-        { name: "Web Development in New York", href: "/where-we-serve/new-york", description: "NY web development services" },
-        { name: "Web Development in California", href: "/where-we-serve/california", description: "CA web development services" },
-        { name: "Web Development in Texas", href: "/where-we-serve/texas", description: "TX web development services" },
-        { name: "Web Development in Florida", href: "/where-we-serve/florida", description: "FL web development services" },
-        { name: "Web Development in Illinois", href: "/where-we-serve/illinois", description: "IL web development services" },
-        { name: "Web Development in Pennsylvania", href: "/where-we-serve/pennsylvania", description: "PA web development services" }
+        { name: "Web Development in New York", href: "/where-we-serve/united-states/new-york", description: "NY web development services" },
+        { name: "Web Development in California", href: "/where-we-serve/united-states/california", description: "CA web development services" },
+        { name: "Web Development in Texas", href: "/where-we-serve/united-states/texas", description: "TX web development services" },
+        { name: "Web Development in Florida", href: "/where-we-serve/united-states/florida", description: "FL web development services" },
+        { name: "Web Development in Illinois", href: "/where-we-serve/united-states/illinois", description: "IL web development services" },
+        { name: "Web Development in Pennsylvania", href: "/where-we-serve/united-states/pennsylvania", description: "PA web development services" }
       ]
     }
   ];
@@ -74,7 +74,6 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
           background: 'radial-gradient(ellipse 50% 30% at 50% 0%, rgba(6,182,212,0.04), transparent 70%)',
         }}
       />
-      <div className="grain absolute inset-0" />
 
       {/* Top divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />

@@ -25,7 +25,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title }) => {
     <div className="flex gap-2">
       <Button size="sm" asChild variant="outline" className="flex items-center gap-2">
         <a
-          href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
+          href={`https://x.com/intent/post?url=${encodedUrl}&text=${encodedTitle}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on X (Twitter)"

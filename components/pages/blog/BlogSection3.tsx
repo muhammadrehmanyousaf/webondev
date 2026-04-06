@@ -7,7 +7,6 @@ import { Code, CheckCircle, Zap, Palette, Grid, Smartphone } from 'lucide-react'
 const BlogSection3: React.FC = () => {
   return (
     <section id="css3-modern-layouts" className="relative py-12 sm:py-16 lg:py-20 bg-[#030712] overflow-hidden">
-      <div className="grain absolute inset-0" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 30% at 50% 0%, rgba(16,185,129,0.04), transparent 70%)' }} />
 

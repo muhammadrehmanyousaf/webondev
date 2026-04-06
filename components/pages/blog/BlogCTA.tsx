@@ -26,7 +26,6 @@ const BlogCTA: React.FC<BlogCTAProps> = ({
             background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(16,185,129,0.1), transparent 70%)',
           }}
         />
-        <div className="grain absolute inset-0" />
 
         {/* Top divider */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
@@ -83,7 +82,6 @@ const BlogCTA: React.FC<BlogCTAProps> = ({
           background: 'radial-gradient(ellipse 50% 30% at 50% 100%, rgba(6,182,212,0.04), transparent 70%)',
         }}
       />
-      <div className="grain absolute inset-0" />
 
       {/* Top divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />

@@ -251,7 +251,7 @@ export default function PrivacyPage() {
                 <ul className="list-disc pl-6 text-gray-700 space-y-2">
                   <li><a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Meta (Facebook/Instagram) Privacy Policy</a></li>
                   <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Google Privacy Policy</a></li>
-                  <li><a href="https://twitter.com/en/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Twitter/X Privacy Policy</a></li>
+                  <li><a href="https://x.com/en/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Twitter/X Privacy Policy</a></li>
                   <li><a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">LinkedIn Privacy Policy</a></li>
                   <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Apple Privacy Policy</a></li>
                   <li><a href="https://www.tiktok.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">TikTok Privacy Policy</a></li>

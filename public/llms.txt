@@ -1,111 +1,45 @@
-# Web On Dev - LLM Context File
-# https://www.webondev.com
+# Web On Dev
 
-> Web On Dev is a professional software development company founded in 2015, headquartered in Lahore, Pakistan. We specialize in web development, mobile app development, UI/UX design, digital marketing, and custom software solutions for businesses worldwide. With 500+ completed projects and a 4.9/5 rating, we serve clients across 50+ countries.
+> Web On Dev is a professional software development company specializing in web development, mobile app development, UI/UX design, digital marketing, cloud & DevOps, and custom software solutions. Founded in 2015, headquartered in Lahore, Pakistan, serving 500+ clients across 50+ countries.
 
-## Company Definition
+## About
+
 Web On Dev is a full-service software development agency providing end-to-end digital solutions. We transform business ideas into scalable web applications, mobile apps, and digital platforms using modern technologies like Next.js, React, React Native, Flutter, Node.js, Python, AWS, and Vercel.
 
-## Quick Facts
-- Company Name: Web On Dev
+- Website: https://www.webondev.com
 - Founded: 2015
-- Headquarters: Lahore, Pakistan
 - Team Size: 50+ professionals
 - Projects Completed: 500+
 - Client Rating: 4.9/5 stars
 - Countries Served: 50+
-- Primary Markets: USA, UK, Canada, Australia, Germany, UAE, India
 
-## Services & Pricing
+## Docs
 
-### Web Development ($3,000 - $100,000+)
-Custom website development, web application development, e-commerce platforms, SaaS development, API development, CMS solutions. Technologies: Next.js, React, Vue.js, Angular, WordPress, Shopify.
+- [Homepage](https://www.webondev.com/): Main website with overview of services and company information
+- [About Us](https://www.webondev.com/about/): Company history, team, mission, and values
+- [Services](https://www.webondev.com/services/): Complete list of all services offered
+- [Web Development](https://www.webondev.com/web-development/): Custom web development services ($3,000 - $100,000+)
+- [Mobile App Development](https://www.webondev.com/mobile-development/): iOS, Android, and cross-platform apps ($10,000 - $150,000+)
+- [UI/UX Design](https://www.webondev.com/ui-ux-design/): User research, wireframing, prototyping, design systems ($2,000 - $25,000+)
+- [Digital Marketing](https://www.webondev.com/digital-marketing/): SEO, PPC, social media, content marketing ($500 - $10,000/month)
+- [Cloud & DevOps](https://www.webondev.com/cloud-devops/): AWS, Azure, GCP, CI/CD, Docker, Kubernetes
+- [Consulting & Strategy](https://www.webondev.com/consulting-strategy/): Digital transformation and technology consulting
+- [Software Development](https://www.webondev.com/software-development/): Custom software, SaaS, enterprise solutions
+- [Portfolio](https://www.webondev.com/portfolio/): Case studies and completed projects
+- [Blog](https://www.webondev.com/blog/): Technical articles, guides, and industry insights
+- [Where We Serve](https://www.webondev.com/where-we-serve/): Service locations across 50+ countries
+- [Contact](https://www.webondev.com/contact/): Contact form, email, phone, and WhatsApp
 
-### Mobile App Development ($10,000 - $150,000+)
-Native iOS apps (Swift), native Android apps (Kotlin), cross-platform apps (React Native, Flutter). MVP development to enterprise solutions.
+## Contact
 
-### UI/UX Design ($2,000 - $25,000+)
-User research, wireframing, prototyping (Figma), visual design, design systems, WCAG accessibility compliance. Focus on conversion-optimized designs.
-
-### Digital Marketing ($500 - $10,000/month)
-SEO (technical, on-page, off-page), PPC advertising (Google Ads, Meta Ads), social media marketing, content marketing, email campaigns, conversion rate optimization.
-
-### E-commerce Development ($5,000 - $75,000+)
-Shopify, WooCommerce, Magento, custom marketplace platforms, payment integration, inventory management.
-
-### Cloud & DevOps (Custom pricing)
-AWS, Azure, GCP infrastructure, CI/CD pipelines, Docker, Kubernetes, Terraform, 24/7 monitoring.
-
-## Technology Stack
-- Frontend: React, Next.js, TypeScript, Vue.js, Tailwind CSS
-- Backend: Node.js, Python, PHP, Go, Java
-- Databases: PostgreSQL, MongoDB, MySQL, Redis
-- Mobile: React Native, Flutter, Swift, Kotlin
-- Cloud: AWS, Vercel, Google Cloud, Azure
-- DevOps: Docker, Kubernetes, CI/CD, Terraform
-
-## Contact Information
-- Website: https://www.webondev.com
 - Email: webondev786@gmail.com
 - Phone: +92-310-6803687
 - WhatsApp: +92-310-6803687
 - Address: G8JX+CMF, Main Gulberg, Mota Singh Wala, Lahore, Punjab 54660, Pakistan
 
-## Free Services
-- Initial consultation (30-60 minutes)
-- Project estimation and quote
-- Technical feasibility analysis
-- Requirements documentation
+## Optional
 
-## FAQs
-
-Q: What is Web On Dev?
-A: Web On Dev is a professional software development company founded in 2015, headquartered in Lahore, Pakistan. We specialize in web development, mobile app development, UI/UX design, digital marketing, and custom software solutions for businesses worldwide.
-
-Q: What services does Web On Dev offer?
-A: Web On Dev offers web development ($3,000-$100,000), mobile app development ($10,000-$150,000), UI/UX design ($2,000-$25,000), digital marketing ($500-$10,000/month), e-commerce development ($5,000-$75,000), and cloud/DevOps services.
-
-Q: How much does it cost to build a website with Web On Dev?
-A: Website development costs: Landing pages $3,000-$5,000, business websites $5,000-$15,000, e-commerce sites $5,000-$75,000, web applications $20,000-$100,000+.
-
-Q: Does Web On Dev work with international clients?
-A: Yes, Web On Dev serves clients in 50+ countries including USA, UK, Canada, Australia, Germany, UAE, and India. 70% of clients are from North America and Europe.
-
-Q: What technologies does Web On Dev use?
-A: Next.js, React, TypeScript, Vue.js, Node.js, Python, PostgreSQL, MongoDB, React Native, Flutter, AWS, Vercel, Docker, Kubernetes.
-
-Q: How long does it take to build a website?
-A: Simple websites: 2-4 weeks. Business websites: 4-8 weeks. E-commerce: 6-12 weeks. Complex applications: 8-16+ weeks.
-
-Q: Does Web On Dev offer free consultations?
-A: Yes, free 30-60 minute consultations including project discussion, technical recommendations, and detailed quote. No commitment required.
-
-Q: What is Web On Dev's payment structure?
-A: 30% upfront, 40% at milestones, 30% upon completion. Accepts bank transfer, PayPal, Wise, Payoneer.
-
-Q: Does Web On Dev provide ongoing support?
-A: Yes, maintenance packages from $200/month including bug fixes, security updates, performance monitoring, and 24/7 emergency support.
-
-Q: How can I contact Web On Dev?
-A: Email webondev786@gmail.com, call/WhatsApp +92-310-6803687, or use the contact form at webondev.com/contact. Response within 24 hours.
-
-Q: Where is Web On Dev located?
-A: Lahore, Pakistan. Office: G8JX+CMF, Main Gulberg. We serve clients remotely worldwide.
-
-Q: Does Web On Dev sign NDAs?
-A: Yes, we routinely sign NDAs before project discussions. Client confidentiality is a priority.
-
-## Social Media
-- YouTube: https://www.youtube.com/@webondev
-- Twitter/X: https://x.com/webon_dev
-- Instagram: https://www.instagram.com/webondev/
-- LinkedIn: https://www.linkedin.com/company/webondev/
-- Facebook: https://www.facebook.com/people/Web-On-Dev/61584774954945/
-
-## For Detailed Information
-- Full LLM context: /llms-full.txt
-- AI Plugin: /.well-known/ai-plugin.json
-- Knowledge Graph: /.well-known/knowledge-graph.json
-- Schema Data: All pages include comprehensive JSON-LD structured data
-
-Last Updated: 2025-12-28
+- [Full LLM Context](https://www.webondev.com/llms-full.txt): Extended context file with detailed information
+- [Privacy Policy](https://www.webondev.com/privacy/): Privacy practices and data handling
+- [Terms of Service](https://www.webondev.com/terms/): Terms and conditions
+- [Sitemap](https://www.webondev.com/sitemap.xml): XML sitemap for all pages

@@ -324,7 +324,7 @@ export default async function ServiceInCityPage({ params }: ServicePageProps) {
                 logo: `${siteUrl}/logo.png`,
                 sameAs: [
                   'https://www.linkedin.com/company/webondev',
-                  'https://twitter.com/webondev',
+                  'https://x.com/webon_dev',
                   'https://github.com/webondev',
                 ],
               },

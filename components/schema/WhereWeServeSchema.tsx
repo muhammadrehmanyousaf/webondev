@@ -1,4 +1,5 @@
 import React from 'react';
+import { toSlug } from '@/lib/slug';
 
 interface WhereWeServeSchemaProps {
   countries: any[];
@@ -15,16 +16,19 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: siteUrl,
+        item: `${siteUrl}/`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Where We Serve',
-        item: `${siteUrl}/where-we-serve`,
+        item: `${siteUrl}/where-we-serve/`,
       },
     ],
   };
+
+  // Filter out countries with empty/invalid names before building schema
+  const validCountries = countries.filter((c: any) => c.name && c.name.trim().length > 0);
 
   // ItemList of countries served (valid for list/directory pages)
   const countryListSchema = {
@@ -32,12 +36,12 @@ export default function WhereWeServeSchema({ countries, siteUrl }: WhereWeServeS
     '@type': 'ItemList',
     name: 'Countries Served by Web On Dev',
     description: 'Web On Dev provides software development services across 50+ countries worldwide.',
-    numberOfItems: countries.length,
-    itemListElement: countries.slice(0, 50).map((c: any, index: number) => ({
+    numberOfItems: validCountries.length,
+    itemListElement: validCountries.slice(0, 50).map((c: any, index: number) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: c.name,
-      url: `${siteUrl}/where-we-serve/${c.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/`,
+      url: `${siteUrl}/where-we-serve/${toSlug(c.name)}/`,
     })),
   };
 

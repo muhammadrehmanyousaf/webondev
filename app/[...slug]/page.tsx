@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const imageUrl = `${siteUrl}/api/images/og?title=${encodeURIComponent(title)}&subtitle=Professional%20Services`;
 
   return {
-    title: `${title} Services | Professional ${pillar.title} - Web On Dev`,
+    title: `${title} | Web On Dev`,
     description: `${description} Expert ${title.toLowerCase()} services from Web On Dev. Trusted by 500+ clients worldwide.`,
     keywords,
     authors: [{ name: 'Web On Dev', url: siteUrl }],

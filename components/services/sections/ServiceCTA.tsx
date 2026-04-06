@@ -178,7 +178,6 @@ const ServiceCTA: React.FC<ServiceCTAProps> = (props) => {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(16,185,129,0.08), transparent 60%)' }} />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 50% at 80% 80%, rgba(6,182,212,0.05), transparent 60%)' }} />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
-        <div className="grain absolute inset-0" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main CTA Content */}

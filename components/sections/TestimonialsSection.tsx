@@ -146,7 +146,6 @@ const TestimonialsSection = () => {
           background: 'radial-gradient(ellipse 50% 40% at 80% 20%, rgba(6,182,212,0.04), transparent 70%)',
         }}
       />
-      <div className="grain absolute inset-0" />
 
       {/* Divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />

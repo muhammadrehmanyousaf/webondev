@@ -108,17 +108,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                    <ExternalLink className="w-4 h-4" />
-                    View Live Project
-                  </a>
-                </Button>
-                <Button asChild variant="outline">
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                    <Github className="w-4 h-4" />
-                    View Source Code
-                  </a>
+                {project.liveUrl && project.liveUrl !== '#' && (
+                  <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      View Live Project
+                    </a>
+                  </Button>
+                )}
+                {project.githubUrl && project.githubUrl !== '#' && (
+                  <Button asChild variant="outline">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <Github className="w-4 h-4" />
+                      View Source Code
+                    </a>
+                  </Button>
+                )}
+                <Button asChild>
+                  <Link href="/contact" className="flex items-center gap-2">
+                    Get a Similar Project
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -137,8 +146,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        {/* Technologies Used */}
+        {/* Challenge & Solution */}
         <section className="bg-gray-50 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">The Challenge</h2>
+                <p className="text-gray-600 leading-relaxed text-lg">{project.challenge}</p>
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Solution</h2>
+                <p className="text-gray-600 leading-relaxed text-lg">{project.solution}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Technologies Used */}
+        <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
               Technologies Used
@@ -157,12 +182,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         {/* Project Results */}
-        <section className="py-16">
+        <section className="bg-gray-50 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
               Key Results
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {project.results.map((result, index) => (
                 <div
                   key={index}
@@ -172,6 +197,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <p className="text-lg font-semibold text-gray-900">{result}</p>
                 </div>
               ))}
+            </div>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-gray-600 leading-relaxed text-lg text-center">{project.detailedResults}</p>
             </div>
           </div>
         </section>

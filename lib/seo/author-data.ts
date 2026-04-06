@@ -59,7 +59,7 @@ export const authors: Author[] = [
     },
     socialLinks: {
       linkedin: 'https://www.linkedin.com/in/ahmadrazawebondev',
-      twitter: 'https://twitter.com/webondev',
+      twitter: 'https://x.com/webon_dev',
       github: 'https://github.com/webondev',
     },
     certifications: [
@@ -158,7 +158,7 @@ export const authors: Author[] = [
     },
     socialLinks: {
       linkedin: 'https://www.linkedin.com/in/emmawilsonmarketing',
-      twitter: 'https://twitter.com/emmawilsonseo',
+      twitter: 'https://x.com/emmawilsonseo',
     },
     certifications: [
       'Google Analytics Individual Qualification',

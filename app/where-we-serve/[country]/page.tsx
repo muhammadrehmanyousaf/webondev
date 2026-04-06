@@ -186,7 +186,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
               '@type': 'BreadcrumbList',
               itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
-                { '@type': 'ListItem', position: 2, name: 'Where We Serve', item: `${siteUrl}/where-we-serve` },
+                { '@type': 'ListItem', position: 2, name: 'Where We Serve', item: `${siteUrl}/where-we-serve/` },
                 { '@type': 'ListItem', position: 3, name: country.name, item: canonical },
               ],
             }),
@@ -199,12 +199,14 @@ export default async function CountryPage({ params }: CountryPageProps) {
               '@context': 'https://schema.org',
               '@type': 'ItemList',
               name: `States in ${country.name}`,
-              itemListElement: states.map((s: any, index: number) => ({
-                '@type': 'ListItem',
-                position: index + 1,
-                url: `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(s.name)}`,
-                name: s.name,
-              })),
+              itemListElement: states
+                .filter((s: any) => s.name && s.name.trim().length > 0)
+                .map((s: any, index: number) => ({
+                  '@type': 'ListItem',
+                  position: index + 1,
+                  url: `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(s.name)}/`,
+                  name: s.name,
+                })),
             }),
           }}
         />

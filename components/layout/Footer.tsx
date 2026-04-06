@@ -47,6 +47,12 @@ const services = [
   { name: 'Cloud & DevOps', href: '/cloud-devops' },
   { name: 'E-commerce', href: '/ecommerce-solutions' },
   { name: 'AI Solutions', href: '/consulting-strategy' },
+  { name: 'React Apps', href: '/react-development/react-applications' },
+  { name: 'GraphQL APIs', href: '/api-development/graphql-apis' },
+  { name: 'PWA Development', href: '/progressive-web-apps/pwa-development' },
+  { name: 'Custom Apps', href: '/custom-software-development/custom-applications' },
+  { name: 'Brand Strategy', href: '/digital-marketing/brand-strategy-positioning' },
+  { name: 'Web Applications', href: '/custom-web-development/web-applications' },
 ];
 
 const company = [
@@ -55,14 +61,22 @@ const company = [
   { name: 'Blog', href: '/blog' },
   { name: 'Careers', href: '/careers' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Where We Serve', href: '/where-we-serve' },
+  { name: 'Privacy Policy', href: '/privacy' },
+  { name: 'Terms', href: '/terms' },
+  { name: 'Sitemap', href: '/sitemap' },
 ];
 
-const legal = [
-  { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Terms of Service', href: '/terms' },
-  { name: 'Cookie Policy', href: '/cookies' },
-  { name: 'Sitemap', href: '/sitemap' },
+const locations = [
+  { name: 'United States', href: '/where-we-serve/united-states' },
+  { name: 'Germany', href: '/where-we-serve/germany' },
+  { name: 'China', href: '/where-we-serve/china' },
+  { name: 'Indonesia', href: '/where-we-serve/indonesia' },
+  { name: 'Slovenia', href: '/where-we-serve/slovenia' },
+  { name: 'Lebanon', href: '/where-we-serve/lebanon' },
+  { name: 'Cameroon', href: '/where-we-serve/cameroon' },
+  { name: 'Honduras', href: '/where-we-serve/honduras' },
+  { name: 'Madagascar', href: '/where-we-serve/madagascar' },
+  { name: 'All Locations', href: '/where-we-serve' },
 ];
 
 const socialLinks = [
@@ -258,7 +272,7 @@ const Footer = () => {
               </Link>
 
               <p className="text-slate-500 text-xs sm:text-sm mb-4 sm:mb-5 leading-relaxed max-w-xs" itemProp="description">
-                Delivering cutting-edge web applications, mobile apps, and digital transformation solutions for businesses worldwide.
+                Award-winning software development company delivering custom web applications, mobile apps, UI/UX design, digital marketing, cloud solutions, and digital transformation services. Trusted by 500+ clients across 50+ countries with a 4.9 out of 5 star rating. We specialize in React, Next.js, TypeScript, React Native, Flutter, Node.js, Python, AWS, and modern web technologies. From startups to enterprises, we build scalable, secure, and performant digital products that drive business growth.
               </p>
 
               {/* Contact Info */}
@@ -284,7 +298,7 @@ const Footer = () => {
                     key={social.label}
                     href={social.href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     aria-label={social.label}
                     className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/[0.1] hover:border-brand-500/30 transition-all duration-200"
                   >
@@ -332,12 +346,12 @@ const Footer = () => {
               </nav>
             </div>
 
-            {/* Legal */}
+            {/* Locations */}
             <div className="col-span-1 lg:col-span-2">
-              <h4 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Legal</h4>
-              <nav aria-label="Legal">
+              <h4 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Locations</h4>
+              <nav aria-label="Locations">
                 <ul className="space-y-2.5">
-                  {legal.map((link) => (
+                  {locations.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}

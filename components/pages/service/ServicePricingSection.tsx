@@ -191,7 +191,6 @@ const ServicePricingSection = ({ pillar, cluster }: ServicePricingSectionProps) 
   return (
     <section className="relative py-24 lg:py-32 bg-[#030712] overflow-hidden">
       {/* Grain Texture */}
-      <div className="grain absolute inset-0" />
 
       {/* Top Divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />

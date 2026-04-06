@@ -139,7 +139,6 @@ const PortfolioSection = () => {
             background: 'radial-gradient(ellipse 50% 30% at 20% 50%, rgba(16,185,129,0.04), transparent 70%)',
           }}
         />
-        <div className="grain absolute inset-0" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

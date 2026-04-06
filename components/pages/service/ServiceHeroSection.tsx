@@ -47,7 +47,6 @@ const ServiceHeroSection = ({ pillar, cluster }: ServiceHeroSectionProps) => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#030712] pt-24 pb-16">
       {/* Grain Texture */}
-      <div className="grain absolute inset-0" />
 
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

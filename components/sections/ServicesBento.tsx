@@ -261,7 +261,6 @@ const ServicesBento = () => {
           background: 'radial-gradient(ellipse 50% 30% at 50% 0%, rgba(16,185,129,0.06), transparent 70%)',
         }}
       />
-      <div className="grain absolute inset-0" />
 
       {/* Grid lines */}
       <div

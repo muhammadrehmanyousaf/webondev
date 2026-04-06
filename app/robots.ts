@@ -6,9 +6,10 @@ export default function robots(): MetadataRoute.Robots {
       // Default rule for all crawlers
       {
         userAgent: '*',
-        allow: '/',
+        allow: ['/', '/_next/static/'],
         disallow: [
-          '/api/',
+          '/api/admin/',
+          '/api/auth/',
           '/admin/',
           '/private/',
         ],

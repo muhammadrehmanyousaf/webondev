@@ -159,7 +159,6 @@ const CTASection = () => {
           background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16,185,129,0.08), transparent 70%)',
         }}
       />
-      <div className="grain absolute inset-0" />
 
       {/* Divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />

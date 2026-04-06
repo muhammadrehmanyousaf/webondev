@@ -330,7 +330,7 @@ export default async function SubServiceInCityPage({ params }: SubServicePagePro
                 logo: `${siteUrl}/logo.png`,
                 sameAs: [
                   'https://www.linkedin.com/company/webondev',
-                  'https://twitter.com/webondev',
+                  'https://x.com/webon_dev',
                   'https://github.com/webondev',
                 ],
               },

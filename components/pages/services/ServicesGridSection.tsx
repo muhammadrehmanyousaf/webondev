@@ -38,7 +38,6 @@ const ServicesGridSection = () => {
           backgroundSize: '80px 80px',
         }}
       />
-      <div className="grain absolute inset-0" />
 
       {/* Top divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />

@@ -75,18 +75,6 @@ const ServicesHeroSection = () => {
         }}
       />
 
-      {/* Grain texture */}
-      <div className="grain absolute inset-0" />
-
-      {/* Central glow behind heading */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] md:w-[900px] md:h-[500px] rounded-full opacity-30 blur-[120px]"
-        style={{
-          background:
-            'linear-gradient(135deg, rgba(16,185,129,0.4) 0%, rgba(6,182,212,0.2) 50%, rgba(16,185,129,0.1) 100%)',
-        }}
-      />
-
       {/* === CONTENT === */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">

@@ -158,7 +158,6 @@ const CityContactFormSection = ({ cityName, stateName, countryName }: CityContac
           background: 'radial-gradient(ellipse 50% 30% at 50% 0%, rgba(6,182,212,0.06), transparent 70%)',
         }}
       />
-      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

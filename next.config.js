@@ -11,6 +11,17 @@ const nextConfig = {
   },
   trailingSlash: true,
 
+  async redirects() {
+    return [
+      // Ensure non-trailing-slash blog URLs redirect permanently (not 307)
+      {
+        source: '/blog/complete-guide-web-development-2024',
+        destination: '/blog/complete-guide-web-development-2024/',
+        permanent: true,
+      },
+    ];
+  },
+
   // Headers that were previously in vercel.json - now work on ANY host (Railway, etc.)
   async headers() {
     return [

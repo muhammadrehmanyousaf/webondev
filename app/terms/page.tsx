@@ -170,7 +170,7 @@ export default function TermsPage() {
                 <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
                   <li><a href="https://www.facebook.com/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Meta (Facebook/Instagram) Terms of Service</a></li>
                   <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Google Terms of Service</a></li>
-                  <li><a href="https://twitter.com/en/tos" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Twitter/X Terms of Service</a></li>
+                  <li><a href="https://x.com/en/tos" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Twitter/X Terms of Service</a></li>
                   <li><a href="https://www.linkedin.com/legal/user-agreement" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">LinkedIn User Agreement</a></li>
                   <li><a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Apple Terms and Conditions</a></li>
                   <li><a href="https://www.tiktok.com/legal/terms-of-service" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">TikTok Terms of Service</a></li>

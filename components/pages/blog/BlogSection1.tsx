@@ -8,7 +8,6 @@ const BlogSection1: React.FC = () => {
   return (
     <section id="introduction" className="relative py-12 sm:py-16 lg:py-20 bg-[#030712] overflow-hidden">
       {/* Background */}
-      <div className="grain absolute inset-0" />
 
       {/* Top divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
