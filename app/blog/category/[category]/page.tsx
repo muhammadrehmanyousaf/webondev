@@ -148,7 +148,7 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
                       href={`/blog/${post.slug}`}
                       className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1"
                     >
-                      Read More
+                      Read Full Article
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>

@@ -194,7 +194,7 @@ const ServiceRelated: React.FC<ServiceRelatedProps> = (props) => {
 
                       {/* Link */}
                       <div className="flex items-center gap-2 text-emerald-500 font-medium text-sm group-hover:gap-3 transition-all">
-                        Learn More
+                        Explore {service.name}
                         <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>

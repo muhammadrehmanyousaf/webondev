@@ -5,8 +5,14 @@ import LeadNotificationEmail from '@/emails/LeadNotification';
 import WelcomeEmail from '@/emails/WelcomeEmail';
 import { createElement } from 'react';
 
-// Initialize Resend with API key
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend lazily to avoid build-time errors when env var is missing
+let _resend: Resend | null = null;
+function getResend() {
+  if (!_resend) {
+    _resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return _resend;
+}
 
 // Email configuration
 const EMAIL_CONFIG = {
@@ -56,7 +62,7 @@ export interface EmailResult {
  */
 export async function sendContactConfirmation(data: ContactFormData): Promise<EmailResult> {
   try {
-    const { data: result, error } = await resend.emails.send({
+    const { data: result, error } = await getResend().emails.send({
       from: EMAIL_CONFIG.from,
       to: data.email,
       replyTo: EMAIL_CONFIG.replyTo,
@@ -91,7 +97,7 @@ export async function sendBookingConfirmation(data: BookingFormData): Promise<Em
   try {
     const bookingId = `WOD-${new Date().getFullYear()}-${Math.random().toString(36).substr(2, 6).toUpperCase()}`;
 
-    const { data: result, error } = await resend.emails.send({
+    const { data: result, error } = await getResend().emails.send({
       from: EMAIL_CONFIG.from,
       to: data.email,
       replyTo: EMAIL_CONFIG.replyTo,
@@ -133,7 +139,7 @@ export async function sendLeadNotification(
     const dateStr = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
 
-    const { data: result, error } = await resend.emails.send({
+    const { data: result, error } = await getResend().emails.send({
       from: EMAIL_CONFIG.from,
       to: EMAIL_CONFIG.teamEmail,
       subject: `🔔 New ${leadType.charAt(0).toUpperCase() + leadType.slice(1)} Lead: ${data.name}`,
@@ -171,7 +177,7 @@ export async function sendLeadNotification(
  */
 export async function sendWelcomeEmail(data: NewsletterData): Promise<EmailResult> {
   try {
-    const { data: result, error } = await resend.emails.send({
+    const { data: result, error } = await getResend().emails.send({
       from: EMAIL_CONFIG.from,
       to: data.email,
       replyTo: EMAIL_CONFIG.replyTo,

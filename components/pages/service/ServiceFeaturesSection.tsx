@@ -291,7 +291,7 @@ const ServiceFeaturesSection = ({ pillar, cluster }: ServiceFeaturesSectionProps
                         </div>
 
                         <div className="flex items-center text-brand-400 font-semibold text-sm group-hover:gap-3 transition-all duration-300">
-                          Learn More
+                          {service.title} Details
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                         </div>
                       </div>

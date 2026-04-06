@@ -47,12 +47,11 @@ const services = [
   { name: 'Cloud & DevOps', href: '/cloud-devops' },
   { name: 'E-commerce', href: '/ecommerce-solutions' },
   { name: 'AI Solutions', href: '/consulting-strategy' },
-  { name: 'React Apps', href: '/react-development/react-applications' },
-  { name: 'GraphQL APIs', href: '/api-development/graphql-apis' },
-  { name: 'PWA Development', href: '/progressive-web-apps/pwa-development' },
-  { name: 'Custom Apps', href: '/custom-software-development/custom-applications' },
+  { name: 'React Development', href: '/web-development/' },
+  { name: 'Next.js Development', href: '/web-development/' },
+  { name: 'Software Development', href: '/software-development/' },
   { name: 'Brand Strategy', href: '/digital-marketing/brand-strategy-positioning' },
-  { name: 'Web Applications', href: '/custom-web-development/web-applications' },
+  { name: 'E-commerce Solutions', href: '/ecommerce-solutions/' },
 ];
 
 const company = [

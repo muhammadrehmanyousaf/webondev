@@ -348,7 +348,7 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
                       href={`/blog/${relatedPost.slug}`}
                       className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1"
                     >
-                      Read More
+                      Read {relatedPost.title.length > 40 ? relatedPost.title.slice(0, 40) + '...' : relatedPost.title}
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>

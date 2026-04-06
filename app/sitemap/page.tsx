@@ -138,7 +138,7 @@ export default async function SitemapPage() {
                           </h4>
                           <p className="text-gray-600 text-sm mb-3">{cluster.description}</p>
                           <div className="flex items-center text-blue-600 text-sm font-medium group-hover:gap-1 transition-all duration-300">
-                            Learn More
+                            {cluster.title} Services
                             <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                           </div>
                         </Link>

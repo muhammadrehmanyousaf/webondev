@@ -292,6 +292,35 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <ServiceFeaturesSection pillar={pillar} cluster={cluster} />
             <ServicePricingSection pillar={pillar} cluster={cluster} />
             <ServiceFAQSection pillar={pillar} cluster={cluster} />
+
+            {/* Internal cross-links to related services */}
+            {pillar.clusters && pillar.clusters.length > 0 && (
+              <section className="py-16 bg-slate-950">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <h2 className="text-2xl font-bold text-white mb-8">
+                    {cluster ? `Other ${pillar.title}` : 'Our Specialized Services'}
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {pillar.clusters
+                      .filter((c) => !cluster || c.slug !== cluster.slug)
+                      .slice(0, 6)
+                      .map((c) => (
+                        <a
+                          key={c.slug}
+                          href={`/${pillar.slug}/${c.slug}/`}
+                          className="block p-5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-brand-500/20 transition-colors group"
+                        >
+                          <h3 className="font-semibold text-white group-hover:text-brand-400 transition-colors mb-1">
+                            {c.title}
+                          </h3>
+                          <p className="text-sm text-slate-500">{c.description}</p>
+                        </a>
+                      ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
             <CTASection />
           </>
         )}

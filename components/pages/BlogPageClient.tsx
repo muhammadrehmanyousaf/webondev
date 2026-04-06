@@ -191,7 +191,7 @@ const BlogPageClient = () => {
                           href={`/blog/${post.slug}`}
                           className="text-brand-400 hover:text-brand-300 font-medium text-xs flex items-center gap-1 transition-colors"
                         >
-                          Read More
+                          Read Article
                           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                       </div>
@@ -303,7 +303,7 @@ const BlogPageClient = () => {
                           href={`/blog/${post.slug}`}
                           className="text-brand-400 hover:text-brand-300 font-medium text-xs flex items-center gap-1 transition-colors"
                         >
-                          Read More
+                          Read Article
                           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                       </div>

@@ -106,7 +106,7 @@ const AboutSection = () => {
 
             <Button asChild size="lg" className="rounded-full px-8 shadow-[0_0_30px_rgba(16,185,129,0.15)]">
               <Link href="/about" className="flex items-center gap-2">
-                Learn More About Us
+                About Web On Dev
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>

@@ -158,7 +158,7 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
               {[
                 { icon: Briefcase, title: 'Our Services', desc: 'Comprehensive web development and digital marketing solutions', href: '/services', label: 'Explore Services' },
-                { icon: Users, title: 'About Our Team', desc: 'Meet our experienced developers and digital experts', href: '/about', label: 'Learn More' },
+                { icon: Users, title: 'About Our Team', desc: 'Meet our experienced developers and digital experts', href: '/about', label: 'Meet Our Team' },
                 { icon: FileText, title: 'Latest Insights', desc: 'Stay updated with industry trends and best practices', href: '/blog', label: 'Read Blog' },
               ].map((item, index) => (
                 <div key={index} className="text-center">

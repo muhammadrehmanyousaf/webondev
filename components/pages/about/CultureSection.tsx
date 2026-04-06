@@ -251,7 +251,7 @@ const CultureSection = () => {
                 className="rounded-full px-8"
               >
                 <Link href="/about">
-                  Learn More About Us
+                  Our Company Culture
                 </Link>
               </Button>
             </div>
