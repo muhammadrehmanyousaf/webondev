@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: CountryPageProps): Promise<Me
   }
 
   const siteUrl = getBaseUrl();
-  const path = `/where-we-serve/${toSlug(country.name)}`;
+  const path = `/where-we-serve/${toSlug(country.name)}/`;
   const canonicalUrl = `${siteUrl}${path}`;
 
   const title = `Software Development in ${country.name} - 500+ Projects (From $3K)`;
@@ -88,14 +88,14 @@ export default async function CountryPage({ params }: CountryPageProps) {
 
   const breadcrumbItems = [
     { name: 'Home', href: '/' },
-    { name: 'Where We Serve', href: '/where-we-serve' },
-    { name: country.name, href: `/where-we-serve/${toSlug(country.name)}`, current: true }
+    { name: 'Where We Serve', href: '/where-we-serve/' },
+    { name: country.name, href: `/where-we-serve/${toSlug(country.name)}/`, current: true }
   ];
 
   const states = await getStatesByCountryAPI(country.name);
 
   const siteUrl = getBaseUrl();
-  const canonical = `${siteUrl}/where-we-serve/${toSlug(country.name)}`;
+  const canonical = `${siteUrl}/where-we-serve/${toSlug(country.name)}/`;
 
   return (
     <div className="min-h-screen bg-slate-950">
@@ -192,24 +192,30 @@ export default async function CountryPage({ params }: CountryPageProps) {
             }),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'ItemList',
-              name: `States in ${country.name}`,
-              itemListElement: states
-                .filter((s: any) => s.name && s.name.trim().length > 0)
-                .map((s: any, index: number) => ({
-                  '@type': 'ListItem',
-                  position: index + 1,
-                  url: `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(s.name)}/`,
-                  name: s.name,
-                })),
-            }),
-          }}
-        />
+        {(() => {
+          const validStates = (states || []).filter(
+            (s: any) => s && s.name && s.name.trim().length > 0
+          );
+          if (validStates.length === 0) return null;
+          return (
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'ItemList',
+                  name: `States in ${country.name}`,
+                  itemListElement: validStates.map((s: any, index: number) => ({
+                    '@type': 'ListItem',
+                    position: index + 1,
+                    url: `${siteUrl}/where-we-serve/${toSlug(country.name)}/${toSlug(s.name)}/`,
+                    name: s.name,
+                  })),
+                }),
+              }}
+            />
+          );
+        })()}
       </main>
       <Footer />
     </div>

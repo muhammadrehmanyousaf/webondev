@@ -64,6 +64,78 @@ const nextConfig = {
       { source: '/progressive-web-apps', destination: '/web-development/', permanent: true },
       { source: '/progressive-web-apps/:slug*', destination: '/web-development/', permanent: true },
 
+      // Reclaim backlinks: old cloud-devops cluster slugs → renamed equivalents
+      {
+        source: '/cloud-devops/aws-cloud-services',
+        destination: '/cloud-devops/aws-services/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/aws-cloud-services/:slug*',
+        destination: '/cloud-devops/aws-services/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/azure-cloud-solutions',
+        destination: '/cloud-devops/azure-services/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/azure-cloud-solutions/:slug*',
+        destination: '/cloud-devops/azure-services/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/google-cloud-platform',
+        destination: '/cloud-devops/google-cloud-services/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/google-cloud-platform/:slug*',
+        destination: '/cloud-devops/google-cloud-services/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/cicd-pipeline-setup',
+        destination: '/cloud-devops/ci-cd-pipelines/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/cicd-pipeline-setup/:slug*',
+        destination: '/cloud-devops/ci-cd-pipelines/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/container-orchestration',
+        destination: '/cloud-devops/kubernetes-services/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/container-orchestration/:slug*',
+        destination: '/cloud-devops/kubernetes-services/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/security-compliance',
+        destination: '/cloud-devops/cloud-security/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/security-compliance/:slug*',
+        destination: '/cloud-devops/cloud-security/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/backup-disaster-recovery',
+        destination: '/cloud-devops/',
+        permanent: true,
+      },
+      {
+        source: '/cloud-devops/monitoring-logging',
+        destination: '/cloud-devops/',
+        permanent: true,
+      },
+
       // Reclaim backlinks: old US state pages → redirect to correct paths
       {
         source: '/where-we-serve/california',

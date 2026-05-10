@@ -102,42 +102,53 @@ export default async function WhereWeServePage() {
         <WhereWeServeSchema countries={countries} siteUrl={siteUrl} />
         
         {/* Additional Page-Specific Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'CollectionPage',
-              name: 'Where We Serve',
-              description: 'Global locations where Web On Dev delivers software development services.',
-              hasPart: countries.map((c: any) => ({
-                '@type': 'WebPage',
-                name: `Software Development in ${c.name}`,
-                url: `${siteUrl}/where-we-serve/${toSlug(c.name)}`,
-              })),
-              publisher: {
-                '@type': 'Organization',
-                name: 'Web On Dev',
-              },
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'ItemList',
-              name: 'Supported Countries',
-              itemListElement: countries.map((c: any, index: number) => ({
-                '@type': 'ListItem',
-                position: index + 1,
-                name: c.name,
-                url: `${siteUrl}/where-we-serve/${toSlug(c.name)}`,
-              })),
-            }),
-          }}
-        />
+        {(() => {
+          const validCountries = (countries || []).filter(
+            (c: any) => c && c.name && c.name.trim().length > 0
+          );
+          if (validCountries.length === 0) return null;
+          return (
+            <>
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'CollectionPage',
+                    name: 'Where We Serve',
+                    description:
+                      'Global locations where Web On Dev delivers software development services.',
+                    hasPart: validCountries.map((c: any) => ({
+                      '@type': 'WebPage',
+                      name: `Software Development in ${c.name}`,
+                      url: `${siteUrl}/where-we-serve/${toSlug(c.name)}/`,
+                    })),
+                    publisher: {
+                      '@type': 'Organization',
+                      name: 'Web On Dev',
+                    },
+                  }),
+                }}
+              />
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'ItemList',
+                    name: 'Supported Countries',
+                    itemListElement: validCountries.map((c: any, index: number) => ({
+                      '@type': 'ListItem',
+                      position: index + 1,
+                      name: c.name,
+                      url: `${siteUrl}/where-we-serve/${toSlug(c.name)}/`,
+                    })),
+                  }),
+                }}
+              />
+            </>
+          );
+        })()}
       </main>
       <Footer />
     </div>
