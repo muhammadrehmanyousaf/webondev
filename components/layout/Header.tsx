@@ -8,7 +8,6 @@ import {
   X,
   ChevronDown,
   ChevronRight,
-  Globe,
   Search,
   ArrowRight,
   Code2,
@@ -26,7 +25,6 @@ import {
 import { siteStructure } from '@/lib/site-structure';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { toSlug } from '@/lib/slug';
 
 // =============================================================================
 // SERVICE ICONS MAP
@@ -155,7 +153,7 @@ const SearchModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
     { icon: Code2, label: 'Web Development', href: '/web-development' },
     { icon: Smartphone, label: 'Mobile Apps', href: '/mobile-development' },
     { icon: Palette, label: 'UI/UX Design', href: '/ui-ux-design' },
-    { icon: Globe, label: 'Where We Serve', href: '/where-we-serve' },
+    { icon: BarChart3, label: 'Digital Marketing', href: '/digital-marketing' },
   ];
 
   return (
@@ -168,7 +166,7 @@ const SearchModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
               <div className="h-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent" />
               <div className="flex items-center gap-3 p-5 border-b border-white/[0.06]">
                 <Search className="w-5 h-5 text-brand-400" />
-                <input ref={inputRef} type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search services, locations..." className="flex-1 bg-transparent text-white placeholder-slate-500 focus:outline-none text-base" />
+                <input ref={inputRef} type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search services..." className="flex-1 bg-transparent text-white placeholder-slate-500 focus:outline-none text-base" />
                 <kbd className="px-2 py-1 rounded-md bg-white/[0.06] border border-white/[0.08] text-[11px] text-slate-500 font-mono">ESC</kbd>
               </div>
               <div className="p-3">
@@ -213,7 +211,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [countries, setCountries] = useState<any[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -243,18 +240,6 @@ const Header = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  useEffect(() => {
-    let mounted = true;
-    (async () => {
-      try {
-        const res = await fetch('/api/locations/countries');
-        const json = await res.json();
-        if (mounted && json?.data) setCountries(json.data);
-      } catch {}
-    })();
-    return () => { mounted = false; };
-  }, []);
-
   const services = siteStructure.slice(0, 6);
   const navItems = [
     { label: 'Home', href: '/' },
@@ -262,7 +247,6 @@ const Header = () => {
     { label: 'Blog', href: '/blog' },
     { label: 'About', href: '/about' },
   ];
-  const popularCountries = countries.slice(0, 8);
 
   return (
     <>
@@ -323,36 +307,6 @@ const Header = () => {
                   isMegaMenuOpen ? 'w-4/5' : 'w-0 group-hover:w-4/5'
                 )} />
               </button>
-
-              {/* Locations Dropdown */}
-              <div className="relative group">
-                <button className="relative flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-slate-400 hover:text-brand-400 hover:bg-brand-500/[0.08] rounded-lg transition-all duration-200">
-                  Locations
-                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200" />
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-brand-400 to-brand-500 rounded-full group-hover:w-4/5 transition-all duration-300 ease-out" />
-                </button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0">
-                  <div className="bg-slate-900/98 backdrop-blur-xl rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.5)] overflow-hidden">
-                    <div className="h-px bg-gradient-to-r from-transparent via-brand-500/30 to-transparent" />
-                    <div className="p-4">
-                      <div className="text-[11px] font-semibold text-slate-600 uppercase tracking-[0.15em] px-2 mb-3">Popular Locations</div>
-                      <div className="grid grid-cols-2 gap-0.5">
-                        {popularCountries.map((country) => (
-                          <Link key={country.code} href={`/where-we-serve/${toSlug(country.name)}`} className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-brand-500/[0.06] transition-all duration-150 group/item">
-                            <span className="text-base">{country.flag}</span>
-                            <span className="text-sm text-slate-400 group-hover/item:text-white transition-colors truncate font-medium">{country.name}</span>
-                          </Link>
-                        ))}
-                      </div>
-                      <div className="mt-3 pt-3 border-t border-white/[0.06]">
-                        <Link href="/where-we-serve" className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-sm text-brand-400 hover:bg-brand-500/[0.06] font-semibold transition-all group/all">
-                          <Globe className="w-3.5 h-3.5" /> View All Locations <ArrowRight className="w-3 h-3 group-hover/all:translate-x-0.5 transition-transform" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <NavLink href="/contact">Contact</NavLink>
             </nav>
@@ -443,9 +397,6 @@ const Header = () => {
                     )}
                   </AnimatePresence>
                 </div>
-                <Link href="/where-we-serve" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-brand-500/[0.06] transition-all duration-150 font-medium">
-                  <Globe className="w-4 h-4 text-brand-500/50" /> Where We Serve
-                </Link>
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="flex items-center px-4 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-brand-500/[0.06] transition-all duration-150 font-medium">Contact</Link>
 
                 <div className="pt-4 mt-2 border-t border-white/[0.06] space-y-3">

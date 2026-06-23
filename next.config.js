@@ -135,38 +135,6 @@ const nextConfig = {
         destination: '/cloud-devops/',
         permanent: true,
       },
-
-      // Reclaim backlinks: old US state pages → redirect to correct paths
-      {
-        source: '/where-we-serve/california',
-        destination: '/where-we-serve/united-states/california/',
-        permanent: true,
-      },
-      {
-        source: '/where-we-serve/texas',
-        destination: '/where-we-serve/united-states/texas/',
-        permanent: true,
-      },
-      {
-        source: '/where-we-serve/florida',
-        destination: '/where-we-serve/united-states/florida/',
-        permanent: true,
-      },
-      {
-        source: '/where-we-serve/new-york',
-        destination: '/where-we-serve/united-states/new-york/',
-        permanent: true,
-      },
-      {
-        source: '/where-we-serve/illinois',
-        destination: '/where-we-serve/united-states/illinois/',
-        permanent: true,
-      },
-      {
-        source: '/where-we-serve/pennsylvania',
-        destination: '/where-we-serve/united-states/pennsylvania/',
-        permanent: true,
-      },
     ];
   },
 

@@ -3,12 +3,10 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { Map, Globe, ArrowRight, Home, User, Briefcase, Phone, FileText, Shield, Cookie, Flag } from 'lucide-react';
+import { Map, Globe, ArrowRight, Home, User, Briefcase, Phone, FileText, Shield, Cookie } from 'lucide-react';
 
 export const revalidate = 86400;
 import { siteStructure } from '@/lib/site-structure';
-import { getAllCountriesAPI } from '@/lib/location-api';
-import LocationsSitemap from '@/components/pages/sitemap/LocationsSitemap';
 
 export const metadata: Metadata = {
   title: 'Sitemap - Web On Dev | Website Navigation & Page Directory',
@@ -45,12 +43,6 @@ export default async function SitemapPage() {
     { name: 'Cookie Policy', href: '/cookies', icon: Cookie, description: 'Our cookie usage policy' },
     { name: 'Sitemap', href: '/sitemap', icon: Map, description: 'Complete website navigation' },
   ];
-
-  // Pillar slugs for pillar-level services under each city
-  const pillarSlugs = siteStructure.map((p) => p.slug);
-
-  // Fetch only countries on the server; states/cities will be lazy-fetched client-side for speed
-  const countries = await getAllCountriesAPI();
 
   return (
     <div className="min-h-screen bg-white">
@@ -147,15 +139,6 @@ export default async function SitemapPage() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Locations Hierarchy (Client, lazy-loaded) */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-                <Flag className="w-8 h-8 text-red-600" />
-                Locations Directory
-              </h2>
-              <LocationsSitemap countries={countries} servicePillars={pillarSlugs} />
             </div>
 
             {/* Quick Stats */}

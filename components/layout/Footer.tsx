@@ -65,19 +65,6 @@ const company = [
   { name: 'Sitemap', href: '/sitemap' },
 ];
 
-const locations = [
-  { name: 'United States', href: '/where-we-serve/united-states' },
-  { name: 'Germany', href: '/where-we-serve/germany' },
-  { name: 'China', href: '/where-we-serve/china' },
-  { name: 'Indonesia', href: '/where-we-serve/indonesia' },
-  { name: 'Slovenia', href: '/where-we-serve/slovenia' },
-  { name: 'Lebanon', href: '/where-we-serve/lebanon' },
-  { name: 'Cameroon', href: '/where-we-serve/cameroon' },
-  { name: 'Honduras', href: '/where-we-serve/honduras' },
-  { name: 'Madagascar', href: '/where-we-serve/madagascar' },
-  { name: 'All Locations', href: '/where-we-serve' },
-];
-
 const socialLinks = [
   { icon: Youtube, href: 'https://www.youtube.com/@webondev', label: 'YouTube' },
   { icon: Twitter, href: 'https://x.com/webon_dev', label: 'X' },
@@ -308,7 +295,7 @@ const Footer = () => {
             </div>
 
             {/* Services */}
-            <div className="col-span-1 lg:col-span-2">
+            <div className="col-span-1 lg:col-span-3">
               <h4 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Services</h4>
               <nav aria-label="Services">
                 <ul className="space-y-2.5">
@@ -327,30 +314,11 @@ const Footer = () => {
             </div>
 
             {/* Company */}
-            <div className="col-span-1 lg:col-span-2">
+            <div className="col-span-1 lg:col-span-3">
               <h4 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Company</h4>
               <nav aria-label="Company">
                 <ul className="space-y-2.5">
                   {company.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-slate-500 hover:text-white transition-colors duration-200 text-sm"
-                      >
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-
-            {/* Locations */}
-            <div className="col-span-1 lg:col-span-2">
-              <h4 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Locations</h4>
-              <nav aria-label="Locations">
-                <ul className="space-y-2.5">
-                  {locations.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}

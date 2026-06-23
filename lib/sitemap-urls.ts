@@ -1,7 +1,6 @@
 import { siteStructure } from '@/lib/site-structure';
 import { blogData } from '@/lib/blog-data';
 import { getAllProjectSlugs } from '@/lib/portfolio-data';
-import { getAllCountriesAPI, getStatesByCountryAPI, getCitiesByStateAPI } from '@/lib/location-api';
 import { getBaseUrl } from '@/lib/site-config';
 
 const BASE_URL = getBaseUrl();
@@ -36,49 +35,9 @@ export async function collectCanonicalUrls(limitPerSection: number = 200): Promi
 		});
 	} catch {}
 
-	// Locations expanded: countries → states → cities → selected services (chunked/limited)
-	try {
-		const popularCountries = ['United States', 'United Kingdom', 'Canada', 'Australia', 'Pakistan', 'India'];
-		const countries = (await getAllCountriesAPI())
-			.filter((c) => !!c?.name)
-			.sort((a, b) => popularCountries.indexOf(a.name) - popularCountries.indexOf(b.name))
-			.slice(0, Math.min(limitPerSection, 12));
-
-		// gather service slugs (pillars + clusters)
-		const serviceSlugs: string[] = [];
-		siteStructure.forEach((pillar) => {
-			serviceSlugs.push(pillar.slug);
-			(pillar.clusters || []).forEach((c) => serviceSlugs.push(`${pillar.slug}/${c.slug}`));
-		});
-
-		for (const country of countries) {
-			const cSlug = (country.name || '').toLowerCase().replace(/\s+/g, '-');
-			urls.add(`${BASE_URL}/where-we-serve/${cSlug}`);
-
-			let states: { name: string }[] = [];
-			try { states = await getStatesByCountryAPI(country.name); } catch {}
-			states = states.slice(0, Math.min(limitPerSection, 25));
-
-			for (const state of states) {
-				const sSlug = (state.name || '').toLowerCase().replace(/\s+/g, '-');
-				urls.add(`${BASE_URL}/where-we-serve/${cSlug}/${sSlug}`);
-
-				let cities: { name: string }[] = [];
-				try { cities = await getCitiesByStateAPI(country.name, state.name); } catch {}
-				cities = cities.slice(0, Math.min(limitPerSection, 30));
-
-				for (const city of cities) {
-					const ciSlug = (city.name || '').toLowerCase().replace(/\s+/g, '-');
-					urls.add(`${BASE_URL}/where-we-serve/${cSlug}/${sSlug}/${ciSlug}`);
-
-					// add limited service pages per city to control size
-					serviceSlugs.slice(0, Math.min(limitPerSection, 30)).forEach((svc) => {
-						urls.add(`${BASE_URL}/where-we-serve/${cSlug}/${sSlug}/${ciSlug}/${svc}`);
-					});
-				}
-			}
-		}
-	} catch {}
+	// NOTE: Programmatic /where-we-serve location pages were permanently removed
+	// (they now return HTTP 410). They are intentionally NOT generated here so
+	// feeds and any consumer of this list stay free of doorway URLs.
 
 	return Array.from(urls);
 }

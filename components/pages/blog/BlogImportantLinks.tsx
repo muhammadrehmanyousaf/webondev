@@ -34,7 +34,6 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
         { name: "About Us", href: "/about", description: "Learn about our team and mission" },
         { name: "Our Portfolio", href: "/portfolio", description: "View our latest projects" },
         { name: "Contact Us", href: "/contact", description: "Get in touch with our team" },
-        { name: "Where We Serve", href: "/where-we-serve", description: "Our service locations" },
         { name: "Blog", href: "/blog", description: "Latest insights and updates" },
         { name: "Privacy Policy", href: "/privacy", description: "Our privacy practices" }
       ]
@@ -49,18 +48,6 @@ const BlogImportantLinks: React.FC<BlogImportantLinksProps> = ({
         { name: "Next.js 14 Features", href: "/blog/nextjs-14-features-complete-guide", description: "Next.js deep dive" },
         { name: "TypeScript Best Practices", href: "/blog/typescript-best-practices-2024", description: "TypeScript patterns" },
         { name: "Web Security Guide", href: "/blog/web-security-best-practices-2024", description: "Security best practices" }
-      ]
-    },
-    {
-      title: "Location-Based Services",
-      icon: <Globe className="w-5 h-5" />,
-      links: [
-        { name: "Web Development in New York", href: "/where-we-serve/united-states/new-york", description: "NY web development services" },
-        { name: "Web Development in California", href: "/where-we-serve/united-states/california", description: "CA web development services" },
-        { name: "Web Development in Texas", href: "/where-we-serve/united-states/texas", description: "TX web development services" },
-        { name: "Web Development in Florida", href: "/where-we-serve/united-states/florida", description: "FL web development services" },
-        { name: "Web Development in Illinois", href: "/where-we-serve/united-states/illinois", description: "IL web development services" },
-        { name: "Web Development in Pennsylvania", href: "/where-we-serve/united-states/pennsylvania", description: "PA web development services" }
       ]
     }
   ];

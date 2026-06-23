@@ -372,10 +372,6 @@ export default function RootLayout({
 
         {/* Hreflang Tags for International SEO */}
         <link rel="alternate" hrefLang="en" href={siteUrl} />
-        <link rel="alternate" hrefLang="en-US" href={`${siteUrl}/where-we-serve/united-states/`} />
-        <link rel="alternate" hrefLang="en-GB" href={`${siteUrl}/where-we-serve/united-kingdom/`} />
-        <link rel="alternate" hrefLang="en-CA" href={`${siteUrl}/where-we-serve/canada/`} />
-        <link rel="alternate" hrefLang="en-AU" href={`${siteUrl}/where-we-serve/australia/`} />
         <link rel="alternate" hrefLang="x-default" href={siteUrl} />
 
         {/* Sitemap Links */}
