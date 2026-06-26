@@ -97,6 +97,66 @@ export const GUIDES: GuideMeta[] = [
     readTime: '11 min read',
     keywords: ['how much does it cost to build an app', 'app development cost 2026', 'mobile app development cost'],
   },
+  {
+    slug: 'how-to-hire-a-software-development-company',
+    title: 'How to Hire a Software Development Company',
+    description:
+      'A practical guide to hiring a software development company: the step-by-step process, how to evaluate, pricing models, red flags, and questions to ask.',
+    category: 'Guide',
+    date: '2026-06-24',
+    readTime: '12 min read',
+    keywords: ['how to hire a software development company', 'how to choose a software development company', 'questions to ask a software agency'],
+  },
+  {
+    slug: 'shopify-vs-woocommerce',
+    title: 'Shopify vs WooCommerce: Which Is Better in 2026?',
+    description:
+      'Shopify vs WooCommerce compared for 2026: cost, ease of use, customization, scalability, SEO and ownership — plus a decision framework for choosing.',
+    category: 'Comparison',
+    date: '2026-06-24',
+    readTime: '13 min read',
+    keywords: ['Shopify vs WooCommerce', 'WooCommerce vs Shopify 2026', 'which is better for ecommerce'],
+  },
+  {
+    slug: 'mvp-development-cost',
+    title: 'MVP Development Cost: How Much to Build an MVP (2026)',
+    description:
+      'How much does an MVP cost in 2026? Cost by complexity, what drives it, a typical timeline, an itemized example budget, and ways to reduce MVP cost.',
+    category: 'Guide',
+    date: '2026-06-24',
+    readTime: '11 min read',
+    keywords: ['MVP development cost', 'how much does an MVP cost', 'how to build an MVP', 'minimum viable product cost'],
+  },
+  {
+    slug: 'hire-flutter-developers',
+    title: 'Hire Flutter Developers',
+    description:
+      'Hire dedicated Flutter developers from Web On Dev — Dart, one codebase for iOS, Android & web, and performance expertise. Transparent models and typical rates.',
+    category: 'Hire Developers',
+    date: '2026-06-24',
+    readTime: '9 min read',
+    keywords: ['hire Flutter developers', 'hire dedicated Flutter developers', 'Flutter app development team'],
+  },
+  {
+    slug: 'staff-augmentation-vs-outsourcing',
+    title: 'Staff Augmentation vs Outsourcing: Which to Choose',
+    description:
+      'Staff augmentation vs project outsourcing vs managed services — compare control, cost, and risk, with a decision framework for choosing the right model.',
+    category: 'Comparison',
+    date: '2026-06-24',
+    readTime: '12 min read',
+    keywords: ['staff augmentation vs outsourcing', 'staff augmentation vs managed services', 'IT staff augmentation vs project outsourcing'],
+  },
+  {
+    slug: 'how-to-build-a-saas',
+    title: 'How to Build a SaaS Application (2026 Guide)',
+    description:
+      'How to build a SaaS application in 2026: the development process, tech stack, multi-tenant architecture, key features, and typical cost and timeline ranges.',
+    category: 'Guide',
+    date: '2026-06-24',
+    readTime: '13 min read',
+    keywords: ['how to build a saas', 'how to build a saas application', 'saas development guide', 'saas development process'],
+  },
 ];
 
 const GUIDES_DIR = path.join(process.cwd(), 'content', 'guides');
