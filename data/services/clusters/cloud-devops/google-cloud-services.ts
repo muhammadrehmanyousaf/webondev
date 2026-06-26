@@ -20,7 +20,7 @@ export const googleCloudServicesData: ServiceData = {
       'Multi-cloud with Anthos',
       'Real-time data processing'
     ],
-    badges: ['Google Cloud Partner', 'GCP Certified Team', 'Data Analytics Specialty', '100+ GCP Projects']
+    badges: ['Compute Engine', 'BigQuery', 'Cloud Storage', 'Kubernetes Engine']
   },
 
   painPoints: [

@@ -8,51 +8,57 @@ import { Linkedin, Twitter, Github, Mail, Users, Code2, Palette, Megaphone, Shie
 // DATA
 // =============================================================================
 
-const leadership = [
+// Real founders (source of truth: Organization schema in app/layout.tsx + humans.txt).
+// TODO(client): supply real headshots (set `image`), exact titles, and real LinkedIn URLs.
+// Photos and social links are intentionally omitted until real assets are provided —
+// do NOT re-add stock photos or placeholder ("#") links (E-E-A-T / trust requirement).
+type Leader = {
+  name: string;
+  position: string;
+  bio: string;
+  image: string;
+  social: { linkedin?: string; twitter?: string; github?: string; email?: string };
+};
+
+const leadership: Leader[] = [
   {
-    name: 'Sarah Johnson',
-    position: 'CEO & Founder',
-    bio: 'Visionary leader with 10+ years in software development and business strategy.',
-    image: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: 'sarah@webondev.com',
-    },
+    name: 'Muhammad Rehman Yousaf',
+    position: 'Co-Founder',
+    bio: 'Co-founder of Web On Dev, focused on software engineering and delivery.',
+    image: '',
+    social: {},
   },
   {
-    name: 'Michael Chen',
-    position: 'CTO & Co-Founder',
-    bio: 'Technical architect specializing in scalable systems and emerging technologies.',
-    image: 'https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
-    social: {
-      linkedin: '#',
-      github: '#',
-      email: 'michael@webondev.com',
-    },
+    name: 'Daniyal Bahadur',
+    position: 'Co-Founder',
+    bio: 'Co-founder of Web On Dev, focused on product and client solutions.',
+    image: '',
+    social: {},
   },
   {
-    name: 'Emily Rodriguez',
-    position: 'Head of Design',
-    bio: 'Creative director with expertise in UX/UI design and brand development.',
-    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: 'emily@webondev.com',
-    },
+    name: 'Waheed UI Islam',
+    position: 'Co-Founder',
+    bio: 'Co-founder of Web On Dev, focused on technology and architecture.',
+    image: '',
+    social: {},
   },
   {
-    name: 'David Park',
-    position: 'Head of Operations',
-    bio: 'Operations expert ensuring smooth project delivery and client satisfaction.',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
-    social: {
-      linkedin: '#',
-      email: 'david@webondev.com',
-    },
+    name: 'Ihtisham UL Haq',
+    position: 'Co-Founder',
+    bio: 'Co-founder of Web On Dev, focused on design and operations.',
+    image: '',
+    social: {},
   },
 ];
+
+// Build initials for the avatar fallback when no real photo is set.
+const getInitials = (name: string) =>
+  name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p[0]?.toUpperCase() ?? '')
+    .join('');
 
 const departments = [
   {
@@ -186,14 +192,27 @@ const TeamSection = () => {
                 className="group"
               >
                 <div className="bg-white/[0.02] border border-white/[0.06] hover:border-brand-500/20 transition-all duration-300 rounded-xl sm:rounded-2xl p-5 sm:p-6">
-                  {/* Profile Image */}
+                  {/* Profile Image (real photo if provided, else initials avatar) */}
                   <div className="mb-5">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-white/[0.08]"
-                      />
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-white/[0.08]"
+                        />
+                      ) : (
+                        <div
+                          aria-hidden="true"
+                          className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-white/[0.08] flex items-center justify-center text-xl sm:text-2xl font-bold text-brand-400"
+                          style={{
+                            background:
+                              'linear-gradient(135deg, rgba(16,185,129,0.12), rgba(6,182,212,0.06))',
+                          }}
+                        >
+                          {getInitials(member.name)}
+                        </div>
+                      )}
                     </div>
                   </div>
 

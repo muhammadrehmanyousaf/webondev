@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle, Star, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -99,30 +99,22 @@ const HeroSectionBeams = () => {
             </Link>
           </motion.div>
 
-          {/* Main Heading */}
-          <motion.h1
-            className="text-[2rem] sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-5 sm:mb-6 lg:mb-8 leading-[1.05] tracking-tight"
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-          >
+          {/* Main Heading — rendered statically (no JS-gated opacity) so it paints
+              immediately in the server HTML. This is the LCP element; animating it
+              with framer-motion initial opacity:0 was delaying LCP to ~6.5s on mobile. */}
+          <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-5 sm:mb-6 lg:mb-8 leading-[1.05] tracking-tight">
             We Build Software
             <br />
             <span className="text-slate-400">That Moves Your</span>
             <br />
             <RotatingText />
-          </motion.h1>
+          </h1>
 
-          {/* Subtitle */}
-          <motion.p
-            className="hero-description text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-          >
+          {/* Subtitle — also static for fast above-the-fold paint */}
+          <p className="hero-description text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto">
             Enterprise-grade web development, mobile apps, and digital solutions.
             <span className="text-slate-300"> Built for scale. Designed for impact.</span>
-          </motion.p>
+          </p>
 
           {/* CTA Buttons */}
           <motion.div
@@ -169,16 +161,14 @@ const HeroSectionBeams = () => {
               </div>
             </div>
 
-            {/* Rating */}
+            {/* Free consultation (replaced an unverifiable "4.9/5 on Clutch" rating
+                — the linked Clutch profile is a different brand. Re-add a real rating
+                only once genuine reviews exist under the Web On Dev brand.) */}
             <div className="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-              <div className="flex gap-0.5">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400 fill-amber-400" />
-                ))}
-              </div>
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-brand-400" />
               <div className="text-left">
-                <div className="text-white font-semibold text-xs sm:text-sm">4.9/5 Rating</div>
-                <div className="text-slate-500 text-[10px] sm:text-xs">on Clutch</div>
+                <div className="text-white font-semibold text-xs sm:text-sm">Free Consultation</div>
+                <div className="text-slate-500 text-[10px] sm:text-xs">No commitment</div>
               </div>
             </div>
 

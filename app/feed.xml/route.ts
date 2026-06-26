@@ -11,7 +11,7 @@ export async function GET() {
   <channel>
     <title>Web On Dev Blog</title>
     <description>Expert insights on web development, digital marketing, and technology trends. Stay ahead with our comprehensive guides and industry analysis.</description>
-    <link>${baseUrl}/blog</link>
+    <link>${baseUrl}/blog/</link>
     <atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml" />
     <atom:link href="${hub}" rel="hub" />
     <language>en-US</language>
@@ -22,8 +22,8 @@ export async function GET() {
     <item>
       <title><![CDATA[${post.title}]]></title>
       <description><![CDATA[${post.excerpt}]]></description>
-      <link>${baseUrl}/blog/${post.slug}</link>
-      <guid>${baseUrl}/blog/${post.slug}</guid>
+      <link>${baseUrl}/blog/${post.slug}/</link>
+      <guid>${baseUrl}/blog/${post.slug}/</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <category>${post.category}</category>
       <author>${post.author}</author>

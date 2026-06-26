@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   description: 'Complete sitemap of Web On Dev website. Find all pages, services, and resources in one organized directory.',
   keywords: 'sitemap, website map, navigation, page directory, site structure',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/sitemap/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/sitemap/`,
   },
   openGraph: {
     title: 'Sitemap - Web On Dev | Website Navigation & Page Directory',
     description: 'Complete sitemap of Web On Dev website. Find all pages, services, and resources in one organized directory.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/sitemap`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/sitemap`,
     type: 'website',
   },
   twitter: {

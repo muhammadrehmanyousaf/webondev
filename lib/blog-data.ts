@@ -26,8 +26,8 @@ export interface BlogPost {
 export const blogData: BlogPost[] = [
   {
     slug: 'complete-guide-web-development-2024',
-    title: 'Complete Guide to Modern Web Development in 2024',
-    excerpt: 'Master the latest web development technologies, frameworks, and best practices for building scalable, performant web applications in 2024.',
+    title: 'Modern Web Development: A Complete 2026 Guide',
+    excerpt: 'A current, practical guide to modern web development: React 19, Next.js 16, RSC, modern CSS, Core Web Vitals (INP), accessibility, and AI.',
     content: `
       <h2>The Evolution of Modern Web Development</h2>
       <p>Web development has undergone a remarkable transformation over the past decade. From simple static HTML pages to complex, interactive applications, the landscape has evolved dramatically. In 2024, modern web development encompasses a comprehensive ecosystem of technologies, frameworks, and methodologies that enable developers to create exceptional user experiences.</p>
@@ -91,8 +91,8 @@ export const blogData: BlogPost[] = [
       </ul>
     `,
     author: 'Web On Dev Team',
-    date: '2024-01-15',
-    readTime: '25 min read',
+    date: '2026-06-22',
+    readTime: '9 min read',
     category: 'Web Development',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Next.js', 'Web Development'],
     featuredImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80',
@@ -100,8 +100,8 @@ export const blogData: BlogPost[] = [
   },
   {
     slug: 'react-performance-optimization-guide',
-    title: 'React Performance Optimization: A Comprehensive Guide',
-    excerpt: 'Learn advanced techniques for optimizing React applications, including code splitting, memoization, and performance monitoring strategies.',
+    title: 'React Performance Optimization Guide (2026 Edition)',
+    excerpt: 'Master React performance in 2026: the React Compiler, Server Components, Suspense streaming, list virtualization, and optimizing INP and Core Web Vitals.',
     content: `
       <h2>Understanding React Performance</h2>
       <p>React performance optimization is crucial for delivering smooth user experiences, especially in large-scale applications. This comprehensive guide covers the most effective strategies for optimizing React applications.</p>
@@ -154,8 +154,8 @@ function App() {
 }</code></pre>
     `,
     author: 'Web On Dev Team',
-    date: '2024-01-10',
-    readTime: '18 min read',
+    date: '2026-06-21',
+    readTime: '9 min read',
     category: 'React',
     tags: ['React', 'Performance', 'Optimization', 'JavaScript', 'Frontend'],
     featuredImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80',
@@ -163,8 +163,8 @@ function App() {
   },
   {
     slug: 'nextjs-14-features-complete-guide',
-    title: 'Next.js 14 Complete Guide: New Features and Best Practices',
-    excerpt: 'Explore the latest features in Next.js 14, including the App Router, Server Components, and advanced optimization techniques.',
+    title: 'The Complete Next.js Guide for 2026 (App Router)',
+    excerpt: 'A current Next.js guide for 2026: App Router, Server Components, Server Actions, the new caching model, Partial Prerendering, and deployment.',
     content: `
       <h2>Next.js 14: What's New</h2>
       <p>Next.js 14 introduces groundbreaking features that revolutionize how we build React applications. From the new App Router to enhanced performance optimizations, this version sets new standards for modern web development.</p>
@@ -210,8 +210,8 @@ export default function Page() {
 }</code></pre>
     `,
     author: 'Web On Dev Team',
-    date: '2024-01-05',
-    readTime: '20 min read',
+    date: '2026-06-20',
+    readTime: '9 min read',
     category: 'Next.js',
     tags: ['Next.js', 'React', 'App Router', 'Server Components', 'Web Development'],
     featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
@@ -219,8 +219,8 @@ export default function Page() {
   },
   {
     slug: 'typescript-best-practices-2024',
-    title: 'TypeScript Best Practices for 2024: Advanced Patterns and Techniques',
-    excerpt: 'Master TypeScript with advanced patterns, type safety techniques, and best practices for building robust applications.',
+    title: 'TypeScript Best Practices & Advanced Patterns',
+    excerpt: 'A practical, current guide to TypeScript: strict tsconfig, unions vs enums, satisfies, const type params, narrowing, discriminated unions, and using.',
     content: `
       <h2>TypeScript Fundamentals</h2>
       <p>TypeScript has become the standard for building large-scale JavaScript applications. Its type system provides safety, better tooling, and improved developer experience.</p>
@@ -273,8 +273,8 @@ loggingIdentity([1, 2, 3]);
 // loggingIdentity(123); // Error: number doesn't have 'length' property</code></pre>
     `,
     author: 'Web On Dev Team',
-    date: '2024-01-01',
-    readTime: '22 min read',
+    date: '2026-06-19',
+    readTime: '9 min read',
     category: 'TypeScript',
     tags: ['TypeScript', 'JavaScript', 'Type Safety', 'Programming', 'Best Practices'],
     featuredImage: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80',
@@ -282,8 +282,8 @@ loggingIdentity([1, 2, 3]);
   },
   {
     slug: 'css-grid-flexbox-complete-guide',
-    title: 'CSS Grid and Flexbox: Complete Layout Mastery',
-    excerpt: 'Master modern CSS layout techniques with Grid and Flexbox. Learn when to use each and how to combine them effectively.',
+    title: 'CSS Grid & Flexbox in 2026: Complete Layout Guide',
+    excerpt: 'Master modern CSS layout: Flexbox vs Grid, subgrid, auto-fit/minmax, clamp(), container queries, and :has() for responsive layouts with few media queries.',
     content: `
       <h2>Understanding CSS Layout Systems</h2>
       <p>Modern CSS provides two powerful layout systems: Flexbox and Grid. Understanding when and how to use each is crucial for creating responsive, maintainable layouts.</p>
@@ -336,8 +336,8 @@ loggingIdentity([1, 2, 3]);
 }</code></pre>
     `,
     author: 'Web On Dev Team',
-    date: '2023-12-28',
-    readTime: '16 min read',
+    date: '2026-06-18',
+    readTime: '9 min read',
     category: 'CSS',
     tags: ['CSS', 'Grid', 'Flexbox', 'Layout', 'Responsive Design'],
     featuredImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
@@ -345,8 +345,8 @@ loggingIdentity([1, 2, 3]);
   },
   {
     slug: 'javascript-es2024-new-features',
-    title: 'JavaScript ES2024: New Features and Modern Development',
-    excerpt: 'Explore the latest JavaScript features in ES2024, including new syntax, methods, and development patterns.',
+    title: 'Modern JavaScript: ES2024 & ES2025 Features for 2026',
+    excerpt: 'A practical 2026 guide to the most useful modern JavaScript features from ES2024 and ES2025, with code examples, use cases, and browser support.',
     content: `
       <h2>ES2024: What's New in JavaScript</h2>
       <p>JavaScript continues to evolve with ES2024 introducing several new features that enhance developer productivity and code expressiveness.</p>
@@ -384,8 +384,8 @@ const multiplyByTwo = multiply(?, 2);
 const result = 10 |> addFive |> multiplyByTwo; // 30</code></pre>
     `,
     author: 'Web On Dev Team',
-    date: '2023-12-25',
-    readTime: '14 min read',
+    date: '2026-06-17',
+    readTime: '8 min read',
     category: 'JavaScript',
     tags: ['JavaScript', 'ES2024', 'Modern JS', 'Programming', 'Web Development'],
     featuredImage: 'https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&q=80',
@@ -393,8 +393,8 @@ const result = 10 |> addFive |> multiplyByTwo; // 30</code></pre>
   },
   {
     slug: 'web-security-best-practices-2024',
-    title: 'Web Security Best Practices: Protecting Your Applications',
-    excerpt: 'Comprehensive guide to web security, covering authentication, authorization, data protection, and security testing.',
+    title: 'Web Security Best Practices for Modern Apps',
+    excerpt: 'A practical, current guide to securing web apps: OWASP Top 10, XSS, CSRF, auth/JWT, secure headers, injection defense, secrets, and TLS.',
     content: `
       <h2>Web Security Fundamentals</h2>
       <p>Web security is more critical than ever as cyber threats become increasingly sophisticated. Understanding and implementing security best practices is essential for protecting user data and maintaining trust.</p>
@@ -464,8 +464,8 @@ const sanitizeInput = (input) => {
 };</code></pre>
     `,
     author: 'Web On Dev Team',
-    date: '2023-12-20',
-    readTime: '19 min read',
+    date: '2026-06-16',
+    readTime: '9 min read',
     category: 'Security',
     tags: ['Security', 'Authentication', 'Authorization', 'Web Development', 'Best Practices'],
     featuredImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80',
@@ -473,8 +473,8 @@ const sanitizeInput = (input) => {
   },
   {
     slug: 'testing-strategies-react-applications',
-    title: 'Testing Strategies for React Applications: Complete Guide',
-    excerpt: 'Learn comprehensive testing strategies for React applications, including unit tests, integration tests, and end-to-end testing.',
+    title: 'React Testing Strategies for 2026: A Complete Guide',
+    excerpt: 'A current, practical guide to testing React apps in 2026: Vitest, React Testing Library, MSW, Playwright, Server Components, a11y, and CI.',
     content: `
       <h2>Testing Fundamentals in React</h2>
       <p>Testing is crucial for maintaining code quality and ensuring reliable applications. React applications require a comprehensive testing strategy that covers different aspects of the application.</p>
@@ -539,8 +539,8 @@ test('loads and displays user profile', async () => {
 });</code></pre>
     `,
     author: 'Web On Dev Team',
-    date: '2023-12-15',
-    readTime: '17 min read',
+    date: '2026-06-15',
+    readTime: '9 min read',
     category: 'Testing',
     tags: ['Testing', 'React', 'Jest', 'React Testing Library', 'Quality Assurance'],
     featuredImage: 'https://images.unsplash.com/photo-1576444356170-66073046b1bc?w=800&q=80',
@@ -548,8 +548,8 @@ test('loads and displays user profile', async () => {
   },
   {
     slug: 'deployment-strategies-modern-web-apps',
-    title: 'Deployment Strategies for Modern Web Applications',
-    excerpt: 'Explore different deployment strategies, CI/CD pipelines, and cloud platforms for modern web applications.',
+    title: 'Deployment Strategies for Modern Web Apps in 2026',
+    excerpt: 'A practical 2026 guide to deploying web apps: edge vs serverless vs containers, GitHub Actions CI/CD, blue-green and canary releases, and safe rollbacks.',
     content: `
       <h2>Modern Deployment Strategies</h2>
       <p>Deployment strategies have evolved significantly with the rise of cloud platforms, containerization, and continuous integration/continuous deployment (CI/CD) practices.</p>
@@ -624,8 +624,8 @@ CMD ["node", "server.js"]</code></pre>
       </ul>
     `,
     author: 'Web On Dev Team',
-    date: '2023-12-10',
-    readTime: '21 min read',
+    date: '2026-06-14',
+    readTime: '9 min read',
     category: 'Deployment',
     tags: ['Deployment', 'Docker', 'CI/CD', 'DevOps', 'Cloud Computing'],
     featuredImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',

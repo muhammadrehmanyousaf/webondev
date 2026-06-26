@@ -6,6 +6,9 @@ import { Calendar, Clock, User, ArrowRight, BookOpen, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { blogData, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-data';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { loadBlogBody } from '@/lib/blog-content';
 
 export const revalidate = 86400;
 import BlogImage from '@/components/ui/BlogImage';
@@ -15,22 +18,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getBaseUrl } from '@/lib/site-config';
 
-// Import new blog components
+// Import blog components
 import BlogIntroduction from '@/components/pages/blog/BlogIntroduction';
-import BlogSection1 from '@/components/pages/blog/BlogSection1';
-import BlogSection2 from '@/components/pages/blog/BlogSection2';
-import BlogSection3 from '@/components/pages/blog/BlogSection3';
-import BlogSection4 from '@/components/pages/blog/BlogSection4';
-import BlogSection5 from '@/components/pages/blog/BlogSection5';
-import BlogSection6 from '@/components/pages/blog/BlogSection6';
-import BlogSection7 from '@/components/pages/blog/BlogSection7';
-import BlogSection8 from '@/components/pages/blog/BlogSection8';
-import BlogSection9 from '@/components/pages/blog/BlogSection9';
-import BlogSection10 from '@/components/pages/blog/BlogSection10';
 import BlogCTA from '@/components/pages/blog/BlogCTA';
-import BlogFAQ from '@/components/pages/blog/BlogFAQ';
-import BlogImportantLinks from '@/components/pages/blog/BlogImportantLinks';
-import BlogConclusion from '@/components/pages/blog/BlogConclusion';
 
 const siteUrl = getBaseUrl();
 
@@ -117,6 +107,7 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
   }
 
   const relatedPosts = getRelatedPosts(slug, 3);
+  const mdBody = loadBlogBody(slug);
   const canonicalUrl = `${siteUrl}/blog/${post.slug}/`;
   const imageUrl = post.featuredImage || post.image || `${siteUrl}/images/og-image.png`;
 
@@ -239,65 +230,29 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
         tags={post.tags}
       />
 
-      {/* Blog Section 1 - Introduction */}
-      <BlogSection1 />
+      {/* Article body — renders the refreshed Markdown (content/blog/<slug>.md)
+          when present, else the legacy HTML in blog-data.ts. */}
+      <section className="py-10 lg:py-14 bg-white w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          {mdBody ? (
+            <div className="article-prose max-w-4xl mx-auto">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{mdBody}</ReactMarkdown>
+            </div>
+          ) : (
+            <div
+              className="article-prose max-w-4xl mx-auto"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          )}
+        </div>
+      </section>
 
-      {/* Blog Section 2 - HTML5 & Semantic Markup */}
-      <BlogSection2 />
-
-      {/* CTA after 3 sections */}
-      <BlogCTA 
-        title="Ready to Build Your Next Web Project?"
-        description="Let's discuss how we can help you create a modern, high-performance website that drives results."
+      {/* Mid-article CTA */}
+      <BlogCTA
+        title="Need help building this for your business?"
+        description="Web On Dev designs, builds, and ships production software. Get a free consultation and a transparent quote."
         variant="primary"
       />
-
-             {/* Blog Section 3 - CSS3 & Modern Layouts */}
-       <BlogSection3 />
-
-       {/* Blog Section 4 - JavaScript ES2024 */}
-       <BlogSection4 />
-
-       {/* Blog Section 5 - React & Frontend Frameworks */}
-       <BlogSection5 />
-
-      {/* CTA after 6 sections */}
-      <BlogCTA 
-        title="Need Expert Web Development Services?"
-        description="Our team of experienced developers can help you build modern, scalable web applications."
-        variant="secondary"
-      />
-
-             {/* Blog Section 6 - Performance Optimization */}
-       <BlogSection6 />
-
-               {/* Blog Section 7 - SEO Best Practices */}
-        <BlogSection7 />
-        
-        {/* Blog Section 8 - Security */}
-        <BlogSection8 />
-        
-        {/* CTA after 9 sections */}
-        <BlogCTA 
-          title="Secure Your Web Application Today"
-          description="Implement comprehensive security measures to protect your users and maintain trust."
-          variant="primary"
-        />
-        
-        {/* Blog Section 9 - Testing */}
-        <BlogSection9 />
-        
-        {/* Blog Section 10 - Deployment */}
-        <BlogSection10 />
-
-      {/* FAQ Section */}
-      <BlogFAQ />
-
-      {/* Important Links Section */}
-      <BlogImportantLinks />
-
-      {/* Conclusion */}
-      <BlogConclusion />
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (

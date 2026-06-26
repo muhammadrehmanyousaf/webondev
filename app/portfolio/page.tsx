@@ -101,42 +101,9 @@ export default function PortfolioPage() {
             })
           }}
         />
-        {/* JSON-LD: Aggregate Rating */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Product',
-              name: 'Web On Dev Portfolio Services',
-              description: 'Professional software development services showcased through 500+ successful projects',
-              brand: { '@id': 'https://www.webondev.com/#organization' },
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.9',
-                reviewCount: '250',
-                bestRating: '5',
-                worstRating: '1'
-              },
-              review: [
-                {
-                  '@type': 'Review',
-                  author: { '@type': 'Person', name: 'John Smith' },
-                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
-                  reviewBody: 'Exceptional work on our e-commerce platform. Sales increased by 150% within 6 months.',
-                  datePublished: '2024-06-15'
-                },
-                {
-                  '@type': 'Review',
-                  author: { '@type': 'Person', name: 'Sarah Johnson' },
-                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
-                  reviewBody: 'The mobile app they built exceeded our expectations. Highly professional team.',
-                  datePublished: '2024-05-20'
-                }
-              ]
-            })
-          }}
-        />
+        {/* NOTE: Removed Product + AggregateRating + Review schema — it carried an
+            unverifiable 4.9/250 rating and fabricated reviews (Google spam-policy risk).
+            Re-add real Review/AggregateRating only from genuine, verifiable client reviews. */}
       </main>
       <Footer />
     </div>

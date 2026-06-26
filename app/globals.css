@@ -569,3 +569,54 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Guide / article prose (dark theme) — styles react-markdown output under /guides
+   ========================================================================== */
+.guide-prose { color: #cbd5e1; font-size: 1.0625rem; line-height: 1.75; }
+.guide-prose > :first-child { margin-top: 0; }
+.guide-prose h1 { color: #fff; font-size: 2rem; line-height: 1.15; font-weight: 800; margin: 0 0 1rem; letter-spacing: -0.01em; }
+.guide-prose h2 { color: #fff; font-size: 1.5rem; line-height: 1.2; font-weight: 700; margin: 2.25rem 0 0.9rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.guide-prose h3 { color: #e2e8f0; font-size: 1.2rem; font-weight: 700; margin: 1.6rem 0 0.6rem; }
+.guide-prose h4 { color: #e2e8f0; font-size: 1.05rem; font-weight: 700; margin: 1.3rem 0 0.5rem; }
+.guide-prose p { margin: 0 0 1.1rem; }
+.guide-prose strong { color: #f1f5f9; font-weight: 700; }
+.guide-prose a { color: #34d399; text-decoration: underline; text-underline-offset: 2px; }
+.guide-prose a:hover { color: #6ee7b7; }
+.guide-prose ul, .guide-prose ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+.guide-prose li { margin: 0.35rem 0; }
+.guide-prose ul li { list-style: disc; }
+.guide-prose ol li { list-style: decimal; }
+.guide-prose blockquote { border-left: 3px solid #10b981; margin: 1.2rem 0; padding: 0.25rem 0 0.25rem 1rem; color: #94a3b8; font-style: italic; }
+.guide-prose code { background: rgba(255,255,255,0.06); color: #e2e8f0; padding: 0.12em 0.4em; border-radius: 6px; font-size: 0.9em; }
+.guide-prose pre { background: #0b1220; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 1rem; overflow-x: auto; margin: 0 0 1.2rem; }
+.guide-prose pre code { background: none; padding: 0; }
+.guide-prose hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 2rem 0; }
+.guide-prose table { width: 100%; border-collapse: collapse; margin: 0 0 1.4rem; font-size: 0.95rem; display: block; overflow-x: auto; }
+.guide-prose th, .guide-prose td { border: 1px solid rgba(255,255,255,0.1); padding: 0.55rem 0.8rem; text-align: left; vertical-align: top; }
+.guide-prose th { background: rgba(255,255,255,0.04); color: #f1f5f9; font-weight: 700; }
+.guide-prose tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+
+/* Light-theme article prose — renders per-post blog HTML (app/blog/[slug]) */
+.article-prose { color: #334155; font-size: 1.0625rem; line-height: 1.8; }
+.article-prose > :first-child { margin-top: 0; }
+.article-prose h2 { color: #0f172a; font-size: 1.7rem; line-height: 1.2; font-weight: 800; margin: 2.25rem 0 1rem; }
+.article-prose h3 { color: #1e293b; font-size: 1.3rem; font-weight: 700; margin: 1.8rem 0 0.7rem; }
+.article-prose h4 { color: #1e293b; font-size: 1.1rem; font-weight: 700; margin: 1.4rem 0 0.5rem; }
+.article-prose p { margin: 0 0 1.2rem; }
+.article-prose strong { color: #0f172a; font-weight: 700; }
+.article-prose a { color: #2563eb; text-decoration: underline; text-underline-offset: 2px; }
+.article-prose a:hover { color: #1d4ed8; }
+.article-prose ul, .article-prose ol { margin: 0 0 1.2rem; padding-left: 1.5rem; }
+.article-prose li { margin: 0.4rem 0; }
+.article-prose ul li { list-style: disc; }
+.article-prose ol li { list-style: decimal; }
+.article-prose blockquote { border-left: 4px solid #2563eb; margin: 1.4rem 0; padding: 0.5rem 0 0.5rem 1.1rem; color: #475569; font-style: italic; }
+.article-prose code { background: #f1f5f9; color: #0f172a; padding: 0.12em 0.4em; border-radius: 6px; font-size: 0.9em; }
+.article-prose pre { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 1.1rem 1.25rem; overflow-x: auto; margin: 0 0 1.4rem; font-size: 0.9rem; line-height: 1.6; }
+.article-prose pre code { background: none; color: inherit; padding: 0; }
+.article-prose img { border-radius: 12px; margin: 1.4rem 0; max-width: 100%; height: auto; }
+.article-prose hr { border: none; border-top: 1px solid #e2e8f0; margin: 2rem 0; }
+.article-prose table { width: 100%; border-collapse: collapse; margin: 0 0 1.4rem; font-size: 0.95rem; display: block; overflow-x: auto; }
+.article-prose th, .article-prose td { border: 1px solid #e2e8f0; padding: 0.6rem 0.85rem; text-align: left; vertical-align: top; }
+.article-prose th { background: #f8fafc; color: #0f172a; font-weight: 700; }

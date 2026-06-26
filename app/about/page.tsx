@@ -17,12 +17,12 @@ export const metadata: Metadata = {
   description: 'Meet the team behind Web On Dev. 4.9★ rated software company with 500+ delivered projects, 250+ happy clients & experts in Next.js, React, Flutter. See why businesses worldwide trust us.',
   keywords: 'about software agency, software development company, web development team, mobile app developers, digital transformation experts',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/about/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/about/`,
   },
   openGraph: {
     title: 'About Web On Dev - 500+ Projects, 250+ Clients, 50+ Countries',
     description: 'Meet the team behind Web On Dev. 4.9★ rated software company with 500+ delivered projects & experts in Next.js, React, Flutter.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/about`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/about`,
     type: 'website',
   },
   twitter: {
@@ -99,24 +99,17 @@ export default function AboutPage() {
               foundingDate: '2015',
               description: 'Web On Dev is a premium digital transformation agency helping businesses achieve measurable growth through innovative software development.',
               slogan: 'Transforming Digital Vision Into Reality',
-              numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 50, maxValue: 100 },
+              // numberOfEmployees aligned to the canonical value in app/layout.tsx (11–50).
+              numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 11, maxValue: 50 },
               founder: [
-                { '@type': 'Person', name: 'Muhammad Rehman Yousaf', jobTitle: 'CEO & Founder' },
-                { '@type': 'Person', name: 'Daniyal Bahadur', jobTitle: 'CTO & Co-Founder' },
-                { '@type': 'Person', name: 'Waheed UI Islam', jobTitle: 'Technical Director' },
-                { '@type': 'Person', name: 'Ihtisham UL Haq', jobTitle: 'Operations Director' }
+                { '@type': 'Person', name: 'Muhammad Rehman Yousaf', jobTitle: 'Co-Founder' },
+                { '@type': 'Person', name: 'Daniyal Bahadur', jobTitle: 'Co-Founder' },
+                { '@type': 'Person', name: 'Waheed UI Islam', jobTitle: 'Co-Founder' },
+                { '@type': 'Person', name: 'Ihtisham UL Haq', jobTitle: 'Co-Founder' }
               ],
-              employee: [
-                { '@type': 'Person', name: 'Ahmad Raza', jobTitle: 'Lead Developer', url: `${siteUrl}/about/team/ahmad-raza/` },
-                { '@type': 'Person', name: 'Sarah Johnson', jobTitle: 'UI/UX Designer', url: `${siteUrl}/about/team/sarah-johnson/` },
-                { '@type': 'Person', name: 'Michael Chen', jobTitle: 'Mobile Developer', url: `${siteUrl}/about/team/michael-chen/` },
-                { '@type': 'Person', name: 'Emma Wilson', jobTitle: 'Project Manager', url: `${siteUrl}/about/team/emma-wilson/` }
-              ],
-              award: [
-                'Top Web Development Agency 2024 - Clutch',
-                'Best Software Development Company 2023 - GoodFirms',
-                'Excellence in Digital Innovation - DesignRush'
-              ],
+              // NOTE: removed fabricated `employee` list (Ahmad Raza / Sarah Johnson / Michael
+              // Chen / Emma Wilson) and the unverifiable `award` list (which referenced a
+              // different brand's directory profiles). Re-add only real, verifiable people/awards.
               knowsAbout: [
                 'Web Development', 'Mobile Development', 'UI/UX Design', 'Digital Marketing',
                 'SEO', 'Cloud Computing', 'DevOps', 'E-commerce', 'SaaS Development'
@@ -138,8 +131,7 @@ export default function AboutPage() {
                 { '@type': 'ListItem', position: 1, name: 'Company Founded', description: 'Web On Dev was established in 2015 with a vision to transform digital experiences.' },
                 { '@type': 'ListItem', position: 2, name: '100+ Projects', description: 'Reached the milestone of completing 100 successful projects for clients worldwide.' },
                 { '@type': 'ListItem', position: 3, name: 'Global Expansion', description: 'Expanded operations to serve clients in 50+ countries across 6 continents.' },
-                { '@type': 'ListItem', position: 4, name: '500+ Projects', description: 'Celebrated delivering 500+ successful projects with a 4.9/5 client satisfaction rating.' },
-                { '@type': 'ListItem', position: 5, name: 'Award Recognition', description: 'Recognized as Top Web Development Agency by Clutch and GoodFirms.' }
+                { '@type': 'ListItem', position: 4, name: 'Growing Portfolio', description: 'Delivered a growing portfolio of successful projects for clients worldwide.' }
               ]
             })
           }}

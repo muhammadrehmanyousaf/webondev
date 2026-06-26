@@ -19,7 +19,7 @@ export const shopifyDevelopmentData: ServiceData = {
       'Migration services',
       'Performance optimization'
     ],
-    badges: ['Shopify Partners', 'Plus Certified', 'Theme Experts', 'App Developers']
+    badges: ['Shopify', 'Liquid Themes', 'App Integration', 'Store Migration']
   },
 
   painPoints: [

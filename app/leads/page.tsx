@@ -4,7 +4,7 @@ import LeadsPageClient from '@/components/pages/LeadsPageClient';
 
 export const revalidate = 86400;
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com';
 
 export const metadata: Metadata = {
   title: 'Lead Management - Web On Dev | Customer Relationship Management',

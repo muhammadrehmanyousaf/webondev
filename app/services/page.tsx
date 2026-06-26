@@ -7,6 +7,8 @@ import ServicesGridSection from '@/components/pages/services/ServicesGridSection
 import ServiceProcessSection from '@/components/pages/services/ServiceProcessSection';
 import ServiceBenefitsSection from '@/components/pages/services/ServiceBenefitsSection';
 import CTASection from '@/components/sections/CTASection';
+import Link from 'next/link';
+import { GUIDES } from '@/lib/guides';
 
 export const revalidate = 86400;
 
@@ -15,16 +17,16 @@ export const metadata: Metadata = {
   description: 'Web development ($3K-$100K), mobile apps ($10K-$150K), UI/UX design ($2K-$25K), SEO & marketing ($500/mo). 500+ projects delivered. Get a free custom quote in 24 hours.',
   keywords: 'software development services, web development, mobile app development, UI/UX design, digital marketing, cloud services, consulting',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/services/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/services/`,
   },
   openGraph: {
     title: 'Services & Pricing - Web Development From $3K (Free Quote)',
     description: 'Web development, mobile apps, UI/UX design, SEO & marketing. 500+ projects delivered. Get a free custom quote in 24 hours.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/services/`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/services/`,
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/images/og?title=Our%20Services&subtitle=Web%20On%20Dev`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/api/images/og?title=Our%20Services&subtitle=Web%20On%20Dev`,
         width: 1200,
         height: 630,
         alt: 'Web On Dev Services & Pricing'
@@ -172,6 +174,33 @@ export default function ServicesPage() {
             })
           }}
         />
+        {/* Helpful Guides — internal links to flagship /guides content */}
+        <section className="py-16 bg-slate-950">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Helpful guides &amp; resources</h2>
+            <p className="text-gray-400 mb-8 max-w-3xl">
+              Research-backed guides on hiring developers, choosing frameworks, and what software projects really cost.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {GUIDES.slice(0, 6).map((g) => (
+                <Link
+                  key={g.slug}
+                  href={`/guides/${g.slug}/`}
+                  className="group block p-5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-brand-500/20 transition-colors"
+                >
+                  <p className="text-[11px] uppercase tracking-wider text-brand-400 font-semibold mb-1.5">{g.category}</p>
+                  <h3 className="font-semibold text-white group-hover:text-brand-400 transition-colors mb-1 leading-snug">{g.title}</h3>
+                  <p className="text-sm text-slate-500 line-clamp-2">{g.description}</p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-7">
+              <Link href="/guides" className="inline-flex items-center gap-2 text-brand-400 hover:text-brand-300 font-semibold text-sm">
+                View all guides →
+              </Link>
+            </div>
+          </div>
+        </section>
         <CTASection />
         {/* JSON-LD: Services CollectionPage */}
         <script
@@ -325,28 +354,7 @@ export default function ServicesPage() {
             })
           }}
         />
-        {/* JSON-LD: HowTo Schema for Getting Started */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'HowTo',
-              name: 'How to Get Started with Web On Dev Services',
-              description: 'Step-by-step guide to starting your software development project with Web On Dev',
-              totalTime: 'P7D',
-              estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '0' },
-              step: [
-                { '@type': 'HowToStep', position: 1, name: 'Free Consultation', text: 'Schedule a free 30-60 minute consultation to discuss your project requirements and goals.' },
-                { '@type': 'HowToStep', position: 2, name: 'Project Proposal', text: 'Receive a detailed proposal with scope, timeline, deliverables, and transparent pricing.' },
-                { '@type': 'HowToStep', position: 3, name: 'Design Phase', text: 'Our UI/UX team creates wireframes, prototypes, and visual designs for your approval.' },
-                { '@type': 'HowToStep', position: 4, name: 'Development Sprint', text: 'Agile development with regular updates, demos, and feedback integration.' },
-                { '@type': 'HowToStep', position: 5, name: 'Testing & QA', text: 'Comprehensive testing including unit tests, integration tests, and user acceptance testing.' },
-                { '@type': 'HowToStep', position: 6, name: 'Launch & Support', text: 'Production deployment with ongoing maintenance, monitoring, and support.' }
-              ]
-            })
-          }}
-        />
+        {/* NOTE: HowTo schema removed — Google deprecated HowTo rich results (Sep 2023). */}
       </main>
       <Footer />
     </div>

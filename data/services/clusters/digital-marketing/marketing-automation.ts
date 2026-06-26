@@ -16,7 +16,7 @@ export const marketingAutomationData: ServiceData = {
       'Lead Scoring & Nurturing',
       'CRM Integration'
     ],
-    badges: ['200+ Implementations', '451% Avg Lead Increase', 'Certified Partners']
+    badges: ['HubSpot', 'Mailchimp', 'CRM Integration', 'Workflow Automation']
   },
   painPoints: [
     {

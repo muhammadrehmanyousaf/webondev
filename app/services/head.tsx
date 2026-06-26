@@ -1,5 +1,5 @@
 export default function Head() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com';
   return (
     <>
       <link rel="alternate" type="application/rss+xml" href={`${siteUrl}/feeds/services?format=rss`} />

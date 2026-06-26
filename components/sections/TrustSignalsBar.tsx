@@ -81,7 +81,7 @@ const TrustSignalsBar = () => {
             { value: '200+', label: 'Projects delivered', accent: 'text-brand-400' },
             { value: '50+', label: 'Countries served', accent: 'text-teal-400' },
             { value: '99.9%', label: 'Uptime guarantee', accent: 'text-cyan-400' },
-            { value: '4.9/5', label: 'Client satisfaction', accent: 'text-brand-400' },
+            { value: '10+ yrs', label: 'Experience', accent: 'text-brand-400' },
           ].map((metric, i) => (
             <div
               key={metric.label}

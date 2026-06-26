@@ -15,7 +15,7 @@ export const apiDevelopmentData: ServiceData = {
       'API Security',
       'Documentation'
     ],
-    badges: ['OpenAPI Certified', '99.99% Uptime', '500+ APIs Built']
+    badges: ['REST', 'GraphQL', 'OpenAPI', 'Webhooks']
   },
   painPoints: [
     {

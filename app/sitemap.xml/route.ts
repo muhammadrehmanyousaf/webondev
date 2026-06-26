@@ -2,8 +2,50 @@ import { NextResponse } from 'next/server';
 import { siteStructure } from '@/lib/site-structure';
 import { blogData } from '@/lib/blog-data';
 import { getAllProjectSlugs } from '@/lib/portfolio-data';
+import { GUIDES } from '@/lib/guides';
+import { products } from '@/lib/products-data';
 
 const BASE_URL = 'https://www.webondev.com';
+
+// Standalone pillar slugs that 301-redirect to a primary pillar (see next.config.js).
+// They must NOT appear in the sitemap — a sitemap should list only canonical 200 URLs,
+// never redirect sources. Their child clusters are excluded with them.
+const REDIRECTED_SLUGS = new Set([
+  // Group A — explicit redirects (next.config.js)
+  'react-development',
+  'nextjs-development',
+  'custom-software-development',
+  'custom-web-development',
+  'payment-gateway-integration',
+  'prototyping',
+  'shopify-development',
+  'api-development',
+  'wordpress-development',
+  'progressive-web-apps',
+  // Group B — duplicate flat pillars now 301'd to their canonical parent
+  'cloud-solutions',
+  'brand-identity-design',
+  'inventory-management',
+  'mobile-app-design',
+  'social-media-marketing',
+  'android-app-development',
+  'woocommerce-development',
+  'search-engine-optimization',
+  'web-design',
+  'mobile-app-maintenance',
+  'database-design',
+  'e-commerce-development',
+  'ios-app-development',
+  'content-marketing',
+  'it-consulting',
+  'custom-e-commerce-platforms',
+  'pay-per-click-advertising',
+  'local-seo',
+  'email-marketing',
+  'uiux-design',
+  'react-native-development',
+  'devops-services',
+]);
 
 // ============================================================================
 // SITEMAP — real, canonical pages only.
@@ -31,12 +73,25 @@ export async function GET() {
   add('/cookies/', 'yearly', 0.3);
   add('/data-deletion/', 'yearly', 0.3);
 
-  // Service pillar + cluster pages
+  // Service pillar + cluster pages (skip redirect-source pillars)
   for (const pillar of siteStructure) {
+    if (REDIRECTED_SLUGS.has(pillar.slug)) continue;
     add(`/${pillar.slug}/`, 'monthly', 0.8);
     for (const cluster of pillar.clusters || []) {
       add(`/${pillar.slug}/${cluster.slug}/`, 'monthly', 0.7);
     }
+  }
+
+  // Products (built by Web On Dev)
+  add('/products/', 'monthly', 0.8);
+  for (const p of products) {
+    add(`/products/${p.slug}/`, 'monthly', 0.8);
+  }
+
+  // Guides (researched flagship content)
+  add('/guides/', 'weekly', 0.8);
+  for (const g of GUIDES) {
+    add(`/guides/${g.slug}/`, 'monthly', 0.8);
   }
 
   // Blog posts

@@ -56,7 +56,9 @@ const services = [
 
 const company = [
   { name: 'About Us', href: '/about' },
+  { name: 'Products', href: '/products' },
   { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Guides', href: '/guides' },
   { name: 'Blog', href: '/blog' },
   { name: 'Careers', href: '/careers' },
   { name: 'Contact', href: '/contact' },
@@ -139,32 +141,16 @@ const Footer = () => {
     }
   };
 
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': 'https://www.webondev.com/#organization',
-    name: 'Web On Dev',
-    url: 'https://www.webondev.com',
-    logo: 'https://www.webondev.com/images/branding/logo.png',
-    description: companyInfo.description,
-    foundingDate: '2020',
-    address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' },
-    contactPoint: [
-      { '@type': 'ContactPoint', telephone: '+92-310-6803687', contactType: 'sales' },
-      { '@type': 'ContactPoint', email: 'webondev786@gmail.com', contactType: 'customer service' },
-    ],
-    sameAs: socialLinks.map(s => s.href),
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '250', bestRating: '5' },
-  };
+  // NOTE: Duplicate Organization JSON-LD removed from the footer. It shared the same
+  // @id as the canonical Organization in app/layout.tsx but conflicted on foundingDate
+  // (2020 vs 2015) and carried an unverifiable aggregateRating. The @graph in
+  // app/layout.tsx is now the single source of truth for the Organization entity.
 
   return (
     <>
       <footer
         className="relative bg-[#030712] text-white overflow-hidden"
-        itemScope
-        itemType="https://schema.org/Organization"
       >
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
 
         {/* ================================================================= */}
         {/* CTA BANNER */}

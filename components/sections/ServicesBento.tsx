@@ -78,7 +78,7 @@ const services = [
   {
     id: 'ui-ux',
     title: 'UI/UX Design',
-    description: 'Award-winning designs that elevate user experience.',
+    description: 'Polished, user-first designs that elevate the experience.',
     icon: Palette,
     href: '/ui-ux-design',
     features: ['UI Design', 'UX Research', 'Prototyping'],

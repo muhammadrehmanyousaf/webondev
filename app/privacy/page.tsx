@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   description: 'Learn how Web On Dev protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
   keywords: 'privacy policy, data protection, GDPR, personal data, privacy rights, Facebook login, Google login, social media login',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/privacy/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/privacy/`,
   },
   openGraph: {
     title: 'Privacy Policy - Web On Dev | Data Protection & Privacy',
     description: 'Learn how Web On Dev protects your privacy and handles your personal data. Our comprehensive privacy policy explains our data practices.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/privacy`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/privacy`,
     type: 'website',
   },
   twitter: {
