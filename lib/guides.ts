@@ -205,3 +205,12 @@ export function loadGuide(slug: string): LoadedGuide | null {
 export function getAllGuideSlugs(): string[] {
   return GUIDES.map((g) => g.slug);
 }
+
+// Related guides: prefer same category, then fill with others, excluding self.
+export function getRelatedGuides(slug: string, limit = 3): GuideMeta[] {
+  const current = getGuideMeta(slug);
+  if (!current) return GUIDES.slice(0, limit);
+  const sameCat = GUIDES.filter((g) => g.slug !== slug && g.category === current.category);
+  const others = GUIDES.filter((g) => g.slug !== slug && g.category !== current.category);
+  return [...sameCat, ...others].slice(0, limit);
+}

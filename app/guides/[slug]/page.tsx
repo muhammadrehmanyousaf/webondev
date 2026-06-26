@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getBaseUrl } from '@/lib/site-config';
-import { getAllGuideSlugs, getGuideMeta, loadGuide } from '@/lib/guides';
+import { getAllGuideSlugs, getGuideMeta, getRelatedGuides, loadGuide } from '@/lib/guides';
 
 export const revalidate = 86400;
 
@@ -59,6 +59,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
 
   const siteUrl = getBaseUrl();
   const canonical = `${siteUrl}/guides/${guide.slug}/`;
+  const related = getRelatedGuides(guide.slug, 3);
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -120,6 +121,24 @@ export default async function GuidePage({ params }: GuidePageProps) {
             Get a Free Consultation
           </Link>
         </div>
+
+        {related.length > 0 && (
+          <section className="mt-14 pt-10 border-t border-white/[0.08]">
+            <h2 className="text-lg font-bold text-white mb-5">Related guides</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/guides/${r.slug}/`}
+                  className="group block rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 hover:border-brand-500/30 transition-colors"
+                >
+                  <p className="text-[11px] uppercase tracking-wider text-brand-400 font-semibold mb-1.5">{r.category}</p>
+                  <h3 className="text-sm font-semibold text-slate-200 group-hover:text-brand-400 transition-colors leading-snug">{r.title}</h3>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />

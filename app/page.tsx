@@ -9,7 +9,7 @@ const siteUrl = getBaseUrl();
 
 export const metadata: Metadata = {
   title: 'Web On Dev - Custom Software Development Company (500+ Projects)',
-  description: 'Rated 4.9★ by 250+ clients. We build websites, mobile apps & custom software starting from $3,000. Next.js, React, Flutter experts. 50+ countries served. Book your free consultation now.',
+  description: 'Web On Dev builds websites, mobile apps & custom software starting from $3,000. Next.js, React & Flutter experts based in Lahore, serving clients worldwide. Book your free consultation now.',
   keywords: [
     'software development company',
     'web development agency',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Web On Dev - Custom Software Development Company (500+ Projects)',
-    description: 'Rated 4.9★ by 250+ clients. We build websites, mobile apps & custom software starting from $3,000. Book your free consultation now.',
+    description: 'Web On Dev builds websites, mobile apps & custom software starting from $3,000. Next.js, React & Flutter experts serving clients worldwide. Book your free consultation now.',
     url: `${siteUrl}/`,
     type: 'website',
     siteName: 'Web On Dev',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Web On Dev - Custom Software Development Company (500+ Projects)',
-    description: 'Rated 4.9★ by 250+ clients. Custom websites, mobile apps & software starting from $3,000. Free consultation available.',
+    description: 'Custom websites, mobile apps & software starting from $3,000. Next.js, React & Flutter experts serving clients worldwide. Free consultation available.',
     creator: '@webondev',
     site: '@webondev',
     images: [`${siteUrl}/images/og-image.png`],
@@ -76,7 +76,7 @@ const homePageSchema = {
   '@id': `${siteUrl}/#webpage`,
   url: siteUrl,
   name: 'Web On Dev - Professional Software Development & Digital Solutions',
-  description: 'Transform your digital vision into reality with Web On Dev. Award-winning software development company.',
+  description: 'Transform your digital vision into reality with Web On Dev, a software development company building web, mobile, and custom software since 2015.',
   isPartOf: { '@id': `${siteUrl}/#website` },
   about: { '@id': `${siteUrl}/#organization` },
   inLanguage: 'en-US',
@@ -101,7 +101,7 @@ const homeFAQSchema = {
       name: 'What is Web On Dev?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Web On Dev is a professional software development company founded in 2015, headquartered in Lahore, Pakistan. We specialize in web development, mobile app development, UI/UX design, digital marketing, and custom software solutions for businesses worldwide. With 500+ completed projects and a 4.9/5 rating, we serve clients across 50+ countries.',
+        text: 'Web On Dev is a professional software development company founded in 2015, headquartered in Lahore, Pakistan. We specialize in web development, mobile app development, UI/UX design, digital marketing, and custom software solutions for businesses worldwide, building with Next.js, React, React Native, and Flutter.',
       },
     },
     {
@@ -125,7 +125,7 @@ const homeFAQSchema = {
       name: 'Does Web On Dev work with international clients?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes, Web On Dev serves clients in 50+ countries worldwide including the United States, United Kingdom, Canada, Australia, Germany, UAE, and India. We work across all time zones and offer 24/7 support for international clients. 70% of our clients are from North America and Europe.',
+        text: 'Yes, Web On Dev works with international clients including those in the United States, United Kingdom, Canada, Australia, Germany, the UAE, and India. We work across time zones and our Lahore base gives convenient overlap with US, UK, and UAE business hours.',
       },
     },
     {
@@ -179,24 +179,9 @@ const homeFAQSchema = {
   ],
 };
 
-// Video Schema for Testimonials
-const videoSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'VideoObject',
-  name: 'Web On Dev - Client Success Stories',
-  description: 'Hear from our satisfied clients about their experience working with Web On Dev on web development, mobile app, and digital marketing projects.',
-  thumbnailUrl: `${siteUrl}/images/video-thumbnail.jpg`,
-  uploadDate: '2024-01-15',
-  duration: 'PT5M30S',
-  contentUrl: 'https://www.youtube.com/@webondev',
-  embedUrl: 'https://www.youtube.com/embed/webondev',
-  publisher: {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-    name: 'Web On Dev',
-  },
-};
-
+// NOTE: Removed fabricated VideoObject schema — it described a testimonial video
+// that does not exist (placeholder thumbnail + invalid embed URL), which is a
+// Google rich-result spam risk. Re-add only with a real, published video.
 
 export default function HomePage() {
   return (
@@ -210,10 +195,6 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFAQSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
       />
     </>
   );
