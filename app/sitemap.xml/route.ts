@@ -3,6 +3,7 @@ import { siteStructure } from '@/lib/site-structure';
 import { blogData } from '@/lib/blog-data';
 import { getAllProjectSlugs } from '@/lib/portfolio-data';
 import { GUIDES } from '@/lib/guides';
+import { products } from '@/lib/products-data';
 
 const BASE_URL = 'https://www.webondev.com';
 
@@ -79,6 +80,12 @@ export async function GET() {
     for (const cluster of pillar.clusters || []) {
       add(`/${pillar.slug}/${cluster.slug}/`, 'monthly', 0.7);
     }
+  }
+
+  // Products (built by Web On Dev)
+  add('/products/', 'monthly', 0.8);
+  for (const p of products) {
+    add(`/products/${p.slug}/`, 'monthly', 0.8);
   }
 
   // Guides (researched flagship content)
