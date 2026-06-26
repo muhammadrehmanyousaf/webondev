@@ -8,6 +8,7 @@ import TrustSignalsBar from '@/components/sections/TrustSignalsBar';
 import ServicesBento from '@/components/sections/ServicesBento';
 import AboutSection from '@/components/sections/AboutSection';
 import PortfolioSection from '@/components/sections/PortfolioSection';
+import ProductsShowcase from '@/components/sections/ProductsShowcase';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import StatsSection from '@/components/sections/StatsSection';
 import CTASection from '@/components/sections/CTASection';
@@ -31,6 +32,7 @@ export default function HomePageClient() {
           <AboutSection />
           <StatsSection />
           <PortfolioSection />
+          <ProductsShowcase />
           <TestimonialsSection />
           <BlogSection />
           <FAQSection showSchema={false} />
