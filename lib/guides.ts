@@ -157,6 +157,66 @@ export const GUIDES: GuideMeta[] = [
     readTime: '13 min read',
     keywords: ['how to build a saas', 'how to build a saas application', 'saas development guide', 'saas development process'],
   },
+  {
+    slug: 'hire-react-native-developers',
+    title: 'Hire React Native Developers',
+    description:
+      'Hire dedicated React Native developers from Web On Dev — one codebase for iOS & Android, New Architecture and performance expertise. Transparent rates and models.',
+    category: 'Hire Developers',
+    date: '2026-06-24',
+    readTime: '9 min read',
+    keywords: ['hire React Native developers', 'hire dedicated React Native developers', 'React Native app development team'],
+  },
+  {
+    slug: 'web-application-development-cost',
+    title: 'Web Application Development Cost (2026)',
+    description:
+      'How much does a web application cost in 2026? Cost by complexity, the drivers unique to web apps, an itemized SaaS-dashboard example, and ways to save.',
+    category: 'Guide',
+    date: '2026-06-24',
+    readTime: '12 min read',
+    keywords: ['web application development cost', 'how much does a web app cost', 'custom web app development cost'],
+  },
+  {
+    slug: 'wordpress-vs-custom-website',
+    title: 'WordPress vs Custom Website: Which to Choose',
+    description:
+      'WordPress vs a custom website compared: cost, time to launch, customization, performance, security, SEO and ownership — with a decision framework.',
+    category: 'Comparison',
+    date: '2026-06-24',
+    readTime: '12 min read',
+    keywords: ['WordPress vs custom website', 'custom website vs WordPress', 'WordPress vs custom development'],
+  },
+  {
+    slug: 'how-to-choose-a-tech-stack',
+    title: 'How to Choose a Tech Stack for Your Project',
+    description:
+      'How to choose a tech stack: the factors that should drive the decision, popular stacks compared, mobile choices, and a decision framework by scenario.',
+    category: 'Guide',
+    date: '2026-06-24',
+    readTime: '12 min read',
+    keywords: ['how to choose a tech stack', 'how to choose a technology stack for a startup', 'best tech stack for a web app'],
+  },
+  {
+    slug: 'ecommerce-website-development-cost',
+    title: 'eCommerce Website Development Cost (2026)',
+    description:
+      'How much does an eCommerce website cost in 2026? Cost by platform (Shopify, WooCommerce, custom), build vs running costs, an itemized example, and savings.',
+    category: 'Guide',
+    date: '2026-06-24',
+    readTime: '12 min read',
+    keywords: ['ecommerce website development cost', 'how much does an ecommerce website cost', 'online store development cost'],
+  },
+  {
+    slug: 'offshore-software-development',
+    title: 'Offshore Software Development: A Practical Guide',
+    description:
+      'Offshore software development explained: benefits, risks and how to mitigate them, top destinations compared, how to choose a partner, and realistic costs.',
+    category: 'Guide',
+    date: '2026-06-24',
+    readTime: '14 min read',
+    keywords: ['offshore software development', 'offshore development services', 'offshore software development company'],
+  },
 ];
 
 const GUIDES_DIR = path.join(process.cwd(), 'content', 'guides');
