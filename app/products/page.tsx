@@ -71,7 +71,14 @@ export default function ProductsPage() {
                 />
               </div>
               <div className="p-7">
-              <p className="text-[11px] uppercase tracking-wider text-brand-400 font-semibold mb-2">{p.category}</p>
+              <div className="mb-2 flex flex-wrap items-center gap-2">
+                {p.comingSoon && (
+                  <span className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${p.theme.pill}`}>
+                    <span className={`h-1.5 w-1.5 rounded-full ${p.theme.dot}`} /> Coming soon
+                  </span>
+                )}
+                <p className={`text-[11px] uppercase tracking-wider font-semibold ${p.theme.eyebrow}`}>{p.category}</p>
+              </div>
               <h2 className="text-xl font-bold text-white mb-1 group-hover:text-brand-400 transition-colors">{p.name}</h2>
               <p className="text-sm text-slate-300 mb-3">{p.tagline}</p>
               <p className="text-sm text-slate-400 line-clamp-3 mb-4">{p.heroDescription}</p>

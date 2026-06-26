@@ -24,6 +24,17 @@ export interface Product {
   liveUrl: string;
   liveLabel: string; // e.g. "weddingwala.pk"
   screenshot: string; // real screenshot of the live product (1440x900)
+  comingSoon: boolean;
+  // Product-specific accent (drawn from each product's own world), used for the
+  // homepage banners, badges, and glows so each product keeps its own personality
+  // inside the shared dark brand canvas.
+  theme: {
+    eyebrow: string; // tailwind text color for the category eyebrow
+    dot: string; // tailwind bg for the status pulse dot
+    pill: string; // tailwind classes for the "Coming soon" pill
+    glow: string; // CSS color for the radial accent glow
+    barText: string; // tailwind text color for the top-bar link
+  };
   category: string; // short label e.g. "Wedding Marketplace"
   appCategory: string; // schema applicationCategory
   heroDescription: string;
@@ -47,6 +58,14 @@ export const products: Product[] = [
     liveUrl: 'https://schedura.ai',
     liveLabel: 'schedura.ai',
     screenshot: '/images/products/schedura.jpg',
+    comingSoon: true,
+    theme: {
+      eyebrow: 'text-indigo-300',
+      dot: 'bg-indigo-400',
+      pill: 'bg-indigo-500/15 text-indigo-200 border-indigo-400/30',
+      glow: 'rgba(99,102,241,0.20)',
+      barText: 'text-indigo-200 hover:text-indigo-100',
+    },
     category: 'AI Social Media SaaS',
     appCategory: 'BusinessApplication',
     heroDescription:
@@ -114,6 +133,14 @@ export const products: Product[] = [
     liveUrl: 'https://weddingwala.pk',
     liveLabel: 'weddingwala.pk',
     screenshot: '/images/products/wedding-wala.jpg',
+    comingSoon: true,
+    theme: {
+      eyebrow: 'text-rose-300',
+      dot: 'bg-rose-400',
+      pill: 'bg-rose-500/15 text-rose-200 border-rose-400/30',
+      glow: 'rgba(244,63,94,0.18)',
+      barText: 'text-rose-200 hover:text-rose-100',
+    },
     category: 'Wedding Vendor Marketplace',
     appCategory: 'BusinessApplication',
     heroDescription:
