@@ -217,6 +217,66 @@ export const GUIDES: GuideMeta[] = [
     readTime: '14 min read',
     keywords: ['offshore software development', 'offshore development services', 'offshore software development company'],
   },
+  {
+    slug: 'hire-shopify-developers',
+    title: 'Hire Shopify Developers',
+    description:
+      'Hire dedicated Shopify developers from Web On Dev — Liquid themes, custom apps, Shopify Plus, and headless Shopify with Next.js. Transparent models and rates.',
+    category: 'Hire Developers',
+    date: '2026-06-24',
+    readTime: '9 min read',
+    keywords: ['hire Shopify developers', 'hire dedicated Shopify developers', 'Shopify expert for hire'],
+  },
+  {
+    slug: 'vue-vs-react',
+    title: 'Vue vs React: Which to Choose in 2026',
+    description:
+      'Vue vs React compared for 2026: learning curve, ecosystem (Next.js vs Nuxt), performance, TypeScript, hiring and scalability — with a decision framework.',
+    category: 'Comparison',
+    date: '2026-06-24',
+    readTime: '13 min read',
+    keywords: ['Vue vs React', 'React vs Vue 2026', 'which is better Vue or React'],
+  },
+  {
+    slug: 'how-long-to-build-an-app',
+    title: 'How Long Does It Take to Build an App?',
+    description:
+      'How long does it take to build an app? Timelines by complexity and phase, what speeds it up or slows it down, an example MVP schedule, and how to ship faster.',
+    category: 'Guide',
+    date: '2026-06-24',
+    readTime: '10 min read',
+    keywords: ['how long does it take to build an app', 'app development timeline', 'how long to develop a mobile app'],
+  },
+  {
+    slug: 'custom-software-vs-off-the-shelf',
+    title: 'Custom Software vs Off-the-Shelf: Build or Buy?',
+    description:
+      'Custom software vs off-the-shelf compared: cost and TCO, time to value, fit, ownership, security — with a build-vs-buy decision framework and hybrid options.',
+    category: 'Comparison',
+    date: '2026-06-24',
+    readTime: '11 min read',
+    keywords: ['custom software vs off-the-shelf', 'build vs buy software', 'bespoke vs packaged software'],
+  },
+  {
+    slug: 'headless-cms-guide',
+    title: 'What Is a Headless CMS? (2026 Guide)',
+    description:
+      'What is a headless CMS? How it differs from traditional CMS, the benefits and drawbacks, popular options compared, and how it pairs with Next.js frontends.',
+    category: 'Guide',
+    date: '2026-06-24',
+    readTime: '12 min read',
+    keywords: ['headless cms', 'what is a headless cms', 'headless cms vs traditional cms', 'best headless cms'],
+  },
+  {
+    slug: 'pwa-vs-native-app',
+    title: 'PWA vs Native App: Which to Build in 2026',
+    description:
+      'PWA vs native app compared: cost, reach, performance, device access, offline, push (incl. iOS limits) and SEO — with a decision framework for choosing.',
+    category: 'Comparison',
+    date: '2026-06-24',
+    readTime: '12 min read',
+    keywords: ['PWA vs native app', 'progressive web app vs native app', 'should I build a PWA or native app'],
+  },
 ];
 
 const GUIDES_DIR = path.join(process.cwd(), 'content', 'guides');
