@@ -62,7 +62,7 @@ const MegaMenu = ({ isOpen, services, onClose }: { isOpen: boolean; services: an
           transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="max-w-7xl mx-auto px-4">
-            <div className="bg-slate-900/98 backdrop-blur-xl rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.5)] overflow-hidden">
+            <div className="bg-slate-900 backdrop-blur-xl rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.5)] overflow-hidden">
               {/* Top gradient line */}
               <div className="h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent" />
               <div className="p-8">
@@ -162,7 +162,7 @@ const SearchModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
         <>
           <motion.div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} />
           <motion.div className="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-xl z-50 px-4" initial={{ opacity: 0, y: -20, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -20, scale: 0.96 }} transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}>
-            <div className="bg-slate-900/98 backdrop-blur-xl rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.5)] overflow-hidden">
+            <div className="bg-slate-900 backdrop-blur-xl rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.5)] overflow-hidden">
               <div className="h-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent" />
               <div className="flex items-center gap-3 p-5 border-b border-white/[0.06]">
                 <Search className="w-5 h-5 text-brand-400" />
@@ -354,7 +354,7 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="lg:hidden overflow-hidden border-t border-white/[0.06] bg-slate-950/98 backdrop-blur-xl"
+              className="lg:hidden overflow-hidden border-t border-white/[0.06] bg-slate-950 backdrop-blur-xl"
             >
               <div className="p-5 space-y-1">
                 {navItems.map((item) => (
