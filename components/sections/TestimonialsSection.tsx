@@ -193,9 +193,9 @@ const TestimonialsSection = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           {[
-            { value: '99%', label: 'Satisfaction' },
-            { value: '4.9/5', label: 'Avg. Rating' },
-            { value: '200+', label: 'Reviews' },
+            { value: '200+', label: 'Projects' },
+            { value: '50+', label: 'Countries' },
+            { value: '10+ yrs', label: 'Experience' },
           ].map((stat, i) => (
             <div
               key={stat.label}
