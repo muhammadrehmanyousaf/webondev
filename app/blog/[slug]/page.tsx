@@ -6,6 +6,9 @@ import { Calendar, Clock, User, ArrowRight, BookOpen, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { blogData, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-data';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { loadBlogBody } from '@/lib/blog-content';
 
 export const revalidate = 86400;
 import BlogImage from '@/components/ui/BlogImage';
@@ -104,6 +107,7 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
   }
 
   const relatedPosts = getRelatedPosts(slug, 3);
+  const mdBody = loadBlogBody(slug);
   const canonicalUrl = `${siteUrl}/blog/${post.slug}/`;
   const imageUrl = post.featuredImage || post.image || `${siteUrl}/images/og-image.png`;
 
@@ -226,14 +230,20 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
         tags={post.tags}
       />
 
-      {/* Article body — renders the post's OWN content (previously ignored in
-          favor of hardcoded sections, which made every post identical). */}
+      {/* Article body — renders the refreshed Markdown (content/blog/<slug>.md)
+          when present, else the legacy HTML in blog-data.ts. */}
       <section className="py-10 lg:py-14 bg-white w-full">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div
-            className="article-prose max-w-4xl mx-auto"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          {mdBody ? (
+            <div className="article-prose max-w-4xl mx-auto">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{mdBody}</ReactMarkdown>
+            </div>
+          ) : (
+            <div
+              className="article-prose max-w-4xl mx-auto"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          )}
         </div>
       </section>
 
