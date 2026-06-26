@@ -12,7 +12,43 @@ const nextConfig = {
   trailingSlash: true,
 
   async redirects() {
+    // Duplicate "flat" pillar slugs that re-cover a topic already owned by a
+    // canonical nested pillar. Each 301-redirects (slug + all children) to its
+    // canonical parent to kill keyword cannibalization. (10 more are listed
+    // explicitly below; these are the remaining 22.)
+    const duplicatePillars = {
+      'cloud-solutions': '/cloud-devops/',
+      'brand-identity-design': '/ui-ux-design/',
+      'inventory-management': '/ecommerce-solutions/',
+      'mobile-app-design': '/ui-ux-design/',
+      'social-media-marketing': '/digital-marketing/',
+      'android-app-development': '/mobile-development/',
+      'woocommerce-development': '/ecommerce-solutions/',
+      'search-engine-optimization': '/digital-marketing/',
+      'web-design': '/ui-ux-design/',
+      'mobile-app-maintenance': '/maintenance-support/',
+      'database-design': '/software-development/',
+      'e-commerce-development': '/ecommerce-solutions/',
+      'ios-app-development': '/mobile-development/',
+      'content-marketing': '/digital-marketing/',
+      'it-consulting': '/consulting-strategy/',
+      'custom-e-commerce-platforms': '/ecommerce-solutions/',
+      'pay-per-click-advertising': '/digital-marketing/',
+      'local-seo': '/digital-marketing/',
+      'email-marketing': '/digital-marketing/',
+      'uiux-design': '/ui-ux-design/',
+      'react-native-development': '/mobile-development/',
+      'devops-services': '/cloud-devops/',
+    };
+    const duplicatePillarRedirects = Object.entries(duplicatePillars).flatMap(
+      ([from, to]) => [
+        { source: `/${from}`, destination: to, statusCode: 301 },
+        { source: `/${from}/:slug*`, destination: to, statusCode: 301 },
+      ]
+    );
+
     return [
+      ...duplicatePillarRedirects,
       // Ensure non-trailing-slash blog URLs redirect permanently (not 307)
       {
         source: '/blog/complete-guide-web-development-2024',
@@ -149,6 +185,25 @@ const nextConfig = {
           { key: 'X-XSS-Protection', value: '1; mode=block' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          // Content-Security-Policy: allowlists the third parties the site actually uses
+          // (Google Analytics/Tag Manager, Microsoft Clarity, Google Fonts, Pexels/Unsplash
+          // images). 'unsafe-inline'/'unsafe-eval' are required by Next.js hydration + GA/Clarity
+          // inline snippets. Tighten to nonces later if the inline scripts are refactored.
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com data:",
+              "img-src 'self' data: blob: https://images.pexels.com https://images.unsplash.com https://www.google-analytics.com https://www.clarity.ms https://c.clarity.ms",
+              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms",
+              "frame-ancestors 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+            ].join('; '),
+          },
         ],
       },
       {

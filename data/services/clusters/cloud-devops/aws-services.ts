@@ -20,7 +20,7 @@ export const awsServicesData: ServiceData = {
       'Managed AWS services',
       '24/7 AWS support'
     ],
-    badges: ['AWS Advanced Partner', 'AWS Certified Team', 'Well-Architected Partner', '100+ AWS Projects']
+    badges: ['EC2', 'S3', 'Lambda', 'RDS']
   },
 
   painPoints: [

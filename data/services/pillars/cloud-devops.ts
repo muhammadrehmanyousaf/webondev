@@ -22,7 +22,7 @@ export const cloudDevopsData: ServiceData = {
       '24/7 Monitoring & Support',
       'Cost Optimization'
     ],
-    badges: ['AWS Advanced Partner', 'Azure Expert MSP', 'Google Cloud Partner', 'CNCF Member']
+    badges: ['AWS', 'Azure', 'Google Cloud', 'Kubernetes']
   },
 
   painPoints: [

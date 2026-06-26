@@ -102,21 +102,14 @@ async function postBuildIndex() {
       }
     }
 
-    // ── Step 2: Google Sitemap Ping ──
-    console.log('\n--- Google Sitemap Ping ---');
-    try {
-      const pingUrl = `https://www.google.com/ping?sitemap=${encodeURIComponent(`${SITE_URL}/sitemap.xml`)}`;
-      const pingRes = await fetch(pingUrl);
-      console.log(`  Google Ping: ${pingRes.status} ${pingRes.ok ? 'OK' : 'FAILED'}`);
-    } catch (error) {
-      console.log('  Google Ping: Network error');
-    }
+    // NOTE: Google's sitemap-ping endpoint (google.com/ping?sitemap=) was retired by
+    // Google in 2023 and now returns 404. Removed — Google discovers sitemap changes
+    // via Search Console + the <sitemap> directive in robots.txt instead.
 
     console.log('\n========================================');
     console.log('   AUTO-INDEXING COMPLETE');
     console.log(`   ${allUrls.length} URLs submitted to IndexNow`);
     console.log(`   ${totalSuccess} successful IndexNow requests`);
-    console.log('   Google sitemap ping sent');
     console.log('========================================\n');
   } catch (error) {
     console.log('Auto-indexing failed:', error.message);

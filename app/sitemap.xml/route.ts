@@ -9,6 +9,7 @@ const BASE_URL = 'https://www.webondev.com';
 // They must NOT appear in the sitemap — a sitemap should list only canonical 200 URLs,
 // never redirect sources. Their child clusters are excluded with them.
 const REDIRECTED_SLUGS = new Set([
+  // Group A — explicit redirects (next.config.js)
   'react-development',
   'nextjs-development',
   'custom-software-development',
@@ -19,6 +20,29 @@ const REDIRECTED_SLUGS = new Set([
   'api-development',
   'wordpress-development',
   'progressive-web-apps',
+  // Group B — duplicate flat pillars now 301'd to their canonical parent
+  'cloud-solutions',
+  'brand-identity-design',
+  'inventory-management',
+  'mobile-app-design',
+  'social-media-marketing',
+  'android-app-development',
+  'woocommerce-development',
+  'search-engine-optimization',
+  'web-design',
+  'mobile-app-maintenance',
+  'database-design',
+  'e-commerce-development',
+  'ios-app-development',
+  'content-marketing',
+  'it-consulting',
+  'custom-e-commerce-platforms',
+  'pay-per-click-advertising',
+  'local-seo',
+  'email-marketing',
+  'uiux-design',
+  'react-native-development',
+  'devops-services',
 ]);
 
 // ============================================================================

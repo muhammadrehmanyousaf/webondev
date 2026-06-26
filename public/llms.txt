@@ -1,6 +1,6 @@
 # Web On Dev
 
-> Web On Dev is a professional software development company specializing in web development, mobile app development, UI/UX design, digital marketing, cloud & DevOps, and custom software solutions. Founded in 2015, headquartered in Lahore, Pakistan, serving 500+ clients across 50+ countries.
+> Web On Dev is a professional software development company specializing in web development, mobile app development, UI/UX design, digital marketing, cloud & DevOps, and custom software solutions. Founded in 2015, headquartered in Lahore, Pakistan, serving clients worldwide.
 
 ## About
 
@@ -8,27 +8,43 @@ Web On Dev is a full-service software development agency providing end-to-end di
 
 - Website: https://www.webondev.com
 - Founded: 2015
-- Team Size: 50+ professionals
-- Projects Completed: 500+
-- Client Rating: 4.9/5 stars
-- Countries Served: 50+
+- Headquarters: Lahore, Pakistan
+- Team Size: 11–50 professionals
+- Service area: Worldwide (clients in the US, UK, Canada, Australia, UAE, and Pakistan)
 
 ## Docs
 
-- [Homepage](https://www.webondev.com/): Main website with overview of services and company information
-- [About Us](https://www.webondev.com/about/): Company history, team, mission, and values
+- [Homepage](https://www.webondev.com/): Overview of services and company information
+- [About Us](https://www.webondev.com/about/): Company history, founders, mission, and values
 - [Services](https://www.webondev.com/services/): Complete list of all services offered
 - [Web Development](https://www.webondev.com/web-development/): Custom web development services ($3,000 - $100,000+)
 - [Mobile App Development](https://www.webondev.com/mobile-development/): iOS, Android, and cross-platform apps ($10,000 - $150,000+)
+- [Software Development](https://www.webondev.com/software-development/): Custom software, SaaS, enterprise solutions
 - [UI/UX Design](https://www.webondev.com/ui-ux-design/): User research, wireframing, prototyping, design systems ($2,000 - $25,000+)
 - [Digital Marketing](https://www.webondev.com/digital-marketing/): SEO, PPC, social media, content marketing ($500 - $10,000/month)
+- [E-commerce Solutions](https://www.webondev.com/ecommerce-solutions/): Shopify, WooCommerce, and custom e-commerce platforms
 - [Cloud & DevOps](https://www.webondev.com/cloud-devops/): AWS, Azure, GCP, CI/CD, Docker, Kubernetes
 - [Consulting & Strategy](https://www.webondev.com/consulting-strategy/): Digital transformation and technology consulting
-- [Software Development](https://www.webondev.com/software-development/): Custom software, SaaS, enterprise solutions
 - [Portfolio](https://www.webondev.com/portfolio/): Case studies and completed projects
 - [Blog](https://www.webondev.com/blog/): Technical articles, guides, and industry insights
-- [Where We Serve](https://www.webondev.com/where-we-serve/): Service locations across 50+ countries
 - [Contact](https://www.webondev.com/contact/): Contact form, email, phone, and WhatsApp
+
+## Q&A
+
+### What does Web On Dev do?
+Web On Dev is a software development agency based in Lahore, Pakistan that builds custom websites, web applications, mobile apps (iOS, Android, React Native, Flutter), and enterprise software. It also offers UI/UX design, e-commerce development (Shopify, WooCommerce), cloud & DevOps (AWS, Azure, GCP), and digital marketing, serving clients worldwide.
+
+### What technologies does Web On Dev use?
+Web On Dev builds with Next.js, React, React Native, Flutter, Node.js, and Python, and deploys on AWS, Azure, Google Cloud, and Vercel. For e-commerce it works with Shopify and WooCommerce.
+
+### How much does a project cost at Web On Dev?
+Typical ranges are: web development $3,000–$100,000+, mobile apps $10,000–$150,000+, UI/UX design $2,000–$25,000+, and digital marketing $500–$10,000/month. Final pricing depends on project scope; Web On Dev provides a free custom quote.
+
+### Where is Web On Dev located and who does it serve?
+Web On Dev is headquartered in Lahore, Punjab, Pakistan, and serves clients worldwide, including the United States, United Kingdom, Canada, Australia, the UAE, and Pakistan.
+
+### How do I contact Web On Dev?
+Email webondev786@gmail.com or call/WhatsApp +92-310-6803687. The office is at G8JX+CMF, Main Gulberg, Mota Singh Wala, Lahore, Punjab 54660, Pakistan.
 
 ## Contact
 

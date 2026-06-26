@@ -20,7 +20,7 @@ export const cloudInfrastructureData: ServiceData = {
       'Infrastructure monitoring',
       'Disaster recovery planning'
     ],
-    badges: ['AWS Partner', 'Azure Partner', 'GCP Partner', 'ISO 27001']
+    badges: ['AWS', 'Azure', 'Google Cloud', 'Terraform']
   },
 
   painPoints: [
