@@ -178,7 +178,9 @@ const organizationSchema = {
     'Web On Dev is a premium digital transformation agency helping businesses achieve measurable growth through innovative software development, marketing, and data-driven strategies.',
 };
 
-// WebSite Schema with SearchAction
+// WebSite Schema
+// NOTE: SearchAction (Sitelinks Searchbox) removed — its target /search?q= returns 404,
+// which makes the action invalid. Re-add only after a working /search route exists.
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -189,14 +191,6 @@ const websiteSchema = {
   description: 'Premium Web Development & Digital Solutions',
   inLanguage: 'en-US',
   publisher: { '@id': 'https://www.webondev.com/#organization' },
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://www.webondev.com/search?q={search_term_string}',
-    },
-    'query-input': 'required name=search_term_string',
-  },
 };
 
 // LocalBusiness Schema
@@ -231,13 +225,9 @@ const localBusinessSchema = {
     opens: '00:00',
     closes: '23:59',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '250',
-    bestRating: '5',
-    worstRating: '1',
-  },
+  // NOTE: aggregateRating removed — Google requires ratings to be backed by genuine,
+  // verifiable reviews. Reinstate ONLY with a real review source (e.g. Google/Clutch)
+  // and the true review count. Self-asserted ratings are a structured-data spam risk.
   areaServed: [
     { '@type': 'Country', name: 'United States' },
     { '@type': 'Country', name: 'United Kingdom' },

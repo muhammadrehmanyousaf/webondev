@@ -5,6 +5,22 @@ import { getAllProjectSlugs } from '@/lib/portfolio-data';
 
 const BASE_URL = 'https://www.webondev.com';
 
+// Standalone pillar slugs that 301-redirect to a primary pillar (see next.config.js).
+// They must NOT appear in the sitemap — a sitemap should list only canonical 200 URLs,
+// never redirect sources. Their child clusters are excluded with them.
+const REDIRECTED_SLUGS = new Set([
+  'react-development',
+  'nextjs-development',
+  'custom-software-development',
+  'custom-web-development',
+  'payment-gateway-integration',
+  'prototyping',
+  'shopify-development',
+  'api-development',
+  'wordpress-development',
+  'progressive-web-apps',
+]);
+
 // ============================================================================
 // SITEMAP — real, canonical pages only.
 // Programmatic location ("where-we-serve") pages were permanently removed and
@@ -31,8 +47,9 @@ export async function GET() {
   add('/cookies/', 'yearly', 0.3);
   add('/data-deletion/', 'yearly', 0.3);
 
-  // Service pillar + cluster pages
+  // Service pillar + cluster pages (skip redirect-source pillars)
   for (const pillar of siteStructure) {
+    if (REDIRECTED_SLUGS.has(pillar.slug)) continue;
     add(`/${pillar.slug}/`, 'monthly', 0.8);
     for (const cluster of pillar.clusters || []) {
       add(`/${pillar.slug}/${cluster.slug}/`, 'monthly', 0.7);

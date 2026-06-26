@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   description: 'Read our Terms of Service to understand the legal terms and conditions for using Web On Dev services.',
   keywords: 'terms of service, legal terms, conditions, user agreement, service agreement, social media login, Facebook, Google, Twitter',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/terms/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/terms/`,
   },
   openGraph: {
     title: 'Terms of Service - Web On Dev | Legal Terms & Conditions',
     description: 'Read our Terms of Service to understand the legal terms and conditions for using Web On Dev services.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/terms`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/terms`,
     type: 'website',
   },
   twitter: {

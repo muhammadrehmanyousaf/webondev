@@ -15,16 +15,16 @@ export const metadata: Metadata = {
   description: 'Web development ($3K-$100K), mobile apps ($10K-$150K), UI/UX design ($2K-$25K), SEO & marketing ($500/mo). 500+ projects delivered. Get a free custom quote in 24 hours.',
   keywords: 'software development services, web development, mobile app development, UI/UX design, digital marketing, cloud services, consulting',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/services/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/services/`,
   },
   openGraph: {
     title: 'Services & Pricing - Web Development From $3K (Free Quote)',
     description: 'Web development, mobile apps, UI/UX design, SEO & marketing. 500+ projects delivered. Get a free custom quote in 24 hours.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/services/`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/services/`,
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/images/og?title=Our%20Services&subtitle=Web%20On%20Dev`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/api/images/og?title=Our%20Services&subtitle=Web%20On%20Dev`,
         width: 1200,
         height: 630,
         alt: 'Web On Dev Services & Pricing'
@@ -325,28 +325,7 @@ export default function ServicesPage() {
             })
           }}
         />
-        {/* JSON-LD: HowTo Schema for Getting Started */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'HowTo',
-              name: 'How to Get Started with Web On Dev Services',
-              description: 'Step-by-step guide to starting your software development project with Web On Dev',
-              totalTime: 'P7D',
-              estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '0' },
-              step: [
-                { '@type': 'HowToStep', position: 1, name: 'Free Consultation', text: 'Schedule a free 30-60 minute consultation to discuss your project requirements and goals.' },
-                { '@type': 'HowToStep', position: 2, name: 'Project Proposal', text: 'Receive a detailed proposal with scope, timeline, deliverables, and transparent pricing.' },
-                { '@type': 'HowToStep', position: 3, name: 'Design Phase', text: 'Our UI/UX team creates wireframes, prototypes, and visual designs for your approval.' },
-                { '@type': 'HowToStep', position: 4, name: 'Development Sprint', text: 'Agile development with regular updates, demos, and feedback integration.' },
-                { '@type': 'HowToStep', position: 5, name: 'Testing & QA', text: 'Comprehensive testing including unit tests, integration tests, and user acceptance testing.' },
-                { '@type': 'HowToStep', position: 6, name: 'Launch & Support', text: 'Production deployment with ongoing maintenance, monitoring, and support.' }
-              ]
-            })
-          }}
-        />
+        {/* NOTE: HowTo schema removed — Google deprecated HowTo rich results (Sep 2023). */}
       </main>
       <Footer />
     </div>

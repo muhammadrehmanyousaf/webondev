@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   description: 'Learn about how Web On Dev uses cookies and similar technologies to improve your browsing experience.',
   keywords: 'cookie policy, cookies, tracking, web analytics, privacy, data collection',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/cookies/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/cookies/`,
   },
   openGraph: {
     title: 'Cookie Policy - Web On Dev | Cookie Usage & Management',
     description: 'Learn about how Web On Dev uses cookies and similar technologies to improve your browsing experience.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/cookies`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/cookies`,
     type: 'website',
   },
   twitter: {

@@ -17,12 +17,12 @@ export const metadata: Metadata = {
   description: 'Meet the team behind Web On Dev. 4.9★ rated software company with 500+ delivered projects, 250+ happy clients & experts in Next.js, React, Flutter. See why businesses worldwide trust us.',
   keywords: 'about software agency, software development company, web development team, mobile app developers, digital transformation experts',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/about/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/about/`,
   },
   openGraph: {
     title: 'About Web On Dev - 500+ Projects, 250+ Clients, 50+ Countries',
     description: 'Meet the team behind Web On Dev. 4.9★ rated software company with 500+ delivered projects & experts in Next.js, React, Flutter.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/about`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/about`,
     type: 'website',
   },
   twitter: {

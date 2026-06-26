@@ -4,7 +4,7 @@ import BlogPageClient from '@/components/pages/BlogPageClient';
 
 export const revalidate = 86400;
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com';
 
 export const metadata: Metadata = {
   title: 'Web On Dev Blog - Dev Tutorials, Guides & Industry Insights',

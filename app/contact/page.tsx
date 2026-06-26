@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   description: 'Get a free project consultation & quote from Web On Dev. We reply within 24 hours. Call +92-310-6803687 or fill out our form. No commitment required.',
   keywords: 'contact software agency, free consultation, project quote, software development inquiry, technical support',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/contact/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/contact/`,
   },
   openGraph: {
     title: 'Contact Web On Dev - Free 30-Min Consultation (Reply in 24hrs)',
     description: 'Get a free project consultation & quote. We reply within 24 hours. Call +92-310-6803687 or fill out our form. No commitment required.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/contact`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/contact`,
     type: 'website',
   },
   twitter: {

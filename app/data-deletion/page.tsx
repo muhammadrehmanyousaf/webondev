@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   description: 'Learn how to request deletion of your personal data from Web On Dev. Complete instructions for deleting your account and social media data.',
   keywords: 'data deletion, delete account, remove data, Facebook data deletion, Google data deletion, social media deletion, GDPR, privacy rights',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/data-deletion/`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/data-deletion/`,
   },
   openGraph: {
     title: 'Data Deletion Instructions - Web On Dev | Delete Your Data',
     description: 'Learn how to request deletion of your personal data from Web On Dev. Complete instructions for deleting your account and social media data.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/data-deletion`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com'}/data-deletion`,
     type: 'website',
   },
   twitter: {

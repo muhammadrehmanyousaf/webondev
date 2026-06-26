@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.webondev.com';
 
 export const metadata: Metadata = {
   title: 'Our Work - 500+ Projects Delivered (Case Studies & Results)',

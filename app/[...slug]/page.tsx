@@ -198,40 +198,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
     })),
   };
 
-  // HowTo Schema for the service process
-  const howToSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: `How to Get ${title} Services`,
-    description: `Step-by-step guide to getting professional ${title.toLowerCase()} services from Web On Dev.`,
-    step: [
-      {
-        '@type': 'HowToStep',
-        position: 1,
-        name: 'Schedule Consultation',
-        text: 'Book a free consultation call to discuss your project requirements and goals.',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 2,
-        name: 'Receive Proposal',
-        text: 'Get a detailed proposal with timeline, deliverables, and transparent pricing.',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 3,
-        name: 'Development Phase',
-        text: 'Our expert team builds your solution with regular updates and feedback loops.',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 4,
-        name: 'Launch & Support',
-        text: 'We deploy your project and provide ongoing maintenance and support.',
-      },
-    ],
-    totalTime: 'P4W',
-  };
+  // NOTE: HowTo schema removed — Google deprecated HowTo rich results (Sep 2023),
+  // and the template also produced doubled names ("How to Get ... Services Services").
+  // No rich-result value; removed to keep the schema graph clean.
 
   // WebPage Schema
   const webPageSchema = {
@@ -334,10 +303,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <script
         type="application/ld+json"
