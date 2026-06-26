@@ -57,6 +57,7 @@ const services = [
 const company = [
   { name: 'About Us', href: '/about' },
   { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Guides', href: '/guides' },
   { name: 'Blog', href: '/blog' },
   { name: 'Careers', href: '/careers' },
   { name: 'Contact', href: '/contact' },

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { siteStructure } from '@/lib/site-structure';
 import { blogData } from '@/lib/blog-data';
 import { getAllProjectSlugs } from '@/lib/portfolio-data';
+import { GUIDES } from '@/lib/guides';
 
 const BASE_URL = 'https://www.webondev.com';
 
@@ -78,6 +79,12 @@ export async function GET() {
     for (const cluster of pillar.clusters || []) {
       add(`/${pillar.slug}/${cluster.slug}/`, 'monthly', 0.7);
     }
+  }
+
+  // Guides (researched flagship content)
+  add('/guides/', 'weekly', 0.8);
+  for (const g of GUIDES) {
+    add(`/guides/${g.slug}/`, 'monthly', 0.8);
   }
 
   // Blog posts
