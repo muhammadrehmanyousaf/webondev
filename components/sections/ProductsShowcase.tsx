@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { products } from '@/lib/products-data';
@@ -27,8 +28,19 @@ const ProductsShowcase = () => {
           {products.map((p) => (
             <div
               key={p.slug}
-              className="group rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 sm:p-8 hover:border-brand-500/20 transition-colors"
+              className="group rounded-2xl border border-white/[0.08] bg-white/[0.02] overflow-hidden hover:border-brand-500/20 transition-colors"
             >
+              <Link href={`/products/${p.slug}/`} className="block border-b border-white/[0.06] bg-black/20" aria-label={p.name}>
+                <Image
+                  src={p.screenshot}
+                  alt={`${p.name} screenshot`}
+                  width={1280}
+                  height={800}
+                  className="w-full h-auto"
+                  unoptimized
+                />
+              </Link>
+              <div className="p-6 sm:p-8">
               <div className="flex items-center justify-between mb-3">
                 <p className="text-[11px] uppercase tracking-wider text-brand-400 font-semibold">{p.category}</p>
                 <a
@@ -59,6 +71,7 @@ const ProductsShowcase = () => {
               >
                 Explore {p.name} <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
+              </div>
             </div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Header from '@/components/layout/Header';
@@ -57,8 +58,19 @@ export default function ProductsPage() {
             <Link
               key={p.slug}
               href={`/products/${p.slug}/`}
-              className="group block rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 hover:border-brand-500/30 transition-colors"
+              className="group block rounded-2xl border border-white/[0.08] bg-white/[0.02] overflow-hidden hover:border-brand-500/30 transition-colors"
             >
+              <div className="border-b border-white/[0.06] bg-black/20">
+                <Image
+                  src={p.screenshot}
+                  alt={`${p.name} screenshot`}
+                  width={1280}
+                  height={800}
+                  className="w-full h-auto"
+                  unoptimized
+                />
+              </div>
+              <div className="p-7">
               <p className="text-[11px] uppercase tracking-wider text-brand-400 font-semibold mb-2">{p.category}</p>
               <h2 className="text-xl font-bold text-white mb-1 group-hover:text-brand-400 transition-colors">{p.name}</h2>
               <p className="text-sm text-slate-300 mb-3">{p.tagline}</p>
@@ -66,6 +78,7 @@ export default function ProductsPage() {
               <span className="inline-flex items-center gap-1.5 text-brand-400 text-sm font-semibold">
                 Explore {p.name} <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </span>
+              </div>
             </Link>
           ))}
         </div>

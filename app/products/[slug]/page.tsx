@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowRight, ExternalLink, Check } from 'lucide-react';
@@ -37,9 +38,9 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       url: canonical,
       siteName: 'Web On Dev',
       locale: 'en_US',
-      images: [{ url: `${siteUrl}/images/og-image.png`, width: 1200, height: 630, alt: product.name }],
+      images: [{ url: `${siteUrl}${product.screenshot}`, width: 1440, height: 900, alt: `${product.name} screenshot` }],
     },
-    twitter: { card: 'summary_large_image', title: product.metaTitle, description: product.metaDescription, site: '@webondev' },
+    twitter: { card: 'summary_large_image', title: product.metaTitle, description: product.metaDescription, site: '@webondev', images: [`${siteUrl}${product.screenshot}`] },
     robots: { index: true, follow: true },
   };
 }
@@ -62,6 +63,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
     applicationCategory: product.appCategory,
     operatingSystem: 'Web',
     description: product.metaDescription,
+    screenshot: `${siteUrl}${product.screenshot}`,
+    image: `${siteUrl}${product.screenshot}`,
     creator: { '@type': 'Organization', '@id': `${siteUrl}/#organization`, name: 'Web On Dev' },
     publisher: { '@type': 'Organization', '@id': `${siteUrl}/#organization`, name: 'Web On Dev' },
     ...(product.pricing
@@ -144,6 +147,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Product screenshot (real capture of the live product) */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14">
+          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-2 sm:p-3 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
+            <Image
+              src={product.screenshot}
+              alt={`${product.name} — live product screenshot`}
+              width={1280}
+              height={800}
+              className="w-full h-auto rounded-xl"
+              priority
+              unoptimized
+            />
+          </div>
+          <p className="text-center text-xs text-slate-500 mt-3">
+            Live screenshot of {product.name} ({product.liveLabel})
+          </p>
         </section>
 
         {/* Overview */}

@@ -23,6 +23,7 @@ export interface Product {
   tagline: string;
   liveUrl: string;
   liveLabel: string; // e.g. "weddingwala.pk"
+  screenshot: string; // real screenshot of the live product (1440x900)
   category: string; // short label e.g. "Wedding Marketplace"
   appCategory: string; // schema applicationCategory
   heroDescription: string;
@@ -45,6 +46,7 @@ export const products: Product[] = [
     tagline: 'Run every social channel on autopilot.',
     liveUrl: 'https://schedura.ai',
     liveLabel: 'schedura.ai',
+    screenshot: '/images/products/schedura.jpg',
     category: 'AI Social Media SaaS',
     appCategory: 'BusinessApplication',
     heroDescription:
@@ -111,6 +113,7 @@ export const products: Product[] = [
     tagline: 'Where every love story finds its perfect setting.',
     liveUrl: 'https://weddingwala.pk',
     liveLabel: 'weddingwala.pk',
+    screenshot: '/images/products/wedding-wala.jpg',
     category: 'Wedding Vendor Marketplace',
     appCategory: 'BusinessApplication',
     heroDescription:
