@@ -4,82 +4,122 @@ import Link from 'next/link';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { products } from '@/lib/products-data';
 
-// Homepage "Our Products" strip — showcases real products Web On Dev built
-// (strong proof-of-work / E-E-A-T signal). Static (no JS-gated visibility).
+// Homepage "Our Products" banners — large, alternating, browser-framed screenshots
+// with each product's own accent glow. Real products Web On Dev built (proof-of-work),
+// teased as "coming soon".
 const ProductsShowcase = () => {
   return (
-    <section className="relative py-16 sm:py-20 lg:py-28 bg-[#030712] overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full gradient-border-subtle text-brand-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+    <section className="relative overflow-hidden bg-[#030712] py-20 sm:py-24 lg:py-28">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="mb-12 max-w-2xl sm:mb-16">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full gradient-border-subtle px-3 py-1 text-xs font-medium text-brand-400 sm:px-4 sm:py-1.5 sm:text-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
             Our Products
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-[1.1]">
-            We build &amp; run our own <span className="gradient-text">products</span>
+          <h2 className="text-2xl font-bold leading-[1.1] text-white sm:text-3xl lg:text-5xl">
+            Two products we built —{' '}
+            <span className="gradient-text">launching soon</span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
-            We don&apos;t just ship software for clients — we design, launch, and operate our own. Proof that we build real, production products end-to-end.
+          <p className="mt-4 max-w-xl text-sm text-slate-400 sm:text-base">
+            We don&apos;t just ship software for clients. We design, build, and run our own — proof that we take a product from idea to launch end-to-end.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-          {products.map((p) => (
-            <div
-              key={p.slug}
-              className="group rounded-2xl border border-white/[0.08] bg-white/[0.02] overflow-hidden hover:border-brand-500/20 transition-colors"
-            >
-              <Link href={`/products/${p.slug}/`} className="block border-b border-white/[0.06] bg-black/20" aria-label={p.name}>
-                <Image
-                  src={p.screenshot}
-                  alt={`${p.name} screenshot`}
-                  width={1280}
-                  height={800}
-                  className="w-full h-auto"
-                  unoptimized
-                />
-              </Link>
-              <div className="p-6 sm:p-8">
-              <div className="flex items-center justify-between mb-3">
-                <p className="text-[11px] uppercase tracking-wider text-brand-400 font-semibold">{p.category}</p>
-                <a
-                  href={p.liveUrl}
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-brand-400 transition-colors"
-                  aria-label={`Visit ${p.name}`}
-                >
-                  {p.liveLabel} <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
-                {p.name}
-              </h3>
-              <p className="text-sm text-slate-300 mb-2">{p.tagline}</p>
-              <p className="text-sm text-slate-400 mb-5 line-clamp-3">{p.heroDescription}</p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {p.highlights.slice(0, 3).map((h) => (
-                  <span key={h.label} className="text-xs rounded-full bg-white/[0.04] border border-white/[0.08] px-3 py-1.5 text-slate-300">
-                    <span className="text-brand-400 font-semibold">{h.value}</span> {h.label}
-                  </span>
-                ))}
-              </div>
-              <Link
-                href={`/products/${p.slug}/`}
-                className="inline-flex items-center gap-1.5 text-brand-400 hover:text-brand-300 font-semibold text-sm"
+        {/* Banners */}
+        <div className="space-y-6 sm:space-y-8">
+          {products.map((p, i) => {
+            const imageRight = i % 2 === 1;
+            return (
+              <article
+                key={p.slug}
+                className="group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.015] transition-colors hover:border-white/[0.14]"
               >
-                Explore {p.name} <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+                {/* accent glow drawn from the product's own world */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-70"
+                  style={{
+                    background: `radial-gradient(70% 90% at ${imageRight ? '85%' : '15%'} 50%, ${p.theme.glow}, transparent 70%)`,
+                  }}
+                />
 
-        <div className="text-center mt-10">
-          <Link href="/products" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-brand-400 font-semibold transition-colors">
-            View all products <ArrowRight className="w-4 h-4" />
-          </Link>
+                <div className="relative grid items-stretch gap-0 lg:grid-cols-2">
+                  {/* Screenshot in a clean browser frame */}
+                  <div className={`p-5 sm:p-8 lg:p-10 ${imageRight ? 'lg:order-2' : ''}`}>
+                    <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-black/30 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.7)]">
+                      <div className="flex items-center gap-1.5 border-b border-white/[0.06] bg-white/[0.02] px-3.5 py-2.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                        <span className="ml-3 truncate rounded-md bg-white/[0.04] px-2.5 py-1 text-[11px] text-slate-500">
+                          {p.liveLabel}
+                        </span>
+                      </div>
+                      <Image
+                        src={p.screenshot}
+                        alt={`${p.name} — product preview`}
+                        width={1280}
+                        height={800}
+                        className="h-auto w-full"
+                        unoptimized
+                      />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className={`flex flex-col justify-center p-6 sm:p-8 lg:p-12 ${imageRight ? 'lg:order-1' : ''}`}>
+                    <div className="mb-4 flex flex-wrap items-center gap-2.5">
+                      {p.comingSoon && (
+                        <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${p.theme.pill}`}>
+                          <span className={`h-1.5 w-1.5 rounded-full ${p.theme.dot}`} />
+                          Coming soon
+                        </span>
+                      )}
+                      <span className={`text-[11px] font-semibold uppercase tracking-wider ${p.theme.eyebrow}`}>
+                        {p.category}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-white sm:text-3xl">{p.name}</h3>
+                    <p className="mt-2 text-base text-slate-300">{p.tagline}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-400 line-clamp-3">{p.heroDescription}</p>
+
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {p.highlights.slice(0, 3).map((h) => (
+                        <span
+                          key={h.label}
+                          className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-slate-300"
+                        >
+                          <span className="font-semibold text-white">{h.value}</span> {h.label}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-8 flex flex-wrap items-center gap-3">
+                      <Link
+                        href={`/products/${p.slug}/`}
+                        className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-400"
+                      >
+                        Explore {p.name}
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                      </Link>
+                      <a
+                        href={p.liveUrl}
+                        target="_blank"
+                        rel="noopener"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-5 py-2.5 text-sm font-semibold text-slate-300 transition-colors hover:border-white/20 hover:bg-white/[0.03]"
+                      >
+                        Preview <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

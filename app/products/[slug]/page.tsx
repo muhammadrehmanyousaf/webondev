@@ -109,9 +109,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <li aria-current="page" className="text-slate-300">{product.name}</li>
               </ol>
             </nav>
-            <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs text-brand-400 font-semibold mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-400" /> A Web On Dev Product · {product.category}
-            </p>
+            <div className="mb-5 flex flex-wrap items-center gap-2.5">
+              {product.comingSoon && (
+                <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${product.theme.pill}`}>
+                  <span className={`h-1.5 w-1.5 rounded-full ${product.theme.dot}`} /> Coming soon
+                </span>
+              )}
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-xs font-semibold text-brand-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-400" /> A Web On Dev Product · {product.category}
+              </span>
+            </div>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-4">
               {product.name}
             </h1>
@@ -124,7 +131,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 rel="noopener"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-500 px-7 py-3 font-semibold text-white hover:bg-brand-400 transition-colors"
               >
-                Visit {product.name} <ExternalLink className="w-4 h-4" />
+                Preview {product.name} <ExternalLink className="w-4 h-4" />
               </a>
               <Link
                 href="/contact"

@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import { getBaseUrl } from '@/lib/site-config';
 import { ThemeProvider, ThemeScript } from '@/components/providers/ThemeProvider';
+import AnnouncementBar from '@/components/layout/AnnouncementBar';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -408,6 +409,7 @@ export default function RootLayout({
 
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider defaultTheme="system" storageKey="webondev-theme">
+          <AnnouncementBar />
           {children}
           <WhatsAppButton />
           <Toaster />
